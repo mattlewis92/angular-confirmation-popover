@@ -39,6 +39,7 @@ export class Confirm implements OnDestroy {
     if (!this.popover && !this.isDisabled) {
       this.popover = this.loader.loadNextToLocation(ConfirmPopover, this.viewContainerRef).then((popover: ComponentRef) => {
         popover.instance.popoverAnchor = this;
+        popover.instance.popoverAnchorElement = this.elm;
         return popover;
       });
     }

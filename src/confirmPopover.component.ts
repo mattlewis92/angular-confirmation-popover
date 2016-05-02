@@ -43,6 +43,7 @@ interface Coords {
 export class ConfirmPopover implements AfterViewInit {
 
   @Input() popoverAnchor: Confirm;
+  @Input() popoverAnchorElement: ElementRef;
   top: string;
   left: string;
 
@@ -50,7 +51,7 @@ export class ConfirmPopover implements AfterViewInit {
 
   _positionPopover(): void {
     const position: Coords = this.position.positionElements(
-      this.popoverAnchor.elm.nativeElement,
+      this.popoverAnchorElement.nativeElement,
       this.elm.nativeElement.children[0],
       this.popoverAnchor.placement,
       false
