@@ -70,7 +70,7 @@ export class Confirm implements OnDestroy {
 
   @HostListener('document:click', ['$event'])
   @HostListener('document:touchend', ['$event'])
-  private _onDocumentClick(event: MouseEvent): void {;
+  private _onDocumentClick(event: MouseEvent): void {
 
     // TODO - replace with: `this.renderer.invokeElementMethod(this.elm.nativeElement, 'contains', [event.target])`
     // Pending on https://github.com/angular/angular/issues/8386
