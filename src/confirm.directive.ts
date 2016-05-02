@@ -8,7 +8,9 @@ import {
   DynamicComponentLoader,
   ComponentRef,
   OnDestroy,
-  ElementRef
+  ElementRef,
+  OnChanges,
+  OnInit
 } from 'angular2/core';
 import {ConfirmPopover} from './confirmPopover.component';
 
@@ -17,7 +19,7 @@ type Placement = 'top' | 'left' | 'bottom' | 'right';
 @Directive({
   selector: '[mwl-confirm]'
 })
-export class Confirm implements OnDestroy {
+export class Confirm implements OnDestroy, OnChanges, OnInit {
 
   @Input() title: string;
   @Input() message: string;
@@ -27,6 +29,8 @@ export class Confirm implements OnDestroy {
   @Input() confirmButtonType: string;
   @Input() cancelButtonType: string;
   @Input() isDisabled: boolean = false;
+  @Input() isOpen: boolean = false;
+  @Output() isOpenChange: EventEmitter<any> = new EventEmitter();
   @Output() confirm: EventEmitter<any> = new EventEmitter();
   @Output() cancel: EventEmitter<any> = new EventEmitter();
   popover: Promise<ComponentRef> = null;
@@ -36,6 +40,24 @@ export class Confirm implements OnDestroy {
     private loader: DynamicComponentLoader,
     public elm: ElementRef
   ) {}
+
+  ngOnInit(): void {
+    this.isOpenChange.emit(false);
+  }
+
+  ngOnChanges(changes: any): void {
+    if (changes.isOpen) {
+      if (changes.isOpen.currentValue === true) {
+        this._showPopover();
+      } else {
+        this._hidePopover();
+      }
+    }
+  }
+
+  ngOnDestroy(): void {
+    this._hidePopover();
+  }
 
   onConfirm(): void {
     this.confirm.emit(null);
@@ -47,15 +69,12 @@ export class Confirm implements OnDestroy {
     this._hidePopover();
   }
 
-  ngOnDestroy(): void {
-    this._hidePopover();
-  }
-
   private _showPopover(): void {
     if (!this.popover && !this.isDisabled) {
       this.popover = this.loader.loadNextToLocation(ConfirmPopover, this.viewContainerRef).then((popover: ComponentRef) => {
         popover.instance.popoverAnchor = this;
         popover.instance.popoverAnchorElement = this.elm;
+        this.isOpenChange.emit(true);
         return popover;
       });
     }
@@ -66,6 +85,7 @@ export class Confirm implements OnDestroy {
       this.popover.then((popoverComponent: ComponentRef) => {
         popoverComponent.destroy();
         this.popover = null;
+        this.isOpenChange.emit(false);
       });
     }
   }
