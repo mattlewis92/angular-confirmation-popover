@@ -2,8 +2,10 @@
   "name": "angular2-bootstrap-confirm",
   "version": "0.0.1",
   "description": "An angular2 bootstrap confirmation popover",
-  "main": "index.js",
+  "main": "dist/angular2-bootstrap-confirm.js",
   "scripts": {
+    "start": "webpack-dev-server --progress",
+    "postinstall": "typings install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +23,19 @@
   "bugs": {
     "url": "https://github.com/mattlewis92/angular2-bootstrap-confirm/issues"
   },
-  "homepage": "https://github.com/mattlewis92/angular2-bootstrap-confirm#readme"
+  "homepage": "https://github.com/mattlewis92/angular2-bootstrap-confirm#readme",
+  "devDependencies": {
+    "angular2": "2.0.0-beta.17",
+    "es6-shim": "~0.35.0",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.6",
+    "ts-loader": "~0.8.2",
+    "tslint": "~3.8.1",
+    "tslint-loader": "~2.1.4",
+    "typescript": "~1.8.10",
+    "typings": "~0.8.1",
+    "webpack": "~1.13.0",
+    "webpack-dev-server": "~1.14.1",
+    "zone.js": "~0.6.12"
+  }
 }
