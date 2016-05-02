@@ -56,12 +56,16 @@ export class Confirm {
   }
 
   @HostListener('click')
-  togglePopover(): void {
+  _togglePopover(): void {
     if (!this.popover) {
       this._showPopover();
     } else {
       this._hidePopover();
     }
+  }
+
+  ngOnDestroy() {
+    this._hidePopover();
   }
 
 }
