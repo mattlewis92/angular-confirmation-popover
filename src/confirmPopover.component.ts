@@ -1,26 +1,27 @@
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
+import {Confirm} from './confirm.directive';
 
 @Component({
   selector: 'mwl-confirm-popover',
   template: `
-    <div [class]="'popover ' + placement" [style.display]="'block'">
+    <div [class]="'popover ' + popoverAnchor.placement" [style.display]="'block'">
       <div class="arrow"></div>
-      <h3 class="popover-title" [innerHTML]="title"></h3>
+      <h3 class="popover-title" [innerHTML]="popoverAnchor.title"></h3>
       <div class="popover-content">
-        <p [innerHTML]="message"></p>
+        <p [innerHTML]="popoverAnchor.message"></p>
         <div class="row">
           <div class="col-xs-6">
             <button
-              [class]="'btn btn-block confirm-button btn-' + confirmButtonType"
-              (click)="confirm.emit(null)"
-              [innerHtml]="confirmText">
+              [class]="'btn btn-block confirm-button btn-' + popoverAnchor.confirmButtonType"
+              (click)="popoverAnchor.confirm.emit(null)"
+              [innerHtml]="popoverAnchor.confirmText">
             </button>
           </div>
           <div class="col-xs-6">
             <button
-              [class]="'btn btn-block cancel-button btn-' + cancelButtonType"
-              (click)="cancel.emit(null)"
-              [innerHtml]="cancelText">
+              [class]="'btn btn-block cancel-button btn-' + popoverAnchor.cancelButtonType"
+              (click)="popoverAnchor.cancel.emit(null)"
+              [innerHtml]="popoverAnchor.cancelText">
             </button>
           </div>
         </div>
@@ -30,14 +31,6 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 })
 export class ConfirmPopover {
 
-  @Input() title: string;
-  @Input() message: string;
-  @Input() confirmText: string;
-  @Input() cancelText: string;
-  @Input() placement: string;
-  @Input() confirmButtonType: string;
-  @Input() cancelButtonType: string;
-  @Output() confirm: EventEmitter<any> = new EventEmitter();
-  @Output() cancel: EventEmitter<any> = new EventEmitter();
+  @Input() popoverAnchor: Confirm;
 
 }
