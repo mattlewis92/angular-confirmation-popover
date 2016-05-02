@@ -35,7 +35,11 @@ export class Confirm implements OnDestroy {
     public elm: ElementRef
   ) {}
 
-  _showPopover(): void {
+  ngOnDestroy(): void {
+    this._hidePopover();
+  }
+
+  private _showPopover(): void {
     if (!this.popover && !this.isDisabled) {
       this.popover = this.loader.loadNextToLocation(ConfirmPopover, this.viewContainerRef).then((popover: ComponentRef) => {
         popover.instance.popoverAnchor = this;
@@ -45,7 +49,7 @@ export class Confirm implements OnDestroy {
     }
   }
 
-  _hidePopover(): void {
+  private _hidePopover(): void {
     if (this.popover) {
       this.popover.then((popoverComponent: ComponentRef) => {
         popoverComponent.destroy();
@@ -56,7 +60,7 @@ export class Confirm implements OnDestroy {
 
   @HostListener('document:click', ['$event'])
   @HostListener('document:touchend', ['$event'])
-  _onDocumentClick(event: MouseEvent): void {;
+  private _onDocumentClick(event: MouseEvent): void {;
 
     // TODO - replace with: `this.renderer.invokeElementMethod(this.elm.nativeElement, 'contains', [event.target])`
     // Pending on https://github.com/angular/angular/issues/8386
@@ -71,16 +75,12 @@ export class Confirm implements OnDestroy {
   }
 
   @HostListener('click')
-  _togglePopover(): void {
+  private _togglePopover(): void {
     if (!this.popover) {
       this._showPopover();
     } else {
       this._hidePopover();
     }
-  }
-
-  ngOnDestroy(): void {
-    this._hidePopover();
   }
 
 }

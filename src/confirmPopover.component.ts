@@ -49,7 +49,12 @@ export class ConfirmPopover implements AfterViewInit {
 
   constructor(private elm: ElementRef, private position: PositionService, private cdr: ChangeDetectorRef) {}
 
-  _positionPopover(): void {
+  ngAfterViewInit(): void {
+    this._positionPopover();
+    this.cdr.detectChanges();
+  }
+
+  private _positionPopover(): void {
     const position: Coords = this.position.positionElements(
       this.popoverAnchorElement.nativeElement,
       this.elm.nativeElement.children[0],
@@ -60,13 +65,8 @@ export class ConfirmPopover implements AfterViewInit {
     this.left = position.left + 'px';
   }
 
-  ngAfterViewInit(): void {
-    this._positionPopover();
-    this.cdr.detectChanges();
-  }
-
   @HostListener('window:resize')
-  _onResize(): void {
+  private _onResize(): void {
     this._positionPopover();
   }
 
