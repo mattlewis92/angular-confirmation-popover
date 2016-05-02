@@ -32,7 +32,7 @@ export class Confirm implements OnDestroy {
   constructor(
     private viewContainerRef: ViewContainerRef,
     private loader: DynamicComponentLoader,
-    private elm: ElementRef
+    public elm: ElementRef
   ) {}
 
   _showPopover(): void {
@@ -51,11 +51,6 @@ export class Confirm implements OnDestroy {
         this.popover = null;
       });
     }
-  }
-
-  @HostListener('window:resize')
-  _onResize(): void {
-    // TODO - re-position the popover
   }
 
   @HostListener('document:click', ['$event'])
