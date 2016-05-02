@@ -12,6 +12,8 @@ import {
 } from 'angular2/core';
 import {ConfirmPopover} from './confirmPopover.component';
 
+type Placement = 'top' | 'left' | 'bottom' | 'right';
+
 @Directive({
   selector: '[mwl-confirm]'
 })
@@ -21,7 +23,7 @@ export class Confirm implements OnDestroy {
   @Input() message: string;
   @Input() confirmText: string;
   @Input() cancelText: string;
-  @Input() placement: string;
+  @Input() placement: Placement;
   @Input() confirmButtonType: string;
   @Input() cancelButtonType: string;
   @Input() isDisabled: boolean = false;
