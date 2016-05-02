@@ -38,7 +38,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   constructor(
     private viewContainerRef: ViewContainerRef,
     private loader: DynamicComponentLoader,
-    public elm: ElementRef
+    private elm: ElementRef
   ) {}
 
   ngOnInit(): void {
