@@ -1,0 +1,25 @@
+{
+  "name": "angular2-bootstrap-confirm",
+  "version": "0.0.1",
+  "description": "An angular2 bootstrap confirmation popover",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattlewis92/angular2-bootstrap-confirm.git"
+  },
+  "keywords": [
+    "angular2",
+    "bootstrap",
+    "popover",
+    "confirm"
+  ],
+  "author": "Matt Lewis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mattlewis92/angular2-bootstrap-confirm/issues"
+  },
+  "homepage": "https://github.com/mattlewis92/angular2-bootstrap-confirm#readme"
+}
