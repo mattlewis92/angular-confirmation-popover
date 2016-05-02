@@ -90,16 +90,16 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     }
   }
 
-  @HostListener('document:click', ['$event'])
-  @HostListener('document:touchend', ['$event'])
-  private _onDocumentClick(event: MouseEvent): void {
+  @HostListener('document:click', ['$event.target'])
+  @HostListener('document:touchend', ['$event.target'])
+  private _onDocumentClick(target: HTMLElement): void {
 
-    // TODO - replace with: `this.renderer.invokeElementMethod(this.elm.nativeElement, 'contains', [event.target])`
+    // TODO - replace with: `this.renderer.invokeElementMethod(this.elm.nativeElement, 'contains', [target])`
     // Pending on https://github.com/angular/angular/issues/8386
 
-    if (this.popover && !this.elm.nativeElement.contains(event.target)) {
+    if (this.popover && !this.elm.nativeElement.contains(target)) {
       this.popover.then((popover: ComponentRef) => {
-        if (!popover.location.nativeElement.contains(event.target)) {
+        if (!popover.location.nativeElement.contains(target)) {
           this._hidePopover();
         }
       });
