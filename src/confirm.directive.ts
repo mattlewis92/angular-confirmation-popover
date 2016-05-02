@@ -7,7 +7,8 @@ import {
   ViewContainerRef,
   DynamicComponentLoader,
   ComponentRef,
-  OnDestroy
+  OnDestroy,
+  ElementRef
 } from 'angular2/core';
 import {ConfirmPopover} from './confirmPopover.component';
 
@@ -28,7 +29,11 @@ export class Confirm implements OnDestroy {
   @Output() cancel: EventEmitter<any> = new EventEmitter();
   popover: Promise<ComponentRef> = null;
 
-  constructor(private viewContainerRef: ViewContainerRef, private loader: DynamicComponentLoader) {}
+  constructor(
+    private viewContainerRef: ViewContainerRef,
+    private loader: DynamicComponentLoader,
+    private elm: ElementRef
+  ) {}
 
   _showPopover(): void {
     if (!this.popover && !this.isDisabled) {
@@ -52,6 +57,27 @@ export class Confirm implements OnDestroy {
       this.popover.then((popoverComponent: ComponentRef) => {
         popoverComponent.destroy();
         this.popover = null;
+      });
+    }
+  }
+
+  @HostListener('window:resize')
+  _onResize(): void {
+    // TODO - re-position the popover
+  }
+
+  @HostListener('document:click', ['$event'])
+  @HostListener('document:touchend', ['$event'])
+  _onDocumentClick(event: MouseEvent): void {;
+
+    // TODO - replace with: `this.renderer.invokeElementMethod(this.elm.nativeElement, 'contains', [event.target])`
+    // Pending on https://github.com/angular/angular/issues/8386
+
+    if (this.popover && !this.elm.nativeElement.contains(event.target)) {
+      this.popover.then((popover: ComponentRef) => {
+        if (!popover.location.nativeElement.contains(event.target)) {
+          this._hidePopover();
+        }
       });
     }
   }
