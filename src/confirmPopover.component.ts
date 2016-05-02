@@ -8,7 +8,6 @@ interface Coords {
 }
 
 @Component({
-  selector: 'mwl-confirm-popover',
   providers: [PositionService],
   template: `
     <div
