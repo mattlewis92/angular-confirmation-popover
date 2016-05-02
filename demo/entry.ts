@@ -38,11 +38,11 @@ import {Confirm} from './../src/confirm.directive';
           <button
             class="btn btn-default"
             mwl-confirm
-            title="{{ title }}"
-            message="{{ message }}"
-            confirmText="{{ confirmText }}"
-            cancelText="{{ cancelText }}"
-            placement="{{ placement }}"
+            [title]="title"
+            [message]="message"
+            [confirmText]="confirmText"
+            [cancelText]="cancelText"
+            [placement]="placement"
             (confirm)="confirmClicked = true"
             (cancel)="cancelClicked = true"
             confirmButtonType="danger"
