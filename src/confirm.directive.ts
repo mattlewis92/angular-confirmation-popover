@@ -35,6 +35,16 @@ export class Confirm implements OnDestroy {
     public elm: ElementRef
   ) {}
 
+  onConfirm(): void {
+    this.confirm.emit(null);
+    this._hidePopover();
+  }
+
+  onCancel(): void {
+    this.cancel.emit(null);
+    this._hidePopover();
+  }
+
   ngOnDestroy(): void {
     this._hidePopover();
   }

@@ -24,14 +24,14 @@ interface Coords {
           <div class="col-xs-6">
             <button
               [class]="'btn btn-block confirm-button btn-' + popoverAnchor.confirmButtonType"
-              (click)="popoverAnchor.confirm.emit(null)"
+              (click)="popoverAnchor.onConfirm()"
               [innerHtml]="popoverAnchor.confirmText">
             </button>
           </div>
           <div class="col-xs-6">
             <button
               [class]="'btn btn-block cancel-button btn-' + popoverAnchor.cancelButtonType"
-              (click)="popoverAnchor.cancel.emit(null)"
+              (click)="popoverAnchor.onCancel()"
               [innerHtml]="popoverAnchor.cancelText">
             </button>
           </div>
