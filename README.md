@@ -8,3 +8,4 @@ TODO
 * append to body
 * tests
 * create production bundle
+* demo on gh-pages
