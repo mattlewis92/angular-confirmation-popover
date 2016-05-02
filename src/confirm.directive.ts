@@ -6,14 +6,15 @@ import {
   HostListener,
   ViewContainerRef,
   DynamicComponentLoader,
-  ComponentRef
+  ComponentRef,
+  OnDestroy
 } from 'angular2/core';
 import {ConfirmPopover} from './confirmPopover.component';
 
 @Directive({
   selector: '[mwl-confirm]'
 })
-export class Confirm {
+export class Confirm implements OnDestroy {
 
   @Input() title: string;
   @Input() message: string;
@@ -64,7 +65,7 @@ export class Confirm {
     }
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this._hidePopover();
   }
 
