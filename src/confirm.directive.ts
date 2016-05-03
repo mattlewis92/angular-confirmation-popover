@@ -30,6 +30,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Input() cancelButtonType: string;
   @Input() isDisabled: boolean = false;
   @Input() isOpen: boolean = false;
+  @Input() focusButton: string;
   @Output() isOpenChange: EventEmitter<any> = new EventEmitter();
   @Output() confirm: EventEmitter<any> = new EventEmitter();
   @Output() cancel: EventEmitter<any> = new EventEmitter();

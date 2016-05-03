@@ -1,4 +1,13 @@
-import {Component, Input, AfterViewInit, ElementRef, ChangeDetectorRef, HostListener} from 'angular2/core';
+import {
+  Component,
+  Input,
+  AfterViewInit,
+  ElementRef,
+  ChangeDetectorRef,
+  HostListener,
+  ViewChild,
+  Renderer
+} from 'angular2/core';
 import {PositionService} from 'ng2-bootstrap/components/position';
 import {Confirm} from './confirm.directive';
 
@@ -22,14 +31,16 @@ interface Coords {
         <div class="row">
           <div class="col-xs-6">
             <button
-              [class]="'btn btn-block confirm-button btn-' + popoverAnchor.confirmButtonType"
+              #confirmButton
+              [class]="'btn btn-block btn-' + popoverAnchor.confirmButtonType"
               (click)="popoverAnchor.onConfirm()"
               [innerHtml]="popoverAnchor.confirmText">
             </button>
           </div>
           <div class="col-xs-6">
             <button
-              [class]="'btn btn-block cancel-button btn-' + popoverAnchor.cancelButtonType"
+              #cancelButton
+              [class]="'btn btn-block btn-' + popoverAnchor.cancelButtonType"
               (click)="popoverAnchor.onCancel()"
               [innerHtml]="popoverAnchor.cancelText">
             </button>
@@ -43,14 +54,30 @@ export class ConfirmPopover implements AfterViewInit {
 
   @Input() popoverAnchor: Confirm;
   @Input() popoverAnchorElement: ElementRef;
+  @ViewChild('confirmButton') confirmButton: ElementRef;
+  @ViewChild('cancelButton') cancelButton: ElementRef;
   top: string;
   left: string;
 
-  constructor(private elm: ElementRef, private position: PositionService, private cdr: ChangeDetectorRef) {}
+  constructor(
+    private elm: ElementRef,
+    private renderer: Renderer,
+    private cdr: ChangeDetectorRef,
+    private position: PositionService
+  ) {}
 
   ngAfterViewInit(): void {
     this._positionPopover();
     this.cdr.detectChanges();
+    let focusButton: ElementRef;
+    if (this.popoverAnchor.focusButton === 'confirm') {
+      focusButton = this.confirmButton;
+    } else if (this.popoverAnchor.focusButton === 'cancel') {
+      focusButton = this.cancelButton;
+    }
+    if (focusButton) {
+      this.renderer.invokeElementMethod(focusButton.nativeElement, 'focus', []);
+    }
   }
 
   private _positionPopover(): void {

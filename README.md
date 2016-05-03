@@ -2,7 +2,6 @@
 An angular2 bootstrap confirmation popover
 
 TODO
-* button focus
 * configure defaults through provider
 * tests
 * create production bundle
