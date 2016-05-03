@@ -1,10 +1,12 @@
 const webpack = require('webpack');
+const IS_PROD = process.argv.indexOf('-p') > -1;
 
 module.exports = {
-  devtool: 'eval',
+  devtool: IS_PROD ? 'source-map' : 'eval',
   entry: './demo/entry.ts',
   output: {
-    filename: 'demo.js'
+    filename: 'demo.js',
+    path: IS_PROD ? './demo' : ''
   },
   module: {
     preLoaders: [{

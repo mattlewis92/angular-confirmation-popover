@@ -4,8 +4,9 @@
   "description": "An angular2 bootstrap confirmation popover",
   "main": "dist/angular2-bootstrap-confirm.js",
   "scripts": {
-    "start": "webpack-dev-server --progress",
     "postinstall": "typings install",
+    "start": "webpack-dev-server --progress",
+    "build:demo": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
