@@ -2,7 +2,7 @@
 An angular2 bootstrap confirmation popover
 
 TODO now
-* create production / dist bundle
+* create production / dist bundle with typings emitted
 * documentation
 * publish to npm
 
