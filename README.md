@@ -2,8 +2,11 @@
 An angular2 bootstrap confirmation popover
 
 TODO
-* tests
 * create production bundle
 * demo on gh-pages
-* append to body?
-* custom template support?
+
+Future extensions
+* Tests
+* Upgrade to angular RC0 -> blocked on https://github.com/valor-software/ng2-bootstrap being upgraded
+* Append to body -> need something like: https://github.com/ng-bootstrap/core/pull/174
+* Custom template -> unsure how to do this
