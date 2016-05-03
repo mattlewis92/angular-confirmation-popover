@@ -18,8 +18,6 @@ import {
 import {ConfirmPopover} from './confirmPopover.component';
 import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
 
-type Placement = 'top' | 'left' | 'bottom' | 'right';
-
 @Directive({
   selector: '[mwl-confirm]'
 })
@@ -29,7 +27,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Input() message: string;
   @Input() confirmText: string;
   @Input() cancelText: string;
-  @Input() placement: Placement;
+  @Input() placement: string;
   @Input() confirmButtonType: string;
   @Input() cancelButtonType: string;
   @Input() focusButton: string;
