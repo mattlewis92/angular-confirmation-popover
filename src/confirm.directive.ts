@@ -10,9 +10,13 @@ import {
   OnDestroy,
   ElementRef,
   OnChanges,
-  OnInit
+  OnInit,
+  ReflectiveInjector,
+  Provider,
+  ResolvedReflectiveProvider
 } from 'angular2/core';
 import {ConfirmPopover} from './confirmPopover.component';
+import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
 
 type Placement = 'top' | 'left' | 'bottom' | 'right';
 
@@ -28,9 +32,9 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Input() placement: Placement;
   @Input() confirmButtonType: string;
   @Input() cancelButtonType: string;
-  @Input() isDisabled: boolean = false;
-  @Input() isOpen: boolean = false;
   @Input() focusButton: string;
+  @Input() isOpen: boolean = false;
+  @Input() isDisabled: boolean = false;
   @Output() isOpenChange: EventEmitter<any> = new EventEmitter();
   @Output() confirm: EventEmitter<any> = new EventEmitter();
   @Output() cancel: EventEmitter<any> = new EventEmitter();
@@ -39,7 +43,8 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   constructor(
     private viewContainerRef: ViewContainerRef,
     private loader: DynamicComponentLoader,
-    private elm: ElementRef
+    private elm: ElementRef,
+    private defaultOptions: ConfirmOptions
   ) {}
 
   ngOnInit(): void {
@@ -72,9 +77,38 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
 
   private _showPopover(): void {
     if (!this.popover && !this.isDisabled) {
-      this.popover = this.loader.loadNextToLocation(ConfirmPopover, this.viewContainerRef).then((popover: ComponentRef) => {
-        popover.instance.popoverAnchor = this;
-        popover.instance.popoverAnchorElement = this.elm;
+
+      const options: PopoverConfirmOptions = new PopoverConfirmOptions(Object.assign({}, this.defaultOptions, {
+        title: this.title,
+        message: this.message,
+        onConfirm: (): void => {
+          this.onConfirm();
+        },
+        onCancel: (): void => {
+          this.onCancel();
+        },
+        hostElement: this.elm
+      }));
+
+      const optionalParams: string[] = [
+        'confirmText',
+        'cancelText',
+        'placement',
+        'confirmButtonType',
+        'cancelButtonType',
+        'focusButton'
+      ];
+      optionalParams.forEach(param => {
+        if (this[param]) {
+          options[param] = this[param];
+        }
+      });
+
+      const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([
+        new Provider(PopoverConfirmOptions, {useValue: options})
+      ]);
+
+      this.popover = this.loader.loadNextToLocation(ConfirmPopover, this.viewContainerRef, binding).then((popover: ComponentRef) => {
         this.isOpenChange.emit(true);
         return popover;
       });

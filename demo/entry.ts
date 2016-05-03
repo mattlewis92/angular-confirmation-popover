@@ -3,13 +3,23 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
 import 'rxjs';
-import {Component} from 'angular2/core';
+import {Component, provide} from 'angular2/core';
 import {FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
 import {bootstrap} from 'angular2/platform/browser';
 import {Confirm} from './../src/confirm.directive';
+import {ConfirmOptions} from './../src/confirmOptions.provider';
 
 @Component({
   selector: 'demo-app',
+  providers: [
+    provide(ConfirmOptions, {
+      useFactory: (): ConfirmOptions => {
+        return new ConfirmOptions({
+          focusButton: 'confirm'
+        });
+      }
+    })
+  ],
   directives: [
     ...FORM_DIRECTIVES,
     ...CORE_DIRECTIVES,

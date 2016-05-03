@@ -9,7 +9,7 @@ import {
   Renderer
 } from 'angular2/core';
 import {PositionService} from 'ng2-bootstrap/components/position';
-import {Confirm} from './confirm.directive';
+import {PopoverConfirmOptions} from './confirmOptions.provider';
 
 interface Coords {
   top: number;
@@ -20,29 +20,29 @@ interface Coords {
   providers: [PositionService],
   template: `
     <div
-      [class]="'popover ' + popoverAnchor.placement"
+      [class]="'popover ' + options.placement"
       [style.display]="'block'"
       [style.top]="top"
       [style.left]="left">
       <div class="arrow"></div>
-      <h3 class="popover-title" [innerHTML]="popoverAnchor.title"></h3>
+      <h3 class="popover-title" [innerHTML]="options.title"></h3>
       <div class="popover-content">
-        <p [innerHTML]="popoverAnchor.message"></p>
+        <p [innerHTML]="options.message"></p>
         <div class="row">
           <div class="col-xs-6">
             <button
               #confirmButton
-              [class]="'btn btn-block btn-' + popoverAnchor.confirmButtonType"
-              (click)="popoverAnchor.onConfirm()"
-              [innerHtml]="popoverAnchor.confirmText">
+              [class]="'btn btn-block btn-' + options.confirmButtonType"
+              (click)="options.onConfirm()"
+              [innerHtml]="options.confirmText">
             </button>
           </div>
           <div class="col-xs-6">
             <button
               #cancelButton
-              [class]="'btn btn-block btn-' + popoverAnchor.cancelButtonType"
-              (click)="popoverAnchor.onCancel()"
-              [innerHtml]="popoverAnchor.cancelText">
+              [class]="'btn btn-block btn-' + options.cancelButtonType"
+              (click)="options.onCancel()"
+              [innerHtml]="options.cancelText">
             </button>
           </div>
         </div>
@@ -52,8 +52,6 @@ interface Coords {
 })
 export class ConfirmPopover implements AfterViewInit {
 
-  @Input() popoverAnchor: Confirm;
-  @Input() popoverAnchorElement: ElementRef;
   @ViewChild('confirmButton') confirmButton: ElementRef;
   @ViewChild('cancelButton') cancelButton: ElementRef;
   top: string;
@@ -63,16 +61,17 @@ export class ConfirmPopover implements AfterViewInit {
     private elm: ElementRef,
     private renderer: Renderer,
     private cdr: ChangeDetectorRef,
-    private position: PositionService
+    private position: PositionService,
+    private options: PopoverConfirmOptions
   ) {}
 
   ngAfterViewInit(): void {
     this._positionPopover();
     this.cdr.detectChanges();
     let focusButton: ElementRef;
-    if (this.popoverAnchor.focusButton === 'confirm') {
+    if (this.options.focusButton === 'confirm') {
       focusButton = this.confirmButton;
-    } else if (this.popoverAnchor.focusButton === 'cancel') {
+    } else if (this.options.focusButton === 'cancel') {
       focusButton = this.cancelButton;
     }
     if (focusButton) {
@@ -82,9 +81,9 @@ export class ConfirmPopover implements AfterViewInit {
 
   private _positionPopover(): void {
     const position: Coords = this.position.positionElements(
-      this.popoverAnchorElement.nativeElement,
+      this.options.hostElement.nativeElement,
       this.elm.nativeElement.children[0],
-      this.popoverAnchor.placement,
+      this.options.placement,
       false
     );
     this.top = position.top + 'px';

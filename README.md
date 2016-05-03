@@ -2,7 +2,6 @@
 An angular2 bootstrap confirmation popover
 
 TODO
-* configure defaults through provider
 * tests
 * create production bundle
 * demo on gh-pages
