@@ -1,5 +1,6 @@
 # Angular bootstrap confirm
 [![Build Status](https://travis-ci.org/mattlewis92/angular2-bootstrap-confirm.svg?branch=master)](https://travis-ci.org/mattlewis92/angular2-bootstrap-confirm)
+[![npm version](https://badge.fury.io/js/angular2-bootstrap-confirm.svg)](http://badge.fury.io/js/angular2-bootstrap-confirm)
 [![devDependency Status](https://david-dm.org/mattlewis92/angular2-bootstrap-confirm/dev-status.svg)](https://david-dm.org/mattlewis92/angular2-bootstrap-confirm#info=devDependencies)
 [![GitHub issues](https://img.shields.io/github/issues/mattlewis92/angular2-bootstrap-confirm.svg)](https://github.com/mattlewis92/angular2-bootstrap-confirm/issues)
 [![GitHub stars](https://img.shields.io/github/stars/mattlewis92/angular2-bootstrap-confirm.svg)](https://github.com/mattlewis92/angular2-bootstrap-confirm/stargazers)
