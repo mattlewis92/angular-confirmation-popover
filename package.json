@@ -5,8 +5,7 @@
   "main": "./angular2-bootstrap-confirm.js",
   "typings": "./angular2-bootstrap-confirm.d.ts",
   "scripts": {
-    "postinstall": "typings install",
-    "start": "webpack-dev-server --progress",
+    "start": "typings install && webpack-dev-server --progress",
     "build:demo": "webpack -p",
     "build:dist": "webpack --config webpack.config.dist.js",
     "test": "echo \"Error: no test specified\" && exit 1",
