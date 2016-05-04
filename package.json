@@ -2,7 +2,7 @@
   "name": "angular2-bootstrap-confirm",
   "version": "0.0.1",
   "description": "An angular2 bootstrap confirmation popover",
-  "main": "dist/angular2-bootstrap-confirm.js",
+  "main": "./angular2-bootstrap-confirm.js",
   "scripts": {
     "postinstall": "typings install",
     "start": "webpack-dev-server --progress",
