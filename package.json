@@ -47,5 +47,11 @@
   "peerDependencies": {
     "angular2": "2.0.0-beta.17",
     "ng2-bootstrap": "^1.0.15"
-  }
+  },
+  "files": [
+    "angular2-bootstrap-confirm.js",
+    "angular2-bootstrap-confirm.js.map",
+    "angular2-bootstrap-confirm.d.ts",
+    "src"
+  ]
 }
