@@ -10,7 +10,9 @@
     "build:demo": "webpack -p",
     "build:dist": "webpack --config webpack.config.dist.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "del ./src/*.d.ts ./demo/*.d.ts angular2-bootstrap-confirm.d.ts angular2-bootstrap-confirm.js*"
+    "clean": "del ./src/*.d.ts ./demo/*.d.ts angular2-bootstrap-confirm.d.ts angular2-bootstrap-confirm.js*",
+    "prepublish": "npm run build:dist",
+    "postpublish": "npm run clean"
   },
   "repository": {
     "type": "git",
