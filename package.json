@@ -1,6 +1,6 @@
 {
   "name": "angular2-bootstrap-confirm",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An angular2 bootstrap confirmation popover",
   "main": "./angular2-bootstrap-confirm.js",
   "typings": "./angular2-bootstrap-confirm.d.ts",
@@ -53,6 +53,6 @@
     "angular2-bootstrap-confirm.js",
     "angular2-bootstrap-confirm.js.map",
     "angular2-bootstrap-confirm.d.ts",
-    "src"
+    "src/**/*.d.ts"
   ]
 }
