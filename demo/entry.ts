@@ -6,7 +6,7 @@ import 'rxjs';
 import {Component, provide} from 'angular2/core';
 import {FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
 import {bootstrap} from 'angular2/platform/browser';
-import {Confirm, ConfirmOptions} from './../src/confirm';
+import {Confirm, ConfirmOptions} from './../angular2-bootstrap-confirm';
 
 @Component({
   selector: 'demo-app',

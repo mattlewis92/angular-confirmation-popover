@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/confirm.ts',
+  entry: './angular2-bootstrap-confirm.ts',
   output: {
     filename: './dist/angular2-bootstrap-confirm.js',
     libraryTarget: 'umd',
