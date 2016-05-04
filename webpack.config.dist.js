@@ -21,11 +21,11 @@ module.exports = {
     }],
     loaders: [{
       test: /\.ts$/, loader: 'ts', exclude: /node_modules/,
-      /*query: {
+      query: {
         compilerOptions: {
           declaration: true
         }
-      }*/
+      }
     }]
   },
   resolve: {
