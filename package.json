@@ -1,6 +1,6 @@
 {
   "name": "angular2-bootstrap-confirm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An angular2 bootstrap confirmation popover",
   "main": "./angular2-bootstrap-confirm.js",
   "typings": "./angular2-bootstrap-confirm.d.ts",
