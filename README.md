@@ -1,10 +1,10 @@
 # angular2-bootstrap-confirm
 An angular2 bootstrap confirmation popover
 
+WIP - just testing publishing to npm works, docs coming VERY soon!
+
 TODO now
-* create production / dist bundle with typings emitted
 * documentation
-* publish to npm
 
 Future extensions
 * Git commit message, auto changelog setup
