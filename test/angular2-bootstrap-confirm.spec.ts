@@ -109,6 +109,4 @@ describe('bootstrap confirm', () => {
     });
   }));
 
-  it('should hide the popover if its open when clicked');
-
 });
