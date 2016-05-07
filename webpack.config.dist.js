@@ -6,11 +6,11 @@ module.exports = {
     library: 'ng2BootstrapConfirm'
   },
   externals: {
-    'angular2/core': {
+    '@angular/core': {
       root: ['ng', 'core'],
-      commonjs: 'angular2/core',
-      commonjs2: 'angular2/core',
-      amd: 'angular2/core'
+      commonjs: '@angular/core',
+      commonjs2: '@angular/core',
+      amd: '@angular/core'
     },
     'ng2-bootstrap/components/position': 'ng2-bootstrap/components/position'
   },
