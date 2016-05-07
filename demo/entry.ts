@@ -1,8 +1,5 @@
-import 'es6-shim';
 import 'reflect-metadata';
 import 'zone.js/dist/zone';
-import 'zone.js/dist/long-stack-trace-zone';
-import 'rxjs';
 import {Component, provide} from '@angular/core';
 import {FORM_DIRECTIVES, CORE_DIRECTIVES} from '@angular/common';
 import {bootstrap} from '@angular/platform-browser-dynamic';

@@ -109,4 +109,6 @@ describe('bootstrap confirm', () => {
     });
   }));
 
+  // TODO - finish writing tests: https://github.com/mattlewis92/angular2-bootstrap-confirm/issues/2
+
 });
