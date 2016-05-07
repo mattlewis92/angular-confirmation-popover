@@ -75,6 +75,16 @@ class MyComponent {
 
 You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/entry.ts).
 
+### Usage without a module bundler
+```
+<script src="node_modules/angular2-bootstrap-confirm/position/position.js"></script>
+<script src="node_modules/angular2-bootstrap-confirm/angular2-bootstrap-confirm.js"></script>
+<script>
+    // position service available as ng2BootstrapPosition.PositionService
+    // confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.PositionService
+</script>
+```
+
 ## Documentation
 
 ### mwl-confirm directive options
