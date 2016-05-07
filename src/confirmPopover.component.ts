@@ -18,10 +18,14 @@ interface Coords {
 
 @Component({
   providers: [PositionService],
+  styles: [`
+    .popover {
+      display: block;
+    }
+  `],
   template: `
     <div
       [class]="'popover ' + options.placement + ' popover-' + options.placement"
-      [style.display]="'block'"
       [style.top.px]="popoverPosition?.top"
       [style.left.px]="popoverPosition?.left">
       <div class="popover-arrow arrow"></div>
