@@ -5,10 +5,12 @@
   "main": "./angular2-bootstrap-confirm.js",
   "typings": "./angular2-bootstrap-confirm.d.ts",
   "scripts": {
-    "start": "typings install && webpack-dev-server --progress",
+    "prestart": "typings install",
+    "start": "webpack-dev-server --progress",
     "build:demo": "webpack -p",
     "build:dist": "webpack --config webpack.config.dist.js",
     "build:position": "webpack --config webpack.config.position.js && cp ./node_modules/ng2-bootstrap/components/position.d.ts ./position",
+    "pretest": "typings install",
     "test": "karma start",
     "test:watch": "karma start --watch",
     "clean": "del ./src/*.d.ts ./demo/*.d.ts angular2-bootstrap-confirm.d.ts angular2-bootstrap-confirm.js* ./position",
