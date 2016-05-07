@@ -1,6 +1,5 @@
 import {
   Component,
-  Input,
   AfterViewInit,
   ElementRef,
   ChangeDetectorRef,
@@ -74,7 +73,7 @@ export class ConfirmPopover implements AfterViewInit {
   ) {}
 
   ngAfterViewInit(): void {
-    this._positionPopover();
+    this.positionPopover();
     this.cdr.detectChanges();
     let focusButton: ElementRef;
     if (this.options.focusButton === 'confirm') {
@@ -87,7 +86,7 @@ export class ConfirmPopover implements AfterViewInit {
     }
   }
 
-  private _positionPopover(): void {
+  private positionPopover(): void {
     this.popoverPosition = this.position.positionElements(
       this.options.hostElement.nativeElement,
       this.elm.nativeElement.children[0],
@@ -97,8 +96,8 @@ export class ConfirmPopover implements AfterViewInit {
   }
 
   @HostListener('window:resize')
-  private _onResize(): void {
-    this._positionPopover();
+  private onResize(): void {
+    this.positionPopover();
   }
 
 }

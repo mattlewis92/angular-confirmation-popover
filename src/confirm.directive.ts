@@ -54,28 +54,28 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   ngOnChanges(changes: any): void {
     if (changes.isOpen) {
       if (changes.isOpen.currentValue === true) {
-        this._showPopover();
+        this.showPopover();
       } else {
-        this._hidePopover();
+        this.hidePopover();
       }
     }
   }
 
   ngOnDestroy(): void {
-    this._hidePopover();
+    this.hidePopover();
   }
 
   onConfirm(): void {
     this.confirm.emit(null);
-    this._hidePopover();
+    this.hidePopover();
   }
 
   onCancel(): void {
     this.cancel.emit(null);
-    this._hidePopover();
+    this.hidePopover();
   }
 
-  private _showPopover(): void {
+  private showPopover(): void {
     if (!this.popover && !this.isDisabled) {
 
       const options: PopoverConfirmOptions = new PopoverConfirmOptions(Object.assign({}, this.defaultOptions, {
@@ -119,7 +119,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     }
   }
 
-  private _hidePopover(): void {
+  private hidePopover(): void {
     if (this.popover) {
       this.popover.then((popoverComponent: ComponentRef<ConfirmPopover>) => {
         popoverComponent.destroy();
@@ -131,7 +131,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
 
   @HostListener('document:click', ['$event.target'])
   @HostListener('document:touchend', ['$event.target'])
-  private _onDocumentClick(target: HTMLElement): void {
+  private onDocumentClick(target: HTMLElement): void {
 
     // TODO - replace with: `this.renderer.invokeElementMethod(this.elm.nativeElement, 'contains', [target])`
     // Pending on https://github.com/angular/angular/issues/8386
@@ -139,18 +139,18 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     if (this.popover && !this.elm.nativeElement.contains(target)) {
       this.popover.then((popover: ComponentRef<ConfirmPopover>) => {
         if (!popover.location.nativeElement.contains(target)) {
-          this._hidePopover();
+          this.hidePopover();
         }
       });
     }
   }
 
   @HostListener('click')
-  private _togglePopover(): void {
+  private togglePopover(): void {
     if (!this.popover) {
-      this._showPopover();
+      this.showPopover();
     } else {
-      this._hidePopover();
+      this.hidePopover();
     }
   }
 

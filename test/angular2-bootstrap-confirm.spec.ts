@@ -101,10 +101,10 @@ describe('bootstrap confirm', () => {
     builder.createAsync(TestCmp).then((fixture: ComponentFixture<TestCmp>) => {
       fixture.detectChanges();
       const confirm = fixture.componentInstance.confirm;
-      spyOn(confirm, '_showPopover');
+      spyOn(confirm, 'showPopover');
       expect(confirm.popover).toBeFalsy();
       fixture.nativeElement.querySelector('button').click();
-      expect(confirm._showPopover).toHaveBeenCalled();
+      expect(confirm.showPopover).toHaveBeenCalled();
       expect(confirm.popover).toBeDefined();
     });
   }));
