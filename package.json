@@ -11,7 +11,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "del ./src/*.d.ts ./demo/*.d.ts angular2-bootstrap-confirm.d.ts angular2-bootstrap-confirm.js*",
     "prepublish": "npm run build:dist",
-    "postpublish": "npm run clean"
+    "postpublish": "npm run clean",
+    "commit": "git-cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "repository": {
     "type": "git",
@@ -35,8 +37,13 @@
     "@angular/core": "2.0.0-rc.1",
     "@angular/platform-browser": "2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+    "commitizen": "~2.8.1",
+    "conventional-changelog": "~1.1.0",
+    "conventional-changelog-cli": "~1.1.1",
+    "cz-conventional-changelog": "~1.1.6",
     "del-cli": "~0.2.0",
     "es6-shim": "~0.35.0",
+    "ghooks": "~1.2.1",
     "ng2-bootstrap": "~1.0.16",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
@@ -45,6 +52,7 @@
     "tslint-loader": "~2.1.4",
     "typescript": "~1.8.10",
     "typings": "~0.8.1",
+    "validate-commit-msg": "~2.6.1",
     "webpack": "~1.13.0",
     "webpack-dev-server": "~1.14.1",
     "zone.js": "~0.6.12"
@@ -58,5 +66,13 @@
     "angular2-bootstrap-confirm.js.map",
     "angular2-bootstrap-confirm.d.ts",
     "src/**/*.d.ts"
-  ]
+  ],
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    },
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
 }
