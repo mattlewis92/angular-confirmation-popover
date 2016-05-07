@@ -4,11 +4,11 @@
 
 ### Features
 
-* **angular2:** upgrade to angular2 RC1([d4d3c6b](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/d4d3c6b))
-* **buttons:** allow hiding of the confirm / cancel buttons([540b965](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/540b965)), closes [#10](https://github.com/mattlewis92/angular2-bootstrap-confirm/issues/10)
-* **position:** provide a bundled copy of the position service so ng2-bootstrap isn't required as a([37b295f](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/37b295f))
-* allow usage without a module bundler by providing a standalone position bundle([9ebae67](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/9ebae67)), closes [#8](https://github.com/mattlewis92/angular2-bootstrap-confirm/issues/8)
-* add bootstrap v4 classes([3f4959f2](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/3f4959f2))
+* **angular2:** upgrade to angular2 RC1 ([d4d3c6b](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/d4d3c6b))
+* **buttons:** allow hiding of the confirm / cancel buttons ([540b965](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/540b965)), closes [#10](https://github.com/mattlewis92/angular2-bootstrap-confirm/issues/10)
+* **position:** provide a bundled copy of the position service so ng2-bootstrap isn't required as a peer dependency ([37b295f](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/37b295f))
+* allow usage without a module bundler by providing a standalone position bundle ([9ebae67](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/9ebae67)), closes [#8](https://github.com/mattlewis92/angular2-bootstrap-confirm/issues/8)
+* add bootstrap v4 classes ([3f4959f2](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/3f4959f2))
 
 ### BREAKING CHANGES
 
@@ -28,5 +28,5 @@ bootstrap(MyApp, [
 
 
 
-0.1.0
+# 0.1.0
 _Initial release_
