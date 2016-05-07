@@ -8,9 +8,10 @@
     "start": "typings install && webpack-dev-server --progress",
     "build:demo": "webpack -p",
     "build:dist": "webpack --config webpack.config.dist.js",
+    "build:position": "webpack --config webpack.config.position.js && cp ./node_modules/ng2-bootstrap/components/position.d.ts ./position",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "clean": "del ./src/*.d.ts ./demo/*.d.ts angular2-bootstrap-confirm.d.ts angular2-bootstrap-confirm.js*",
-    "prepublish": "npm run build:dist",
+    "clean": "del ./src/*.d.ts ./demo/*.d.ts angular2-bootstrap-confirm.d.ts angular2-bootstrap-confirm.js* ./position",
+    "prepublish": "npm run build:dist && npm run build:position",
     "postpublish": "npm run clean",
     "commit": "git-cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
@@ -58,14 +59,14 @@
     "zone.js": "~0.6.12"
   },
   "peerDependencies": {
-    "@angular/core": "2.0.0-rc.1",
-    "ng2-bootstrap": "^1.0.16"
+    "@angular/core": "2.0.0-rc.1"
   },
   "files": [
     "angular2-bootstrap-confirm.js",
     "angular2-bootstrap-confirm.js.map",
     "angular2-bootstrap-confirm.d.ts",
-    "src/**/*.d.ts"
+    "src/**/*.d.ts",
+    "position"
   ],
   "config": {
     "ghooks": {

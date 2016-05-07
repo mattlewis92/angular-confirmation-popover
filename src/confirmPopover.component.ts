@@ -8,7 +8,7 @@ import {
   ViewChild,
   Renderer
 } from '@angular/core';
-import {PositionService} from 'ng2-bootstrap/components/position';
+import {PositionService} from './position.provider';
 import {PopoverConfirmOptions} from './confirmOptions.provider';
 
 interface Coords {
@@ -17,7 +17,6 @@ interface Coords {
 }
 
 @Component({
-  providers: [PositionService],
   styles: [`
     .popover {
       display: block;

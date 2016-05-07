@@ -11,8 +11,7 @@ module.exports = {
       commonjs: '@angular/core',
       commonjs2: '@angular/core',
       amd: '@angular/core'
-    },
-    'ng2-bootstrap/components/position': 'ng2-bootstrap/components/position'
+    }
   },
   devtool: 'source-map',
   module: {

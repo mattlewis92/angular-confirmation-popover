@@ -35,12 +35,17 @@ npm install --save angular2@2.0.0-beta.17 ng2-bootstrap@1 angular2-bootstrap-con
 Then use it in your app on a component:
 
 ```typescript
-import {Confirm, ConfirmOptions} from 'angular2-bootstrap-confirm';
+import {Component, provide} from '@angular/core';
+import {Confirm, ConfirmOptions, PositionService} from 'angular2-bootstrap-confirm';
+import {PositionService as Ng2PositionService} from 'ng2-bootstrap/components/position';
+// Or if you don't want to depend on the ng2-bootstrap module, use the bundled position service:
+// import {PositionService as Ng2PositionService} from 'angular2-bootstrap-confirm/position/position';
 
 @Component({
   selector: 'my-component',
   providers: [
-    ConfirmOptions
+    ConfirmOptions,
+    provide(PositionService, {useClass: Ng2PositionService}) // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
   ],
   directives: [
     Confirm
