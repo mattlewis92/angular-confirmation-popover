@@ -20,11 +20,11 @@ interface Coords {
   providers: [PositionService],
   template: `
     <div
-      [class]="'popover ' + options.placement"
+      [class]="'popover ' + options.placement + ' popover-' + options.placement"
       [style.display]="'block'"
       [style.top]="top"
       [style.left]="left">
-      <div class="arrow"></div>
+      <div class="popover-arrow arrow"></div>
       <h3 class="popover-title" [innerHTML]="options.title"></h3>
       <div class="popover-content">
         <p [innerHTML]="options.message"></p>
