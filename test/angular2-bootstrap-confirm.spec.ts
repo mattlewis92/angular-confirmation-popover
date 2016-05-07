@@ -34,7 +34,7 @@ import {
   PositionService
 } from './../angular2-bootstrap-confirm';
 
-const spyOn = window['spyOn'];
+const spyOn: Function = window['spyOn'];
 
 setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
@@ -92,7 +92,7 @@ describe('bootstrap confirm', () => {
     })
   ]);
 
-  let builder;
+  let builder: TestComponentBuilder;
   beforeEach(inject([TestComponentBuilder], (tcb) => {
     builder = tcb;
   }));
@@ -100,11 +100,11 @@ describe('bootstrap confirm', () => {
   it('should show a popover when the element is clicked', async(() => {
     builder.createAsync(TestCmp).then((fixture: ComponentFixture<TestCmp>) => {
       fixture.detectChanges();
-      const confirm = fixture.componentInstance.confirm;
-      spyOn(confirm, 'showPopover');
+      const confirm: Confirm = fixture.componentInstance.confirm;
+      const showPopover: Function = spyOn(confirm, 'showPopover');
       expect(confirm.popover).toBeFalsy();
       fixture.nativeElement.querySelector('button').click();
-      expect(confirm.showPopover).toHaveBeenCalled();
+      expect(showPopover).toHaveBeenCalled();
       expect(confirm.popover).toBeDefined();
     });
   }));

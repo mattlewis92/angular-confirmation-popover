@@ -1,5 +1,6 @@
 'use strict';
 
+const webpack = require('webpack');
 const WATCH = process.argv.indexOf('--watch') > -1;
 
 module.exports = function(config) {
@@ -34,12 +35,17 @@ module.exports = function(config) {
       },
       module: {
         preLoaders: [{
-          test: /\.ts$/, loader: 'tslint?emitErrors=false&failOnHint=false', exclude: /node_modules/
+          test: /\.ts$/, loader: 'tslint', exclude: /node_modules/
         }],
         loaders: [{
           test: /\.ts$/, loader: 'ts', exclude: /node_modules/
         }]
-      }
+      },
+      tslint: {
+        emitErrors: !WATCH,
+        failOnHint: false
+      },
+      plugins: WATCH ? [] : [new webpack.NoErrorsPlugin()]
     },
 
     // test results reporter to use
