@@ -6,8 +6,8 @@ import 'rxjs';
 import {Component, provide} from '@angular/core';
 import {FORM_DIRECTIVES, CORE_DIRECTIVES} from '@angular/common';
 import {bootstrap} from '@angular/platform-browser-dynamic';
-import {PositionService as Ng2PositionService} from 'ng2-bootstrap/components/position';
 import {Confirm, ConfirmOptions, PositionService} from './../angular2-bootstrap-confirm';
+import {PositionService as Ng2PositionService} from 'ng2-bootstrap/components/position';
 
 @Component({
   selector: 'demo-app',
@@ -18,8 +18,7 @@ import {Confirm, ConfirmOptions, PositionService} from './../angular2-bootstrap-
           focusButton: 'confirm'
         });
       }
-    }),
-    provide(PositionService, {useClass: Ng2PositionService})
+    })
   ],
   directives: [
     ...FORM_DIRECTIVES,
@@ -82,4 +81,6 @@ class DemoApp {
   cancelClicked: boolean = false;
 }
 
-bootstrap(DemoApp);
+bootstrap(DemoApp, [
+  provide(PositionService, {useClass: Ng2PositionService})
+]);
