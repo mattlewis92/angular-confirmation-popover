@@ -7,7 +7,7 @@ import {
   ViewChild,
   Renderer
 } from '@angular/core';
-import {PositionService} from './position.provider';
+import {Position} from './position.provider';
 import {PopoverConfirmOptions} from './confirmOptions.provider';
 
 interface Coords {
@@ -68,7 +68,7 @@ export class ConfirmPopover implements AfterViewInit {
     private elm: ElementRef,
     private renderer: Renderer,
     private cdr: ChangeDetectorRef,
-    private position: PositionService,
+    private position: Position,
     private options: PopoverConfirmOptions
   ) {}
 

@@ -31,14 +31,14 @@ import {
 import {
   Confirm,
   ConfirmOptions,
-  PositionService
+  Position
 } from './../angular2-bootstrap-confirm';
 
 const spyOn: Function = window['spyOn'];
 
 setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
-class MockPositionService implements PositionService {
+class MockPositionService implements Position {
 
   positionElements(hostEl: any, targetEl: any, positionStr: any, appendToBody: any): any {
     return {
@@ -82,7 +82,7 @@ class TestCmp {
 describe('bootstrap confirm', () => {
 
   beforeEachProviders(() => [
-    provide(PositionService, {useClass: MockPositionService}),
+    provide(Position, {useClass: MockPositionService}),
     provide(ConfirmOptions, {
       useFactory: (): ConfirmOptions => {
         return new ConfirmOptions({

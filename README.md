@@ -36,16 +36,16 @@ Then use it in your app on a component:
 
 ```typescript
 import {Component, provide} from '@angular/core';
-import {Confirm, ConfirmOptions, PositionService} from 'angular2-bootstrap-confirm';
-import {PositionService as Ng2PositionService} from 'ng2-bootstrap/components/position';
+import {Confirm, ConfirmOptions, Position} from 'angular2-bootstrap-confirm';
+import {PositionService} from 'ng2-bootstrap/components/position';
 // Or if you don't want to depend on the ng2-bootstrap module, use the bundled position service:
-// import {PositionService as Ng2PositionService} from 'angular2-bootstrap-confirm/position/position';
+// import {PositionService} from 'angular2-bootstrap-confirm/position/position';
 
 @Component({
   selector: 'my-component',
   providers: [ // you can pass both of these when bootstrapping the app to configure globally throughout your app
     ConfirmOptions,
-    provide(PositionService, {useClass: Ng2PositionService}) // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
+    provide(Position, {useClass: PositionService}) // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
   ],
   directives: [
     Confirm
@@ -81,7 +81,7 @@ You may also find it useful to view the [demo source](https://github.com/mattlew
 <script src="node_modules/angular2-bootstrap-confirm/angular2-bootstrap-confirm.js"></script>
 <script>
     // position service available as ng2BootstrapPosition.PositionService
-    // confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.PositionService
+    // confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.Position
 </script>
 ```
 
