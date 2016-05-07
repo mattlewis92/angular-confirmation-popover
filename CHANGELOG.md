@@ -1,3 +1,23 @@
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/0.2.0...v0.3.0) (2016-05-07)
+
+
+### Features
+
+* **position:** rename PositionService to Position ([5c05e4e](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/5c05e4e)), closes [#11](https://github.com/mattlewis92/angular2-bootstrap-confirm/issues/11)
+
+
+### BREAKING CHANGES
+
+* position: PositionService has now been renamed to Position. Use it like so:
+```
+import {Position} from 'angular2-bootstrap-confirm';
+import {PositionService} from 'ng2-bootstrap/components/position';
+provide(Position, {useClass: PositionService})
+```
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.1.0...v0.2.0) (2016-05-07)
 
