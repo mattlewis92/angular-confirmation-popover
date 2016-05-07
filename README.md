@@ -29,7 +29,7 @@ Pull requests are welcome.
 
 Install through npm:
 ```
-npm install --save angular2@2.0.0-beta.17 ng2-bootstrap@1 angular2-bootstrap-confirm
+npm install --save @angular/core@2.0.0-rc.1 angular2-bootstrap-confirm
 ```
 
 Then use it in your app on a component:
