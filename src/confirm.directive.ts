@@ -31,6 +31,8 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Input() confirmButtonType: string;
   @Input() cancelButtonType: string;
   @Input() focusButton: string;
+  @Input() hideConfirmButton: boolean = false;
+  @Input() hideCancelButton: boolean = false;
   @Input() isOpen: boolean = false;
   @Input() isDisabled: boolean = false;
   @Output() isOpenChange: EventEmitter<any> = new EventEmitter();
@@ -94,7 +96,9 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         'placement',
         'confirmButtonType',
         'cancelButtonType',
-        'focusButton'
+        'focusButton',
+        'hideConfirmButton',
+        'hideCancelButton'
       ];
       optionalParams.forEach(param => {
         if (this[param]) {

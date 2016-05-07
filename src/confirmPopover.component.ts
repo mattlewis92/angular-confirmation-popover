@@ -33,7 +33,10 @@ interface Coords {
       <div class="popover-content">
         <p [innerHTML]="options.message"></p>
         <div class="row">
-          <div class="col-xs-6">
+          <div
+            class="col-xs-6"
+            [class.col-xs-offset-3]="options.hideCancelButton"
+            *ngIf="!options.hideConfirmButton">
             <button
               #confirmButton
               [class]="'btn btn-block btn-' + options.confirmButtonType"
@@ -41,7 +44,10 @@ interface Coords {
               [innerHtml]="options.confirmText">
             </button>
           </div>
-          <div class="col-xs-6">
+          <div
+            class="col-xs-6"
+            [class.col-xs-offset-3]="options.hideConfirmButton"
+            *ngIf="!options.hideCancelButton">
             <button
               #cancelButton
               [class]="'btn btn-block btn-' + options.cancelButtonType"

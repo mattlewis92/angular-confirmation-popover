@@ -127,6 +127,12 @@ Set to either `confirm` or `cancel` to focus the confirm or cancel button. If om
 #### isDisabled
 Whether to disable showing the popover. Default `false`.
 
+#### hideConfirmButton
+Whether to hide the confirm button. Default `false`.
+
+#### hideCancelButton
+Whether to hide the cancel button. Default `false`.
+
 ## Development
 
 ### Prepare your environment

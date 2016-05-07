@@ -10,6 +10,8 @@ export class ConfirmOptions {
   public cancelButtonType: string = 'default';
   public placement: string = 'top';
   public focusButton: string;
+  public hideConfirmButton: boolean = false;
+  public hideCancelButton: boolean = false;
 
   public constructor(options: Object = {}) {
     Object.assign(this, options);
