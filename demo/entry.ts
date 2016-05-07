@@ -3,9 +3,9 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
 import 'rxjs';
-import {Component, provide} from 'angular2/core';
-import {FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
-import {bootstrap} from 'angular2/platform/browser';
+import {Component, provide} from '@angular/core';
+import {FORM_DIRECTIVES, CORE_DIRECTIVES} from '@angular/common';
+import {bootstrap} from '@angular/platform-browser-dynamic';
 import {Confirm, ConfirmOptions} from './../angular2-bootstrap-confirm';
 
 @Component({

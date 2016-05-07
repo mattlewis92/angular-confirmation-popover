@@ -7,7 +7,7 @@ import {
   HostListener,
   ViewChild,
   Renderer
-} from 'angular2/core';
+} from '@angular/core';
 import {PositionService} from 'ng2-bootstrap/components/position';
 import {PopoverConfirmOptions} from './confirmOptions.provider';
 

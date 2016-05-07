@@ -1,4 +1,4 @@
-import {Injectable, ElementRef} from 'angular2/core';
+import {Injectable, ElementRef} from '@angular/core';
 
 @Injectable()
 export class ConfirmOptions {

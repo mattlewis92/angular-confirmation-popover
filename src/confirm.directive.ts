@@ -14,7 +14,7 @@ import {
   ReflectiveInjector,
   Provider,
   ResolvedReflectiveProvider
-} from 'angular2/core';
+} from '@angular/core';
 import {ConfirmPopover} from './confirmPopover.component';
 import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
 
@@ -36,7 +36,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Output() isOpenChange: EventEmitter<any> = new EventEmitter();
   @Output() confirm: EventEmitter<any> = new EventEmitter();
   @Output() cancel: EventEmitter<any> = new EventEmitter();
-  popover: Promise<ComponentRef> = null;
+  popover: Promise<ComponentRef<ConfirmPopover>> = null;
 
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -106,16 +106,18 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         new Provider(PopoverConfirmOptions, {useValue: options})
       ]);
 
-      this.popover = this.loader.loadNextToLocation(ConfirmPopover, this.viewContainerRef, binding).then((popover: ComponentRef) => {
-        this.isOpenChange.emit(true);
-        return popover;
-      });
+      this.popover = this.loader
+        .loadNextToLocation(ConfirmPopover, this.viewContainerRef, binding)
+        .then((popover: ComponentRef<ConfirmPopover>) => {
+          this.isOpenChange.emit(true);
+          return popover;
+        });
     }
   }
 
   private _hidePopover(): void {
     if (this.popover) {
-      this.popover.then((popoverComponent: ComponentRef) => {
+      this.popover.then((popoverComponent: ComponentRef<ConfirmPopover>) => {
         popoverComponent.destroy();
         this.popover = null;
         this.isOpenChange.emit(false);
@@ -131,7 +133,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     // Pending on https://github.com/angular/angular/issues/8386
 
     if (this.popover && !this.elm.nativeElement.contains(target)) {
-      this.popover.then((popover: ComponentRef) => {
+      this.popover.then((popover: ComponentRef<ConfirmPopover>) => {
         if (!popover.location.nativeElement.contains(target)) {
           this._hidePopover();
         }
