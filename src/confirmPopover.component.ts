@@ -22,8 +22,8 @@ interface Coords {
     <div
       [class]="'popover ' + options.placement + ' popover-' + options.placement"
       [style.display]="'block'"
-      [style.top]="top"
-      [style.left]="left">
+      [style.top.px]="popoverPosition?.top"
+      [style.left.px]="popoverPosition?.left">
       <div class="popover-arrow arrow"></div>
       <h3 class="popover-title" [innerHTML]="options.title"></h3>
       <div class="popover-content">
@@ -54,8 +54,7 @@ export class ConfirmPopover implements AfterViewInit {
 
   @ViewChild('confirmButton') confirmButton: ElementRef;
   @ViewChild('cancelButton') cancelButton: ElementRef;
-  top: string;
-  left: string;
+  private popoverPosition: Coords;
 
   constructor(
     private elm: ElementRef,
@@ -80,14 +79,12 @@ export class ConfirmPopover implements AfterViewInit {
   }
 
   private _positionPopover(): void {
-    const position: Coords = this.position.positionElements(
+    this.popoverPosition = this.position.positionElements(
       this.options.hostElement.nativeElement,
       this.elm.nativeElement.children[0],
       this.options.placement,
       false
     );
-    this.top = position.top + 'px';
-    this.left = position.left + 'px';
   }
 
   @HostListener('window:resize')
