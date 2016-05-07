@@ -1,13 +1,23 @@
 {
   "name": "angular2-bootstrap-confirm",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "description": "An angular2 bootstrap confirmation popover",
-  "main": "dist/angular2-bootstrap-confirm.js",
+  "main": "./angular2-bootstrap-confirm.js",
+  "typings": "./angular2-bootstrap-confirm.d.ts",
   "scripts": {
-    "postinstall": "typings install",
+    "prestart": "typings install",
     "start": "webpack-dev-server --progress",
     "build:demo": "webpack -p",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:dist": "webpack --config webpack.config.dist.js",
+    "build:position": "webpack --config webpack.config.position.js && cp ./node_modules/ng2-bootstrap/components/position.d.ts ./position",
+    "pretest": "typings install",
+    "test": "karma start",
+    "test:watch": "karma start --watch",
+    "clean": "del ./src/*.d.ts ./demo/*.d.ts ./test/*.d.ts angular2-bootstrap-confirm.d.ts angular2-bootstrap-confirm.js* ./position",
+    "prepublish": "npm test && npm run build:dist && npm run build:position",
+    "postpublish": "npm run clean",
+    "commit": "git-cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "repository": {
     "type": "git",
@@ -26,18 +36,54 @@
   },
   "homepage": "https://github.com/mattlewis92/angular2-bootstrap-confirm#readme",
   "devDependencies": {
-    "angular2": "2.0.0-beta.17",
+    "@angular/common": "2.0.0-rc.1",
+    "@angular/compiler": "2.0.0-rc.1",
+    "@angular/core": "2.0.0-rc.1",
+    "@angular/platform-browser": "2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+    "commitizen": "~2.8.1",
+    "conventional-changelog": "~1.1.0",
+    "conventional-changelog-cli": "~1.1.1",
+    "cz-conventional-changelog": "~1.1.6",
+    "del-cli": "~0.2.0",
     "es6-shim": "~0.35.0",
-    "ng2-bootstrap": "~1.0.15",
+    "ghooks": "~1.2.1",
+    "jasmine-core": "~2.4.1",
+    "karma": "~0.13.22",
+    "karma-jasmine": "~1.0.2",
+    "karma-phantomjs-launcher": "~1.0.0",
+    "karma-sourcemap-loader": "~0.3.7",
+    "karma-webpack": "~1.7.0",
+    "ng2-bootstrap": "~1.0.16",
+    "phantomjs-prebuilt": "~2.1.7",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.6",
     "ts-loader": "~0.8.2",
-    "tslint": "~3.8.1",
+    "tslint": "~3.9.0",
     "tslint-loader": "~2.1.4",
     "typescript": "~1.8.10",
     "typings": "~0.8.1",
+    "validate-commit-msg": "~2.6.1",
     "webpack": "~1.13.0",
     "webpack-dev-server": "~1.14.1",
     "zone.js": "~0.6.12"
+  },
+  "peerDependencies": {
+    "@angular/core": "2.0.0-rc.1"
+  },
+  "files": [
+    "angular2-bootstrap-confirm.js",
+    "angular2-bootstrap-confirm.js.map",
+    "angular2-bootstrap-confirm.d.ts",
+    "src/**/*.d.ts",
+    "position"
+  ],
+  "config": {
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    },
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }

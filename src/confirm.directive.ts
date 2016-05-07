@@ -14,11 +14,9 @@ import {
   ReflectiveInjector,
   Provider,
   ResolvedReflectiveProvider
-} from 'angular2/core';
+} from '@angular/core';
 import {ConfirmPopover} from './confirmPopover.component';
 import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
-
-type Placement = 'top' | 'left' | 'bottom' | 'right';
 
 @Directive({
   selector: '[mwl-confirm]'
@@ -29,16 +27,18 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Input() message: string;
   @Input() confirmText: string;
   @Input() cancelText: string;
-  @Input() placement: Placement;
+  @Input() placement: string;
   @Input() confirmButtonType: string;
   @Input() cancelButtonType: string;
   @Input() focusButton: string;
+  @Input() hideConfirmButton: boolean = false;
+  @Input() hideCancelButton: boolean = false;
   @Input() isOpen: boolean = false;
   @Input() isDisabled: boolean = false;
   @Output() isOpenChange: EventEmitter<any> = new EventEmitter();
   @Output() confirm: EventEmitter<any> = new EventEmitter();
   @Output() cancel: EventEmitter<any> = new EventEmitter();
-  popover: Promise<ComponentRef> = null;
+  popover: Promise<ComponentRef<ConfirmPopover>> = null;
 
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -54,28 +54,28 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   ngOnChanges(changes: any): void {
     if (changes.isOpen) {
       if (changes.isOpen.currentValue === true) {
-        this._showPopover();
+        this.showPopover();
       } else {
-        this._hidePopover();
+        this.hidePopover();
       }
     }
   }
 
   ngOnDestroy(): void {
-    this._hidePopover();
+    this.hidePopover();
   }
 
   onConfirm(): void {
     this.confirm.emit(null);
-    this._hidePopover();
+    this.hidePopover();
   }
 
   onCancel(): void {
     this.cancel.emit(null);
-    this._hidePopover();
+    this.hidePopover();
   }
 
-  private _showPopover(): void {
+  private showPopover(): void {
     if (!this.popover && !this.isDisabled) {
 
       const options: PopoverConfirmOptions = new PopoverConfirmOptions(Object.assign({}, this.defaultOptions, {
@@ -96,7 +96,9 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         'placement',
         'confirmButtonType',
         'cancelButtonType',
-        'focusButton'
+        'focusButton',
+        'hideConfirmButton',
+        'hideCancelButton'
       ];
       optionalParams.forEach(param => {
         if (this[param]) {
@@ -108,16 +110,18 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         new Provider(PopoverConfirmOptions, {useValue: options})
       ]);
 
-      this.popover = this.loader.loadNextToLocation(ConfirmPopover, this.viewContainerRef, binding).then((popover: ComponentRef) => {
-        this.isOpenChange.emit(true);
-        return popover;
-      });
+      this.popover = this.loader
+        .loadNextToLocation(ConfirmPopover, this.viewContainerRef, binding)
+        .then((popover: ComponentRef<ConfirmPopover>) => {
+          this.isOpenChange.emit(true);
+          return popover;
+        });
     }
   }
 
-  private _hidePopover(): void {
+  private hidePopover(): void {
     if (this.popover) {
-      this.popover.then((popoverComponent: ComponentRef) => {
+      this.popover.then((popoverComponent: ComponentRef<ConfirmPopover>) => {
         popoverComponent.destroy();
         this.popover = null;
         this.isOpenChange.emit(false);
@@ -127,26 +131,26 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
 
   @HostListener('document:click', ['$event.target'])
   @HostListener('document:touchend', ['$event.target'])
-  private _onDocumentClick(target: HTMLElement): void {
+  private onDocumentClick(target: HTMLElement): void {
 
     // TODO - replace with: `this.renderer.invokeElementMethod(this.elm.nativeElement, 'contains', [target])`
     // Pending on https://github.com/angular/angular/issues/8386
 
     if (this.popover && !this.elm.nativeElement.contains(target)) {
-      this.popover.then((popover: ComponentRef) => {
+      this.popover.then((popover: ComponentRef<ConfirmPopover>) => {
         if (!popover.location.nativeElement.contains(target)) {
-          this._hidePopover();
+          this.hidePopover();
         }
       });
     }
   }
 
   @HostListener('click')
-  private _togglePopover(): void {
+  private togglePopover(): void {
     if (!this.popover) {
-      this._showPopover();
+      this.showPopover();
     } else {
-      this._hidePopover();
+      this.hidePopover();
     }
   }
 

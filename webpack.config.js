@@ -14,8 +14,7 @@ module.exports = {
     }],
     loaders: [{
       test: /\.ts$/, loader: 'ts', exclude: /node_modules/
-    }],
-    noParse: [/zone\.js\/dist\/.+/]
+    }]
   },
   resolve: {
     extensions: ['', '.ts', '.js']

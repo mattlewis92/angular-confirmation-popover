@@ -3,10 +3,11 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
 import 'rxjs';
-import {Component, provide} from 'angular2/core';
-import {FORM_DIRECTIVES, CORE_DIRECTIVES} from 'angular2/common';
-import {bootstrap} from 'angular2/platform/browser';
-import {Confirm, ConfirmOptions} from './../src/confirm';
+import {Component, provide} from '@angular/core';
+import {FORM_DIRECTIVES, CORE_DIRECTIVES} from '@angular/common';
+import {bootstrap} from '@angular/platform-browser-dynamic';
+import {Confirm, ConfirmOptions, Position} from './../angular2-bootstrap-confirm';
+import {PositionService} from 'ng2-bootstrap/components/position';
 
 @Component({
   selector: 'demo-app',
@@ -80,4 +81,6 @@ class DemoApp {
   cancelClicked: boolean = false;
 }
 
-bootstrap(DemoApp);
+bootstrap(DemoApp, [
+  provide(Position, {useClass: PositionService})
+]);
