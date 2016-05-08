@@ -7,6 +7,7 @@ import {
   ViewChild,
   Renderer
 } from '@angular/core';
+import {NgIf} from '@angular/common';
 import {Position} from './position.provider';
 import {PopoverConfirmOptions} from './confirmOptions.provider';
 
@@ -21,6 +22,7 @@ interface Coords {
       display: block;
     }
   `],
+  directives: [NgIf],
   template: `
     <div
       [class]="'popover ' + options.placement + ' popover-' + options.placement"
