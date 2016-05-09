@@ -18,7 +18,8 @@
     "postpublish": "npm run clean",
     "commit": "git-cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "typedoc": "typedoc --options typedoc.json angular2-bootstrap-confirm.ts src/*.ts"
+    "typedoc": "typedoc --options typedoc.json angular2-bootstrap-confirm.ts src/*.ts",
+    "demo": "git checkout gh-pages && npm run build:demo && npm run typedoc && git add . && git commit -m 'chore: build demo and docs' && git push && git checkout master"
   },
   "repository": {
     "type": "git",
