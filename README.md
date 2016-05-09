@@ -38,7 +38,7 @@ Then use it in your app on a component:
 import {Component, provide} from '@angular/core';
 import {Confirm, ConfirmOptions, Position} from 'angular2-bootstrap-confirm';
 import {PositionService} from 'angular2-bootstrap-confirm/position/position';
-// Or if you're already using the ng2-bootstrap service
+// Or if you're already using the ng2-bootstrap module
 // import {PositionService} from 'ng2-bootstrap/components/position';
 
 @Component({
