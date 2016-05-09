@@ -37,9 +37,9 @@ Then use it in your app on a component:
 ```typescript
 import {Component, provide} from '@angular/core';
 import {Confirm, ConfirmOptions, Position} from 'angular2-bootstrap-confirm';
-import {PositionService} from 'ng2-bootstrap/components/position';
-// Or if you don't want to depend on the ng2-bootstrap module, use the bundled position service:
-// import {PositionService} from 'angular2-bootstrap-confirm/position/position';
+import {PositionService} from 'angular2-bootstrap-confirm/position/position';
+// Or if you're already using the ng2-bootstrap service
+// import {PositionService} from 'ng2-bootstrap/components/position';
 
 @Component({
   selector: 'my-component',
