@@ -39,6 +39,11 @@ module.exports = function(config) {
         }],
         loaders: [{
           test: /\.ts$/, loader: 'ts', exclude: /node_modules/
+        }],
+        postLoaders: [{
+          test: /\.ts$/,
+          exclude: /(test|node_modules)/,
+          loader: 'istanbul-instrumenter'
         }]
       },
       tslint: {
@@ -48,10 +53,16 @@ module.exports = function(config) {
       plugins: WATCH ? [] : [new webpack.NoErrorsPlugin()]
     },
 
+    coverageReporter: {
+      reporters: [{
+        type: 'text-summary'
+      }]
+    },
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
     // web server port
     port: 9876,

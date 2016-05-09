@@ -7,7 +7,7 @@
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mattlewis92/angular2-bootstrap-confirm/master/LICENSE)
 
 ## Demo
-http://mattlewis92.github.io/angular2-bootstrap-confirm/
+https://mattlewis92.github.io/angular2-bootstrap-confirm/
 
 ## Table of contents
 
@@ -44,8 +44,14 @@ import {PositionService} from 'ng2-bootstrap/components/position';
 @Component({
   selector: 'my-component',
   providers: [ // you can pass both of these when bootstrapping the app to configure globally throughout your app
-    ConfirmOptions,
-    provide(Position, {useClass: PositionService}) // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
+    provide(ConfirmOptions, { // can't currently just pass in ConfirmOptions directly due to this bug: https://github.com/angular/angular/issues/8519 
+      useFactory: (): ConfirmOptions => {
+        return new ConfirmOptions();
+      }
+    }),
+    provide(Position, { // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
+      useClass: PositionService
+    })
   ],
   directives: [
     Confirm
@@ -86,67 +92,10 @@ You may also find it useful to view the [demo source](https://github.com/mattlew
 ```
 
 ## Documentation
+All documentation is auto-generated from the source via typedoc and can be viewed here:
+https://mattlewis92.github.io/angular2-bootstrap-confirm/docs/
 
-### mwl-confirm directive options
-
-All options can be configured either on a per directive instance (see previous example of how to) or globally via a the `ConfirmOptions` provider
-
-To configure globally you need to configure the provider in your app or directive like so:
-```
-providers: [
- provide(ConfirmOptions, {
-   useFactory: (): ConfirmOptions => {
-     return new ConfirmOptions({
-       focusButton: 'confirm' // focus the confirm button by default. See below for an explanation of all options.
-     });
-   }
- })
-]
-```
-
-An explanation of each option available is as follows:
-
-#### title
-The title of the popover. Note, if you use an expression, you may want to consider using "data-title" instead of "title" so that the browser doesn't show native tooltips with the angular expression listed.
-
-#### message
-The body text of the popover.
-
-#### confirmText
-The text of the confirm button. Default `Confirm`
-
-#### cancelText
-The text of the cancel button. Default `Cancel`
-
-#### placement
-The placement of the popover. It can be either `top`, `right`, `bottom` or `left`. Default `top`
-
-#### confirm
-An expression that is called when the confirm button is clicked.
-
-#### cancel
-An expression that is called when the cancel button is clicked.
-
-#### confirmButtonType
-The bootstrap button type of the confirm button. It can be any supported bootstrap color type e.g. `default`, `warning`, `danger` etc. Default `success`
-
-#### cancelButtonType
-The bootstrap button type of the cancel button. It can be any supported bootstrap color type e.g. `default`, `warning`, `danger` etc. Default `default`
-
-#### isOpen
-A 2-way bound variable to control if the popover is currently open or not.
-
-#### focusButton
-Set to either `confirm` or `cancel` to focus the confirm or cancel button. If omitted, by default it will not focus either button.
-
-#### isDisabled
-Whether to disable showing the popover. Default `false`.
-
-#### hideConfirmButton
-Whether to hide the confirm button. Default `false`.
-
-#### hideCancelButton
-Whether to hide the cancel button. Default `false`.
+The main confirm directive options can be viewed [here](https://mattlewis92.github.io/angular2-bootstrap-confirm/docs/classes/confirm.html).
 
 ## Development
 

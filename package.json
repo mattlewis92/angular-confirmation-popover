@@ -17,7 +17,8 @@
     "prepublish": "npm test && npm run build:dist && npm run build:position",
     "postpublish": "npm run clean",
     "commit": "git-cz",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "typedoc": "typedoc --options typedoc.json angular2-bootstrap-confirm.ts src/*.ts"
   },
   "repository": {
     "type": "git",
@@ -48,8 +49,10 @@
     "del-cli": "~0.2.0",
     "es6-shim": "~0.35.0",
     "ghooks": "~1.2.1",
+    "istanbul-instrumenter-loader": "~0.2.0",
     "jasmine-core": "~2.4.1",
     "karma": "~0.13.22",
+    "karma-coverage": "~1.0.0",
     "karma-jasmine": "~1.0.2",
     "karma-phantomjs-launcher": "~1.0.0",
     "karma-sourcemap-loader": "~0.3.7",
@@ -61,6 +64,7 @@
     "ts-loader": "~0.8.2",
     "tslint": "~3.9.0",
     "tslint-loader": "~2.1.4",
+    "typedoc": "~0.3.12",
     "typescript": "~1.8.10",
     "typings": "~0.8.1",
     "validate-commit-msg": "~2.6.1",
