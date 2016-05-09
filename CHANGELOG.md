@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/0.3.0...v0.3.1) (2016-05-09)
-
+* test release of the new publishing script and to update the npm readme
 
 
 <a name="0.3.0"></a>
