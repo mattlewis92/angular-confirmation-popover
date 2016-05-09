@@ -111,8 +111,7 @@ Run `npm test` to run tests once or `npm run test:watch` to continually run test
 
 ### Release
 ```bash
-npm version --<patch|minor|major>
-npm publish
+npm run release
 ```
 
 ## License
