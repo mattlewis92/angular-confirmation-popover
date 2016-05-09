@@ -109,6 +109,12 @@ Run `npm start` to start a development server on port 8000 with auto reload + te
 ### Testing
 Run `npm test` to run tests once or `npm run test:watch` to continually run tests.
 
+### Release
+```bash
+npm version --<patch|minor|major>
+npm publish
+```
+
 ## License
 
 MIT
