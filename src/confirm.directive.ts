@@ -40,7 +40,9 @@ import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
 export class Confirm implements OnDestroy, OnChanges, OnInit {
 
   /**
-   * The title of the popover. Note, if you use an expression, you may want to consider using "data-title" instead of "title" so that the browser doesn't show native tooltips with the angular expression listed.
+   * The title of the popover.
+   * Note, if you use an expression, you may want to consider using "data-title" instead of "title" so
+   * that the browser doesn't show native tooltips with the angular expression listed.
    */
   @Input() title: string;
 
@@ -65,17 +67,20 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Input() placement: string;
 
   /**
-   * The bootstrap button type of the confirm button. It can be any supported bootstrap color type e.g. `default`, `warning`, `danger` etc. Default `success`
+   * The bootstrap button type of the confirm button. It can be any supported bootstrap color type
+   * e.g. `default`, `warning`, `danger` etc. Default `success`
    */
   @Input() confirmButtonType: string;
 
   /**
-   * The bootstrap button type of the cancel button. It can be any supported bootstrap color type e.g. `default`, `warning`, `danger` etc. Default `default`
+   * The bootstrap button type of the cancel button. It can be any supported bootstrap color type
+   * e.g. `default`, `warning`, `danger` etc. Default `default`
    */
   @Input() cancelButtonType: string;
 
   /**
-   * Set to either `confirm` or `cancel` to focus the confirm or cancel button. If omitted, by default it will not focus either button.
+   * Set to either `confirm` or `cancel` to focus the confirm or cancel button.
+   * If omitted, by default it will not focus either button.
    */
   @Input() focusButton: string;
 
@@ -95,7 +100,8 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Input() isDisabled: boolean = false;
 
   /**
-   * Will open or show the popover when changed. Can be sugared with `isOpenChange` to emulate 2-way binding like so `[(isOpen)]="isOpen"`
+   * Will open or show the popover when changed.
+   * Can be sugared with `isOpenChange` to emulate 2-way binding like so `[(isOpen)]="isOpen"`
    */
   @Input() isOpen: boolean = false;
 
