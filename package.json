@@ -46,7 +46,7 @@
     "@angular/platform-browser-dynamic": "2.0.0-rc.1",
     "commitizen": "~2.8.1",
     "conventional-changelog": "~1.1.0",
-    "conventional-changelog-cli": "~1.1.1",
+    "conventional-changelog-cli": "~1.2.0",
     "cz-conventional-changelog": "~1.1.6",
     "del-cli": "~0.2.0",
     "es6-shim": "~0.35.0",
