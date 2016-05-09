@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.3.1...v0.3.2) (2016-05-09)
+
+
+### Bug Fixes
+
+* fix typescript error that prevented the module from being imported([252e83e](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/252e83e))
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/0.3.0...v0.3.1) (2016-05-09)
 * test release of the new publishing script and to update the npm readme
