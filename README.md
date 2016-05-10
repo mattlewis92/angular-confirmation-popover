@@ -37,18 +37,14 @@ Then use it in your app on a component:
 ```typescript
 import {Component, provide} from '@angular/core';
 import {Confirm, ConfirmOptions, Position} from 'angular2-bootstrap-confirm';
-import {PositionService} from 'ng2-bootstrap/components/position';
-// Or if you don't want to depend on the ng2-bootstrap module, use the bundled position service:
-// import {PositionService} from 'angular2-bootstrap-confirm/position/position';
+import {PositionService} from 'angular2-bootstrap-confirm/position/position';
+// Or if you're already using the ng2-bootstrap module
+// import {PositionService} from 'ng2-bootstrap/components/position';
 
 @Component({
   selector: 'my-component',
   providers: [ // you can pass both of these when bootstrapping the app to configure globally throughout your app
-    provide(ConfirmOptions, { // can't currently just pass in ConfirmOptions directly due to this bug: https://github.com/angular/angular/issues/8519 
-      useFactory: (): ConfirmOptions => {
-        return new ConfirmOptions();
-      }
-    }),
+    ConfirmOptions,
     provide(Position, { // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
       useClass: PositionService
     })
@@ -108,6 +104,11 @@ Run `npm start` to start a development server on port 8000 with auto reload + te
 
 ### Testing
 Run `npm test` to run tests once or `npm run test:watch` to continually run tests.
+
+### Release
+```bash
+npm run release
+```
 
 ## License
 

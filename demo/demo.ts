@@ -8,9 +8,9 @@ import {PositionService} from 'ng2-bootstrap/components/position';
   providers: [
     provide(ConfirmOptions, {
       useFactory: (): ConfirmOptions => {
-        return new ConfirmOptions({
-          focusButton: 'confirm'
-        });
+        const options: ConfirmOptions = new ConfirmOptions();
+        options.focusButton = 'confirm';
+        return options;
       }
     }),
     provide(Position, {useClass: PositionService})
