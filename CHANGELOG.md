@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+## [0.4.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.3.3...v0.4.0) (2016-05-10)
+
+### Features
+
+**ConfirmOptions:** allow confirm options to be instantiated by angulars DI
+    
+BREAKING CHANGE: the constructor of ConfirmOptions now no longer takes an object of values.
+
+This allows you to just pass `ConfirmOptions` directly to the providers of your app or component and angular will instantiate it for you. e.g.
+
+```
+providers: [ConfirmOptions], // previously angular would throw and you'd have to instantiate it yourself with useFactory
+```
+
+To migrate:
+
+Before:
+```
+const options = new ConfirmOptions({
+  focusButton: 'confirm'
+});
+```
+
+After:
+```
+const options = new ConfirmOptions();
+Object.assign(options, {
+  focusButton: 'confirm'
+});
+```
+
+
 <a name="0.3.3"></a>
 ## [0.3.3](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.3.2...v0.3.3) (2016-05-09)
 
