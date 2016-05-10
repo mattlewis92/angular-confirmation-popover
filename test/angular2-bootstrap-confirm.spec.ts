@@ -403,12 +403,4 @@ describe('bootstrap confirm', () => {
 
   });
 
-  describe('Position', () => {
-
-    it('should throw when constructed', () => {
-      expect(() => new Position()).toThrow();
-    });
-
-  });
-
 });
