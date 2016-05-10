@@ -83,13 +83,7 @@ describe('bootstrap confirm', () => {
 
   beforeEachProviders(() => [
     provide(Position, {useClass: MockPositionService}),
-    provide(ConfirmOptions, {
-      useFactory: (): ConfirmOptions => {
-        return new ConfirmOptions({
-          focusButton: 'confirm'
-        });
-      }
-    })
+    ConfirmOptions
   ]);
 
   let builder: TestComponentBuilder;

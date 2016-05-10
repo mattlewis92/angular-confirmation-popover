@@ -44,11 +44,7 @@ import {PositionService} from 'angular2-bootstrap-confirm/position/position';
 @Component({
   selector: 'my-component',
   providers: [ // you can pass both of these when bootstrapping the app to configure globally throughout your app
-    provide(ConfirmOptions, { // can't currently just pass in ConfirmOptions directly due to this bug: https://github.com/angular/angular/issues/8519 
-      useFactory: (): ConfirmOptions => {
-        return new ConfirmOptions();
-      }
-    }),
+    ConfirmOptions,
     provide(Position, { // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
       useClass: PositionService
     })

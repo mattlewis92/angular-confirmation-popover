@@ -8,10 +8,9 @@ import {Injectable, ElementRef} from '@angular/core';
  * providers: [
  *   provide(ConfirmOptions, {
  *     useFactory: (): ConfirmOptions => {
- *       return new ConfirmOptions({
- *         // focus the confirm button by default. See below for an explanation of all options.
- *         focusButton: 'confirm'
- *       });
+ *       const options = new ConfirmOptions();
+ *       options.focusButton = 'confirm'; // focus the confirm button by default. See below for an explanation of all options.
+ *       return options;
  *     }
  *   })
  * ]
@@ -70,12 +69,6 @@ export class ConfirmOptions {
    */
   public hideCancelButton: boolean = false;
 
-  /**
-   * @param options the options object to set on the instance of the confirm options
-   */
-  public constructor(options: Object = {}) {
-    Object.assign(this, options);
-  }
 }
 
 /**

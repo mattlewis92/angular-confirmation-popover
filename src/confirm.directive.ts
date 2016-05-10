@@ -181,7 +181,8 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   private showPopover(): void {
     if (!this.popover && !this.isDisabled) {
 
-      const options: PopoverConfirmOptions = new PopoverConfirmOptions(Object.assign({}, this.defaultOptions, {
+      const options: PopoverConfirmOptions = new PopoverConfirmOptions();
+      Object.assign(options, this.defaultOptions, {
         title: this.title,
         message: this.message,
         onConfirm: (): void => {
@@ -191,7 +192,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
           this.onCancel();
         },
         hostElement: this.elm
-      }));
+      });
 
       const optionalParams: string[] = [
         'confirmText',
