@@ -76,10 +76,9 @@
 					<pre><code>providers: [
   provide(ConfirmOptions, {
     useFactory: (): ConfirmOptions =&gt; {
-      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ConfirmOptions({
-        <span class="hljs-comment">// focus the confirm button by default. See below for an explanation of all options.</span>
-        focusButton: <span class="hljs-string">'confirm'</span>
-      });
+      const <span class="hljs-keyword">options</span> = <span class="hljs-keyword">new</span> ConfirmOptions();
+      <span class="hljs-keyword">options</span>.focusButton = <span class="hljs-string">'confirm'</span>; <span class="hljs-comment">// focus the confirm button by default. See below for an explanation of all options.</span>
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">options</span>;
     }
   })
 ]
@@ -104,12 +103,6 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="confirmoptions.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirmoptions.html#cancelbuttontype" class="tsd-kind-icon">cancel<wbr>Button<wbr>Type</a></li>
@@ -128,39 +121,6 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Confirm<wbr>Options<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="confirmoptions.html" class="tsd-signature-type">ConfirmOptions</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L71">src/confirmOptions.provider.ts:71</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> options: <span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>the options object to set on the instance of the confirm options</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="confirmoptions.html" class="tsd-signature-type">ConfirmOptions</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="cancelbuttontype" class="tsd-anchor"></a>
@@ -168,7 +128,7 @@
 					<div class="tsd-signature tsd-kind-icon">cancel<wbr>Button<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L51">src/confirmOptions.provider.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L50">src/confirmOptions.provider.ts:50</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -183,7 +143,7 @@
 					<div class="tsd-signature tsd-kind-icon">cancel<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L41">src/confirmOptions.provider.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L40">src/confirmOptions.provider.ts:40</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -198,7 +158,7 @@
 					<div class="tsd-signature tsd-kind-icon">confirm<wbr>Button<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L46">src/confirmOptions.provider.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L45">src/confirmOptions.provider.ts:45</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -213,7 +173,7 @@
 					<div class="tsd-signature tsd-kind-icon">confirm<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L36">src/confirmOptions.provider.ts:36</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L35">src/confirmOptions.provider.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -228,7 +188,7 @@
 					<div class="tsd-signature tsd-kind-icon">focus<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L61">src/confirmOptions.provider.ts:61</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L60">src/confirmOptions.provider.ts:60</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -243,7 +203,7 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Cancel<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L71">src/confirmOptions.provider.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L70">src/confirmOptions.provider.ts:70</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -258,7 +218,7 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Confirm<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L66">src/confirmOptions.provider.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L65">src/confirmOptions.provider.ts:65</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -273,7 +233,7 @@
 					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L31">src/confirmOptions.provider.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L30">src/confirmOptions.provider.ts:30</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -288,7 +248,7 @@
 					<div class="tsd-signature tsd-kind-icon">placement<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L56">src/confirmOptions.provider.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L55">src/confirmOptions.provider.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -303,7 +263,7 @@
 					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L26">src/confirmOptions.provider.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirmOptions.provider.ts#L25">src/confirmOptions.provider.ts:25</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -332,9 +292,6 @@
 					<li class="current tsd-kind-class">
 						<a href="confirmoptions.html" class="tsd-kind-icon">Confirm<wbr>Options</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="confirmoptions.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="confirmoptions.html#cancelbuttontype" class="tsd-kind-icon">cancel<wbr>Button<wbr>Type</a>
 							</li>
