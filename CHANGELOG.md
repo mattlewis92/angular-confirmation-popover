@@ -9,7 +9,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 **ConfirmOptions:** allow confirm options to be instantiated by angulars DI
     
-BREAKING CHANGE: the constructor of ConfirmOptions now no longer takes an object of values.
+### BREAKING CHANGES
+
+* the constructor of ConfirmOptions now no longer takes an object of values.
 
 This allows you to just pass `ConfirmOptions` directly to the providers of your app or component and angular will instantiate it for you. e.g.
 
