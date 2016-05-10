@@ -101,9 +101,9 @@ describe('bootstrap confirm', () => {
     ]);
 
     let builder: TestComponentBuilder,
-      createPopoverContainer,
-      clickFixture,
-      createPopover;
+      createPopoverContainer: Function,
+      clickFixture: Function,
+      createPopover: Function;
     beforeEach(inject([TestComponentBuilder], (tcb) => {
       builder = tcb;
       createPopoverContainer = (): Promise<ComponentFixture<TestCmp>> => {
@@ -192,19 +192,22 @@ describe('bootstrap confirm', () => {
 
     it('should allow the popover description to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.querySelector('.popover-content > p').innerHTML).toEqual('Are you really <b>sure</b> you want to do this?');
+        expect(popover.location.nativeElement.querySelector('.popover-content > p').innerHTML)
+          .toEqual('Are you really <b>sure</b> you want to do this?');
       });
     }));
 
     it('should allow the confirm button text to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.querySelectorAll('button')[0].innerHTML).toEqual('Yes <i class="glyphicon glyphicon-ok"></i>');
+        expect(popover.location.nativeElement.querySelectorAll('button')[0].innerHTML)
+          .toEqual('Yes <i class="glyphicon glyphicon-ok"></i>');
       });
     }));
 
     it('should allow the cancel button text to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.querySelectorAll('button')[1].innerHTML).toEqual('No <i class="glyphicon glyphicon-remove"></i>');
+        expect(popover.location.nativeElement.querySelectorAll('button')[1].innerHTML)
+          .toEqual('No <i class="glyphicon glyphicon-remove"></i>');
       });
     }));
 
@@ -304,7 +307,7 @@ describe('bootstrap confirm', () => {
         const confirm: Confirm = fixture.componentInstance.confirm;
         clickFixture();
         expect(confirm.popover).toBeFalsy();
-      })
+      });
     }));
 
     it('should open the popover when isOpen is set to true', async(() => {
@@ -312,7 +315,7 @@ describe('bootstrap confirm', () => {
         fixture.componentInstance.isOpen = true;
         fixture.detectChanges();
         expect(fixture.componentInstance.confirm).toBeTruthy();
-      })
+      });
     }));
 
     it('should close the popover when isOpen is set to false', async(() => {
@@ -324,7 +327,7 @@ describe('bootstrap confirm', () => {
         fixture.componentInstance.isOpen = false;
         fixture.detectChanges();
         expect(fixture.componentInstance.confirm.hidePopover).toHaveBeenCalled();
-      })
+      });
     }));
 
     // outputs don't appear to fire in unit tests for some reason
@@ -373,8 +376,8 @@ describe('bootstrap confirm', () => {
     beforeEachProviders(() => [
       provide(Position, {useClass: MockPositionService}),
       provide(ConfirmOptions, {
-        useFactory: () => {
-          const options = new ConfirmOptions();
+        useFactory: (): ConfirmOptions => {
+          const options: ConfirmOptions = new ConfirmOptions();
           options.confirmText = 'Derp';
           return options;
         }
