@@ -6,7 +6,7 @@
   "typings": "./angular2-bootstrap-confirm.d.ts",
   "scripts": {
     "prestart": "typings install",
-    "start": "webpack-dev-server --progress",
+    "start": "concurrently \"webpack-dev-server\" \"npm run test:watch\" \"open http://localhost:8000\"",
     "build:demo": "webpack -p",
     "build:dist": "webpack --config webpack.config.dist.js",
     "build:position": "webpack --config webpack.config.position.js && cp ./node_modules/ng2-bootstrap/components/position.d.ts ./position",
@@ -45,6 +45,7 @@
     "@angular/platform-browser": "2.0.0-rc.1",
     "@angular/platform-browser-dynamic": "2.0.0-rc.1",
     "commitizen": "~2.8.1",
+    "concurrently": "~2.1.0",
     "conventional-changelog": "~1.1.0",
     "conventional-changelog-cli": "~1.2.0",
     "cz-conventional-changelog": "~1.1.6",
