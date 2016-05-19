@@ -251,7 +251,7 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should focus the confirm button', async(() => {
-      return createPopoverContainer().then((fixture) => {
+      createPopoverContainer().then((fixture) => {
         fixture.componentInstance.focusButton = 'confirm';
         fixture.detectChanges();
         clickFixture();
@@ -263,7 +263,7 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should focus the confirm button', async(() => {
-      return createPopoverContainer().then((fixture) => {
+      createPopoverContainer().then((fixture) => {
         fixture.componentInstance.focusButton = 'cancel';
         fixture.detectChanges();
         clickFixture();
@@ -275,7 +275,7 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should hide the confirm button', async(() => {
-      return createPopoverContainer().then((fixture) => {
+      createPopoverContainer().then((fixture) => {
         fixture.componentInstance.hideConfirmButton = true;
         fixture.detectChanges();
         clickFixture();
@@ -288,7 +288,7 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should hide the cancel button', async(() => {
-      return createPopoverContainer().then((fixture) => {
+      createPopoverContainer().then((fixture) => {
         fixture.componentInstance.hideCancelButton = true;
         fixture.detectChanges();
         clickFixture();
@@ -301,7 +301,7 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should disable the popover from opening', async(() => {
-      return createPopoverContainer().then((fixture) => {
+      createPopoverContainer().then((fixture) => {
         fixture.componentInstance.isDisabled = true;
         fixture.detectChanges();
         const confirm: Confirm = fixture.componentInstance.confirm;
@@ -311,7 +311,7 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should open the popover when isOpen is set to true', async(() => {
-      return createPopoverContainer().then((fixture) => {
+      createPopoverContainer().then((fixture) => {
         fixture.componentInstance.isOpen = true;
         fixture.detectChanges();
         expect(fixture.componentInstance.confirm).toBeTruthy();
@@ -319,7 +319,7 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should close the popover when isOpen is set to false', async(() => {
-      return createPopoverContainer().then((fixture) => {
+      createPopoverContainer().then((fixture) => {
         clickFixture();
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture]) => {
@@ -330,30 +330,72 @@ describe('bootstrap confirm', () => {
       });
     }));
 
-    // outputs don't appear to fire in unit tests for some reason
-
-    /*xit('should initialise isOpen to false', () => {});
-
-    xit('should set isOpen to true when the popover is opened', async(() => {}));
-
-    xit('should set isOpen to false when the popover is closed', async(() => {}));
-
-    xit('should call the confirm callback when the confirm button is clicked', async(() => {
-      return createPopoverContainer().then((fixture) => {
+    it('should call the confirm callback when the confirm button is clicked', async(() => {
+      createPopoverContainer().then((fixture) => {
         clickFixture();
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
+        expect(fixture.componentInstance.confirmClicked).toEqual(false);
         popover.location.nativeElement.querySelectorAll('button')[0].click();
-        popover.changeDetectorRef.detectChanges();
-        fixture.detectChanges();
-        expect(fixture.componentInstance.confirmClicked).toEqual(true);
+        // this nasty setTimeout hack is required because the output event emitter is currently async so the zone won't pick it up
+        // see: https://github.com/angular/angular/pull/7421/files
+        // and: https://github.com/angular/angular/issues/8617
+        // when either of those 2 fixes lands the setTimeout can be removed
+        setTimeout(() => { // TODO - remove setTimeout hack
+          expect(fixture.componentInstance.confirmClicked).toEqual(true);
+        });
       });
     }));
 
-    xit('should call the cancel callback when the cancel button is clicked', async(() => {}));
+    it('should call the cancel callback when the cancel button is clicked', async(() => {
+      createPopoverContainer().then((fixture) => {
+        clickFixture();
+        return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
+      }).then(([fixture, popover]) => {
+        popover.changeDetectorRef.detectChanges();
+        expect(fixture.componentInstance.cancelClicked).toEqual(false);
+        popover.location.nativeElement.querySelectorAll('button')[1].click();
+        setTimeout(() => { // TODO - remove setTimeout hack
+          expect(fixture.componentInstance.cancelClicked).toEqual(true);
+        });
+      });
+    }));
 
-    xit('should call the cancel callback when the cancel button is clicked', async(() => {}));*/
+    it('should initialise isOpen to false', async(() => {
+      createPopoverContainer().then((fixture) => {
+        fixture.detectChanges();
+        setTimeout(() => { // TODO - remove setTimeout hack
+          expect(fixture.componentInstance.isOpen).toEqual(false);
+        });
+      });
+    }));
+
+    it('should set isOpen to true when the popover is opened', async(() => {
+      createPopoverContainer().then((fixture) => {
+        clickFixture();
+        setTimeout(() => { // TODO - remove setTimeout hack
+          setTimeout(() => {
+            expect(fixture.componentInstance.isOpen).toEqual(true);
+          });
+        });
+      });
+    }));
+
+    it('should set isOpen to true when the popover is closed', async(() => {
+      createPopoverContainer().then((fixture) => {
+        clickFixture();
+        setTimeout(() => { // TODO - remove setTimeout hack
+          setTimeout(() => {
+            expect(fixture.componentInstance.isOpen).toEqual(true);
+            clickFixture();
+            setTimeout(() => {
+              expect(fixture.componentInstance.isOpen).toEqual(false);
+            });
+          });
+        });
+      });
+    }));
 
   });
 
