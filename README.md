@@ -75,7 +75,7 @@ class MyComponent {
 }
 ```
 
-You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/entry.ts).
+You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/demo.ts).
 
 ### Usage without a module bundler
 ```
