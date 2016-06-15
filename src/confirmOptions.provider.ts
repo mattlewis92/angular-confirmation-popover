@@ -69,6 +69,11 @@ export class ConfirmOptions {
    */
   public hideCancelButton: boolean = false;
 
+  /**
+   * A custom CSS class to be added to the popover
+   */
+  public popoverClass: string = '';
+
 }
 
 /**

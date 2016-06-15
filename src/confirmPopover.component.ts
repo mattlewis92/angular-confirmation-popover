@@ -31,7 +31,7 @@ interface Coords {
   directives: [NgIf],
   template: `
     <div
-      [class]="'popover ' + options.placement + ' popover-' + options.placement"
+      [class]="'popover ' + options.placement + ' popover-' + options.placement + ' ' + options.popoverClass"
       [style.top.px]="popoverPosition?.top"
       [style.left.px]="popoverPosition?.left">
       <div class="popover-arrow arrow"></div>

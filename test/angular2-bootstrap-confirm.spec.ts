@@ -70,6 +70,7 @@ describe('bootstrap confirm', () => {
           (cancel)="cancelClicked = true"
           confirmButtonType="danger"
           cancelButtonType="default"
+          [popoverClass]="popoverClass"
           [focusButton]="focusButton"
           [hideConfirmButton]="hideConfirmButton"
           [hideCancelButton]="hideCancelButton"
@@ -93,6 +94,7 @@ describe('bootstrap confirm', () => {
       hideCancelButton: boolean = false;
       isDisabled: boolean = false;
       isOpen: boolean;
+      popoverClass: string = 'my-class';
     }
 
     beforeEachProviders(() => [
@@ -226,6 +228,12 @@ describe('bootstrap confirm', () => {
     it('should allow the placement to be customised', async(() => {
       createPopover().then(popover => {
         expect(popover.location.nativeElement.children[0]).toHaveCssClass('popover-left');
+      });
+    }));
+
+    it('should a custom class to be set on the popover', async(() => {
+      createPopover().then(popover => {
+        expect(popover.location.nativeElement.children[0]).toHaveCssClass('my-class');
       });
     }));
 

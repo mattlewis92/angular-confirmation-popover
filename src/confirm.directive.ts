@@ -121,6 +121,11 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Output() cancel: EventEmitter<any> = new EventEmitter();
 
   /**
+   * A custom CSS class to be added to the popover
+   */
+  @Input() popoverClass: string;
+
+  /**
    * @private
    */
   popover: Promise<ComponentRef<ConfirmPopover>> = null;
@@ -202,7 +207,8 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         'cancelButtonType',
         'focusButton',
         'hideConfirmButton',
-        'hideCancelButton'
+        'hideCancelButton',
+        'popoverClass'
       ];
       optionalParams.forEach(param => {
         if (this[param]) {
