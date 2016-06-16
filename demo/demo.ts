@@ -3,15 +3,14 @@ import {FORM_DIRECTIVES, CORE_DIRECTIVES} from '@angular/common';
 import {Confirm, ConfirmOptions, Position} from './../angular2-bootstrap-confirm';
 import {PositionService} from 'ng2-bootstrap/components/position';
 
+const options: ConfirmOptions = new ConfirmOptions();
+options.focusButton = 'confirm';
+
 @Component({
   selector: 'demo-app',
   providers: [{
     provide: ConfirmOptions,
-    useFactory: (): ConfirmOptions => {
-      const options: ConfirmOptions = new ConfirmOptions();
-      options.focusButton = 'confirm';
-      return options;
-    }
+    useValue: options
   }, {
     provide: Position,
     useClass: PositionService

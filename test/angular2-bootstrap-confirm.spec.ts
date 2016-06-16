@@ -450,15 +450,14 @@ describe('bootstrap confirm', () => {
       @ViewChild(Confirm) confirm: Confirm;
     }
 
+    const options: ConfirmOptions = new ConfirmOptions();
+    options.confirmText = 'Derp';
+
     beforeEachProviders(() => [{
       provide: Position, useClass: MockPositionService
     }, {
       provide: ConfirmOptions,
-      useFactory: (): ConfirmOptions => {
-        const options: ConfirmOptions = new ConfirmOptions();
-        options.confirmText = 'Derp';
-        return options;
-      }
+      useValue: options
     }]);
 
     let builder: TestComponentBuilder;

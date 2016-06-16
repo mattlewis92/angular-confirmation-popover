@@ -5,15 +5,11 @@ import {Injectable, ElementRef} from '@angular/core';
  *
  * Use it like so:
  * ```
- * providers: [
- *   provide(ConfirmOptions, {
- *     useFactory: (): ConfirmOptions => {
- *       const options = new ConfirmOptions();
- *       options.focusButton = 'confirm'; // focus the confirm button by default. See below for an explanation of all options.
- *       return options;
- *     }
- *   })
- * ]
+ * const options: ConfirmOptions = new ConfirmOptions();
+ * // focus the confirm button by default. See below for an explanation of all options.
+ * options.focusButton = 'confirm';
+ *
+ * providers: [{provide: ConfirmOptions, useValue: options}]
  * ```
  */
 @Injectable()
