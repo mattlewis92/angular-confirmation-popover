@@ -86,6 +86,13 @@ You may also find it useful to view the [demo source](https://github.com/mattlew
 </script>
 ```
 
+### Usage with universal
+
+You will need to add this line in your server bootstrap code to get this module to work with universal:
+```
+(global as any).HTMLElement = () => {};
+```
+
 ## Documentation
 All documentation is auto-generated from the source via typedoc and can be viewed here:
 https://mattlewis92.github.io/angular2-bootstrap-confirm/docs/
