@@ -12,7 +12,6 @@ import {
   OnChanges,
   OnInit,
   ReflectiveInjector,
-  Provider,
   ResolvedReflectiveProvider
 } from '@angular/core';
 import {ConfirmPopover} from './confirmPopover.component';
@@ -216,9 +215,10 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         }
       });
 
-      const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([
-        new Provider(PopoverConfirmOptions, {useValue: options})
-      ]);
+      const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([{
+        provide: PopoverConfirmOptions,
+        useValue: options
+      }]);
 
       this.popover = this.loader
         .loadNextToLocation(ConfirmPopover, this.viewContainerRef, binding)

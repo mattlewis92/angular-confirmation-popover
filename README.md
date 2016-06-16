@@ -29,13 +29,13 @@ Pull requests are welcome.
 
 Install through npm:
 ```
-npm install --save @angular/core@2.0.0-rc.1 angular2-bootstrap-confirm
+npm install --save angular2-bootstrap-confirm
 ```
 
 Then use it in your app on a component:
 
 ```typescript
-import {Component, provide} from '@angular/core';
+import {Component} from '@angular/core';
 import {Confirm, ConfirmOptions, Position} from 'angular2-bootstrap-confirm';
 import {PositionService} from 'angular2-bootstrap-confirm/position/position';
 // Or if you're already using the ng2-bootstrap module
@@ -45,9 +45,8 @@ import {PositionService} from 'angular2-bootstrap-confirm/position/position';
   selector: 'my-component',
   providers: [ // you can pass both of these when bootstrapping the app to configure globally throughout your app
     ConfirmOptions,
-    provide(Position, { // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
-      useClass: PositionService
-    })
+     // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
+    {provide: Position, useClass: PositionService}
   ],
   directives: [
     Confirm
