@@ -6,7 +6,6 @@ import 'zone.js/dist/jasmine-patch';
 import 'zone.js/dist/async-test';
 import 'rxjs';
 import {
-  provide,
   Component,
   ViewChild,
   ComponentRef
@@ -100,7 +99,7 @@ describe('bootstrap confirm', () => {
     }
 
     beforeEachProviders(() => [
-      provide(Position, {useClass: MockPositionService}),
+      {provide: Position, useClass: MockPositionService},
       ConfirmOptions
     ]);
 
@@ -415,7 +414,7 @@ describe('bootstrap confirm', () => {
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
-        expect(document.body.children[document.body.children.length - 1].children[0]).not.toHaveCssClass('popover');
+        expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0]).not.toHaveCssClass('popover');
         expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeTruthy();
       });
     }));
@@ -428,7 +427,7 @@ describe('bootstrap confirm', () => {
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
-        expect(document.body.children[document.body.children.length - 1].children[0]).toHaveCssClass('popover');
+        expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0]).toHaveCssClass('popover');
         expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeFalsy();
       });
     }));
@@ -451,16 +450,16 @@ describe('bootstrap confirm', () => {
       @ViewChild(Confirm) confirm: Confirm;
     }
 
-    beforeEachProviders(() => [
-      provide(Position, {useClass: MockPositionService}),
-      provide(ConfirmOptions, {
-        useFactory: (): ConfirmOptions => {
-          const options: ConfirmOptions = new ConfirmOptions();
-          options.confirmText = 'Derp';
-          return options;
-        }
-      })
-    ]);
+    beforeEachProviders(() => [{
+      provide: Position, useClass: MockPositionService
+    }, {
+      provide: ConfirmOptions,
+      useFactory: (): ConfirmOptions => {
+        const options: ConfirmOptions = new ConfirmOptions();
+        options.confirmText = 'Derp';
+        return options;
+      }
+    }]);
 
     let builder: TestComponentBuilder;
     beforeEach(inject([TestComponentBuilder], (tcb) => {
