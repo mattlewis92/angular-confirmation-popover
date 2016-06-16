@@ -77,7 +77,9 @@
     "zone.js": "~0.6.12"
   },
   "peerDependencies": {
-    "@angular/core": "2.0.0-rc.2"
+    "@angular/core": "2.0.0-rc.2",
+    "@angular/common": "2.0.0-rc.2",
+    "@angular/platform-browser": "2.0.0-rc.2"
   },
   "files": [
     "angular2-bootstrap-confirm.js",

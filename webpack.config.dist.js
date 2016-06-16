@@ -17,6 +17,12 @@ module.exports = {
       commonjs: '@angular/common',
       commonjs2: '@angular/common',
       amd: '@angular/common'
+    },
+    '@angular/platform-browser': {
+      root: ['ng', 'platformBrowser'],
+      commonjs: '@angular/platform-browser',
+      commonjs2: '@angular/platform-browser',
+      amd: '@angular/platform-browser'
     }
   },
   devtool: 'source-map',

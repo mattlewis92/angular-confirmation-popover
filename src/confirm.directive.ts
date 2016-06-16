@@ -13,8 +13,10 @@ import {
   ReflectiveInjector,
   ResolvedReflectiveProvider,
   ComponentResolver,
-  Injector
+  Injector,
+  Inject
 } from '@angular/core';
+import {DOCUMENT} from '@angular/platform-browser';
 import {ConfirmPopover} from './confirmPopover.component';
 import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
 
@@ -126,6 +128,11 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Input() popoverClass: string;
 
   /**
+   * Append the element to the document body rather than the trigger element
+   */
+  @Input() appendToBody: boolean = false;
+
+  /**
    * @private
    */
   popover: Promise<ComponentRef<ConfirmPopover>> = null;
@@ -137,7 +144,8 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     private viewContainerRef: ViewContainerRef,
     private elm: ElementRef,
     private defaultOptions: ConfirmOptions,
-    private componentResolver: ComponentResolver
+    private componentResolver: ComponentResolver,
+    @Inject(DOCUMENT) private document: HTMLDocument
   ) {}
 
   /**
@@ -208,7 +216,8 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         'focusButton',
         'hideConfirmButton',
         'hideCancelButton',
-        'popoverClass'
+        'popoverClass',
+        'appendToBody'
       ];
       optionalParams.forEach(param => {
         if (this[param]) {
@@ -225,6 +234,9 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
         const popover: ComponentRef<ConfirmPopover> =
           this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
+        if (this.appendToBody) {
+          this.document.body.appendChild(popover.location.nativeElement);
+        }
         this.isOpenChange.emit(true);
         return popover;
       });

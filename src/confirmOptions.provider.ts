@@ -74,6 +74,11 @@ export class ConfirmOptions {
    */
   public popoverClass: string = '';
 
+  /**
+   * Whether to append the popover to the document body
+   */
+  public appendToBody: boolean = false;
+
 }
 
 /**

@@ -53,7 +53,8 @@ import {PositionService} from 'ng2-bootstrap/components/position';
             (cancel)="cancelClicked = true"
             confirmButtonType="danger"
             cancelButtonType="default"
-            (click)="confirmClicked = false; cancelClicked = false">
+            (click)="confirmClicked = false; cancelClicked = false"
+            [appendToBody]="true">
             Show on {{ placement }}
           </button>
         </span>

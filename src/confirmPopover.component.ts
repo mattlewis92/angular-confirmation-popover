@@ -99,7 +99,7 @@ export class ConfirmPopover implements AfterViewInit {
       this.options.hostElement.nativeElement,
       this.elm.nativeElement.children[0],
       this.options.placement,
-      false
+      this.options.appendToBody
     );
   }
 

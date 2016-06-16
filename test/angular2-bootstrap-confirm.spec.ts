@@ -75,7 +75,8 @@ describe('bootstrap confirm', () => {
           [hideConfirmButton]="hideConfirmButton"
           [hideCancelButton]="hideCancelButton"
           [isDisabled]="isDisabled"
-          [(isOpen)]="isOpen">
+          [(isOpen)]="isOpen"
+          [appendToBody]="appendToBody">
           Show popover
         </button>
       `
@@ -95,6 +96,7 @@ describe('bootstrap confirm', () => {
       isDisabled: boolean = false;
       isOpen: boolean;
       popoverClass: string = 'my-class';
+      appendToBody: boolean = false;
     }
 
     beforeEachProviders(() => [
@@ -402,6 +404,32 @@ describe('bootstrap confirm', () => {
             });
           });
         });
+      });
+    }));
+
+    it('should not append the popover to the document body', async(() => {
+      createPopoverContainer().then((fixture) => {
+        fixture.componentRef.instance.appendToBody = false;
+        fixture.detectChanges();
+        clickFixture();
+        return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
+      }).then(([fixture, popover]) => {
+        popover.changeDetectorRef.detectChanges();
+        expect(document.body.children[document.body.children.length - 1].children[0]).not.toHaveCssClass('popover');
+        expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeTruthy();
+      });
+    }));
+
+    it('should append the popover to the document body', async(() => {
+      createPopoverContainer().then((fixture) => {
+        fixture.componentRef.instance.appendToBody = true;
+        fixture.detectChanges();
+        clickFixture();
+        return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
+      }).then(([fixture, popover]) => {
+        popover.changeDetectorRef.detectChanges();
+        expect(document.body.children[document.body.children.length - 1].children[0]).toHaveCssClass('popover');
+        expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeFalsy();
       });
     }));
 
