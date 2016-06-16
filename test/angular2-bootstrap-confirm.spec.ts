@@ -347,13 +347,7 @@ describe('bootstrap confirm', () => {
         popover.changeDetectorRef.detectChanges();
         expect(fixture.componentInstance.confirmClicked).toEqual(false);
         popover.location.nativeElement.querySelectorAll('button')[0].click();
-        // this nasty setTimeout hack is required because the output event emitter is currently async so the zone won't pick it up
-        // see: https://github.com/angular/angular/pull/7421/files
-        // and: https://github.com/angular/angular/issues/8617
-        // when either of those 2 fixes lands the setTimeout can be removed
-        setTimeout(() => { // TODO - remove setTimeout hack
-          expect(fixture.componentInstance.confirmClicked).toEqual(true);
-        });
+        expect(fixture.componentInstance.confirmClicked).toEqual(true);
       });
     }));
 
@@ -365,16 +359,14 @@ describe('bootstrap confirm', () => {
         popover.changeDetectorRef.detectChanges();
         expect(fixture.componentInstance.cancelClicked).toEqual(false);
         popover.location.nativeElement.querySelectorAll('button')[1].click();
-        setTimeout(() => { // TODO - remove setTimeout hack
-          expect(fixture.componentInstance.cancelClicked).toEqual(true);
-        });
+        expect(fixture.componentInstance.cancelClicked).toEqual(true);
       });
     }));
 
     it('should initialise isOpen to false', async(() => {
       createPopoverContainer().then((fixture) => {
         fixture.detectChanges();
-        setTimeout(() => { // TODO - remove setTimeout hack
+        setTimeout(() => { // let isOpenChange be called with false
           expect(fixture.componentInstance.isOpen).toEqual(false);
         });
       });
@@ -382,26 +374,20 @@ describe('bootstrap confirm', () => {
 
     it('should set isOpen to true when the popover is opened', async(() => {
       createPopoverContainer().then((fixture) => {
-        clickFixture();
-        setTimeout(() => { // TODO - remove setTimeout hack
-          setTimeout(() => {
-            expect(fixture.componentInstance.isOpen).toEqual(true);
-          });
+        setTimeout(() => { // let isOpenChange be called with false
+          clickFixture();
+          expect(fixture.componentInstance.isOpen).toEqual(true);
         });
       });
     }));
 
-    it('should set isOpen to true when the popover is closed', async(() => {
+    it('should set isOpen to false when the popover is closed', async(() => {
       createPopoverContainer().then((fixture) => {
-        clickFixture();
-        setTimeout(() => { // TODO - remove setTimeout hack
-          setTimeout(() => {
-            expect(fixture.componentInstance.isOpen).toEqual(true);
-            clickFixture();
-            setTimeout(() => {
-              expect(fixture.componentInstance.isOpen).toEqual(false);
-            });
-          });
+        setTimeout(() => { // let isOpenChange be called with false
+          clickFixture();
+          expect(fixture.componentInstance.isOpen).toEqual(true);
+          clickFixture();
+          expect(fixture.componentInstance.isOpen).toEqual(false);
         });
       });
     }));
