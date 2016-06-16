@@ -5,14 +5,15 @@ import {
   EventEmitter,
   HostListener,
   ViewContainerRef,
-  DynamicComponentLoader,
   ComponentRef,
   OnDestroy,
   ElementRef,
   OnChanges,
   OnInit,
   ReflectiveInjector,
-  ResolvedReflectiveProvider
+  ResolvedReflectiveProvider,
+  ComponentResolver,
+  Injector
 } from '@angular/core';
 import {ConfirmPopover} from './confirmPopover.component';
 import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
@@ -134,9 +135,9 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
    */
   constructor(
     private viewContainerRef: ViewContainerRef,
-    private loader: DynamicComponentLoader,
     private elm: ElementRef,
-    private defaultOptions: ConfirmOptions
+    private defaultOptions: ConfirmOptions,
+    private componentResolver: ComponentResolver
   ) {}
 
   /**
@@ -215,17 +216,19 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         }
       });
 
-      const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([{
-        provide: PopoverConfirmOptions,
-        useValue: options
-      }]);
+      this.popover = this.componentResolver.resolveComponent(ConfirmPopover).then(componentFactory => {
+        const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([{
+          provide: PopoverConfirmOptions,
+          useValue: options
+        }]);
+        const contextInjector: Injector = this.viewContainerRef.parentInjector;
+        const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
+        const popover: ComponentRef<ConfirmPopover> =
+          this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
+        this.isOpenChange.emit(true);
+        return popover;
+      });
 
-      this.popover = this.loader
-        .loadNextToLocation(ConfirmPopover, this.viewContainerRef, binding)
-        .then((popover: ComponentRef<ConfirmPopover>) => {
-          this.isOpenChange.emit(true);
-          return popover;
-        });
     }
   }
 
