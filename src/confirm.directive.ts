@@ -108,17 +108,17 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   /**
    * Will emit when the popover is opened or closed
    */
-  @Output() isOpenChange: EventEmitter<any> = new EventEmitter();
+  @Output() isOpenChange: EventEmitter<any> = new EventEmitter(true);
 
   /**
    * An expression that is called when the confirm button is clicked.
    */
-  @Output() confirm: EventEmitter<any> = new EventEmitter();
+  @Output() confirm: EventEmitter<any> = new EventEmitter(true);
 
   /**
    * An expression that is called when the cancel button is clicked.
    */
-  @Output() cancel: EventEmitter<any> = new EventEmitter();
+  @Output() cancel: EventEmitter<any> = new EventEmitter(true);
 
   /**
    * A custom CSS class to be added to the popover
