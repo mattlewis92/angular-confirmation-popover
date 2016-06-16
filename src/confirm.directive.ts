@@ -243,9 +243,6 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @HostListener('document:touchend', ['$event.target'])
   private onDocumentClick(target: HTMLElement): void {
 
-    // TODO - replace with: `this.renderer.invokeElementMethod(this.elm.nativeElement, 'contains', [target])`
-    // Pending on https://github.com/angular/angular/issues/8386
-
     if (this.popover && !this.elm.nativeElement.contains(target)) {
       this.popover.then((popover: ComponentRef<ConfirmPopover>) => {
         if (!popover.location.nativeElement.contains(target)) {
