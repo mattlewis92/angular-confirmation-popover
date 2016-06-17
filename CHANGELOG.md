@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0"></a>
+# [0.5.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.4.1...v0.5.0) (2016-06-17)
+
+
+### Features
+
+* **appendToBody:** add support for appendToBody ([6cfa171](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/6cfa171)), closes [#4](https://github.com/mattlewis92/angular2-bootstrap-confirm/issues/4)
+* **popoverClass:** allow a custom CSS class to be set on the popover ([e5baed9](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/e5baed9))
+* **provide:** remove deprecated provide usage ([36f315f](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/36f315f))
+
+
+### BREAKING CHANGES
+
+* provide: angular RC2 or greater is now required to use this module
+
+
+
 <a name="0.4.1"></a>
 ## [0.4.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.4.0...v0.4.1) (2016-05-19)
 
