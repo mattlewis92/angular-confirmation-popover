@@ -72,16 +72,16 @@
 					<div class="lead">
 						<p>All properties can be set on the directive as attributes like so (use the <code>ConfirmOptions</code> provider to configure them globally):</p>
 						<pre><code>&lt;button
- <span class="hljs-keyword">class</span>=<span class="hljs-string">"btn btn-default"</span>
- mwl-<span class="hljs-keyword">confirm</span>
+ <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"btn btn-default"</span>
+ mwl-confirm
  [title]=<span class="hljs-string">"title"</span>
  [message]=<span class="hljs-string">"message"</span>
  placement=<span class="hljs-string">"left"</span>
- (<span class="hljs-keyword">confirm</span>)=<span class="hljs-string">"confirmClicked = true"</span>
+ (confirm)=<span class="hljs-string">"confirmClicked = true"</span>
  (cancel)=<span class="hljs-string">"cancelClicked = true"</span>
  [(isOpen)]=<span class="hljs-string">"isOpen"</span>&gt;
-  Show <span class="hljs-keyword">confirm</span> popover!
-&lt;/button&gt;
+  Show confirm popover!
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
 </code></pre>
 					</div>
 				</div>
@@ -115,13 +115,16 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#appendtobody" class="tsd-kind-icon">append<wbr>ToBody</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#cancel" class="tsd-kind-icon">cancel</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#cancelbuttontype" class="tsd-kind-icon">cancel<wbr>Button<wbr>Type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#canceltext" class="tsd-kind-icon">cancel<wbr>Text</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="confirm.html#componentresolver" class="tsd-kind-icon">component<wbr>Resolver</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#confirm-1" class="tsd-kind-icon">confirm</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#confirmbuttontype" class="tsd-kind-icon">confirm<wbr>Button<wbr>Type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#confirmtext" class="tsd-kind-icon">confirm<wbr>Text</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="confirm.html#defaultoptions" class="tsd-kind-icon">default<wbr>Options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="confirm.html#document" class="tsd-kind-icon">document</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="confirm.html#elm" class="tsd-kind-icon">elm</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#focusbutton" class="tsd-kind-icon">focus<wbr>Button</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#hidecancelbutton" class="tsd-kind-icon">hide<wbr>Cancel<wbr>Button</a></li>
@@ -129,10 +132,12 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#isdisabled" class="tsd-kind-icon">is<wbr>Disabled</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#isopen" class="tsd-kind-icon">is<wbr>Open</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#isopenchange" class="tsd-kind-icon">is<wbr>Open<wbr>Change</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="confirm.html#loader" class="tsd-kind-icon">loader</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#message" class="tsd-kind-icon">message</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#placement" class="tsd-kind-icon">placement</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="confirm.html#popover" class="tsd-kind-icon">popover</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#popoverclass" class="tsd-kind-icon">popover<wbr>Class</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="confirm.html#position" class="tsd-kind-icon">position</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="confirm.html#renderer" class="tsd-kind-icon">renderer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="confirm.html#title" class="tsd-kind-icon">title</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="confirm.html#viewcontainerref" class="tsd-kind-icon">view<wbr>Container<wbr>Ref</a></li>
 							</ul>
@@ -147,6 +152,8 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="confirm.html#oncancel" class="tsd-kind-icon">on<wbr>Cancel</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="confirm.html#onconfirm" class="tsd-kind-icon">on<wbr>Confirm</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="confirm.html#ondocumentclick" class="tsd-kind-icon">on<wbr>Document<wbr>Click</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="confirm.html#onresize" class="tsd-kind-icon">on<wbr>Resize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="confirm.html#positionpopover" class="tsd-kind-icon">position<wbr>Popover</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="confirm.html#showpopover" class="tsd-kind-icon">show<wbr>Popover</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="confirm.html#togglepopover" class="tsd-kind-icon">toggle<wbr>Popover</a></li>
 							</ul>
@@ -160,13 +167,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Confirm<span class="tsd-signature-symbol">(</span>viewContainerRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ViewContainerRef</span>, loader<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">DynamicComponentLoader</span>, elm<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ElementRef</span>, defaultOptions<span class="tsd-signature-symbol">: </span><a href="confirmoptions.html" class="tsd-signature-type">ConfirmOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="confirm.html" class="tsd-signature-type">Confirm</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Confirm<span class="tsd-signature-symbol">(</span>viewContainerRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ViewContainerRef</span>, elm<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ElementRef</span>, defaultOptions<span class="tsd-signature-symbol">: </span><a href="confirmoptions.html" class="tsd-signature-type">ConfirmOptions</a>, componentResolver<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ComponentResolver</span>, position<span class="tsd-signature-symbol">: </span><a href="position.html" class="tsd-signature-type">Position</a>, renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Renderer</span>, document<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLDocument</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="confirm.html" class="tsd-signature-type">Confirm</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L126">src/confirm.directive.ts:126</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L148">src/confirm.directive.ts:148</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -177,13 +184,22 @@
 									<h5>viewContainerRef: <span class="tsd-signature-type">ViewContainerRef</span></h5>
 								</li>
 								<li>
-									<h5>loader: <span class="tsd-signature-type">DynamicComponentLoader</span></h5>
-								</li>
-								<li>
 									<h5>elm: <span class="tsd-signature-type">ElementRef</span></h5>
 								</li>
 								<li>
 									<h5>defaultOptions: <a href="confirmoptions.html" class="tsd-signature-type">ConfirmOptions</a></h5>
+								</li>
+								<li>
+									<h5>componentResolver: <span class="tsd-signature-type">ComponentResolver</span></h5>
+								</li>
+								<li>
+									<h5>position: <a href="position.html" class="tsd-signature-type">Position</a></h5>
+								</li>
+								<li>
+									<h5>renderer: <span class="tsd-signature-type">Renderer</span></h5>
+								</li>
+								<li>
+									<h5>document: <span class="tsd-signature-type">HTMLDocument</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="confirm.html" class="tsd-signature-type">Confirm</a></h4>
@@ -194,12 +210,27 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="cancel" class="tsd-anchor"></a>
-					<h3>cancel</h3>
-					<div class="tsd-signature tsd-kind-icon">cancel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="appendtobody" class="tsd-anchor"></a>
+					<h3>append<wbr>ToBody</h3>
+					<div class="tsd-signature tsd-kind-icon">append<wbr>ToBody<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L121">src/confirm.directive.ts:121</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L143">src/confirm.directive.ts:143</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Append the element to the document body rather than the trigger element</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="cancel" class="tsd-anchor"></a>
+					<h3>cancel</h3>
+					<div class="tsd-signature tsd-kind-icon">cancel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L133">src/confirm.directive.ts:133</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -214,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">cancel<wbr>Button<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L79">src/confirm.directive.ts:79</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L91">src/confirm.directive.ts:91</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -230,7 +261,7 @@
 					<div class="tsd-signature tsd-kind-icon">cancel<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L62">src/confirm.directive.ts:62</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L74">src/confirm.directive.ts:74</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -239,13 +270,23 @@
 						</div>
 					</div>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="componentresolver" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> component<wbr>Resolver</h3>
+					<div class="tsd-signature tsd-kind-icon">component<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ComponentResolver</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L157">src/confirm.directive.ts:157</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="confirm-1" class="tsd-anchor"></a>
 					<h3>confirm</h3>
-					<div class="tsd-signature tsd-kind-icon">confirm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">confirm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L116">src/confirm.directive.ts:116</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L128">src/confirm.directive.ts:128</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -260,7 +301,7 @@
 					<div class="tsd-signature tsd-kind-icon">confirm<wbr>Button<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L73">src/confirm.directive.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L85">src/confirm.directive.ts:85</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -276,7 +317,7 @@
 					<div class="tsd-signature tsd-kind-icon">confirm<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L57">src/confirm.directive.ts:57</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L69">src/confirm.directive.ts:69</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -291,7 +332,17 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="confirmoptions.html" class="tsd-signature-type">ConfirmOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L135">src/confirm.directive.ts:135</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L156">src/confirm.directive.ts:156</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="document" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> document</h3>
+					<div class="tsd-signature tsd-kind-icon">document<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">HTMLDocument</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L160">src/confirm.directive.ts:160</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -301,7 +352,7 @@
 					<div class="tsd-signature tsd-kind-icon">elm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ElementRef</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L134">src/confirm.directive.ts:134</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L155">src/confirm.directive.ts:155</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -311,7 +362,7 @@
 					<div class="tsd-signature tsd-kind-icon">focus<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L85">src/confirm.directive.ts:85</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L97">src/confirm.directive.ts:97</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -324,10 +375,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="hidecancelbutton" class="tsd-anchor"></a>
 					<h3>hide<wbr>Cancel<wbr>Button</h3>
-					<div class="tsd-signature tsd-kind-icon">hide<wbr>Cancel<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<div class="tsd-signature tsd-kind-icon">hide<wbr>Cancel<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L95">src/confirm.directive.ts:95</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L107">src/confirm.directive.ts:107</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -339,10 +390,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="hideconfirmbutton" class="tsd-anchor"></a>
 					<h3>hide<wbr>Confirm<wbr>Button</h3>
-					<div class="tsd-signature tsd-kind-icon">hide<wbr>Confirm<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<div class="tsd-signature tsd-kind-icon">hide<wbr>Confirm<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L90">src/confirm.directive.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L102">src/confirm.directive.ts:102</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -354,10 +405,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="isdisabled" class="tsd-anchor"></a>
 					<h3>is<wbr>Disabled</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Disabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Disabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L100">src/confirm.directive.ts:100</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L112">src/confirm.directive.ts:112</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -369,10 +420,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="isopen" class="tsd-anchor"></a>
 					<h3>is<wbr>Open</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Open<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Open<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L106">src/confirm.directive.ts:106</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L118">src/confirm.directive.ts:118</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -385,10 +436,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="isopenchange" class="tsd-anchor"></a>
 					<h3>is<wbr>Open<wbr>Change</h3>
-					<div class="tsd-signature tsd-kind-icon">is<wbr>Open<wbr>Change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">is<wbr>Open<wbr>Change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L111">src/confirm.directive.ts:111</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L123">src/confirm.directive.ts:123</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -397,23 +448,13 @@
 						</div>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="loader" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> loader</h3>
-					<div class="tsd-signature tsd-kind-icon">loader<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DynamicComponentLoader</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L133">src/confirm.directive.ts:133</a></li>
-						</ul>
-					</aside>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="message" class="tsd-anchor"></a>
 					<h3>message</h3>
 					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L52">src/confirm.directive.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L64">src/confirm.directive.ts:64</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -428,7 +469,7 @@
 					<div class="tsd-signature tsd-kind-icon">placement<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L67">src/confirm.directive.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L79">src/confirm.directive.ts:79</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -440,14 +481,49 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="popover" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> popover</h3>
-					<div class="tsd-signature tsd-kind-icon">popover<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span></div>
+					<div class="tsd-signature tsd-kind-icon">popover<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L126">src/confirm.directive.ts:126</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L148">src/confirm.directive.ts:148</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="popoverclass" class="tsd-anchor"></a>
+					<h3>popover<wbr>Class</h3>
+					<div class="tsd-signature tsd-kind-icon">popover<wbr>Class<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L138">src/confirm.directive.ts:138</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A custom CSS class to be added to the popover</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="position" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> position</h3>
+					<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <a href="position.html" class="tsd-signature-type">Position</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L158">src/confirm.directive.ts:158</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="renderer" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> renderer</h3>
+					<div class="tsd-signature tsd-kind-icon">renderer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Renderer</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L159">src/confirm.directive.ts:159</a></li>
+						</ul>
+					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="title" class="tsd-anchor"></a>
@@ -455,7 +531,7 @@
 					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L47">src/confirm.directive.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L59">src/confirm.directive.ts:59</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -472,7 +548,7 @@
 					<div class="tsd-signature tsd-kind-icon">view<wbr>Container<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ViewContainerRef</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L132">src/confirm.directive.ts:132</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L154">src/confirm.directive.ts:154</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -489,7 +565,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L226">src/confirm.directive.ts:226</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L284">src/confirm.directive.ts:284</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -506,7 +582,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L148">src/confirm.directive.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L176">src/confirm.directive.ts:176</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -531,7 +607,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L161">src/confirm.directive.ts:161</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L189">src/confirm.directive.ts:189</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -550,7 +626,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L141">src/confirm.directive.ts:141</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L166">src/confirm.directive.ts:166</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -569,7 +645,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L176">src/confirm.directive.ts:176</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L204">src/confirm.directive.ts:204</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -588,7 +664,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L168">src/confirm.directive.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L196">src/confirm.directive.ts:196</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -607,7 +683,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L238">src/confirm.directive.ts:238</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L296">src/confirm.directive.ts:296</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -616,6 +692,40 @@
 									<h5>target: <span class="tsd-signature-type">HTMLElement</span></h5>
 								</li>
 							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="onresize" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> on<wbr>Resize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">on<wbr>Resize<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L317">src/confirm.directive.ts:317</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="positionpopover" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> position<wbr>Popover</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">position<wbr>Popover<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L268">src/confirm.directive.ts:268</a></li>
+								</ul>
+							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
@@ -630,7 +740,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L181">src/confirm.directive.ts:181</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L209">src/confirm.directive.ts:209</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -647,7 +757,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/gh-pages/src/confirm.directive.ts#L253">src/confirm.directive.ts:253</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/68969d7/src/confirm.directive.ts#L308">src/confirm.directive.ts:308</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -675,6 +785,9 @@
 								<a href="confirm.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="confirm.html#appendtobody" class="tsd-kind-icon">append<wbr>ToBody</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="confirm.html#cancel" class="tsd-kind-icon">cancel</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -682,6 +795,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="confirm.html#canceltext" class="tsd-kind-icon">cancel<wbr>Text</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="confirm.html#componentresolver" class="tsd-kind-icon">component<wbr>Resolver</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="confirm.html#confirm-1" class="tsd-kind-icon">confirm</a>
@@ -694,6 +810,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="confirm.html#defaultoptions" class="tsd-kind-icon">default<wbr>Options</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="confirm.html#document" class="tsd-kind-icon">document</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="confirm.html#elm" class="tsd-kind-icon">elm</a>
@@ -716,9 +835,6 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="confirm.html#isopenchange" class="tsd-kind-icon">is<wbr>Open<wbr>Change</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="confirm.html#loader" class="tsd-kind-icon">loader</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="confirm.html#message" class="tsd-kind-icon">message</a>
 							</li>
@@ -727,6 +843,15 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="confirm.html#popover" class="tsd-kind-icon">popover</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="confirm.html#popoverclass" class="tsd-kind-icon">popover<wbr>Class</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="confirm.html#position" class="tsd-kind-icon">position</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="confirm.html#renderer" class="tsd-kind-icon">renderer</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="confirm.html#title" class="tsd-kind-icon">title</a>
@@ -754,6 +879,12 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="confirm.html#ondocumentclick" class="tsd-kind-icon">on<wbr>Document<wbr>Click</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="confirm.html#onresize" class="tsd-kind-icon">on<wbr>Resize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="confirm.html#positionpopover" class="tsd-kind-icon">position<wbr>Popover</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="confirm.html#showpopover" class="tsd-kind-icon">show<wbr>Popover</a>

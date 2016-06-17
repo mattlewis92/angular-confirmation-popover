@@ -65,7 +65,7 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="angular-bootstrap-confirm">Angular bootstrap confirm</h1>
+				<h1 id="angular2-bootstrap-confirm">Angular2 bootstrap confirm</h1>
 				<p><a href="https://travis-ci.org/mattlewis92/angular2-bootstrap-confirm"><img src="https://travis-ci.org/mattlewis92/angular2-bootstrap-confirm.svg?branch=master" alt="Build Status"></a>
 					<a href="http://badge.fury.io/js/angular2-bootstrap-confirm"><img src="https://badge.fury.io/js/angular2-bootstrap-confirm.svg" alt="npm version"></a>
 					<a href="https://david-dm.org/mattlewis92/angular2-bootstrap-confirm#info=devDependencies"><img src="https://david-dm.org/mattlewis92/angular2-bootstrap-confirm/dev-status.svg" alt="devDependency Status"></a>
@@ -88,26 +88,25 @@
 				<p><a href="https://github.com/mattlewis92/angular-bootstrap-confirm">AngularJS 1.x version</a></p>
 				<h2 id="installation">Installation</h2>
 				<p>Install through npm:</p>
-				<pre><code>npm install --save @angular/core@<span class="hljs-number">2.0</span><span class="hljs-number">.0</span>-rc<span class="hljs-number">.1</span> angular2-bootstrap-confirm
+				<pre><code>npm install --<span class="hljs-keyword">save</span> angular2-<span class="hljs-keyword">bootstrap</span>-<span class="hljs-keyword">confirm</span>
 </code></pre><p>Then use it in your app on a component:</p>
-				<pre><code class="lang-typescript">import {Component, provide} from '@angular/core';
-import {Confirm, ConfirmOptions, Position} from 'angular2-bootstrap-confirm';
-import {PositionService} from 'angular2-bootstrap-confirm/position/position';
-// Or if you're already using the ng2-bootstrap module
-// import {PositionService} from 'ng2-bootstrap/components/position';
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Component} from <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> {Confirm, ConfirmOptions, Position} from <span class="hljs-string">'angular2-bootstrap-confirm'</span>;
+<span class="hljs-keyword">import</span> {PositionService} from <span class="hljs-string">'angular2-bootstrap-confirm/position/position'</span>;
+<span class="hljs-comment">// Or if you're already using the ng2-bootstrap module</span>
+<span class="hljs-comment">// import {PositionService} from 'ng2-bootstrap/components/position';</span>
 
 @Component({
-  selector: 'my-component',
-  providers: [ // you can pass both of these when bootstrapping the app to configure globally throughout your app
+  selector: <span class="hljs-string">'my-component'</span>,
+  providers: [ <span class="hljs-comment">// you can pass both of these when bootstrapping the app to configure globally throughout your app</span>
     ConfirmOptions,
-    provide(Position, { // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
-      useClass: PositionService
-    })
+     <span class="hljs-comment">// this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module</span>
+    {provide: Position, useClass: PositionService}
   ],
   directives: [
     Confirm
   ],
-  template: `
+  template: <span class="hljs-string">`
     &lt;button
       class="btn btn-default"
       mwl-confirm
@@ -119,24 +118,27 @@ import {PositionService} from 'angular2-bootstrap-confirm/position/position';
       [(isOpen)]="isOpen"&gt;
       Click me!
     &lt;/button&gt;
-  `
+  `</span>
 })
-class MyComponent {
-  public title: string = 'Popover title';
-  public message: string = 'Popover description';
-  public confirmClicked: boolean = false;
-  public cancelClicked: boolean = false;
-  public isOpen: boolean = false;
+<span class="hljs-keyword">class</span> MyComponent {
+  <span class="hljs-keyword">public</span> title: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Popover title'</span>;
+  <span class="hljs-keyword">public</span> message: <span class="hljs-built_in">string</span> = <span class="hljs-string">'Popover description'</span>;
+  <span class="hljs-keyword">public</span> confirmClicked: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+  <span class="hljs-keyword">public</span> cancelClicked: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
+  <span class="hljs-keyword">public</span> isOpen: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
 }
 </code></pre>
-				<p>You may also find it useful to view the <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/entry.ts">demo source</a>.</p>
+				<p>You may also find it useful to view the <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/demo.ts">demo source</a>.</p>
 				<h3 id="usage-without-a-module-bundler">Usage without a module bundler</h3>
-				<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"node_modules/angular2-bootstrap-confirm/position/position.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"node_modules/angular2-bootstrap-confirm/angular2-bootstrap-confirm.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular2-bootstrap-confirm/position/position.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular2-bootstrap-confirm/angular2-bootstrap-confirm.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
     <span class="hljs-comment">// position service available as ng2BootstrapPosition.PositionService</span>
     <span class="hljs-comment">// confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.Position</span>
-</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre><h3 id="usage-with-universal">Usage with universal</h3>
+				<p>You will need to add this line in your server bootstrap code to get this module to work with universal:</p>
+				<pre><code>(<span class="hljs-built_in">global</span> as any).HTMLElement = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {};
 </code></pre><h2 id="documentation">Documentation</h2>
 				<p>All documentation is auto-generated from the source via typedoc and can be viewed here:
 				<a href="https://mattlewis92.github.io/angular2-bootstrap-confirm/docs/">https://mattlewis92.github.io/angular2-bootstrap-confirm/docs/</a></p>
