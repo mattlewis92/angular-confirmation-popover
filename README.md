@@ -1,4 +1,4 @@
-# Angular bootstrap confirm
+# Angular2 bootstrap confirm
 [![Build Status](https://travis-ci.org/mattlewis92/angular2-bootstrap-confirm.svg?branch=master)](https://travis-ci.org/mattlewis92/angular2-bootstrap-confirm)
 [![npm version](https://badge.fury.io/js/angular2-bootstrap-confirm.svg)](http://badge.fury.io/js/angular2-bootstrap-confirm)
 [![devDependency Status](https://david-dm.org/mattlewis92/angular2-bootstrap-confirm/dev-status.svg)](https://david-dm.org/mattlewis92/angular2-bootstrap-confirm#info=devDependencies)
@@ -29,13 +29,13 @@ Pull requests are welcome.
 
 Install through npm:
 ```
-npm install --save @angular/core@2.0.0-rc.1 angular2-bootstrap-confirm
+npm install --save angular2-bootstrap-confirm
 ```
 
 Then use it in your app on a component:
 
 ```typescript
-import {Component, provide} from '@angular/core';
+import {Component} from '@angular/core';
 import {Confirm, ConfirmOptions, Position} from 'angular2-bootstrap-confirm';
 import {PositionService} from 'angular2-bootstrap-confirm/position/position';
 // Or if you're already using the ng2-bootstrap module
@@ -45,9 +45,8 @@ import {PositionService} from 'angular2-bootstrap-confirm/position/position';
   selector: 'my-component',
   providers: [ // you can pass both of these when bootstrapping the app to configure globally throughout your app
     ConfirmOptions,
-    provide(Position, { // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
-      useClass: PositionService
-    })
+     // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
+    {provide: Position, useClass: PositionService}
   ],
   directives: [
     Confirm
@@ -75,7 +74,7 @@ class MyComponent {
 }
 ```
 
-You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/entry.ts).
+You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/demo.ts).
 
 ### Usage without a module bundler
 ```
@@ -85,6 +84,13 @@ You may also find it useful to view the [demo source](https://github.com/mattlew
     // position service available as ng2BootstrapPosition.PositionService
     // confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.Position
 </script>
+```
+
+### Usage with universal
+
+You will need to add this line in your server bootstrap code to get this module to work with universal:
+```
+(global as any).HTMLElement = () => {};
 ```
 
 ## Documentation

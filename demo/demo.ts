@@ -1,20 +1,20 @@
-import {Component, provide} from '@angular/core';
+import {Component} from '@angular/core';
 import {FORM_DIRECTIVES, CORE_DIRECTIVES} from '@angular/common';
 import {Confirm, ConfirmOptions, Position} from './../angular2-bootstrap-confirm';
 import {PositionService} from 'ng2-bootstrap/components/position';
 
+const options: ConfirmOptions = new ConfirmOptions();
+options.focusButton = 'confirm';
+
 @Component({
   selector: 'demo-app',
-  providers: [
-    provide(ConfirmOptions, {
-      useFactory: (): ConfirmOptions => {
-        const options: ConfirmOptions = new ConfirmOptions();
-        options.focusButton = 'confirm';
-        return options;
-      }
-    }),
-    provide(Position, {useClass: PositionService})
-  ],
+  providers: [{
+    provide: ConfirmOptions,
+    useValue: options
+  }, {
+    provide: Position,
+    useClass: PositionService
+  }],
   directives: [
     ...FORM_DIRECTIVES,
     ...CORE_DIRECTIVES,
@@ -52,7 +52,8 @@ import {PositionService} from 'ng2-bootstrap/components/position';
             (cancel)="cancelClicked = true"
             confirmButtonType="danger"
             cancelButtonType="default"
-            (click)="confirmClicked = false; cancelClicked = false">
+            (click)="confirmClicked = false; cancelClicked = false"
+            [appendToBody]="true">
             Show on {{ placement }}
           </button>
         </span>

@@ -5,18 +5,30 @@ import {
   EventEmitter,
   HostListener,
   ViewContainerRef,
-  DynamicComponentLoader,
   ComponentRef,
   OnDestroy,
   ElementRef,
   OnChanges,
   OnInit,
   ReflectiveInjector,
-  Provider,
-  ResolvedReflectiveProvider
+  ResolvedReflectiveProvider,
+  ComponentResolver,
+  Injector,
+  Inject,
+  Renderer
 } from '@angular/core';
+import {DOCUMENT} from '@angular/platform-browser';
 import {ConfirmPopover} from './confirmPopover.component';
 import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
+import {Position} from './position.provider';
+
+/**
+ * @private
+ */
+interface Coords {
+  top: number;
+  left: number;
+}
 
 /**
  * All properties can be set on the directive as attributes like so (use the `ConfirmOptions` provider to configure them globally):
@@ -121,6 +133,16 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Output() cancel: EventEmitter<any> = new EventEmitter();
 
   /**
+   * A custom CSS class to be added to the popover
+   */
+  @Input() popoverClass: string;
+
+  /**
+   * Append the element to the document body rather than the trigger element
+   */
+  @Input() appendToBody: boolean = false;
+
+  /**
    * @private
    */
   popover: Promise<ComponentRef<ConfirmPopover>> = null;
@@ -130,16 +152,22 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
    */
   constructor(
     private viewContainerRef: ViewContainerRef,
-    private loader: DynamicComponentLoader,
     private elm: ElementRef,
-    private defaultOptions: ConfirmOptions
+    private defaultOptions: ConfirmOptions,
+    private componentResolver: ComponentResolver,
+    private position: Position,
+    private renderer: Renderer,
+    @Inject(DOCUMENT) private document: HTMLDocument
   ) {}
 
   /**
    * @private
    */
   ngOnInit(): void {
-    this.isOpenChange.emit(false);
+    // needed because of https://github.com/angular/angular/issues/6005
+    setTimeout(() => {
+      this.isOpenChange.emit(false);
+    });
   }
 
   /**
@@ -190,8 +218,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         },
         onCancel: (): void => {
           this.onCancel();
-        },
-        hostElement: this.elm
+        }
       });
 
       const optionalParams: string[] = [
@@ -202,7 +229,9 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         'cancelButtonType',
         'focusButton',
         'hideConfirmButton',
-        'hideCancelButton'
+        'hideCancelButton',
+        'popoverClass',
+        'appendToBody'
       ];
       optionalParams.forEach(param => {
         if (this[param]) {
@@ -210,16 +239,45 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         }
       });
 
-      const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([
-        new Provider(PopoverConfirmOptions, {useValue: options})
-      ]);
+      this.popover = this.componentResolver.resolveComponent(ConfirmPopover).then(componentFactory => {
+        const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([{
+          provide: PopoverConfirmOptions,
+          useValue: options
+        }]);
+        const contextInjector: Injector = this.viewContainerRef.parentInjector;
+        const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
+        const popover: ComponentRef<ConfirmPopover> =
+          this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
+        if (this.appendToBody) {
+          this.document.body.appendChild(popover.location.nativeElement);
+        }
+        const originalAfterViewInit: Function = popover.instance.ngAfterViewInit;
+        popover.instance.ngAfterViewInit = () => {
+          if (originalAfterViewInit) {
+            originalAfterViewInit.call(popover.instance);
+          }
+          this.positionPopover();
+        };
+        this.isOpenChange.emit(true);
+        return popover;
+      });
 
-      this.popover = this.loader
-        .loadNextToLocation(ConfirmPopover, this.viewContainerRef, binding)
-        .then((popover: ComponentRef<ConfirmPopover>) => {
-          this.isOpenChange.emit(true);
-          return popover;
-        });
+    }
+  }
+
+  private positionPopover(): void {
+    if (this.popover) {
+      this.popover.then((popoverComponent: ComponentRef<ConfirmPopover>) => {
+        const popover: HTMLElement = popoverComponent.location.nativeElement.children[0];
+        const popoverPosition: Coords = this.position.positionElements(
+          this.elm.nativeElement,
+          popoverComponent.location.nativeElement.children[0],
+          this.placement || this.defaultOptions.placement,
+          this.appendToBody || this.defaultOptions.appendToBody
+        );
+        this.renderer.setElementStyle(popover, 'top', `${popoverPosition.top}px`);
+        this.renderer.setElementStyle(popover, 'left', `${popoverPosition.left}px`);
+      });
     }
   }
 
@@ -237,9 +295,6 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @HostListener('document:touchend', ['$event.target'])
   private onDocumentClick(target: HTMLElement): void {
 
-    // TODO - replace with: `this.renderer.invokeElementMethod(this.elm.nativeElement, 'contains', [target])`
-    // Pending on https://github.com/angular/angular/issues/8386
-
     if (this.popover && !this.elm.nativeElement.contains(target)) {
       this.popover.then((popover: ComponentRef<ConfirmPopover>) => {
         if (!popover.location.nativeElement.contains(target)) {
@@ -256,6 +311,11 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     } else {
       this.hidePopover();
     }
+  }
+
+  @HostListener('window:resize')
+  private onResize(): void {
+    this.positionPopover();
   }
 
 }

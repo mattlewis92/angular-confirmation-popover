@@ -6,7 +6,6 @@ import 'zone.js/dist/jasmine-patch';
 import 'zone.js/dist/async-test';
 import 'rxjs';
 import {
-  provide,
   Component,
   ViewChild,
   ComponentRef
@@ -70,11 +69,13 @@ describe('bootstrap confirm', () => {
           (cancel)="cancelClicked = true"
           confirmButtonType="danger"
           cancelButtonType="default"
+          [popoverClass]="popoverClass"
           [focusButton]="focusButton"
           [hideConfirmButton]="hideConfirmButton"
           [hideCancelButton]="hideCancelButton"
           [isDisabled]="isDisabled"
-          [(isOpen)]="isOpen">
+          [(isOpen)]="isOpen"
+          [appendToBody]="appendToBody">
           Show popover
         </button>
       `
@@ -93,10 +94,12 @@ describe('bootstrap confirm', () => {
       hideCancelButton: boolean = false;
       isDisabled: boolean = false;
       isOpen: boolean;
+      popoverClass: string = 'my-class';
+      appendToBody: boolean = false;
     }
 
     beforeEachProviders(() => [
-      provide(Position, {useClass: MockPositionService}),
+      {provide: Position, useClass: MockPositionService},
       ConfirmOptions
     ]);
 
@@ -229,6 +232,12 @@ describe('bootstrap confirm', () => {
       });
     }));
 
+    it('should a custom class to be set on the popover', async(() => {
+      createPopover().then(popover => {
+        expect(popover.location.nativeElement.children[0]).toHaveCssClass('my-class');
+      });
+    }));
+
     it('should position the popover according to the coordinates given by the position service', async(() => {
       createPopover().then(popover => {
         expect(popover.location.nativeElement.children[0].style.top).toEqual('20px');
@@ -237,10 +246,10 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should re-position the popover when the window resizes', async(() => {
-      createPopover().then(popover => {
-        spyOn(popover.instance, 'positionPopover');
+      createPopoverContainer().then((fixture: ComponentFixture<TestCmp>) => {
+        spyOn(fixture.componentInstance.confirm, 'positionPopover');
         window.dispatchEvent(new Event('resize'));
-        expect(popover.instance.positionPopover).toHaveBeenCalled();
+        expect(fixture.componentInstance.confirm.positionPopover).toHaveBeenCalled();
       });
     }));
 
@@ -338,13 +347,7 @@ describe('bootstrap confirm', () => {
         popover.changeDetectorRef.detectChanges();
         expect(fixture.componentInstance.confirmClicked).toEqual(false);
         popover.location.nativeElement.querySelectorAll('button')[0].click();
-        // this nasty setTimeout hack is required because the output event emitter is currently async so the zone won't pick it up
-        // see: https://github.com/angular/angular/pull/7421/files
-        // and: https://github.com/angular/angular/issues/8617
-        // when either of those 2 fixes lands the setTimeout can be removed
-        setTimeout(() => { // TODO - remove setTimeout hack
-          expect(fixture.componentInstance.confirmClicked).toEqual(true);
-        });
+        expect(fixture.componentInstance.confirmClicked).toEqual(true);
       });
     }));
 
@@ -356,16 +359,14 @@ describe('bootstrap confirm', () => {
         popover.changeDetectorRef.detectChanges();
         expect(fixture.componentInstance.cancelClicked).toEqual(false);
         popover.location.nativeElement.querySelectorAll('button')[1].click();
-        setTimeout(() => { // TODO - remove setTimeout hack
-          expect(fixture.componentInstance.cancelClicked).toEqual(true);
-        });
+        expect(fixture.componentInstance.cancelClicked).toEqual(true);
       });
     }));
 
     it('should initialise isOpen to false', async(() => {
       createPopoverContainer().then((fixture) => {
         fixture.detectChanges();
-        setTimeout(() => { // TODO - remove setTimeout hack
+        setTimeout(() => { // let isOpenChange be called with false
           expect(fixture.componentInstance.isOpen).toEqual(false);
         });
       });
@@ -373,27 +374,47 @@ describe('bootstrap confirm', () => {
 
     it('should set isOpen to true when the popover is opened', async(() => {
       createPopoverContainer().then((fixture) => {
-        clickFixture();
-        setTimeout(() => { // TODO - remove setTimeout hack
-          setTimeout(() => {
-            expect(fixture.componentInstance.isOpen).toEqual(true);
-          });
+        setTimeout(() => { // let isOpenChange be called with false
+          clickFixture();
+          expect(fixture.componentInstance.isOpen).toEqual(true);
         });
       });
     }));
 
-    it('should set isOpen to true when the popover is closed', async(() => {
+    it('should set isOpen to false when the popover is closed', async(() => {
       createPopoverContainer().then((fixture) => {
-        clickFixture();
-        setTimeout(() => { // TODO - remove setTimeout hack
-          setTimeout(() => {
-            expect(fixture.componentInstance.isOpen).toEqual(true);
-            clickFixture();
-            setTimeout(() => {
-              expect(fixture.componentInstance.isOpen).toEqual(false);
-            });
-          });
+        setTimeout(() => { // let isOpenChange be called with false
+          clickFixture();
+          expect(fixture.componentInstance.isOpen).toEqual(true);
+          clickFixture();
+          expect(fixture.componentInstance.isOpen).toEqual(false);
         });
+      });
+    }));
+
+    it('should not append the popover to the document body', async(() => {
+      createPopoverContainer().then((fixture) => {
+        fixture.componentRef.instance.appendToBody = false;
+        fixture.detectChanges();
+        clickFixture();
+        return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
+      }).then(([fixture, popover]) => {
+        popover.changeDetectorRef.detectChanges();
+        expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0]).not.toHaveCssClass('popover');
+        expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeTruthy();
+      });
+    }));
+
+    it('should append the popover to the document body', async(() => {
+      createPopoverContainer().then((fixture) => {
+        fixture.componentRef.instance.appendToBody = true;
+        fixture.detectChanges();
+        clickFixture();
+        return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
+      }).then(([fixture, popover]) => {
+        popover.changeDetectorRef.detectChanges();
+        expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0]).toHaveCssClass('popover');
+        expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeFalsy();
       });
     }));
 
@@ -415,16 +436,15 @@ describe('bootstrap confirm', () => {
       @ViewChild(Confirm) confirm: Confirm;
     }
 
-    beforeEachProviders(() => [
-      provide(Position, {useClass: MockPositionService}),
-      provide(ConfirmOptions, {
-        useFactory: (): ConfirmOptions => {
-          const options: ConfirmOptions = new ConfirmOptions();
-          options.confirmText = 'Derp';
-          return options;
-        }
-      })
-    ]);
+    const options: ConfirmOptions = new ConfirmOptions();
+    options.confirmText = 'Derp';
+
+    beforeEachProviders(() => [{
+      provide: Position, useClass: MockPositionService
+    }, {
+      provide: ConfirmOptions,
+      useValue: options
+    }]);
 
     let builder: TestComponentBuilder;
     beforeEach(inject([TestComponentBuilder], (tcb) => {

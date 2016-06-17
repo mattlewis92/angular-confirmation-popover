@@ -5,15 +5,11 @@ import {Injectable, ElementRef} from '@angular/core';
  *
  * Use it like so:
  * ```
- * providers: [
- *   provide(ConfirmOptions, {
- *     useFactory: (): ConfirmOptions => {
- *       const options = new ConfirmOptions();
- *       options.focusButton = 'confirm'; // focus the confirm button by default. See below for an explanation of all options.
- *       return options;
- *     }
- *   })
- * ]
+ * const options: ConfirmOptions = new ConfirmOptions();
+ * // focus the confirm button by default. See below for an explanation of all options.
+ * options.focusButton = 'confirm';
+ *
+ * providers: [{provide: ConfirmOptions, useValue: options}]
  * ```
  */
 @Injectable()
@@ -69,6 +65,16 @@ export class ConfirmOptions {
    */
   public hideCancelButton: boolean = false;
 
+  /**
+   * A custom CSS class to be added to the popover
+   */
+  public popoverClass: string = '';
+
+  /**
+   * Whether to append the popover to the document body
+   */
+  public appendToBody: boolean = false;
+
 }
 
 /**
@@ -79,6 +85,5 @@ export class PopoverConfirmOptions extends ConfirmOptions {
 
   public onConfirm: Function;
   public onCancel: Function;
-  public hostElement: ElementRef;
 
 }
