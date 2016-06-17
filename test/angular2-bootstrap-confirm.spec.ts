@@ -246,10 +246,10 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should re-position the popover when the window resizes', async(() => {
-      createPopover().then(popover => {
-        spyOn(popover.instance, 'positionPopover');
+      createPopoverContainer().then((fixture: ComponentFixture<TestCmp>) => {
+        spyOn(fixture.componentInstance.confirm, 'positionPopover');
         window.dispatchEvent(new Event('resize'));
-        expect(popover.instance.positionPopover).toHaveBeenCalled();
+        expect(fixture.componentInstance.confirm.positionPopover).toHaveBeenCalled();
       });
     }));
 

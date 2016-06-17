@@ -2,22 +2,11 @@ import {
   Component,
   AfterViewInit,
   ElementRef,
-  ChangeDetectorRef,
-  HostListener,
   ViewChild,
   Renderer
 } from '@angular/core';
 import {NgIf} from '@angular/common';
-import {Position} from './position.provider';
 import {PopoverConfirmOptions} from './confirmOptions.provider';
-
-/**
- * @private
- */
-interface Coords {
-  top: number;
-  left: number;
-}
 
 /**
  * @private
@@ -30,10 +19,7 @@ interface Coords {
   `],
   directives: [NgIf],
   template: `
-    <div
-      [class]="'popover ' + options.placement + ' popover-' + options.placement + ' ' + options.popoverClass"
-      [style.top.px]="popoverPosition?.top"
-      [style.left.px]="popoverPosition?.left">
+    <div [class]="'popover ' + options.placement + ' popover-' + options.placement + ' ' + options.popoverClass">
       <div class="popover-arrow arrow"></div>
       <h3 class="popover-title" [innerHTML]="options.title"></h3>
       <div class="popover-content">
@@ -70,19 +56,13 @@ export class ConfirmPopover implements AfterViewInit {
 
   @ViewChild('confirmButton') confirmButton: ElementRef;
   @ViewChild('cancelButton') cancelButton: ElementRef;
-  private popoverPosition: Coords;
 
   constructor(
-    private elm: ElementRef,
     private renderer: Renderer,
-    private cdr: ChangeDetectorRef,
-    private position: Position,
     private options: PopoverConfirmOptions
   ) {}
 
   ngAfterViewInit(): void {
-    this.positionPopover();
-    this.cdr.detectChanges();
     let focusButton: ElementRef;
     if (this.options.focusButton === 'confirm') {
       focusButton = this.confirmButton;
@@ -92,20 +72,6 @@ export class ConfirmPopover implements AfterViewInit {
     if (focusButton) {
       this.renderer.invokeElementMethod(focusButton.nativeElement, 'focus', []);
     }
-  }
-
-  private positionPopover(): void {
-    this.popoverPosition = this.position.positionElements(
-      this.options.hostElement.nativeElement,
-      this.elm.nativeElement.children[0],
-      this.options.placement,
-      this.options.appendToBody
-    );
-  }
-
-  @HostListener('window:resize')
-  private onResize(): void {
-    this.positionPopover();
   }
 
 }

@@ -14,11 +14,21 @@ import {
   ResolvedReflectiveProvider,
   ComponentResolver,
   Injector,
-  Inject
+  Inject,
+  Renderer
 } from '@angular/core';
 import {DOCUMENT} from '@angular/platform-browser';
 import {ConfirmPopover} from './confirmPopover.component';
 import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
+import {Position} from './position.provider';
+
+/**
+ * @private
+ */
+interface Coords {
+  top: number;
+  left: number;
+}
 
 /**
  * All properties can be set on the directive as attributes like so (use the `ConfirmOptions` provider to configure them globally):
@@ -145,6 +155,8 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     private elm: ElementRef,
     private defaultOptions: ConfirmOptions,
     private componentResolver: ComponentResolver,
+    private position: Position,
+    private renderer: Renderer,
     @Inject(DOCUMENT) private document: HTMLDocument
   ) {}
 
@@ -206,8 +218,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         },
         onCancel: (): void => {
           this.onCancel();
-        },
-        hostElement: this.elm
+        }
       });
 
       const optionalParams: string[] = [
@@ -240,10 +251,33 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         if (this.appendToBody) {
           this.document.body.appendChild(popover.location.nativeElement);
         }
+        const originalAfterViewInit: Function = popover.instance.ngAfterViewInit;
+        popover.instance.ngAfterViewInit = () => {
+          if (originalAfterViewInit) {
+            originalAfterViewInit.call(popover.instance);
+          }
+          this.positionPopover();
+        };
         this.isOpenChange.emit(true);
         return popover;
       });
 
+    }
+  }
+
+  private positionPopover(): void {
+    if (this.popover) {
+      this.popover.then((popoverComponent: ComponentRef<ConfirmPopover>) => {
+        const popover: HTMLElement = popoverComponent.location.nativeElement.children[0];
+        const popoverPosition: Coords = this.position.positionElements(
+          this.elm.nativeElement,
+          popoverComponent.location.nativeElement.children[0],
+          this.placement || this.defaultOptions.placement,
+          this.appendToBody || this.defaultOptions.appendToBody
+        );
+        this.renderer.setElementStyle(popover, 'top', `${popoverPosition.top}px`);
+        this.renderer.setElementStyle(popover, 'left', `${popoverPosition.left}px`);
+      });
     }
   }
 
@@ -277,6 +311,11 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     } else {
       this.hidePopover();
     }
+  }
+
+  @HostListener('window:resize')
+  private onResize(): void {
+    this.positionPopover();
   }
 
 }
