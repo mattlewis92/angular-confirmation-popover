@@ -376,7 +376,9 @@ describe('bootstrap confirm', () => {
       createPopoverContainer().then((fixture) => {
         setTimeout(() => { // let isOpenChange be called with false
           clickFixture();
-          expect(fixture.componentInstance.isOpen).toEqual(true);
+          setTimeout(() => {
+            expect(fixture.componentInstance.isOpen).toEqual(true);
+          });
         });
       });
     }));
@@ -385,9 +387,13 @@ describe('bootstrap confirm', () => {
       createPopoverContainer().then((fixture) => {
         setTimeout(() => { // let isOpenChange be called with false
           clickFixture();
-          expect(fixture.componentInstance.isOpen).toEqual(true);
-          clickFixture();
-          expect(fixture.componentInstance.isOpen).toEqual(false);
+          setTimeout(() => { // ugly set timeouts are required because isOpen is async
+            expect(fixture.componentInstance.isOpen).toEqual(true);
+            clickFixture();
+            setTimeout(() => {
+              expect(fixture.componentInstance.isOpen).toEqual(false);
+            });
+          });
         });
       });
     }));

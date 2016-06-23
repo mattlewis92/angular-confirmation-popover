@@ -120,7 +120,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   /**
    * Will emit when the popover is opened or closed
    */
-  @Output() isOpenChange: EventEmitter<any> = new EventEmitter();
+  @Output() isOpenChange: EventEmitter<any> = new EventEmitter(true);
 
   /**
    * An expression that is called when the confirm button is clicked.
@@ -164,10 +164,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
    * @private
    */
   ngOnInit(): void {
-    // needed because of https://github.com/angular/angular/issues/6005
-    setTimeout(() => {
-      this.isOpenChange.emit(false);
-    });
+    this.isOpenChange.emit(false);
   }
 
   /**
