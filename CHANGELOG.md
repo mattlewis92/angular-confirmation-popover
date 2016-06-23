@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.2"></a>
+## [0.5.2](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.5.1...v0.5.2) (2016-06-23)
+
+
+### Bug Fixes
+
+* **isOpen:** fix isOpen attribute that when set would break this module ([fe5516d](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/fe5516d)), closes [#14](https://github.com/mattlewis92/angular2-bootstrap-confirm/issues/14)
+
+
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.5.0...v0.5.1) (2016-06-22)
 
