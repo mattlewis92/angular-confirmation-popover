@@ -1,4 +1,4 @@
-import {Injectable, ElementRef} from '@angular/core';
+import {Injectable, TemplateRef} from '@angular/core';
 
 /**
  * Use this for configuring the confirmation popover defaults
@@ -85,5 +85,7 @@ export class PopoverConfirmOptions extends ConfirmOptions {
 
   public onConfirm: Function;
   public onCancel: Function;
+  public onAfterViewInit: Function;
+  public customTemplate: TemplateRef<any>;
 
 }

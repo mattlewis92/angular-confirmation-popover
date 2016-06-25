@@ -31,7 +31,8 @@ import {
 import {
   Confirm,
   ConfirmOptions,
-  Position
+  Position,
+  Focus
 } from './../angular2-bootstrap-confirm';
 import {ConfirmPopover} from './../src/confirmPopover.component';
 
@@ -55,7 +56,7 @@ describe('bootstrap confirm', () => {
   describe('Confirm directive', () => {
 
     @Component({
-      directives: [Confirm],
+      directives: [Confirm, Focus],
       template: `
         <button
           class="btn btn-default"
@@ -422,6 +423,45 @@ describe('bootstrap confirm', () => {
         expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0]).toHaveCssClass('popover');
         expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeFalsy();
       });
+    }));
+
+    it('should allow a custom template to be set', async(() => {
+
+      builder.overrideTemplate(TestCmp, `
+        <template #customTemplate let-options="options">
+          <div [class]="'popover ' + options.placement" style="display: block">
+            <div class="arrow"></div>
+            <h3 class="popover-title">{{ options.title }}</h3>
+            <div class="popover-content">
+               <p [innerHTML]="options.message"></p>
+               <my-custom-element>Custom template</my-custom-element>
+               <button mwl-focus [focusOn]="options.focusButton === 'confirm'">Confirm</button>
+            </div>
+          </div>
+        </template>
+        <button
+          mwl-confirm
+          title="My Title"
+          message="My Message"
+          placement="right"
+          focusButton="confirm"
+          [customTemplate]="customTemplate">
+          Show popover
+        </button>
+      `).createAsync(TestCmp).then((fixture: ComponentFixture<TestCmp>) => {
+        fixture.detectChanges();
+        fixture.nativeElement.querySelector('button').click();
+        return fixture.componentInstance.confirm.popover;
+      }).then((popover: ComponentRef<ConfirmPopover>) => {
+        popover.changeDetectorRef.detectChanges();
+        const popoverElm: HTMLElement = popover.location.nativeElement.children[0];
+        expect(popoverElm.querySelector('.popover-title').innerHTML).toEqual('My Title');
+        expect(popoverElm.querySelector('.popover-content > p').innerHTML).toEqual('My Message');
+        expect(popoverElm).toHaveCssClass('right');
+        expect(popoverElm.querySelector('my-custom-element').innerHTML).toEqual('Custom template');
+        expect(popoverElm.querySelectorAll('button')[0]).toEqual(document.activeElement);
+      });
+
     }));
 
   });

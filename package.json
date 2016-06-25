@@ -1,6 +1,6 @@
 {
   "name": "angular2-bootstrap-confirm",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "An angular2 bootstrap confirmation popover",
   "main": "./angular2-bootstrap-confirm.js",
   "typings": "./angular2-bootstrap-confirm.d.ts",
@@ -54,7 +54,7 @@
     "ghooks": "~1.2.1",
     "istanbul-instrumenter-loader": "~0.2.0",
     "jasmine-core": "~2.4.1",
-    "karma": "~1.0.0",
+    "karma": "~0.13.22",
     "karma-coverage": "~1.0.0",
     "karma-jasmine": "~1.0.2",
     "karma-phantomjs-launcher": "~1.0.0",
