@@ -1,8 +1,8 @@
 import {
-  Directive, 
-  ElementRef, 
-  Input, 
-  OnChanges, 
+  Directive,
+  ElementRef,
+  Input,
+  OnChanges,
   Renderer
 } from '@angular/core';
 
