@@ -5,7 +5,7 @@ import {
   ViewChild,
   Renderer
 } from '@angular/core';
-import {NgIf} from '@angular/common';
+import {NgIf, NgTemplateOutlet} from '@angular/common';
 import {PopoverConfirmOptions} from './confirmOptions.provider';
 
 /**
@@ -17,9 +17,16 @@ import {PopoverConfirmOptions} from './confirmOptions.provider';
       display: block;
     }
   `],
-  directives: [NgIf],
+  directives: [NgIf, NgTemplateOutlet],
   template: `
-    <div [class]="'popover ' + options.placement + ' popover-' + options.placement + ' ' + options.popoverClass">
+    <template
+      *ngIf="options.customTemplate"
+      [ngTemplateOutlet]="options.customTemplate"
+      [ngOutletContext]="{options: options}">
+    </template>
+    <div
+      *ngIf="!options.customTemplate"
+      [class]="'popover ' + options.placement + ' popover-' + options.placement + ' ' + options.popoverClass">
       <div class="popover-arrow arrow"></div>
       <h3 class="popover-title" [innerHTML]="options.title"></h3>
       <div class="popover-content">

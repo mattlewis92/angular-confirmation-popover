@@ -15,7 +15,8 @@ import {
   ComponentResolver,
   Injector,
   Inject,
-  Renderer
+  Renderer,
+  TemplateRef
 } from '@angular/core';
 import {DOCUMENT} from '@angular/platform-browser';
 import {ConfirmPopover} from './confirmPopover.component';
@@ -116,6 +117,18 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
    * Can be sugared with `isOpenChange` to emulate 2-way binding like so `[(isOpen)]="isOpen"`
    */
   @Input() isOpen: boolean = false;
+
+  /**
+   * A reference to a <template> tag that if set will override the popovers template. Use like so:
+   * <template #customTemplate let-options="options">
+   *   <div [class]="'popover ' + options.placement" style="display: block">
+   *     My custom template
+   *   </div>
+   * </template>
+   *
+   * Then pass customTemplate to the mwl-confirm directive like so `[customTemplate]="customTemplate"`
+   */
+  @Input() customTemplate: TemplateRef<any>;
 
   /**
    * Will emit when the popover is opened or closed
@@ -228,7 +241,8 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         'hideConfirmButton',
         'hideCancelButton',
         'popoverClass',
-        'appendToBody'
+        'appendToBody',
+        'customTemplate'
       ];
       optionalParams.forEach(param => {
         if (this[param]) {
@@ -268,7 +282,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         const popover: HTMLElement = popoverComponent.location.nativeElement.children[0];
         const popoverPosition: Coords = this.position.positionElements(
           this.elm.nativeElement,
-          popoverComponent.location.nativeElement.children[0],
+          popover,
           this.placement || this.defaultOptions.placement,
           this.appendToBody || this.defaultOptions.appendToBody
         );

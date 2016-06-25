@@ -424,6 +424,42 @@ describe('bootstrap confirm', () => {
       });
     }));
 
+    it('should allow a custom template to be set', async(() => {
+
+      builder.overrideTemplate(TestCmp, `
+        <template #customTemplate let-options="options">
+          <div [class]="'popover ' + options.placement" style="display: block">
+            <div class="arrow"></div>
+            <h3 class="popover-title">{{ options.title }}</h3>
+            <div class="popover-content">
+               <p [innerHTML]="options.message"></p>
+               <my-custom-element>Custom template</my-custom-element>
+            </div>
+          </div>
+        </template>
+        <button
+          mwl-confirm
+          title="My Title"
+          message="My Message"
+          placement="right"
+          [customTemplate]="customTemplate">
+          Show popover
+        </button>
+      `).createAsync(TestCmp).then((fixture: ComponentFixture<TestCmp>) => {
+        fixture.detectChanges();
+        fixture.nativeElement.querySelector('button').click();
+        return fixture.componentInstance.confirm.popover;
+      }).then((popover: ComponentRef<ConfirmPopover>) => {
+        popover.changeDetectorRef.detectChanges();
+        const popoverElm: HTMLElement = popover.location.nativeElement.children[0];
+        expect(popoverElm.querySelector('.popover-title').innerHTML).toEqual('My Title');
+        expect(popoverElm.querySelector('.popover-content > p').innerHTML).toEqual('My Message');
+        expect(popoverElm).toHaveCssClass('right');
+        expect(popoverElm.querySelector('my-custom-element').innerHTML).toEqual('Custom template');
+      });
+
+    }));
+
   });
 
   describe('ConfirmOptions', () => {
