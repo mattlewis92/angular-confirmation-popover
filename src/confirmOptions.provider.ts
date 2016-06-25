@@ -85,6 +85,7 @@ export class PopoverConfirmOptions extends ConfirmOptions {
 
   public onConfirm: Function;
   public onCancel: Function;
+  public onAfterViewInit: Function;
   public customTemplate: TemplateRef<any>;
 
 }

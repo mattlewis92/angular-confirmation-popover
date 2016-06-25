@@ -228,6 +228,9 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         },
         onCancel: (): void => {
           this.onCancel();
+        },
+        onAfterViewInit: () : void => {
+          this.positionPopover();
         }
       });
 
@@ -262,13 +265,6 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         if (this.appendToBody) {
           this.document.body.appendChild(popover.location.nativeElement);
         }
-        const originalAfterViewInit: Function = popover.instance.ngAfterViewInit;
-        popover.instance.ngAfterViewInit = () => {
-          if (originalAfterViewInit) {
-            originalAfterViewInit.call(popover.instance);
-          }
-          this.positionPopover();
-        };
         this.isOpenChange.emit(true);
         return popover;
       });

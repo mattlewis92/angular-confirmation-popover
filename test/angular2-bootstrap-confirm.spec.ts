@@ -31,7 +31,8 @@ import {
 import {
   Confirm,
   ConfirmOptions,
-  Position
+  Position,
+  Focus
 } from './../angular2-bootstrap-confirm';
 import {ConfirmPopover} from './../src/confirmPopover.component';
 
@@ -55,7 +56,7 @@ describe('bootstrap confirm', () => {
   describe('Confirm directive', () => {
 
     @Component({
-      directives: [Confirm],
+      directives: [Confirm, Focus],
       template: `
         <button
           class="btn btn-default"
@@ -434,6 +435,7 @@ describe('bootstrap confirm', () => {
             <div class="popover-content">
                <p [innerHTML]="options.message"></p>
                <my-custom-element>Custom template</my-custom-element>
+               <button mwl-focus [focusOn]="options.focusButton === 'confirm'">Confirm</button>
             </div>
           </div>
         </template>
@@ -442,6 +444,7 @@ describe('bootstrap confirm', () => {
           title="My Title"
           message="My Message"
           placement="right"
+          focusButton="confirm"
           [customTemplate]="customTemplate">
           Show popover
         </button>
@@ -456,6 +459,7 @@ describe('bootstrap confirm', () => {
         expect(popoverElm.querySelector('.popover-content > p').innerHTML).toEqual('My Message');
         expect(popoverElm).toHaveCssClass('right');
         expect(popoverElm.querySelector('my-custom-element').innerHTML).toEqual('Custom template');
+        expect(popoverElm.querySelectorAll('button')[0]).toEqual(document.activeElement);
       });
 
     }));

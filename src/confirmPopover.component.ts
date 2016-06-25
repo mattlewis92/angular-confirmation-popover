@@ -1,11 +1,9 @@
 import {
   Component,
   AfterViewInit,
-  ElementRef,
-  ViewChild,
-  Renderer
 } from '@angular/core';
 import {NgIf, NgTemplateOutlet} from '@angular/common';
+import {Focus} from './focus.directive';
 import {PopoverConfirmOptions} from './confirmOptions.provider';
 
 /**
@@ -17,7 +15,7 @@ import {PopoverConfirmOptions} from './confirmOptions.provider';
       display: block;
     }
   `],
-  directives: [NgIf, NgTemplateOutlet],
+  directives: [NgIf, NgTemplateOutlet, Focus],
   template: `
     <template
       *ngIf="options.customTemplate"
@@ -37,7 +35,8 @@ import {PopoverConfirmOptions} from './confirmOptions.provider';
             [class.col-xs-offset-3]="options.hideCancelButton"
             *ngIf="!options.hideConfirmButton">
             <button
-              #confirmButton
+              mwl-focus
+              [focusOn]="options.focusButton === 'confirm'"
               [class]="'btn btn-block btn-' + options.confirmButtonType"
               (click)="options.onConfirm()"
               [innerHtml]="options.confirmText">
@@ -48,7 +47,8 @@ import {PopoverConfirmOptions} from './confirmOptions.provider';
             [class.col-xs-offset-3]="options.hideConfirmButton"
             *ngIf="!options.hideCancelButton">
             <button
-              #cancelButton
+              mwl-focus
+              [focusOn]="options.focusButton === 'cancel'"
               [class]="'btn btn-block btn-' + options.cancelButtonType"
               (click)="options.onCancel()"
               [innerHtml]="options.cancelText">
@@ -61,24 +61,10 @@ import {PopoverConfirmOptions} from './confirmOptions.provider';
 })
 export class ConfirmPopover implements AfterViewInit {
 
-  @ViewChild('confirmButton') confirmButton: ElementRef;
-  @ViewChild('cancelButton') cancelButton: ElementRef;
-
-  constructor(
-    private renderer: Renderer,
-    private options: PopoverConfirmOptions
-  ) {}
+  constructor(private options: PopoverConfirmOptions) {}
 
   ngAfterViewInit(): void {
-    let focusButton: ElementRef;
-    if (this.options.focusButton === 'confirm') {
-      focusButton = this.confirmButton;
-    } else if (this.options.focusButton === 'cancel') {
-      focusButton = this.cancelButton;
-    }
-    if (focusButton) {
-      this.renderer.invokeElementMethod(focusButton.nativeElement, 'focus', []);
-    }
+    this.options.onAfterViewInit();
   }
 
 }
