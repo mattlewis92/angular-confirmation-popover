@@ -11,19 +11,13 @@ import {
   ComponentRef
 } from '@angular/core';
 import {
-  describe,
-  it,
-  expect,
-  beforeEachProviders,
-  beforeEach,
   inject,
   async,
-  setBaseTestProviders
-} from '@angular/core/testing';
-import {
+  setBaseTestProviders,
   TestComponentBuilder,
-  ComponentFixture
-} from '@angular/compiler/testing';
+  ComponentFixture,
+  addProviders
+} from '@angular/core/testing';
 import {
   TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
   TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS
@@ -35,8 +29,6 @@ import {
   Focus
 } from './../angular2-bootstrap-confirm';
 import {ConfirmPopover} from './../src/confirmPopover.component';
-
-const spyOn: Function = window['spyOn'];
 
 setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
@@ -86,8 +78,8 @@ describe('bootstrap confirm', () => {
       placement: string = 'left';
       title: string = 'Are you sure?';
       message: string = 'Are you really <b>sure</b> you want to do this?';
-      confirmText: string = 'Yes <i class=\'glyphicon glyphicon-ok\'></i>';
-      cancelText: string = 'No <i class=\'glyphicon glyphicon-remove\'></i>';
+      confirmText: string = 'Yes <i class="glyphicon glyphicon-ok"></i>';
+      cancelText: string = 'No <i class="glyphicon glyphicon-remove"></i>';
       confirmClicked: boolean = false;
       cancelClicked: boolean = false;
       focusButton: string;
@@ -99,10 +91,12 @@ describe('bootstrap confirm', () => {
       appendToBody: boolean = false;
     }
 
-    beforeEachProviders(() => [
-      {provide: Position, useClass: MockPositionService},
-      ConfirmOptions
-    ]);
+    beforeEach(() => {
+      addProviders([
+        {provide: Position, useClass: MockPositionService},
+        ConfirmOptions
+      ]);
+    });
 
     let builder: TestComponentBuilder,
       createPopoverContainer: Function,
@@ -167,11 +161,9 @@ describe('bootstrap confirm', () => {
         const confirm: Confirm = fixture.componentInstance.confirm;
         clickFixture();
         const hidePopover: Function = spyOn(confirm, 'hidePopover');
-        confirm.popover.then(popover => {
-          popover.changeDetectorRef.detectChanges();
-          popover.location.nativeElement.querySelectorAll('button')[0].click();
-          expect(hidePopover).toHaveBeenCalled();
-        });
+        confirm.popover.changeDetectorRef.detectChanges();
+        confirm.popover.location.nativeElement.querySelectorAll('button')[0].click();
+        expect(hidePopover).toHaveBeenCalled();
       });
     }));
 
@@ -180,17 +172,15 @@ describe('bootstrap confirm', () => {
         const confirm: Confirm = fixture.componentInstance.confirm;
         clickFixture();
         const hidePopover: Function = spyOn(confirm, 'hidePopover');
-        confirm.popover.then(popover => {
-          popover.changeDetectorRef.detectChanges();
-          popover.location.nativeElement.querySelectorAll('button')[1].click();
-          expect(hidePopover).toHaveBeenCalled();
-        });
+        confirm.popover.changeDetectorRef.detectChanges();
+        confirm.popover.location.nativeElement.querySelectorAll('button')[1].click();
+        expect(hidePopover).toHaveBeenCalled();
       });
     }));
 
     it('should allow the popover title to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.querySelector('.popover-title')).toHaveText('Are you sure?');
+        expect(popover.location.nativeElement.querySelector('.popover-title').innerHTML).toBe('Are you sure?');
       });
     }));
 
@@ -217,25 +207,25 @@ describe('bootstrap confirm', () => {
 
     it('should allow the confirm button type to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.querySelectorAll('button')[0]).toHaveCssClass('btn-danger');
+        expect(popover.location.nativeElement.querySelectorAll('button')[0].classList.contains('btn-danger')).toBe(true);
       });
     }));
 
     it('should allow the cancel button type to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.querySelectorAll('button')[1]).toHaveCssClass('btn-default');
+        expect(popover.location.nativeElement.querySelectorAll('button')[1].classList.contains('btn-default')).toBe(true);
       });
     }));
 
     it('should allow the placement to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.children[0]).toHaveCssClass('popover-left');
+        expect(popover.location.nativeElement.children[0].classList.contains('popover-left')).toBe(true);
       });
     }));
 
     it('should a custom class to be set on the popover', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.children[0]).toHaveCssClass('my-class');
+        expect(popover.location.nativeElement.children[0].classList.contains('my-class')).toBe(true);
       });
     }));
 
@@ -293,7 +283,7 @@ describe('bootstrap confirm', () => {
       }).then(popover => {
         popover.changeDetectorRef.detectChanges();
         expect(popover.location.nativeElement.querySelectorAll('button').length).toEqual(1);
-        expect(popover.location.nativeElement.querySelectorAll('button')[0]).toHaveCssClass('btn-default');
+        expect(popover.location.nativeElement.querySelectorAll('button')[0].classList.contains('btn-default')).toBe(true);
       });
     }));
 
@@ -306,7 +296,7 @@ describe('bootstrap confirm', () => {
       }).then(popover => {
         popover.changeDetectorRef.detectChanges();
         expect(popover.location.nativeElement.querySelectorAll('button').length).toEqual(1);
-        expect(popover.location.nativeElement.querySelectorAll('button')[0]).toHaveCssClass('btn-danger');
+        expect(popover.location.nativeElement.querySelectorAll('button')[0].classList.contains('btn-danger')).toBe(true);
       });
     }));
 
@@ -407,7 +397,8 @@ describe('bootstrap confirm', () => {
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
-        expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0]).not.toHaveCssClass('popover');
+        expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0].classList.contains('popover'))
+          .toBe(false);
         expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeTruthy();
       });
     }));
@@ -420,7 +411,8 @@ describe('bootstrap confirm', () => {
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
-        expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0]).toHaveCssClass('popover');
+        expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0].classList.contains('popover'))
+          .toBe(true);
         expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeFalsy();
       });
     }));
@@ -457,7 +449,7 @@ describe('bootstrap confirm', () => {
         const popoverElm: HTMLElement = popover.location.nativeElement.children[0];
         expect(popoverElm.querySelector('.popover-title').innerHTML).toEqual('My Title');
         expect(popoverElm.querySelector('.popover-content > p').innerHTML).toEqual('My Message');
-        expect(popoverElm).toHaveCssClass('right');
+        expect(popoverElm.classList.contains('right')).toBe(true);
         expect(popoverElm.querySelector('my-custom-element').innerHTML).toEqual('Custom template');
         expect(popoverElm.querySelectorAll('button')[0]).toEqual(document.activeElement);
       });
@@ -485,12 +477,14 @@ describe('bootstrap confirm', () => {
     const options: ConfirmOptions = new ConfirmOptions();
     options.confirmText = 'Derp';
 
-    beforeEachProviders(() => [{
-      provide: Position, useClass: MockPositionService
-    }, {
-      provide: ConfirmOptions,
-      useValue: options
-    }]);
+    beforeEach(() => {
+      addProviders([{
+        provide: Position, useClass: MockPositionService
+      }, {
+        provide: ConfirmOptions,
+        useValue: options
+      }]);
+    });
 
     let builder: TestComponentBuilder;
     beforeEach(inject([TestComponentBuilder], (tcb) => {

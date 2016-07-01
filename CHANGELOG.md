@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.6.0...v0.7.0) (2016-07-01)
+
+
+### Features
+
+* use new Compiler service for creating the popover ([2707211](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/2707211))
+
+
+### BREAKING CHANGES
+
+* angular RC4 or higher is now required to use this module
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.5.2...v0.6.0) (2016-06-25)
 
