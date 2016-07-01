@@ -11,10 +11,6 @@ import {
   ComponentRef
 } from '@angular/core';
 import {
-  describe,
-  it,
-  expect,
-  beforeEach,
   inject,
   async,
   setBaseTestProviders,
@@ -33,8 +29,6 @@ import {
   Focus
 } from './../angular2-bootstrap-confirm';
 import {ConfirmPopover} from './../src/confirmPopover.component';
-
-const spyOn: Function = window['spyOn'];
 
 setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
@@ -487,12 +481,14 @@ describe('bootstrap confirm', () => {
     const options: ConfirmOptions = new ConfirmOptions();
     options.confirmText = 'Derp';
 
-    beforeEachProviders(() => [{
-      provide: Position, useClass: MockPositionService
-    }, {
-      provide: ConfirmOptions,
-      useValue: options
-    }]);
+    beforeEach(() => {
+      addProviders([{
+        provide: Position, useClass: MockPositionService
+      }, {
+        provide: ConfirmOptions,
+        useValue: options
+      }]);
+    });
 
     let builder: TestComponentBuilder;
     beforeEach(inject([TestComponentBuilder], (tcb) => {
