@@ -161,11 +161,9 @@ describe('bootstrap confirm', () => {
         const confirm: Confirm = fixture.componentInstance.confirm;
         clickFixture();
         const hidePopover: Function = spyOn(confirm, 'hidePopover');
-        confirm.popover.then(popover => {
-          popover.changeDetectorRef.detectChanges();
-          popover.location.nativeElement.querySelectorAll('button')[0].click();
-          expect(hidePopover).toHaveBeenCalled();
-        });
+        confirm.popover.changeDetectorRef.detectChanges();
+        confirm.popover.location.nativeElement.querySelectorAll('button')[0].click();
+        expect(hidePopover).toHaveBeenCalled();
       });
     }));
 
@@ -174,11 +172,9 @@ describe('bootstrap confirm', () => {
         const confirm: Confirm = fixture.componentInstance.confirm;
         clickFixture();
         const hidePopover: Function = spyOn(confirm, 'hidePopover');
-        confirm.popover.then(popover => {
-          popover.changeDetectorRef.detectChanges();
-          popover.location.nativeElement.querySelectorAll('button')[1].click();
-          expect(hidePopover).toHaveBeenCalled();
-        });
+        confirm.popover.changeDetectorRef.detectChanges();
+        confirm.popover.location.nativeElement.querySelectorAll('button')[1].click();
+        expect(hidePopover).toHaveBeenCalled();
       });
     }));
 

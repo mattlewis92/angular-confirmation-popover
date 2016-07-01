@@ -12,11 +12,12 @@ import {
   OnInit,
   ReflectiveInjector,
   ResolvedReflectiveProvider,
-  ComponentResolver,
+  Compiler,
   Injector,
   Inject,
   Renderer,
-  TemplateRef
+  TemplateRef,
+  ComponentFactory
 } from '@angular/core';
 import {DOCUMENT} from '@angular/platform-browser';
 import {ConfirmPopover} from './confirmPopover.component';
@@ -158,7 +159,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
-  popover: Promise<ComponentRef<ConfirmPopover>> = null;
+  popover: ComponentRef<ConfirmPopover> = null;
 
   /**
    * @private
@@ -167,7 +168,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     private viewContainerRef: ViewContainerRef,
     private elm: ElementRef,
     private defaultOptions: ConfirmOptions,
-    private componentResolver: ComponentResolver,
+    private compiler: Compiler,
     private position: Position,
     private renderer: Renderer,
     @Inject(DOCUMENT) private document: HTMLDocument
@@ -253,48 +254,41 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         }
       });
 
-      this.popover = this.componentResolver.resolveComponent(ConfirmPopover).then(componentFactory => {
-        const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([{
-          provide: PopoverConfirmOptions,
-          useValue: options
-        }]);
-        const contextInjector: Injector = this.viewContainerRef.parentInjector;
-        const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
-        const popover: ComponentRef<ConfirmPopover> =
-          this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
-        if (this.appendToBody) {
-          this.document.body.appendChild(popover.location.nativeElement);
-        }
-        this.isOpenChange.emit(true);
-        return popover;
-      });
+      const componentFactory: ComponentFactory<ConfirmPopover> = this.compiler.compileComponentSync(ConfirmPopover);
+      const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([{
+        provide: PopoverConfirmOptions,
+        useValue: options
+      }]);
+      const contextInjector: Injector = this.viewContainerRef.parentInjector;
+      const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
+      this.popover = this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
+      if (this.appendToBody) {
+        this.document.body.appendChild(this.popover.location.nativeElement);
+      }
+      this.isOpenChange.emit(true);
 
     }
   }
 
   private positionPopover(): void {
     if (this.popover) {
-      this.popover.then((popoverComponent: ComponentRef<ConfirmPopover>) => {
-        const popover: HTMLElement = popoverComponent.location.nativeElement.children[0];
-        const popoverPosition: Coords = this.position.positionElements(
-          this.elm.nativeElement,
-          popover,
-          this.placement || this.defaultOptions.placement,
-          this.appendToBody || this.defaultOptions.appendToBody
-        );
-        this.renderer.setElementStyle(popover, 'top', `${popoverPosition.top}px`);
-        this.renderer.setElementStyle(popover, 'left', `${popoverPosition.left}px`);
-      });
+      const popoverElement: HTMLElement = this.popover.location.nativeElement.children[0];
+      const popoverPosition: Coords = this.position.positionElements(
+        this.elm.nativeElement,
+        popoverElement,
+        this.placement || this.defaultOptions.placement,
+        this.appendToBody || this.defaultOptions.appendToBody
+      );
+      this.renderer.setElementStyle(popoverElement, 'top', `${popoverPosition.top}px`);
+      this.renderer.setElementStyle(popoverElement, 'left', `${popoverPosition.left}px`);
     }
   }
 
   private hidePopover(): void {
     if (this.popover) {
-      this.popover.then((popoverComponent: ComponentRef<ConfirmPopover>) => {
-        popoverComponent.destroy();
-        this.popover = null;
-        this.isOpenChange.emit(false);
-      });
+      this.popover.destroy();
+      this.popover = null;
+      this.isOpenChange.emit(false);
     }
   }
 
@@ -302,12 +296,8 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @HostListener('document:touchend', ['$event.target'])
   private onDocumentClick(target: HTMLElement): void {
 
-    if (this.popover && !this.elm.nativeElement.contains(target)) {
-      this.popover.then((popover: ComponentRef<ConfirmPopover>) => {
-        if (!popover.location.nativeElement.contains(target)) {
-          this.hidePopover();
-        }
-      });
+    if (this.popover && !this.elm.nativeElement.contains(target) && !this.popover.location.nativeElement.contains(target)) {
+      this.hidePopover();
     }
   }
 
