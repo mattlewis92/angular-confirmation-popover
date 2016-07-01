@@ -14,13 +14,13 @@ import {
   describe,
   it,
   expect,
-  beforeEachProviders,
   beforeEach,
   inject,
   async,
   setBaseTestProviders,
   TestComponentBuilder,
-  ComponentFixture
+  ComponentFixture,
+  addProviders
 } from '@angular/core/testing';
 import {
   TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
@@ -97,10 +97,12 @@ describe('bootstrap confirm', () => {
       appendToBody: boolean = false;
     }
 
-    beforeEachProviders(() => [
-      {provide: Position, useClass: MockPositionService},
-      ConfirmOptions
-    ]);
+    beforeEach(() => {
+      addProviders([
+        {provide: Position, useClass: MockPositionService},
+        ConfirmOptions
+      ]);
+    });
 
     let builder: TestComponentBuilder,
       createPopoverContainer: Function,
