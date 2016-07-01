@@ -71,8 +71,8 @@ export class DemoApp {
   placements: string[] = ['top', 'left', 'right', 'bottom'];
   title: string = 'Are you sure?';
   message: string = 'Are you really <b>sure</b> you want to do this?';
-  confirmText: string = 'Yes <i class=\'glyphicon glyphicon-ok\'></i>';
-  cancelText: string = 'No <i class=\'glyphicon glyphicon-remove\'></i>';
+  confirmText: string = 'Yes <i class="glyphicon glyphicon-ok"></i>';
+  cancelText: string = 'No <i class="glyphicon glyphicon-remove"></i>';
   confirmClicked: boolean = false;
   cancelClicked: boolean = false;
 }
