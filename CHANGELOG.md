@@ -16,18 +16,6 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### BREAKING CHANGES
 
-* mwlFocus: focusOn has been removed in favour of binding directly to the mwlFocus selector. Only relevant if using a custom template.
-
-Before:
-```
-mwlFocus [focusOn]="condition"
-```
-
-After
-```
-[mwlFocus]="condition"
-```
-* mwlFocus: the mwlFocus selector has changed from `mwl-focus` to `mwlFocus`. Only relevant if using a custom template.
 * mwlConfirm: the CSS selector of the directive has changed from `mwl-confirm` to `mwlConfirm`
 * You must now add a `precompile: [ConfirmPopover]`, to any components metadata that uses the confirm
 directive like so:
@@ -48,6 +36,19 @@ import {Confirm, ConfirmOptions, ConfirmPopover, Position} from 'angular2-bootst
 class MyComponent {
 }
 ```
+
+* mwlFocus: focusOn has been removed in favour of binding directly to the mwlFocus selector. Only relevant if using a custom template.
+
+Before:
+```
+mwlFocus [focusOn]="condition"
+```
+
+After
+```
+[mwlFocus]="condition"
+```
+* mwlFocus: the mwlFocus selector has changed from `mwl-focus` to `mwlFocus`. Only relevant if using a custom template.
 
 
 
