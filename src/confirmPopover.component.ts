@@ -35,7 +35,7 @@ import {PopoverConfirmOptions} from './confirmOptions.provider';
             [class.col-xs-offset-3]="options.hideCancelButton"
             *ngIf="!options.hideConfirmButton">
             <button
-              mwl-focus
+              mwlFocus
               [focusOn]="options.focusButton === 'confirm'"
               [class]="'btn btn-block btn-' + options.confirmButtonType"
               (click)="options.onConfirm()"
@@ -47,7 +47,7 @@ import {PopoverConfirmOptions} from './confirmOptions.provider';
             [class.col-xs-offset-3]="options.hideConfirmButton"
             *ngIf="!options.hideCancelButton">
             <button
-              mwl-focus
+              mwlFocus
               [focusOn]="options.focusButton === 'cancel'"
               [class]="'btn btn-block btn-' + options.cancelButtonType"
               (click)="options.onCancel()"

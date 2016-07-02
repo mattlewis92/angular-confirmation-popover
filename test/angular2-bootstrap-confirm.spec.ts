@@ -432,7 +432,7 @@ describe('bootstrap confirm', () => {
             <div class="popover-content">
                <p [innerHTML]="options.message"></p>
                <my-custom-element>Custom template</my-custom-element>
-               <button mwl-focus [focusOn]="options.focusButton === 'confirm'">Confirm</button>
+               <button mwlFocus [focusOn]="options.focusButton === 'confirm'">Confirm</button>
             </div>
           </div>
         </template>
