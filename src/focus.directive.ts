@@ -14,12 +14,12 @@ import {
 })
 export class Focus implements OnChanges {
 
-  @Input() focusOn: boolean;
+  @Input() mwlFocus: boolean;
 
   constructor(private renderer: Renderer, private elm: ElementRef) {}
 
   ngOnChanges(changes: any): void {
-    if (changes.focusOn && this.focusOn === true) {
+    if (changes.mwlFocus && this.mwlFocus === true) {
       this.renderer.invokeElementMethod(this.elm.nativeElement, 'focus', []);
     }
   }
