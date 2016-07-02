@@ -43,7 +43,7 @@ options.focusButton = 'confirm';
         <span *ngFor="let placement of placements trackBy placement">
           <button
             class="btn btn-default"
-            mwl-confirm
+            mwlConfirm
             [title]="title"
             [message]="message"
             [confirmText]="confirmText"

@@ -57,7 +57,7 @@ import {PositionService} from 'angular2-bootstrap-confirm/position/position';
   template: `
     <button
       class="btn btn-default"
-      mwl-confirm
+      mwlConfirm
       [title]="title"
       [message]="message"
       placement="left"
