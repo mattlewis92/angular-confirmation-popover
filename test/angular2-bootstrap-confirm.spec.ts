@@ -2,7 +2,6 @@ import 'es6-shim';
 import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
-import 'zone.js/dist/jasmine-patch';
 import 'zone.js/dist/async-test';
 import 'rxjs';
 import {
@@ -28,7 +27,12 @@ import {
   Position,
   Focus
 } from './../angular2-bootstrap-confirm';
+import {expect, use} from 'chai';
+import * as sinon from 'sinon';
+import * as sinonChai from 'sinon-chai';
 import {ConfirmPopover} from './../src/confirmPopover.component';
+
+use(sinonChai);
 
 setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
@@ -129,11 +133,11 @@ describe('bootstrap confirm', () => {
     it('should show a popover when the element is clicked', async(() => {
       createPopoverContainer().then((fixture) => {
         const confirm: Confirm = fixture.componentInstance.confirm;
-        const showPopover: Function = spyOn(confirm, 'showPopover');
-        expect(confirm.popover).toBeFalsy();
+        const showPopover: Function = sinon.spy(confirm, 'showPopover');
+        expect(!!confirm.popover).to.be.false;
         clickFixture();
-        expect(showPopover).toHaveBeenCalled();
-        expect(confirm.popover).toBeDefined();
+        expect(showPopover).to.have.been.calledOnce;
+        expect(!!confirm.popover).to.be.true;
       });
     }));
 
@@ -141,18 +145,18 @@ describe('bootstrap confirm', () => {
       createPopoverContainer().then((fixture) => {
         const confirm: Confirm = fixture.componentInstance.confirm;
         clickFixture();
-        const hidePopover: Function = spyOn(confirm, 'hidePopover');
+        const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
         clickFixture();
-        expect(hidePopover).toHaveBeenCalled();
+        expect(hidePopover).to.have.been.calledOnce;
       });
     }));
 
     it('should hide the popover when the parent component is destroyed', async(() => {
       createPopoverContainer().then((fixture) => {
         const confirm: Confirm = fixture.componentInstance.confirm;
-        const hidePopover: Function = spyOn(confirm, 'hidePopover');
+        const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
         fixture.destroy();
-        expect(hidePopover).toHaveBeenCalled();
+        expect(hidePopover).to.have.been.calledOnce;
       });
     }));
 
@@ -160,10 +164,10 @@ describe('bootstrap confirm', () => {
       createPopoverContainer().then((fixture) => {
         const confirm: Confirm = fixture.componentInstance.confirm;
         clickFixture();
-        const hidePopover: Function = spyOn(confirm, 'hidePopover');
+        const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
         confirm.popover.changeDetectorRef.detectChanges();
         confirm.popover.location.nativeElement.querySelectorAll('button')[0].click();
-        expect(hidePopover).toHaveBeenCalled();
+        expect(hidePopover).to.have.been.calledOnce;
       });
     }));
 
@@ -171,82 +175,82 @@ describe('bootstrap confirm', () => {
       createPopoverContainer().then((fixture) => {
         const confirm: Confirm = fixture.componentInstance.confirm;
         clickFixture();
-        const hidePopover: Function = spyOn(confirm, 'hidePopover');
+        const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
         confirm.popover.changeDetectorRef.detectChanges();
         confirm.popover.location.nativeElement.querySelectorAll('button')[1].click();
-        expect(hidePopover).toHaveBeenCalled();
+        expect(hidePopover).to.have.been.calledOnce;
       });
     }));
 
     it('should allow the popover title to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.querySelector('.popover-title').innerHTML).toBe('Are you sure?');
+        expect(popover.location.nativeElement.querySelector('.popover-title').innerHTML).to.equal('Are you sure?');
       });
     }));
 
     it('should allow the popover description to be customised', async(() => {
       createPopover().then(popover => {
         expect(popover.location.nativeElement.querySelector('.popover-content > p').innerHTML)
-          .toEqual('Are you really <b>sure</b> you want to do this?');
+          .to.equal('Are you really <b>sure</b> you want to do this?');
       });
     }));
 
     it('should allow the confirm button text to be customised', async(() => {
       createPopover().then(popover => {
         expect(popover.location.nativeElement.querySelectorAll('button')[0].innerHTML)
-          .toEqual('Yes <i class="glyphicon glyphicon-ok"></i>');
+          .to.equal('Yes <i class="glyphicon glyphicon-ok"></i>');
       });
     }));
 
     it('should allow the cancel button text to be customised', async(() => {
       createPopover().then(popover => {
         expect(popover.location.nativeElement.querySelectorAll('button')[1].innerHTML)
-          .toEqual('No <i class="glyphicon glyphicon-remove"></i>');
+          .to.equal('No <i class="glyphicon glyphicon-remove"></i>');
       });
     }));
 
     it('should allow the confirm button type to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.querySelectorAll('button')[0].classList.contains('btn-danger')).toBe(true);
+        expect(popover.location.nativeElement.querySelectorAll('button')[0].classList.contains('btn-danger')).to.be.true;
       });
     }));
 
     it('should allow the cancel button type to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.querySelectorAll('button')[1].classList.contains('btn-default')).toBe(true);
+        expect(popover.location.nativeElement.querySelectorAll('button')[1].classList.contains('btn-default')).to.be.true;
       });
     }));
 
     it('should allow the placement to be customised', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.children[0].classList.contains('popover-left')).toBe(true);
+        expect(popover.location.nativeElement.children[0].classList.contains('popover-left')).to.be.true;
       });
     }));
 
     it('should a custom class to be set on the popover', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.children[0].classList.contains('my-class')).toBe(true);
+        expect(popover.location.nativeElement.children[0].classList.contains('my-class')).to.be.true;
       });
     }));
 
     it('should position the popover according to the coordinates given by the position service', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.children[0].style.top).toEqual('20px');
-        expect(popover.location.nativeElement.children[0].style.left).toEqual('40px');
+        expect(popover.location.nativeElement.children[0].style.top).to.equal('20px');
+        expect(popover.location.nativeElement.children[0].style.left).to.equal('40px');
       });
     }));
 
     it('should re-position the popover when the window resizes', async(() => {
       createPopoverContainer().then((fixture: ComponentFixture<TestCmp>) => {
-        spyOn(fixture.componentInstance.confirm, 'positionPopover');
+        sinon.spy(fixture.componentInstance.confirm, 'positionPopover');
         window.dispatchEvent(new Event('resize'));
-        expect(fixture.componentInstance.confirm.positionPopover).toHaveBeenCalled();
+        expect(fixture.componentInstance.confirm.positionPopover).to.have.been.calledOnce;
       });
     }));
 
     it('should not focus either button by default', async(() => {
       createPopover().then(popover => {
-        expect(popover.location.nativeElement.contains(document.activeElement)).toBeFalsy();
+        expect(!!popover.location.nativeElement.contains(document.activeElement)).to.be.false;
       });
     }));
 
@@ -258,7 +262,7 @@ describe('bootstrap confirm', () => {
         return fixture.componentInstance.confirm.popover;
       }).then(popover => {
         popover.changeDetectorRef.detectChanges();
-        expect(popover.location.nativeElement.querySelectorAll('button')[0]).toEqual(document.activeElement);
+        expect(popover.location.nativeElement.querySelectorAll('button')[0]).to.equal(document.activeElement);
       });
     }));
 
@@ -270,7 +274,7 @@ describe('bootstrap confirm', () => {
         return fixture.componentInstance.confirm.popover;
       }).then(popover => {
         popover.changeDetectorRef.detectChanges();
-        expect(popover.location.nativeElement.querySelectorAll('button')[1]).toEqual(document.activeElement);
+        expect(popover.location.nativeElement.querySelectorAll('button')[1]).to.equal(document.activeElement);
       });
     }));
 
@@ -282,8 +286,8 @@ describe('bootstrap confirm', () => {
         return fixture.componentInstance.confirm.popover;
       }).then(popover => {
         popover.changeDetectorRef.detectChanges();
-        expect(popover.location.nativeElement.querySelectorAll('button').length).toEqual(1);
-        expect(popover.location.nativeElement.querySelectorAll('button')[0].classList.contains('btn-default')).toBe(true);
+        expect(popover.location.nativeElement.querySelectorAll('button').length).to.equal(1);
+        expect(popover.location.nativeElement.querySelectorAll('button')[0].classList.contains('btn-default')).to.be.true;
       });
     }));
 
@@ -295,8 +299,8 @@ describe('bootstrap confirm', () => {
         return fixture.componentInstance.confirm.popover;
       }).then(popover => {
         popover.changeDetectorRef.detectChanges();
-        expect(popover.location.nativeElement.querySelectorAll('button').length).toEqual(1);
-        expect(popover.location.nativeElement.querySelectorAll('button')[0].classList.contains('btn-danger')).toBe(true);
+        expect(popover.location.nativeElement.querySelectorAll('button').length).to.equal(1);
+        expect(popover.location.nativeElement.querySelectorAll('button')[0].classList.contains('btn-danger')).to.be.true;
       });
     }));
 
@@ -306,7 +310,7 @@ describe('bootstrap confirm', () => {
         fixture.detectChanges();
         const confirm: Confirm = fixture.componentInstance.confirm;
         clickFixture();
-        expect(confirm.popover).toBeFalsy();
+        expect(!!confirm.popover).to.be.false;
       });
     }));
 
@@ -314,7 +318,7 @@ describe('bootstrap confirm', () => {
       createPopoverContainer().then((fixture) => {
         fixture.componentInstance.isOpen = true;
         fixture.detectChanges();
-        expect(fixture.componentInstance.confirm).toBeTruthy();
+        expect(!!fixture.componentInstance.confirm).to.be.true;
       });
     }));
 
@@ -323,10 +327,10 @@ describe('bootstrap confirm', () => {
         clickFixture();
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture]) => {
-        spyOn(fixture.componentInstance.confirm, 'hidePopover');
+        sinon.spy(fixture.componentInstance.confirm, 'hidePopover');
         fixture.componentInstance.isOpen = false;
         fixture.detectChanges();
-        expect(fixture.componentInstance.confirm.hidePopover).toHaveBeenCalled();
+        expect(fixture.componentInstance.confirm.hidePopover).to.have.been.calledOnce;
       });
     }));
 
@@ -336,9 +340,9 @@ describe('bootstrap confirm', () => {
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
-        expect(fixture.componentInstance.confirmClicked).toEqual(false);
+        expect(fixture.componentInstance.confirmClicked).to.be.false
         popover.location.nativeElement.querySelectorAll('button')[0].click();
-        expect(fixture.componentInstance.confirmClicked).toEqual(true);
+        expect(fixture.componentInstance.confirmClicked).to.be.true;
       });
     }));
 
@@ -348,9 +352,9 @@ describe('bootstrap confirm', () => {
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
-        expect(fixture.componentInstance.cancelClicked).toEqual(false);
+        expect(fixture.componentInstance.cancelClicked).to.be.false
         popover.location.nativeElement.querySelectorAll('button')[1].click();
-        expect(fixture.componentInstance.cancelClicked).toEqual(true);
+        expect(fixture.componentInstance.cancelClicked).to.be.true;
       });
     }));
 
@@ -358,7 +362,7 @@ describe('bootstrap confirm', () => {
       createPopoverContainer().then((fixture) => {
         fixture.detectChanges();
         setTimeout(() => { // let isOpenChange be called with false
-          expect(fixture.componentInstance.isOpen).toEqual(false);
+          expect(fixture.componentInstance.isOpen).to.be.false;
         });
       });
     }));
@@ -368,7 +372,7 @@ describe('bootstrap confirm', () => {
         setTimeout(() => { // let isOpenChange be called with false
           clickFixture();
           setTimeout(() => {
-            expect(fixture.componentInstance.isOpen).toEqual(true);
+            expect(fixture.componentInstance.isOpen).to.be.true;
           });
         });
       });
@@ -379,10 +383,10 @@ describe('bootstrap confirm', () => {
         setTimeout(() => { // let isOpenChange be called with false
           clickFixture();
           setTimeout(() => { // ugly set timeouts are required because isOpen is async
-            expect(fixture.componentInstance.isOpen).toEqual(true);
+            expect(fixture.componentInstance.isOpen).to.be.true;
             clickFixture();
             setTimeout(() => {
-              expect(fixture.componentInstance.isOpen).toEqual(false);
+              expect(fixture.componentInstance.isOpen).to.be.false;
             });
           });
         });
@@ -398,8 +402,8 @@ describe('bootstrap confirm', () => {
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
         expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0].classList.contains('popover'))
-          .toBe(false);
-        expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeTruthy();
+          .to.be.false;
+        expect(!!fixture.componentRef.location.nativeElement.querySelector('.popover')).to.be.true;
       });
     }));
 
@@ -412,8 +416,8 @@ describe('bootstrap confirm', () => {
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
         expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0].classList.contains('popover'))
-          .toBe(true);
-        expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).toBeFalsy();
+          .to.be.true;
+        expect(!!fixture.componentRef.location.nativeElement.querySelector('.popover')).to.be.false;
       });
     }));
 
@@ -447,11 +451,11 @@ describe('bootstrap confirm', () => {
       }).then((popover: ComponentRef<ConfirmPopover>) => {
         popover.changeDetectorRef.detectChanges();
         const popoverElm: HTMLElement = popover.location.nativeElement.children[0];
-        expect(popoverElm.querySelector('.popover-title').innerHTML).toEqual('My Title');
-        expect(popoverElm.querySelector('.popover-content > p').innerHTML).toEqual('My Message');
-        expect(popoverElm.classList.contains('right')).toBe(true);
-        expect(popoverElm.querySelector('my-custom-element').innerHTML).toEqual('Custom template');
-        expect(popoverElm.querySelectorAll('button')[0]).toEqual(document.activeElement);
+        expect(popoverElm.querySelector('.popover-title').innerHTML).to.equal('My Title');
+        expect(popoverElm.querySelector('.popover-content > p').innerHTML).to.equal('My Message');
+        expect(popoverElm.classList.contains('right')).to.be.true;
+        expect(popoverElm.querySelector('my-custom-element').innerHTML).to.equal('Custom template');
+        expect(popoverElm.querySelectorAll('button')[0]).to.equal(document.activeElement);
       });
 
     }));
@@ -499,7 +503,7 @@ describe('bootstrap confirm', () => {
         return fixture.componentInstance.confirm.popover;
       }).then((popover) => {
         popover.changeDetectorRef.detectChanges();
-        expect(popover.location.nativeElement.querySelectorAll('button')[0].innerHTML).toEqual('Derp');
+        expect(popover.location.nativeElement.querySelectorAll('button')[0].innerHTML).to.equal('Derp');
       });
     });
 
