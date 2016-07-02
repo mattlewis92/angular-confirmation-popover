@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="0.8.1"></a>
 ## [0.8.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.8.0...v0.8.1) (2016-07-02)
-
+* rebuild with typescript stable instead of nightly
 
 
 <a name="0.8.0"></a>
