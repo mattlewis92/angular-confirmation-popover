@@ -91,7 +91,7 @@
 				<pre><code>npm install --<span class="hljs-keyword">save</span> angular2-<span class="hljs-keyword">bootstrap</span>-<span class="hljs-keyword">confirm</span>
 </code></pre><p>Then use it in your app on a component:</p>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Component} from <span class="hljs-string">'@angular/core'</span>;
-<span class="hljs-keyword">import</span> {Confirm, ConfirmOptions, Position} from <span class="hljs-string">'angular2-bootstrap-confirm'</span>;
+<span class="hljs-keyword">import</span> {Confirm, ConfirmOptions, ConfirmPopover, Position} from <span class="hljs-string">'angular2-bootstrap-confirm'</span>;
 <span class="hljs-keyword">import</span> {PositionService} from <span class="hljs-string">'angular2-bootstrap-confirm/position/position'</span>;
 <span class="hljs-comment">// Or if you're already using the ng2-bootstrap module</span>
 <span class="hljs-comment">// import {PositionService} from 'ng2-bootstrap/components/position';</span>
@@ -106,10 +106,13 @@
   directives: [
     Confirm
   ],
+  precompile: [
+    ConfirmPopover
+  ],
   template: <span class="hljs-string">`
     &lt;button
       class="btn btn-default"
-      mwl-confirm
+      mwlConfirm
       [title]="title"
       [message]="message"
       placement="left"
