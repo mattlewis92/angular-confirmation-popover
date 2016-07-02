@@ -12,7 +12,7 @@ import {
   OnInit,
   ReflectiveInjector,
   ResolvedReflectiveProvider,
-  Compiler,
+  ComponentFactoryResolver,
   Injector,
   Inject,
   Renderer,
@@ -168,10 +168,10 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     private viewContainerRef: ViewContainerRef,
     private elm: ElementRef,
     private defaultOptions: ConfirmOptions,
-    private compiler: Compiler,
+    private cfr: ComponentFactoryResolver,
     private position: Position,
     private renderer: Renderer,
-    @Inject(DOCUMENT) private document: HTMLDocument
+    @Inject(DOCUMENT) private document //tslint:disable-line
   ) {}
 
   /**
@@ -254,7 +254,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         }
       });
 
-      const componentFactory: ComponentFactory<ConfirmPopover> = this.compiler.compileComponentSync(ConfirmPopover);
+      const componentFactory: ComponentFactory<ConfirmPopover> = this.cfr.resolveComponentFactory(ConfirmPopover);
       const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([{
         provide: PopoverConfirmOptions,
         useValue: options

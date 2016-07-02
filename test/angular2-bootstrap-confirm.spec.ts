@@ -53,6 +53,7 @@ describe('bootstrap confirm', () => {
 
     @Component({
       directives: [Confirm, Focus],
+      precompile: [ConfirmPopover],
       template: `
         <button
           class="btn btn-default"
@@ -340,7 +341,7 @@ describe('bootstrap confirm', () => {
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
-        expect(fixture.componentInstance.confirmClicked).to.be.false
+        expect(fixture.componentInstance.confirmClicked).to.be.false;
         popover.location.nativeElement.querySelectorAll('button')[0].click();
         expect(fixture.componentInstance.confirmClicked).to.be.true;
       });
@@ -352,7 +353,7 @@ describe('bootstrap confirm', () => {
         return Promise.all([fixture, fixture.componentInstance.confirm.popover]);
       }).then(([fixture, popover]) => {
         popover.changeDetectorRef.detectChanges();
-        expect(fixture.componentInstance.cancelClicked).to.be.false
+        expect(fixture.componentInstance.cancelClicked).to.be.false;
         popover.location.nativeElement.querySelectorAll('button')[1].click();
         expect(fixture.componentInstance.cancelClicked).to.be.true;
       });
@@ -466,6 +467,7 @@ describe('bootstrap confirm', () => {
 
     @Component({
       directives: [Confirm],
+      precompile: [ConfirmPopover],
       template: `
         <button
           class="btn btn-default"
