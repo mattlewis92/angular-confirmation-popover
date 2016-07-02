@@ -2,6 +2,55 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.7.0...v0.8.0) (2016-07-02)
+
+
+### Features
+
+* use `ComponentFactoryResolver` for creating the popover ([99af89f](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/99af89f))
+* **mwlConfirm:** renamed the selector of the mwlConfirm directive ([54a013c](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/54a013c))
+* **mwlFocus:** rename focusOn to mwlFocus ([5e3cbe7](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/5e3cbe7))
+* **mwlFocus:** rename the mwlFocus directive selector to be camelcased ([724ea47](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/724ea47))
+
+
+### BREAKING CHANGES
+
+* mwlFocus: focusOn has been removed in favour of binding directly to the mwlFocus selector. Only relevant if using a custom template.
+
+Before:
+```
+mwlFocus [focusOn]="condition"
+```
+
+After
+```
+[mwlFocus]="condition"
+```
+* mwlFocus: the mwlFocus selector has changed from `mwl-focus` to `mwlFocus`. Only relevant if using a custom template.
+* mwlConfirm: the CSS selector of the directive has changed from `mwl-confirm` to `mwlConfirm`
+* You must now add a `precompile: [ConfirmPopover]`, to any components metadata that uses the confirm
+directive like so:
+
+```
+import {Component} from '@angular/core';
+import {Confirm, ConfirmOptions, ConfirmPopover, Position} from 'angular2-bootstrap-confirm';
+@Component({
+  selector: 'my-component',
+  directives: [
+    Confirm
+  ],
+  precompile: [
+    ConfirmPopover
+  ],
+  ...
+})
+class MyComponent {
+}
+```
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.6.0...v0.7.0) (2016-07-01)
 
