@@ -36,7 +36,7 @@ Then use it in your app on a component:
 
 ```typescript
 import {Component} from '@angular/core';
-import {Confirm, ConfirmOptions, Position} from 'angular2-bootstrap-confirm';
+import {Confirm, ConfirmOptions, ConfirmPopover, Position} from 'angular2-bootstrap-confirm';
 import {PositionService} from 'angular2-bootstrap-confirm/position/position';
 // Or if you're already using the ng2-bootstrap module
 // import {PositionService} from 'ng2-bootstrap/components/position';
@@ -51,10 +51,13 @@ import {PositionService} from 'angular2-bootstrap-confirm/position/position';
   directives: [
     Confirm
   ],
+  precompile: [
+    ConfirmPopover
+  ],
   template: `
     <button
       class="btn btn-default"
-      mwl-confirm
+      mwlConfirm
       [title]="title"
       [message]="message"
       placement="left"

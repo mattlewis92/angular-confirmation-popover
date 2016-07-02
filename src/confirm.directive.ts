@@ -12,7 +12,7 @@ import {
   OnInit,
   ReflectiveInjector,
   ResolvedReflectiveProvider,
-  Compiler,
+  ComponentFactoryResolver,
   Injector,
   Inject,
   Renderer,
@@ -37,7 +37,7 @@ interface Coords {
  * ```
  * <button
  *  class="btn btn-default"
- *  mwl-confirm
+ *  mwlConfirm
  *  [title]="title"
  *  [message]="message"
  *  placement="left"
@@ -49,7 +49,7 @@ interface Coords {
  * ```
  */
 @Directive({
-  selector: '[mwl-confirm]'
+  selector: '[mwlConfirm]'
 })
 export class Confirm implements OnDestroy, OnChanges, OnInit {
 
@@ -127,7 +127,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
    *   </div>
    * </template>
    *
-   * Then pass customTemplate to the mwl-confirm directive like so `[customTemplate]="customTemplate"`
+   * Then pass customTemplate to the mwlConfirm directive like so `[customTemplate]="customTemplate"`
    */
   @Input() customTemplate: TemplateRef<any>;
 
@@ -168,10 +168,10 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     private viewContainerRef: ViewContainerRef,
     private elm: ElementRef,
     private defaultOptions: ConfirmOptions,
-    private compiler: Compiler,
+    private cfr: ComponentFactoryResolver,
     private position: Position,
     private renderer: Renderer,
-    @Inject(DOCUMENT) private document: HTMLDocument
+    @Inject(DOCUMENT) private document //tslint:disable-line
   ) {}
 
   /**
@@ -254,7 +254,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         }
       });
 
-      const componentFactory: ComponentFactory<ConfirmPopover> = this.compiler.compileComponentSync(ConfirmPopover);
+      const componentFactory: ComponentFactory<ConfirmPopover> = this.cfr.resolveComponentFactory(ConfirmPopover);
       const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([{
         provide: PopoverConfirmOptions,
         useValue: options

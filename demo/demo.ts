@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FORM_DIRECTIVES, CORE_DIRECTIVES} from '@angular/common';
-import {Confirm, ConfirmOptions, Position} from './../angular2-bootstrap-confirm';
+import {Confirm, ConfirmOptions, Position, ConfirmPopover} from './../angular2-bootstrap-confirm';
 import {PositionService} from 'ng2-bootstrap/components/position';
 
 const options: ConfirmOptions = new ConfirmOptions();
@@ -20,6 +20,7 @@ options.focusButton = 'confirm';
     ...CORE_DIRECTIVES,
     Confirm
   ],
+  precompile: [ConfirmPopover],
   template: `
     <div>
       <div class="form-group">
@@ -42,7 +43,7 @@ options.focusButton = 'confirm';
         <span *ngFor="let placement of placements trackBy placement">
           <button
             class="btn btn-default"
-            mwl-confirm
+            mwlConfirm
             [title]="title"
             [message]="message"
             [confirmText]="confirmText"
