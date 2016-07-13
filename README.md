@@ -40,6 +40,8 @@ import {Confirm, ConfirmOptions, ConfirmPopover, Position} from 'angular2-bootst
 import {Positioning} from 'angular2-bootstrap-confirm/position/position';
 // Or if you're already using the @ng-bootstrap/ng-bootstrap module
 // import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
+// or if you're using the ng2-bootstrap module
+// import {PositionService as Positioning} from 'ng2-bootstrap/components/position';
 
 @Component({
   selector: 'my-component',
