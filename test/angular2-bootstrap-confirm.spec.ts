@@ -38,7 +38,7 @@ use(chaiDom);
 
 setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
 
-class MockPositionService implements Position {
+class MockPosition implements Position {
 
   positionElements(hostEl: any, targetEl: any, positionStr: any, appendToBody: any): any {
     return {
@@ -100,7 +100,7 @@ describe('bootstrap confirm', () => {
 
     beforeEach(() => {
       addProviders([
-        {provide: Position, useClass: MockPositionService},
+        {provide: Position, useClass: MockPosition},
         ConfirmOptions
       ]);
     });
@@ -485,7 +485,7 @@ describe('bootstrap confirm', () => {
 
     beforeEach(() => {
       addProviders([{
-        provide: Position, useClass: MockPositionService
+        provide: Position, useClass: MockPosition
       }, {
         provide: ConfirmOptions,
         useValue: options

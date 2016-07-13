@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FORM_DIRECTIVES, CORE_DIRECTIVES} from '@angular/common';
 import {Confirm, ConfirmOptions, Position, ConfirmPopover} from './../angular2-bootstrap-confirm';
-import {PositionService} from 'ng2-bootstrap/components/position';
+import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
 
 const options: ConfirmOptions = new ConfirmOptions();
 options.focusButton = 'confirm';
@@ -13,7 +13,7 @@ options.focusButton = 'confirm';
     useValue: options
   }, {
     provide: Position,
-    useClass: PositionService
+    useClass: Positioning
   }],
   directives: [
     ...FORM_DIRECTIVES,
