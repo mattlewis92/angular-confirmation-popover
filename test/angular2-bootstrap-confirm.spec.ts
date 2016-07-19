@@ -364,7 +364,7 @@ describe('bootstrap confirm', () => {
     it('should initialise isOpen to false', async(() => {
       createPopoverContainer().then((fixture) => {
         fixture.detectChanges();
-        setTimeout(() => { // let isOpenChange be called with false
+        fixture.whenStable().then(() => { // let isOpenChange be called with false
           expect(fixture.componentInstance.isOpen).to.be.false;
         });
       });
@@ -372,26 +372,25 @@ describe('bootstrap confirm', () => {
 
     it('should set isOpen to true when the popover is opened', async(() => {
       createPopoverContainer().then((fixture) => {
-        setTimeout(() => { // let isOpenChange be called with false
+        fixture.whenStable().then(() => { // let isOpenChange be called with false
           clickFixture();
-          setTimeout(() => {
-            expect(fixture.componentInstance.isOpen).to.be.true;
-          });
+          return fixture.whenStable();
+        }).then(() => {
+          expect(fixture.componentInstance.isOpen).to.be.true;
         });
       });
     }));
 
     it('should set isOpen to false when the popover is closed', async(() => {
       createPopoverContainer().then((fixture) => {
-        setTimeout(() => { // let isOpenChange be called with false
+        fixture.whenStable().then(() => { // let isOpenChange be called with false
           clickFixture();
-          setTimeout(() => { // ugly set timeouts are required because isOpen is async
-            expect(fixture.componentInstance.isOpen).to.be.true;
-            clickFixture();
-            setTimeout(() => {
-              expect(fixture.componentInstance.isOpen).to.be.false;
-            });
-          });
+          return fixture.whenStable();
+        }).then(() => {
+          clickFixture();
+          return fixture.whenStable();
+        }).then(() => {
+          expect(fixture.componentInstance.isOpen).to.be.false;
         });
       });
     }));
