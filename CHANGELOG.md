@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.8.1...v0.9.0) (2016-08-04)
+
+
+### Features
+
+* **position:** change the recommended positioning service ([d2a780b](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/d2a780b))
+
+
+### BREAKING CHANGES
+
+* position: The exported service name from the `angular2-bootstrap-confirm/position/position` file has changed from `PositionService` to `Positioning`. To migrate:
+
+Before
+```
+import {PositionService} from 'angular2-bootstrap-confirm/position/position';
+```
+
+After:
+```
+import {Positioning} from 'angular2-bootstrap-confirm/position/position';
+```
+
+
+
 <a name="0.8.1"></a>
 ## [0.8.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.8.0...v0.8.1) (2016-07-02)
 * rebuild with typescript stable instead of nightly
