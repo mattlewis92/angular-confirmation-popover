@@ -9,7 +9,7 @@
     "start": "concurrently --raw \"webpack-dev-server\" \"npm run test:watch\" \"open http://localhost:8000\"",
     "build:demo": "webpack -p",
     "build:dist": "webpack --config webpack.config.dist.js",
-    "build:position": "webpack --config webpack.config.position.js && cp ./node_modules/@ng-bootstrap/ng-bootstrap/util/positioning.d.ts ./position",
+    "build:position": "webpack --config webpack.config.position.js && cp ./node_modules/@ng-bootstrap/ng-bootstrap/util/positioning.d.ts ./position/position.d.ts",
     "pretest": "typings install",
     "test": "karma start",
     "test:watch": "karma start --watch",
