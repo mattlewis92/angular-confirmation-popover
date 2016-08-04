@@ -263,7 +263,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
       const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
       this.popover = this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
       if (this.appendToBody) {
-        this.document.body.appendChild(this.popover.location.nativeElement);
+        this.renderer.invokeElementMethod(this.document.body, 'appendChild', [this.popover.location.nativeElement]);
       }
       this.isOpenChange.emit(true);
 

@@ -37,16 +37,18 @@ Then use it in your app on a component:
 ```typescript
 import {Component} from '@angular/core';
 import {Confirm, ConfirmOptions, ConfirmPopover, Position} from 'angular2-bootstrap-confirm';
-import {PositionService} from 'angular2-bootstrap-confirm/position/position';
-// Or if you're already using the ng2-bootstrap module
-// import {PositionService} from 'ng2-bootstrap/components/position';
+import {Positioning} from 'angular2-bootstrap-confirm/position/position';
+// Or if you're already using the @ng-bootstrap/ng-bootstrap module
+// import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
+// or if you're using the ng2-bootstrap module
+// import {PositionService as Positioning} from 'ng2-bootstrap/components/position';
 
 @Component({
   selector: 'my-component',
   providers: [ // you can pass both of these when bootstrapping the app to configure globally throughout your app
     ConfirmOptions,
-     // this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module
-    {provide: Position, useClass: PositionService}
+     // this is required so you can use the bundled position service rather than rely on the `@ng-bootstrap/ng-bootstrap` module
+    {provide: Position, useClass: Positioning}
   ],
   directives: [
     Confirm
@@ -84,7 +86,7 @@ You may also find it useful to view the [demo source](https://github.com/mattlew
 <script src="node_modules/angular2-bootstrap-confirm/position/position.js"></script>
 <script src="node_modules/angular2-bootstrap-confirm/angular2-bootstrap-confirm.js"></script>
 <script>
-    // position service available as ng2BootstrapPosition.PositionService
+    // position service available as ng2BootstrapPosition.Positioning
     // confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.Position
 </script>
 ```
@@ -109,7 +111,7 @@ The main confirm directive options can be viewed [here](https://mattlewis92.gith
 * Install local dev dependencies: `npm install` while current directory is this repo
 
 ### Development server
-Run `npm start` to start a development server on port 8000 with auto reload + tests. 
+Run `npm start` to start a development server on port 8000 with auto reload + tests.
 
 ### Testing
 Run `npm test` to run tests once or `npm run test:watch` to continually run tests.

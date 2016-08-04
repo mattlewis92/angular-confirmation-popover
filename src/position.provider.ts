@@ -4,15 +4,15 @@ import {Injectable} from '@angular/core';
  * A placeholder token that you need to overwrite with the actual Position service
  *
  * ```
- *  // if not also using the ng2-bootstrap module
- * import {PositionService} from 'angular2-bootstrap-confirm/position/position';
- *  // if already using the ng2-bootstrap module
- * import {PositionService} from 'ng2-bootstrap/components/position';
+ *  // if not also using the @ng-bootstrap/ng-bootstrap module
+ * import {Positioning} from 'angular2-bootstrap-confirm/position/position';
+ *  // if already using the @ng-bootstrap/ng-bootstrap module
+ * import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
  * import {Position} from 'angular2-bootstrap-confirm';
  *
  * providers: [
  *   provide(Position, {
- *     useClass: PositionService
+ *     useClass: Positioning
  *   })
  * ]
  * ```

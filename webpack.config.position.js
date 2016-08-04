@@ -1,5 +1,5 @@
 module.exports = {
-  entry: 'ng2-bootstrap/components/position',
+  entry: '@ng-bootstrap/ng-bootstrap/util/positioning',
   output: {
     filename: './position/position.js',
     libraryTarget: 'umd',

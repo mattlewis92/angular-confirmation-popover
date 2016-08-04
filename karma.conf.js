@@ -11,7 +11,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha'],
+    frameworks: ['mocha', 'source-map-support'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -46,9 +46,9 @@ module.exports = function(config) {
           test: /sinon.js$/, loader: 'imports?define=>false,require=>false'
         }],
         postLoaders: [{
-          test: /\.ts$/,
+          test: /src\/.+\.ts$/,
           exclude: /(test|node_modules)/,
-          loader: 'istanbul-instrumenter'
+          loader: 'sourcemap-istanbul-instrumenter?force-sourcemap=true'
         }]
       },
       tslint: {
@@ -58,18 +58,17 @@ module.exports = function(config) {
       plugins: WATCH ? [] : [new webpack.NoErrorsPlugin()]
     },
 
-    coverageReporter: {
-      reporters: [{
-        type: 'text-summary'
-      }, {
-        type: 'html'
-      }]
+    remapIstanbulReporter: {
+      reports: {
+        html: 'coverage/html',
+        'text-summary': null
+      }
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'karma-remap-istanbul'],
 
     // web server port
     port: 9876,
