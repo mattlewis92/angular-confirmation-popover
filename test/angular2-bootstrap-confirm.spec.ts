@@ -510,4 +510,15 @@ describe('bootstrap confirm', () => {
 
   });
 
+  describe('Position', () => {
+
+    it('should throw when constructed', () => {
+      class Positioning extends Position {
+        positionElements(hostEl: any, targetEl: any, positionStr: any, appendToBody:any): any {}
+      }
+      expect(() => new Positioning()).to.throw();
+    });
+
+  });
+
 });
