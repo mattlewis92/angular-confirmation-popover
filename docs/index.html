@@ -92,16 +92,18 @@
 </code></pre><p>Then use it in your app on a component:</p>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Component} from <span class="hljs-string">'@angular/core'</span>;
 <span class="hljs-keyword">import</span> {Confirm, ConfirmOptions, ConfirmPopover, Position} from <span class="hljs-string">'angular2-bootstrap-confirm'</span>;
-<span class="hljs-keyword">import</span> {PositionService} from <span class="hljs-string">'angular2-bootstrap-confirm/position/position'</span>;
-<span class="hljs-comment">// Or if you're already using the ng2-bootstrap module</span>
-<span class="hljs-comment">// import {PositionService} from 'ng2-bootstrap/components/position';</span>
+<span class="hljs-keyword">import</span> {Positioning} from <span class="hljs-string">'angular2-bootstrap-confirm/position/position'</span>;
+<span class="hljs-comment">// Or if you're already using the @ng-bootstrap/ng-bootstrap module</span>
+<span class="hljs-comment">// import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';</span>
+<span class="hljs-comment">// or if you're using the ng2-bootstrap module</span>
+<span class="hljs-comment">// import {PositionService as Positioning} from 'ng2-bootstrap/components/position';</span>
 
 @Component({
   selector: <span class="hljs-string">'my-component'</span>,
   providers: [ <span class="hljs-comment">// you can pass both of these when bootstrapping the app to configure globally throughout your app</span>
     ConfirmOptions,
-     <span class="hljs-comment">// this is required so you can use the bundled position service rather than rely on the `ng2-bootstrap` module</span>
-    {provide: Position, useClass: PositionService}
+     <span class="hljs-comment">// this is required so you can use the bundled position service rather than rely on the `@ng-bootstrap/ng-bootstrap` module</span>
+    {provide: Position, useClass: Positioning}
   ],
   directives: [
     Confirm
@@ -136,7 +138,7 @@
 				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular2-bootstrap-confirm/position/position.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular2-bootstrap-confirm/angular2-bootstrap-confirm.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
-    <span class="hljs-comment">// position service available as ng2BootstrapPosition.PositionService</span>
+    <span class="hljs-comment">// position service available as ng2BootstrapPosition.Positioning</span>
     <span class="hljs-comment">// confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.Position</span>
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre><h3 id="usage-with-universal">Usage with universal</h3>
@@ -153,7 +155,7 @@
 					<li>Install local dev dependencies: <code>npm install</code> while current directory is this repo</li>
 				</ul>
 				<h3 id="development-server">Development server</h3>
-				<p>Run <code>npm start</code> to start a development server on port 8000 with auto reload + tests. </p>
+				<p>Run <code>npm start</code> to start a development server on port 8000 with auto reload + tests.</p>
 				<h3 id="testing">Testing</h3>
 				<p>Run <code>npm test</code> to run tests once or <code>npm run test:watch</code> to continually run tests.</p>
 				<h3 id="release">Release</h3>
