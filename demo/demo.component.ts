@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-import {FORM_DIRECTIVES, CORE_DIRECTIVES} from '@angular/common';
-import {Confirm, ConfirmOptions, Position, ConfirmPopover} from './../angular2-bootstrap-confirm';
+import {ConfirmOptions, Position} from './../angular2-bootstrap-confirm';
 import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
 
 const options: ConfirmOptions = new ConfirmOptions();
@@ -15,12 +14,6 @@ options.focusButton = 'confirm';
     provide: Position,
     useClass: Positioning
   }],
-  directives: [
-    ...FORM_DIRECTIVES,
-    ...CORE_DIRECTIVES,
-    Confirm
-  ],
-  precompile: [ConfirmPopover],
   template: `
     <div>
       <div class="form-group">
@@ -68,7 +61,7 @@ options.focusButton = 'confirm';
     </div>
   `
 })
-export class DemoApp {
+export class Demo {
   placements: string[] = ['top', 'left', 'right', 'bottom'];
   title: string = 'Are you sure?';
   message: string = 'Are you really <b>sure</b> you want to do this?';

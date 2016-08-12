@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.9.1...v0.10.0) (2016-08-12)
+
+
+### Features
+
+* upgrade to angular RC5 ([040010d](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/040010d))
+
+
+### BREAKING CHANGES
+
+* A peer dependency of angular RC5 is now required.
+
+The `ConfirmPopover` component and `Confirm` directive are now no longer exported. Instead you must use the new `ConfirmModule` module in your apps module like so:
+
+```
+import {NgModule} from '@angular/core';
+import {ConfirmModule} from 'angular2-bootstrap-confirm';
+
+@NgModule({
+  declarations: [MyComponent],
+  imports: [ConfirmModule],
+  bootstrap: [MyComponent]
+})
+class MyModule {}
+```
+
+
+
 <a name="0.9.1"></a>
 ## [0.9.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.9.0...v0.9.1) (2016-08-04)
 

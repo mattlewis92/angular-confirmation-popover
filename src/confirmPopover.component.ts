@@ -2,8 +2,6 @@ import {
   Component,
   AfterViewInit,
 } from '@angular/core';
-import {NgIf, NgTemplateOutlet} from '@angular/common';
-import {Focus} from './focus.directive';
 import {PopoverConfirmOptions} from './confirmOptions.provider';
 
 /**
@@ -15,7 +13,6 @@ import {PopoverConfirmOptions} from './confirmOptions.provider';
       display: block;
     }
   `],
-  directives: [NgIf, NgTemplateOutlet, Focus],
   template: `
     <template #defaultTemplate let-options="options">
       <div [class]="'popover ' + options.placement + ' popover-' + options.placement + ' ' + options.popoverClass">
