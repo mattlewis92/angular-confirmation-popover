@@ -36,7 +36,7 @@ Then use it in your app on a component:
 
 ```typescript
 import {Component} from '@angular/core';
-import {Confirm, ConfirmOptions, ConfirmPopover, Position} from 'angular2-bootstrap-confirm';
+import {ConfirmOptions, Position} from 'angular2-bootstrap-confirm';
 import {Positioning} from 'angular2-bootstrap-confirm/position/position';
 // Or if you're already using the @ng-bootstrap/ng-bootstrap module
 // import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
@@ -49,12 +49,6 @@ import {Positioning} from 'angular2-bootstrap-confirm/position/position';
     ConfirmOptions,
      // this is required so you can use the bundled position service rather than rely on the `@ng-bootstrap/ng-bootstrap` module
     {provide: Position, useClass: Positioning}
-  ],
-  directives: [
-    Confirm
-  ],
-  precompile: [
-    ConfirmPopover
   ],
   template: `
     <button
@@ -77,6 +71,18 @@ class MyComponent {
   public cancelClicked: boolean = false;
   public isOpen: boolean = false;
 }
+
+// now use within your apps module
+import {NgModule} from '@angular/core';
+import {ConfirmModule} from 'angular2-bootstrap-confirm';
+
+@NgModule({
+  declarations: [MyComponent],
+  imports: [ConfirmModule],
+  bootstrap: [MyComponent]
+})
+class MyModule {}
+
 ```
 
 You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/demo.ts).

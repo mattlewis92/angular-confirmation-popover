@@ -2,7 +2,6 @@ import {
   Component,
   AfterViewInit,
 } from '@angular/core';
-import {Focus} from './focus.directive';
 import {PopoverConfirmOptions} from './confirmOptions.provider';
 
 /**
@@ -14,7 +13,6 @@ import {PopoverConfirmOptions} from './confirmOptions.provider';
       display: block;
     }
   `],
-  directives: [Focus],
   template: `
     <template #defaultTemplate let-options="options">
       <div [class]="'popover ' + options.placement + ' popover-' + options.placement + ' ' + options.popoverClass">
