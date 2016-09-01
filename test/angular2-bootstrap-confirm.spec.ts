@@ -3,6 +3,10 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
 import 'zone.js/dist/async-test';
+import 'zone.js/dist/fake-async-test';
+import 'zone.js/dist/sync-test';
+import 'zone.js/dist/proxy';
+import 'zone.js/dist/jasmine-patch';
 import 'rxjs';
 import {
   Component,
@@ -388,7 +392,7 @@ describe('bootstrap confirm', () => {
             <h3 class="popover-title">{{ options.title }}</h3>
             <div class="popover-content">
                <p [innerHTML]="options.message"></p>
-               <my-custom-element>Custom template</my-custom-element>
+               <div id="customTemplate">Custom template</div>
                <button [mwlFocus]="options.focusButton === 'confirm'">Confirm</button>
             </div>
           </div>
@@ -413,7 +417,7 @@ describe('bootstrap confirm', () => {
       expect(popoverElm.querySelector('.popover-title')).to.have.html('My Title');
       expect(popoverElm.querySelector('.popover-content > p')).to.have.html('My Message');
       expect(popoverElm).to.have.class('right');
-      expect(popoverElm.querySelector('my-custom-element')).to.have.html('Custom template');
+      expect(popoverElm.querySelector('#customTemplate')).to.have.html('Custom template');
       expect(popoverElm.querySelectorAll('button')[0]).to.equal(document.activeElement);
 
     });
