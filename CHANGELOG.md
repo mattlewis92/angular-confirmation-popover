@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.2"></a>
+## [0.10.2](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.10.1...v0.10.2) (2016-09-13)
+
+
+### Bug Fixes
+
+* **peerDependencies:** allow any version of angular higher than RC5 ([f6add7d](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/f6add7d))
+
+
+
 <a name="0.10.1"></a>
 ## [0.10.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.10.0...v0.10.1) (2016-09-01)
 
