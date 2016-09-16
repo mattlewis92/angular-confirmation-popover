@@ -13,7 +13,7 @@ module.exports = {
       test: /\.ts$/, loader: 'tslint?emitErrors=false&failOnHint=false', exclude: /node_modules/
     }],
     loaders: [{
-      test: /\.ts$/, loader: 'ts', exclude: /node_modules/
+      test: /\.ts$/, loader: 'awesome-typescript-loader', exclude: /node_modules/
     }]
   },
   resolve: {

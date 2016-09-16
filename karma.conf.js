@@ -40,7 +40,7 @@ module.exports = function(config) {
           test: /\.ts$/, loader: 'tslint', exclude: /node_modules/
         }],
         loaders: [{
-          test: /\.ts$/, loader: 'ts', exclude: /node_modules/
+          test: /\.ts$/, loader: 'awesome-typescript-loader', exclude: /node_modules/
         }, {
           test: /sinon.js$/, loader: 'imports?define=>false,require=>false'
         }],
