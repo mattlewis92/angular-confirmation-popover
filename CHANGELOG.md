@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.11.1"></a>
+## [0.11.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.11.0...v0.11.1) (2016-09-24)
+
+
+### Bug Fixes
+
+* **aot:** fix typescript errors when using aot ([6827be0](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/6827be0))
+
+
+
 <a name="0.11.0"></a>
 # [0.11.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.10.2...v0.11.0) (2016-09-24)
 
