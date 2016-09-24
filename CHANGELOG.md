@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.11.2"></a>
+## [0.11.2](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.11.1...v0.11.2) (2016-09-24)
+
+
+### Bug Fixes
+
+* **aot:** export popover component so aot works ([599021a](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/599021a))
+
+
+
 <a name="0.11.1"></a>
 ## [0.11.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.11.0...v0.11.1) (2016-09-24)
 
