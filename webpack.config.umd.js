@@ -1,6 +1,7 @@
 module.exports = {
   entry: __dirname + '/angular2-bootstrap-confirm.ts',
   output: {
+    path: __dirname + '/dist/umd',
     filename: 'angular2-bootstrap-confirm.js',
     libraryTarget: 'umd',
     library: 'ng2BootstrapConfirm'
@@ -34,7 +35,7 @@ module.exports = {
       enforce: 'pre'
     }, {
       test: /\.ts$/,
-      loader: 'awesome-typescript-loader?declaration=true',
+      loader: 'awesome-typescript-loader',
       exclude: /node_modules/
     }]
   },

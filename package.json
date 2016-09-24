@@ -2,25 +2,28 @@
   "name": "angular2-bootstrap-confirm",
   "version": "0.10.2",
   "description": "An angular2 bootstrap confirmation popover",
-  "main": "./angular2-bootstrap-confirm.js",
-  "typings": "./angular2-bootstrap-confirm.d.ts",
+  "main": "./dist/umd/angular2-bootstrap-confirm.js",
+  "module": "./dist/esm/angular2-bootstrap-confirm.js",
+  "typings": "./dist/esm/angular2-bootstrap-confirm.d.ts",
   "scripts": {
     "prestart": "typings install",
     "start": "concurrently --raw \"webpack-dev-server --open\" \"npm run test:watch\"",
     "build:demo": "webpack -p",
-    "build:dist": "webpack --config webpack.config.dist.js",
+    "build:umd": "webpack --config webpack.config.umd.js",
+    "build:dist": "npm run build:umd && npm run ngc",
     "build:position": "webpack --config webpack.config.position.js && cp ./node_modules/@ng-bootstrap/ng-bootstrap/util/positioning.d.ts ./position/position.d.ts",
     "pretest": "typings install",
     "test": "karma start",
     "test:watch": "karma start --watch",
-    "clean": "del ./src/*.d.ts ./demo/*.d.ts ./test/*.d.ts angular2-bootstrap-confirm.d.ts angular2-bootstrap-confirm.js* ./position",
+    "build:clean": "del ./dist ./position",
     "commit": "git-cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "typedoc": "typedoc --options typedoc.json angular2-bootstrap-confirm.ts src/*.ts",
     "gh-pages": "git checkout gh-pages && git merge master && npm run build:demo && npm run typedoc && git add . && git commit -m 'chore: build demo and docs' && git push && git checkout master",
     "prerelease": "npm test",
     "release": "git pull && standard-version --first-release && git push --follow-tags origin master && npm run build:dist && npm run build:position && npm publish",
-    "postrelease": "npm run clean && npm run gh-pages"
+    "postrelease": "npm run build:clean && npm run gh-pages",
+    "ngc": "ngc -p tsconfig-ngc.json"
   },
   "repository": {
     "type": "git",
@@ -41,10 +44,12 @@
   "devDependencies": {
     "@angular/common": "~2.0.0",
     "@angular/compiler": "~2.0.0",
+    "@angular/compiler-cli": "~0.6.3",
     "@angular/core": "~2.0.0",
     "@angular/forms": "~2.0.0",
     "@angular/platform-browser": "~2.0.0",
     "@angular/platform-browser-dynamic": "~2.0.0",
+    "@angular/platform-server": "~2.0.1",
     "@ng-bootstrap/ng-bootstrap": "~1.0.0-alpha.0",
     "awesome-typescript-loader": "~2.2.4",
     "chai": "~3.5.0",
@@ -89,10 +94,7 @@
     "@angular/platform-browser": "^2.0.0-rc.5"
   },
   "files": [
-    "angular2-bootstrap-confirm.js",
-    "angular2-bootstrap-confirm.js.map",
-    "angular2-bootstrap-confirm.d.ts",
-    "src/**/*.d.ts",
+    "dist",
     "position"
   ],
   "config": {
