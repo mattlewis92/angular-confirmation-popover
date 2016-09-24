@@ -1,6 +1,6 @@
 {
   "name": "angular2-bootstrap-confirm",
-  "version": "0.11.2",
+  "version": "0.11.3",
   "description": "An angular2 bootstrap confirmation popover",
   "main": "./dist/umd/angular2-bootstrap-confirm.js",
   "module": "./dist/esm/angular2-bootstrap-confirm.js",

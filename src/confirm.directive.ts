@@ -217,6 +217,38 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     this.hidePopover();
   }
 
+  /**
+   * @private
+   */
+  @HostListener('document:click', ['$event.target'])
+  @HostListener('document:touchend', ['$event.target'])
+  onDocumentClick(target: HTMLElement): void {
+
+    if (this.popover && !this.elm.nativeElement.contains(target) && !this.popover.location.nativeElement.contains(target)) {
+      this.hidePopover();
+    }
+  }
+
+  /**
+   * @private
+   */
+  @HostListener('click')
+  togglePopover(): void {
+    if (!this.popover) {
+      this.showPopover();
+    } else {
+      this.hidePopover();
+    }
+  }
+
+  /**
+   * @private
+   */
+  @HostListener('window:resize')
+  onResize(): void {
+    this.positionPopover();
+  }
+
   private showPopover(): void {
     if (!this.popover && !this.isDisabled) {
 
@@ -290,29 +322,6 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
       this.popover = null;
       this.isOpenChange.emit(false);
     }
-  }
-
-  @HostListener('document:click', ['$event.target'])
-  @HostListener('document:touchend', ['$event.target'])
-  private onDocumentClick(target: HTMLElement): void {
-
-    if (this.popover && !this.elm.nativeElement.contains(target) && !this.popover.location.nativeElement.contains(target)) {
-      this.hidePopover();
-    }
-  }
-
-  @HostListener('click')
-  private togglePopover(): void {
-    if (!this.popover) {
-      this.showPopover();
-    } else {
-      this.hidePopover();
-    }
-  }
-
-  @HostListener('window:resize')
-  private onResize(): void {
-    this.positionPopover();
   }
 
 }
