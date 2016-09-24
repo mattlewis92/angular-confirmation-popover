@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.11.0"></a>
+# [0.11.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.10.2...v0.11.0) (2016-09-24)
+
+
+### Features
+
+* **build:** support offline template compilation ([b7d518d](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/b7d518d))
+
+
+### BREAKING CHANGES
+
+* build: For System.js users the path to the UMD files has changed:
+
+Before:
+```
+node_modules/angular2-bootstrap-confirm/angular2-bootstrap-confirm.js
+```
+
+After:
+```
+node_modules/angular2-bootstrap-confirm/dist/umd/angular2-bootstrap-confirm.js
+```
+
+
+
 <a name="0.10.2"></a>
 ## [0.10.2](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.10.1...v0.10.2) (2016-09-13)
 

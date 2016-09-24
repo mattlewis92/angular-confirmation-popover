@@ -30,34 +30,47 @@ module.exports = function(config) {
 
     webpack: {
       resolve: {
-        extensions: ['', '.ts', '.js'],
+        extensions: ['.ts', '.js'],
         alias: {
           'sinon': 'sinon/pkg/sinon'
         }
       },
       module: {
-        preLoaders: [{
-          test: /\.ts$/, loader: 'tslint', exclude: /node_modules/
-        }],
-        loaders: [{
-          test: /\.ts$/, loader: 'ts', exclude: /node_modules/
+        rules: [{
+          test: /\.ts$/,
+          loader: 'tslint-loader',
+          exclude: /node_modules/,
+          enforce: 'pre'
         }, {
-          test: /sinon.js$/, loader: 'imports?define=>false,require=>false'
-        }],
-        postLoaders: [{
+          test: /\.ts$/,
+          loader: 'awesome-typescript-loader',
+          exclude: /node_modules/
+        }, {
+          test: /sinon.js$/,
+          loader: 'imports-loader?define=>false,require=>false'
+        }, {
           test: /src\/.+\.ts$/,
           exclude: /(test|node_modules)/,
-          loader: 'sourcemap-istanbul-instrumenter?force-sourcemap=true'
+          loader: 'sourcemap-istanbul-instrumenter-loader?force-sourcemap=true',
+          enforce: 'post'
         }]
-      },
-      tslint: {
-        emitErrors: !WATCH,
-        failOnHint: false
       },
       plugins: [
         new webpack.SourceMapDevToolPlugin({
           filename: null,
           test: /\.(ts|js)($|\?)/i
+        }),
+        new webpack.ContextReplacementPlugin(
+          /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+          __dirname + '/src'
+        ),
+        new webpack.LoaderOptionsPlugin({
+          options: {
+            tslint: {
+              emitErrors: !WATCH,
+              failOnHint: false
+            }
+          }
         })
       ].concat(!WATCH ? [new webpack.NoErrorsPlugin()] : [])
     },

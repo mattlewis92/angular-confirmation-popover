@@ -1,7 +1,8 @@
 module.exports = {
-  entry: './angular2-bootstrap-confirm.ts',
+  entry: __dirname + '/angular2-bootstrap-confirm.ts',
   output: {
-    filename: './angular2-bootstrap-confirm.js',
+    path: __dirname + '/dist/umd',
+    filename: 'angular2-bootstrap-confirm.js',
     libraryTarget: 'umd',
     library: 'ng2BootstrapConfirm'
   },
@@ -27,19 +28,18 @@ module.exports = {
   },
   devtool: 'source-map',
   module: {
-    preLoaders: [{
-      test: /\.ts$/, loader: 'tslint?emitErrors=true&failOnHint=true', exclude: /node_modules/
-    }],
-    loaders: [{
-      test: /\.ts$/, loader: 'ts', exclude: /node_modules/,
-      query: {
-        compilerOptions: {
-          declaration: true
-        }
-      }
+    rules: [{
+      test: /\.ts$/,
+      loader: 'tslint-loader?emitErrors=true&failOnHint=true',
+      exclude: /node_modules/,
+      enforce: 'pre'
+    }, {
+      test: /\.ts$/,
+      loader: 'awesome-typescript-loader',
+      exclude: /node_modules/
     }]
   },
   resolve: {
-    extensions: ['', '.ts', '.js']
+    extensions: ['.ts', '.js']
   }
 };

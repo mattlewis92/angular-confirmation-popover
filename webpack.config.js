@@ -3,21 +3,25 @@ const IS_PROD = process.argv.indexOf('-p') > -1;
 
 module.exports = {
   devtool: IS_PROD ? 'source-map' : 'eval',
-  entry: './demo/entry.ts',
+  entry: __dirname + '/demo/entry.ts',
   output: {
     filename: 'demo.js',
-    path: IS_PROD ? './demo' : ''
+    path: IS_PROD ? __dirname + '/demo' : __dirname
   },
   module: {
-    preLoaders: [{
-      test: /\.ts$/, loader: 'tslint?emitErrors=false&failOnHint=false', exclude: /node_modules/
-    }],
-    loaders: [{
-      test: /\.ts$/, loader: 'ts', exclude: /node_modules/
+    rules: [{
+      test: /\.ts$/,
+      loader: 'tslint-loader?emitErrors=false&failOnHint=false',
+      exclude: /node_modules/,
+      enforce: 'pre'
+    }, {
+      test: /\.ts$/,
+      loader: 'awesome-typescript-loader',
+      exclude: /node_modules/
     }]
   },
   resolve: {
-    extensions: ['', '.ts', '.js']
+    extensions: ['.ts', '.js']
   },
   devServer: {
     port: 8000,
@@ -28,9 +32,12 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       ENV: JSON.stringify(IS_PROD ? 'production' : 'development')
-    })
+    }),
+    new webpack.ContextReplacementPlugin(
+      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+      __dirname + '/src'
+    )
   ]
 };
