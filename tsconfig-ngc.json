@@ -11,8 +11,7 @@
     "rootDir": "./",
     "sourceMap": true,
     "inlineSources": true,
-    "skipLibCheck": true,
-    "lib": ["es6", "dom"]
+    "skipLibCheck": true
   },
   "files": [
     "angular2-bootstrap-confirm.ts"
