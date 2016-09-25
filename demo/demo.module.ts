@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-import {ConfirmModule} from './../angular2-bootstrap-confirm';
+import {ConfirmModule} from './../src';
 import {Demo} from './demo.component';
 
 @NgModule({

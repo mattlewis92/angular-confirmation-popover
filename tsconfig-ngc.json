@@ -14,7 +14,7 @@
     "skipLibCheck": true
   },
   "files": [
-    "angular2-bootstrap-confirm.ts"
+    "src/index.ts"
   ],
   "angularCompilerOptions": {
     "strictMetadataEmit": true,
