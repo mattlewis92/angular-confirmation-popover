@@ -92,7 +92,7 @@
 </code></pre><p>Then use it in your app on a component:</p>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Component} from <span class="hljs-string">'@angular/core'</span>;
 <span class="hljs-keyword">import</span> {ConfirmOptions, Position} from <span class="hljs-string">'angular2-bootstrap-confirm'</span>;
-<span class="hljs-keyword">import</span> {Positioning} from <span class="hljs-string">'angular2-bootstrap-confirm/position/position'</span>;
+<span class="hljs-keyword">import</span> {Positioning} from <span class="hljs-string">'angular2-bootstrap-confirm/position'</span>;
 <span class="hljs-comment">// Or if you're already using the @ng-bootstrap/ng-bootstrap module</span>
 <span class="hljs-comment">// import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';</span>
 <span class="hljs-comment">// or if you're using the ng2-bootstrap module</span>
@@ -140,8 +140,8 @@
 </code></pre>
 				<p>You may also find it useful to view the <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/demo.ts">demo source</a>.</p>
 				<h3 id="usage-without-a-module-bundler">Usage without a module bundler</h3>
-				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular2-bootstrap-confirm/position/position.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular2-bootstrap-confirm/angular2-bootstrap-confirm.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular2-bootstrap-confirm/position/index.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular2-bootstrap-confirm/dist/umd/angular2-bootstrap-confirm.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
     <span class="hljs-comment">// position service available as ng2BootstrapPosition.Positioning</span>
     <span class="hljs-comment">// confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.Position</span>
