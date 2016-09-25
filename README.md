@@ -90,7 +90,7 @@ You may also find it useful to view the [demo source](https://github.com/mattlew
 ### Usage without a module bundler
 ```
 <script src="node_modules/angular2-bootstrap-confirm/position/position.js"></script>
-<script src="node_modules/angular2-bootstrap-confirm/angular2-bootstrap-confirm.js"></script>
+<script src="node_modules/angular2-bootstrap-confirm/dist/umd/angular2-bootstrap-confirm.js"></script>
 <script>
     // position service available as ng2BootstrapPosition.Positioning
     // confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.Position
