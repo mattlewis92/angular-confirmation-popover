@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "An angular2 bootstrap confirmation popover",
   "main": "./dist/umd/angular2-bootstrap-confirm.js",
-  "module": "./dist/esm/index.js",
-  "typings": "./dist/esm/index.d.ts",
+  "module": "./dist/esm/src/index.js",
+  "typings": "./dist/esm/src/index.d.ts",
   "scripts": {
     "start": "concurrently --raw \"webpack-dev-server --open\" \"npm run test:watch\"",
     "build:demo": "webpack -p",
