@@ -1,10 +1,10 @@
 {
   "name": "angular2-bootstrap-confirm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An angular2 bootstrap confirmation popover",
   "main": "./dist/umd/angular2-bootstrap-confirm.js",
-  "module": "./dist/esm/index.js",
-  "typings": "./dist/esm/index.d.ts",
+  "module": "./dist/esm/src/index.js",
+  "typings": "./dist/esm/src/index.d.ts",
   "scripts": {
     "start": "concurrently --raw \"webpack-dev-server --open\" \"npm run test:watch\"",
     "build:demo": "webpack -p",
@@ -19,7 +19,7 @@
     "typedoc": "typedoc --options typedoc.json src/*.ts",
     "gh-pages": "git checkout gh-pages && git merge master && npm run build:demo && npm run typedoc && git add . && git commit -m 'chore: build demo and docs' && git push && git checkout master",
     "prerelease": "npm test",
-    "release": "git pull && standard-version --first-release && git push --follow-tags origin master && npm run build:dist && npm run build:position && npm publish",
+    "release": "git pull && standard-version && git push --follow-tags origin master && npm run build:dist && npm run build:position && npm publish",
     "postrelease": "npm run build:clean && npm run gh-pages",
     "ngc": "ngc -p tsconfig-ngc.json"
   },
