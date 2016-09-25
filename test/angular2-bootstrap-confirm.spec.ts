@@ -25,7 +25,7 @@ import {
   ConfirmModule,
   ConfirmOptions,
   Position
-} from './../angular2-bootstrap-confirm';
+} from './../src';
 import {Confirm} from './../src/confirm.directive';
 import {ConfirmPopover} from './../src/confirmPopover.component';
 import {expect, use} from 'chai';

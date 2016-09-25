@@ -1,5 +1,5 @@
 module.exports = {
-  entry: __dirname + '/angular2-bootstrap-confirm.ts',
+  entry: __dirname + '/src/index.ts',
   output: {
     path: __dirname + '/dist/umd',
     filename: 'angular2-bootstrap-confirm.js',

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ConfirmOptions, Position} from './../angular2-bootstrap-confirm';
+import {ConfirmOptions, Position} from './../src';
 import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
 
 const options: ConfirmOptions = new ConfirmOptions();

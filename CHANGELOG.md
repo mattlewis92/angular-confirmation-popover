@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.11.3...v1.0.0) (2016-09-25)
+
+
+### Features
+
+* **position:** export position service from index of the position folder ([6c48a3e](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/6c48a3e))
+
+
+### BREAKING CHANGES
+
+* position: Before:
+```
+import {Positioning} from 'angular2-bootstrap-confirm/position/position';
+```
+
+After:
+```
+import {Positioning} from 'angular2-bootstrap-confirm/position';
+```
+
+
+
 <a name="0.11.3"></a>
 ## [0.11.3](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.11.2...v0.11.3) (2016-09-24)
 
