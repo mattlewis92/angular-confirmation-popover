@@ -5,7 +5,7 @@ import {Injectable} from '@angular/core';
  *
  * ```
  *  // if not also using the @ng-bootstrap/ng-bootstrap module
- * import {Positioning} from 'angular2-bootstrap-confirm/position/position';
+ * import {Positioning} from 'angular2-bootstrap-confirm/position';
  *  // if already using the @ng-bootstrap/ng-bootstrap module
  * import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
  * import {Position} from 'angular2-bootstrap-confirm';

@@ -10,7 +10,7 @@
     "build:demo": "webpack -p",
     "build:umd": "webpack --config webpack.config.umd.js",
     "build:dist": "npm run build:umd && npm run ngc",
-    "build:position": "webpack --config webpack.config.position.js && cp ./node_modules/@ng-bootstrap/ng-bootstrap/util/positioning.d.ts ./position/position.d.ts",
+    "build:position": "webpack --config webpack.config.position.js && cp ./node_modules/@ng-bootstrap/ng-bootstrap/util/positioning.d.ts ./position/index.d.ts",
     "test": "karma start",
     "test:watch": "karma start --watch",
     "build:clean": "del ./dist ./position",
