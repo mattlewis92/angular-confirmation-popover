@@ -9,19 +9,19 @@
     "start": "concurrently --raw \"webpack-dev-server --open\" \"npm run test:watch\"",
     "build:demo": "webpack -p",
     "build:umd": "webpack --config webpack.config.umd.ts",
-    "build:dist": "npm run build:umd && npm run ngc",
+    "build:ngc": "ngc -p tsconfig-ngc.json",
+    "build:dist": "npm run build:umd && npm run build:ngc",
+    "build:clean": "del ./dist ./position",
     "build:position": "webpack --config webpack.config.position.ts && cp ./node_modules/@ng-bootstrap/ng-bootstrap/util/positioning.d.ts ./position/index.d.ts",
     "test": "karma start",
     "test:watch": "karma start --watch",
-    "build:clean": "del ./dist ./position",
     "commit": "git-cz",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "typedoc": "typedoc --options typedoc.json src/*.ts",
     "gh-pages": "git checkout gh-pages && git merge master && npm run build:demo && npm run typedoc && git add . && git commit -m 'chore: build demo and docs' && git push && git checkout master",
     "prerelease": "npm test",
     "release": "git pull && standard-version && git push --follow-tags origin master && npm run build:dist && npm run build:position && npm publish",
-    "postrelease": "npm run build:clean && npm run gh-pages",
-    "ngc": "ngc -p tsconfig-ngc.json"
+    "postrelease": "npm run build:clean && npm run gh-pages"
   },
   "repository": {
     "type": "git",
