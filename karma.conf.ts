@@ -1,5 +1,3 @@
-'use strict';
-
 const webpack = require('webpack');
 const WATCH = process.argv.indexOf('--watch') > -1;
 
