@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v1.0.0...v1.0.1) (2016-09-25)
+
+
+### Bug Fixes
+
+* use correct module imports ([261dec7](https://github.com/mattlewis92/angular2-bootstrap-confirm/commit/261dec7))
+
+
+
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/mattlewis92/angular2-bootstrap-confirm/compare/v0.11.3...v1.0.0) (2016-09-25)
 
