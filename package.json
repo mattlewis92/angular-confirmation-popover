@@ -60,7 +60,7 @@
     "chai": "~3.5.0",
     "chai-dom": "~1.4.0",
     "commitizen": "~2.8.1",
-    "concurrently": "~2.2.0",
+    "concurrently": "~3.0.0",
     "conventional-changelog": "~1.1.0",
     "conventional-changelog-cli": "~1.2.0",
     "core-js": "~2.4.1",
