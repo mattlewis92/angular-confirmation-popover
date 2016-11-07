@@ -1,2 +1,1 @@
-export {ConfirmOptions} from './confirmOptions.provider';
-export * from './confirm.module';
+export {ConfirmModule} from './confirm.module';

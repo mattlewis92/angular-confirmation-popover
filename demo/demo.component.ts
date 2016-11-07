@@ -1,15 +1,7 @@
 import {Component} from '@angular/core';
-import {ConfirmOptions} from './../src';
-
-const options: ConfirmOptions = new ConfirmOptions();
-options.focusButton = 'confirm';
 
 @Component({
   selector: 'demo-app',
-  providers: [{
-    provide: ConfirmOptions,
-    useValue: options
-  }],
   template: `
     <div>
       <div class="form-group">

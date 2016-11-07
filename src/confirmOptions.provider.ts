@@ -1,79 +1,83 @@
-import {Injectable, TemplateRef} from '@angular/core';
+import {TemplateRef, Injectable} from '@angular/core';
 
-/**
- * Use this for configuring the confirmation popover defaults
- *
- * Use it like so:
- * ```
- * const options: ConfirmOptions = new ConfirmOptions();
- * // focus the confirm button by default. See below for an explanation of all options.
- * options.focusButton = 'confirm';
- *
- * providers: [{provide: ConfirmOptions, useValue: options}]
- * ```
- */
-@Injectable()
-export class ConfirmOptions {
+export interface ConfirmOptionsInterface {
 
   /**
    * The popover title
    */
-  public title: string;
+  title?: string;
 
   /**
    * The popover message
    */
-  public message: string;
+  message?: string;
 
   /**
    * The popover confirmation button text
    */
-  public confirmText: string = 'Confirm';
+  confirmText?: string;
 
   /**
    * The popover cancel button text
    */
-  public cancelText: string = 'Cancel';
+  cancelText?: string;
 
   /**
    * The popover confirm button type e.g. `success`, `danger` etc
    */
-  public confirmButtonType: string = 'success';
+  confirmButtonType?: string;
 
   /**
    * The popover cancel button type  e.g. `success`, `danger` etc
    */
-  public cancelButtonType: string = 'default';
+  cancelButtonType?: string;
 
   /**
    * The popover placement. Can be `top`, `bottom`, `left`, `right`
    */
-  public placement: string = 'top';
+  placement?: string;
 
   /**
    * Which button to cancel. Can be either `confirm` or `cancel`
    */
-  public focusButton: string;
+  focusButton?: string;
 
   /**
    * Whether to hide the confirmation button
    */
-  public hideConfirmButton: boolean = false;
+  hideConfirmButton?: boolean;
 
   /**
    * Whether to hide the cancel button
    */
-  public hideCancelButton: boolean = false;
+  hideCancelButton?: boolean;
 
   /**
    * A custom CSS class to be added to the popover
    */
-  public popoverClass: string = '';
+  popoverClass?: string;
 
   /**
    * Whether to append the popover to the document body
    */
-  public appendToBody: boolean = false;
+  appendToBody?: boolean;
+
+}
+
+export class ConfirmOptions implements ConfirmOptionsInterface {
+
+  title: string;
+  message: string;
+  confirmText: string = 'Confirm';
+  cancelText: string = 'Cancel';
+  confirmButtonType: string = 'success';
+  cancelButtonType: string = 'default';
+  placement: string = 'top';
+  focusButton: string;
+  hideConfirmButton: boolean = false;
+  hideCancelButton: boolean = false;
+  popoverClass: string = '';
+  appendToBody: boolean = false;
 
 }
 

@@ -35,14 +35,24 @@ npm install --save angular2-bootstrap-confirm
 Then use it in your app on a component:
 
 ```typescript
-import {Component} from '@angular/core';
-import {ConfirmOptions} from 'angular2-bootstrap-confirm';
+import {NgModule, Component} from '@angular/core';
+import {ConfirmModule} from 'angular2-bootstrap-confirm';
 
+// first add it to your apps module
+@NgModule({
+  declarations: [MyComponent],
+  imports: [
+    ConfirmModule.forRoot({
+      confirmButtonType: 'danger' // set defaults here
+    })
+  ],
+  bootstrap: [MyComponent]
+})
+class MyModule {}
+
+// now use it within your component
 @Component({
   selector: 'my-component',
-  providers: [ // you can pass both of these when bootstrapping the app to configure globally throughout your app
-    ConfirmOptions
-  ],
   template: `
     <button
       class="btn btn-default"
@@ -64,17 +74,6 @@ class MyComponent {
   public cancelClicked: boolean = false;
   public isOpen: boolean = false;
 }
-
-// now use within your apps module
-import {NgModule} from '@angular/core';
-import {ConfirmModule} from 'angular2-bootstrap-confirm';
-
-@NgModule({
-  declarations: [MyComponent],
-  imports: [ConfirmModule],
-  bootstrap: [MyComponent]
-})
-class MyModule {}
 
 ```
 

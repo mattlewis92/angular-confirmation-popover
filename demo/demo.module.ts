@@ -6,7 +6,13 @@ import {Demo} from './demo.component';
 
 @NgModule({
   declarations: [Demo],
-  imports: [BrowserModule, FormsModule, ConfirmModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ConfirmModule.forRoot({
+      focusButton: 'confirm'
+    })
+  ],
   bootstrap: [Demo]
 })
 export class DemoModule {}
