@@ -36,19 +36,12 @@ Then use it in your app on a component:
 
 ```typescript
 import {Component} from '@angular/core';
-import {ConfirmOptions, Position} from 'angular2-bootstrap-confirm';
-import {Positioning} from 'angular2-bootstrap-confirm/position';
-// Or if you're already using the @ng-bootstrap/ng-bootstrap module
-// import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
-// or if you're using the ng2-bootstrap module
-// import {PositionService as Positioning} from 'ng2-bootstrap/components/position';
+import {ConfirmOptions} from 'angular2-bootstrap-confirm';
 
 @Component({
   selector: 'my-component',
   providers: [ // you can pass both of these when bootstrapping the app to configure globally throughout your app
-    ConfirmOptions,
-     // this is required so you can use the bundled position service rather than rely on the `@ng-bootstrap/ng-bootstrap` module
-    {provide: Position, useClass: Positioning}
+    ConfirmOptions
   ],
   template: `
     <button
@@ -89,11 +82,9 @@ You may also find it useful to view the [demo source](https://github.com/mattlew
 
 ### Usage without a module bundler
 ```
-<script src="node_modules/angular2-bootstrap-confirm/position/index.js"></script>
 <script src="node_modules/angular2-bootstrap-confirm/dist/umd/angular2-bootstrap-confirm.js"></script>
 <script>
-    // position service available as ng2BootstrapPosition.Positioning
-    // confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.Position
+    // everything is available under the ng2BootstrapConfirm namespace
 </script>
 ```
 

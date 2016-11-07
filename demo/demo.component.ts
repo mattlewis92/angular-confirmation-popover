@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
-import {ConfirmOptions, Position} from './../src';
-import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
+import {ConfirmOptions} from './../src';
 
 const options: ConfirmOptions = new ConfirmOptions();
 options.focusButton = 'confirm';
@@ -10,9 +9,6 @@ options.focusButton = 'confirm';
   providers: [{
     provide: ConfirmOptions,
     useValue: options
-  }, {
-    provide: Position,
-    useClass: Positioning
   }],
   template: `
     <div>

@@ -22,7 +22,7 @@ import {
 import {DOCUMENT} from '@angular/platform-browser';
 import {ConfirmPopover} from './confirmPopover.component';
 import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
-import {Position} from './position.provider';
+import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
 
 /**
  * @private
@@ -49,7 +49,8 @@ interface Coords {
  * ```
  */
 @Directive({
-  selector: '[mwlConfirm]'
+  selector: '[mwlConfirm]',
+  providers: [Positioning]
 })
 export class Confirm implements OnDestroy, OnChanges, OnInit {
 
@@ -169,7 +170,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     private elm: ElementRef,
     private defaultOptions: ConfirmOptions,
     private cfr: ComponentFactoryResolver,
-    private position: Position,
+    private position: Positioning,
     private renderer: Renderer,
     @Inject(DOCUMENT) private document //tslint:disable-line
   ) {}

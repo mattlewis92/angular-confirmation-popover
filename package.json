@@ -11,8 +11,7 @@
     "build:umd": "webpack --config webpack.config.umd.ts",
     "build:ngc": "ngc -p tsconfig-ngc.json",
     "build:dist": "npm run build:umd && npm run build:ngc",
-    "build:clean": "del ./dist ./position",
-    "build:position": "webpack --config webpack.config.position.ts && cp ./node_modules/@ng-bootstrap/ng-bootstrap/util/positioning.d.ts ./position/index.d.ts",
+    "build:clean": "del ./dist",
     "test": "karma start",
     "test:watch": "karma start --watch",
     "commit": "git-cz",
@@ -20,7 +19,7 @@
     "typedoc": "typedoc --options typedoc.json src/*.ts",
     "gh-pages": "git checkout gh-pages && git merge master && npm run build:demo && npm run typedoc && git add . && git commit -m 'chore: build demo and docs' && git push && git checkout master",
     "prerelease": "npm test",
-    "release": "git pull && standard-version && git push --follow-tags origin master && npm run build:dist && npm run build:position && npm publish",
+    "release": "git pull && standard-version && git push --follow-tags origin master && npm run build:dist && npm publish",
     "postrelease": "npm run build:clean && npm run gh-pages"
   },
   "repository": {
@@ -48,7 +47,6 @@
     "@angular/platform-browser": "~2.1.1",
     "@angular/platform-browser-dynamic": "~2.1.1",
     "@angular/platform-server": "~2.1.1",
-    "@ng-bootstrap/ng-bootstrap": "~1.0.0-alpha.0",
     "@types/chai": "~3.4.33",
     "@types/chai-dom": "0.0.4",
     "@types/core-js": "~0.9.34",
@@ -97,8 +95,7 @@
     "@angular/platform-browser": "^2.0.0"
   },
   "files": [
-    "dist",
-    "position"
+    "dist"
   ],
   "config": {
     "ghooks": {
@@ -107,5 +104,8 @@
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "~1.0.0-alpha.0"
   }
 }

@@ -38,17 +38,6 @@ use(chaiDom);
 
 TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 
-class MockPosition implements Position {
-
-  positionElements(hostEl: any, targetEl: any, positionStr: any, appendToBody: any): any {
-    return {
-      top: 20,
-      left: 40
-    };
-  }
-
-}
-
 describe('bootstrap confirm', () => {
 
   describe('Confirm directive', () => {
@@ -106,7 +95,6 @@ describe('bootstrap confirm', () => {
       TestBed.configureTestingModule({imports: [ConfirmModule], declarations: [TestCmp]});
       TestBed.configureCompiler({
         providers: [
-          {provide: Position, useClass: MockPosition},
           ConfirmOptions
         ]
       });
@@ -219,8 +207,8 @@ describe('bootstrap confirm', () => {
 
     it('should position the popover according to the coordinates given by the position service', () => {
       const popover: ComponentRef<ConfirmPopover> = createPopover();
-      expect(popover.location.nativeElement.children[0].style.top).to.equal('20px');
-      expect(popover.location.nativeElement.children[0].style.left).to.equal('40px');
+      expect(popover.location.nativeElement.children[0].style.top).to.equal('-43px');
+      expect(popover.location.nativeElement.children[0].style.left).to.equal('-374px');
     });
 
     it('should re-position the popover when the window resizes', () => {
@@ -445,8 +433,6 @@ describe('bootstrap confirm', () => {
       TestBed.configureTestingModule({imports: [ConfirmModule], declarations: [TestCmp]});
       TestBed.configureCompiler({
         providers: [{
-          provide: Position, useClass: MockPosition
-        }, {
           provide: ConfirmOptions,
           useValue: options
         }]
@@ -460,19 +446,6 @@ describe('bootstrap confirm', () => {
       const popover: ComponentRef<ConfirmPopover> = fixture.componentInstance.confirm.popover;
       popover.changeDetectorRef.detectChanges();
       expect(popover.location.nativeElement.querySelectorAll('button')[0]).to.have.html('Derp');
-    });
-
-  });
-
-  describe('Position', () => {
-
-    it('should throw when constructed', () => {
-      class Positioning extends Position {
-        positionElements(hostEl: any, targetEl: any, positionStr: any, appendToBody: any): any {
-          return;
-        }
-      }
-      expect(() => new Positioning()).to.throw();
     });
 
   });
