@@ -68,7 +68,7 @@ export class ConfirmationPopoverOptions implements ConfirmationPopoverOptionsInt
 
   title: string;
   message: string;
-  confirmText: string = 'ConfirmationPopover';
+  confirmText: string = 'Confirm';
   cancelText: string = 'Cancel';
   confirmButtonType: string = 'success';
   cancelButtonType: string = 'default';
