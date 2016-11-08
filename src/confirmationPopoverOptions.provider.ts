@@ -1,6 +1,6 @@
 import {TemplateRef, Injectable} from '@angular/core';
 
-export interface ConfirmOptionsInterface {
+export interface ConfirmationPopoverOptionsInterface {
 
   /**
    * The popover title
@@ -64,11 +64,11 @@ export interface ConfirmOptionsInterface {
 
 }
 
-export class ConfirmOptions implements ConfirmOptionsInterface {
+export class ConfirmationPopoverOptions implements ConfirmationPopoverOptionsInterface {
 
   title: string;
   message: string;
-  confirmText: string = 'Confirm';
+  confirmText: string = 'ConfirmationPopover';
   cancelText: string = 'Cancel';
   confirmButtonType: string = 'success';
   cancelButtonType: string = 'default';
@@ -85,7 +85,7 @@ export class ConfirmOptions implements ConfirmOptionsInterface {
  * @private
  */
 @Injectable()
-export class PopoverConfirmOptions extends ConfirmOptions {
+export class ConfirmationPopoverWindowOptions extends ConfirmationPopoverOptions {
 
   public onConfirm: Function;
   public onCancel: Function;

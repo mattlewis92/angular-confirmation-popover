@@ -1,1 +1,1 @@
-export {ConfirmationPopoverModule} from './confirm.module';
+export {ConfirmationPopoverModule} from './confirmationPopover.module';
