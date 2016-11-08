@@ -3,11 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Confirm | angular2-bootstrap-confirm</title>
+	<title>Confirm | angular-confirmation-popover</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -23,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">angular2-bootstrap-confirm</a>
+					<a href="../index.html" class="title">angular-confirmation-popover</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -70,10 +69,10 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>All properties can be set on the directive as attributes like so (use the <code>ConfirmOptions</code> provider to configure them globally):</p>
+						<p>All properties can be set on the directive as attributes like so (use <code>ConfirmationPopoverModule.forRoot()</code> to configure them globally):</p>
 						<pre><code>&lt;button
  <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">"btn btn-default"</span>
- mwlConfirm
+ mwlConfirmationPopover
  [title]=<span class="hljs-string">"title"</span>
  [message]=<span class="hljs-string">"message"</span>
  placement=<span class="hljs-string">"left"</span>
@@ -168,13 +167,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Confirm<span class="tsd-signature-symbol">(</span>viewContainerRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ViewContainerRef</span>, elm<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ElementRef</span>, defaultOptions<span class="tsd-signature-symbol">: </span><a href="confirmoptions.html" class="tsd-signature-type">ConfirmOptions</a>, cfr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ComponentFactoryResolver</span>, position<span class="tsd-signature-symbol">: </span><a href="position.html" class="tsd-signature-type">Position</a>, renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Renderer</span>, document<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="confirm.html" class="tsd-signature-type">Confirm</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Confirm<span class="tsd-signature-symbol">(</span>viewContainerRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ViewContainerRef</span>, elm<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ElementRef</span>, defaultOptions<span class="tsd-signature-symbol">: </span><a href="confirmoptions.html" class="tsd-signature-type">ConfirmOptions</a>, cfr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ComponentFactoryResolver</span>, position<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Positioning</span>, renderer<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Renderer</span>, document<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="confirm.html" class="tsd-signature-type">Confirm</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L162">confirm.directive.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L162">confirm.directive.ts:162</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -194,7 +193,7 @@
 									<h5>cfr: <span class="tsd-signature-type">ComponentFactoryResolver</span></h5>
 								</li>
 								<li>
-									<h5>position: <a href="position.html" class="tsd-signature-type">Position</a></h5>
+									<h5>position: <span class="tsd-signature-type">Positioning</span></h5>
 								</li>
 								<li>
 									<h5>renderer: <span class="tsd-signature-type">Renderer</span></h5>
@@ -216,7 +215,7 @@
 					<div class="tsd-signature tsd-kind-icon">append<wbr>ToBody<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L157">confirm.directive.ts:157</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L157">confirm.directive.ts:157</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -231,7 +230,7 @@
 					<div class="tsd-signature tsd-kind-icon">cancel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L147">confirm.directive.ts:147</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L147">confirm.directive.ts:147</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -246,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">cancel<wbr>Button<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L93">confirm.directive.ts:93</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L93">confirm.directive.ts:93</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -262,7 +261,7 @@
 					<div class="tsd-signature tsd-kind-icon">cancel<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L76">confirm.directive.ts:76</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L76">confirm.directive.ts:76</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -277,7 +276,7 @@
 					<div class="tsd-signature tsd-kind-icon">cfr<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ComponentFactoryResolver</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L171">confirm.directive.ts:171</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L171">confirm.directive.ts:171</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -287,7 +286,7 @@
 					<div class="tsd-signature tsd-kind-icon">confirm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L142">confirm.directive.ts:142</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L142">confirm.directive.ts:142</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -302,7 +301,7 @@
 					<div class="tsd-signature tsd-kind-icon">confirm<wbr>Button<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L87">confirm.directive.ts:87</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L87">confirm.directive.ts:87</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -318,7 +317,7 @@
 					<div class="tsd-signature tsd-kind-icon">confirm<wbr>Text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L71">confirm.directive.ts:71</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L71">confirm.directive.ts:71</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -333,7 +332,7 @@
 					<div class="tsd-signature tsd-kind-icon">custom<wbr>Template<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">TemplateRef</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L132">confirm.directive.ts:132</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L132">confirm.directive.ts:132</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -345,7 +344,7 @@
 								</div>
 							</template>
 						</div>
-						<p>Then pass customTemplate to the mwlConfirm directive like so <code>[customTemplate]=&quot;customTemplate&quot;</code></p>
+						<p>Then pass customTemplate to the mwlConfirmationPopover directive like so <code>[customTemplate]=&quot;customTemplate&quot;</code></p>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
@@ -354,7 +353,7 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Options<span class="tsd-signature-symbol">:</span> <a href="confirmoptions.html" class="tsd-signature-type">ConfirmOptions</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L170">confirm.directive.ts:170</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L170">confirm.directive.ts:170</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -364,7 +363,7 @@
 					<div class="tsd-signature tsd-kind-icon">document<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L174">confirm.directive.ts:174</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L174">confirm.directive.ts:174</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -374,7 +373,7 @@
 					<div class="tsd-signature tsd-kind-icon">elm<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ElementRef</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L169">confirm.directive.ts:169</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L169">confirm.directive.ts:169</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -384,7 +383,7 @@
 					<div class="tsd-signature tsd-kind-icon">focus<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L99">confirm.directive.ts:99</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L99">confirm.directive.ts:99</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -400,7 +399,7 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Cancel<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L109">confirm.directive.ts:109</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L109">confirm.directive.ts:109</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -415,7 +414,7 @@
 					<div class="tsd-signature tsd-kind-icon">hide<wbr>Confirm<wbr>Button<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L104">confirm.directive.ts:104</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L104">confirm.directive.ts:104</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -430,7 +429,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Disabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L114">confirm.directive.ts:114</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L114">confirm.directive.ts:114</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -445,7 +444,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Open<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L120">confirm.directive.ts:120</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L120">confirm.directive.ts:120</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -461,7 +460,7 @@
 					<div class="tsd-signature tsd-kind-icon">is<wbr>Open<wbr>Change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">EventEmitter</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new EventEmitter(true)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L137">confirm.directive.ts:137</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L137">confirm.directive.ts:137</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -476,7 +475,7 @@
 					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L66">confirm.directive.ts:66</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L66">confirm.directive.ts:66</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -491,7 +490,7 @@
 					<div class="tsd-signature tsd-kind-icon">placement<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L81">confirm.directive.ts:81</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L81">confirm.directive.ts:81</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -506,7 +505,7 @@
 					<div class="tsd-signature tsd-kind-icon">popover<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ComponentRef</span><span class="tsd-signature-symbol">&lt;</span><a href="confirmpopover.html" class="tsd-signature-type">ConfirmPopover</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L162">confirm.directive.ts:162</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L162">confirm.directive.ts:162</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -518,7 +517,7 @@
 					<div class="tsd-signature tsd-kind-icon">popover<wbr>Class<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L152">confirm.directive.ts:152</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L152">confirm.directive.ts:152</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -530,10 +529,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="position" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> position</h3>
-					<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <a href="position.html" class="tsd-signature-type">Position</a></div>
+					<div class="tsd-signature tsd-kind-icon">position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Positioning</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L172">confirm.directive.ts:172</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L172">confirm.directive.ts:172</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -543,7 +542,7 @@
 					<div class="tsd-signature tsd-kind-icon">renderer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Renderer</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L173">confirm.directive.ts:173</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L173">confirm.directive.ts:173</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -553,7 +552,7 @@
 					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L61">confirm.directive.ts:61</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L61">confirm.directive.ts:61</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -570,7 +569,7 @@
 					<div class="tsd-signature tsd-kind-icon">view<wbr>Container<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ViewContainerRef</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L168">confirm.directive.ts:168</a></li>
+							<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L168">confirm.directive.ts:168</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -587,7 +586,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L319">confirm.directive.ts:319</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L319">confirm.directive.ts:319</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -604,7 +603,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L187">confirm.directive.ts:187</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L187">confirm.directive.ts:187</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -629,7 +628,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L200">confirm.directive.ts:200</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L200">confirm.directive.ts:200</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -648,7 +647,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L180">confirm.directive.ts:180</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L180">confirm.directive.ts:180</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -667,7 +666,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L215">confirm.directive.ts:215</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L215">confirm.directive.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -686,7 +685,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L207">confirm.directive.ts:207</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L207">confirm.directive.ts:207</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -705,7 +704,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L225">confirm.directive.ts:225</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L225">confirm.directive.ts:225</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -730,7 +729,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L248">confirm.directive.ts:248</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L248">confirm.directive.ts:248</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -749,7 +748,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L305">confirm.directive.ts:305</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L305">confirm.directive.ts:305</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -766,7 +765,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L252">confirm.directive.ts:252</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L252">confirm.directive.ts:252</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -783,7 +782,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/59a43d8/src/confirm.directive.ts#L236">confirm.directive.ts:236</a></li>
+									<li>Defined in <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/62e6cd3/src/confirm.directive.ts#L236">confirm.directive.ts:236</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -928,13 +927,13 @@
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-class">
-						<a href="confirmmodule.html" class="tsd-kind-icon">Confirm<wbr>Module</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="confirmoptions.html" class="tsd-kind-icon">Confirm<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-private">
 						<a href="confirmpopover.html" class="tsd-kind-icon">Confirm<wbr>Popover</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="confirmationpopovermodule.html" class="tsd-kind-icon">Confirmation<wbr>Popover<wbr>Module</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="focus.html" class="tsd-kind-icon">Focus</a>
@@ -942,11 +941,17 @@
 					<li class=" tsd-kind-class tsd-is-private">
 						<a href="popoverconfirmoptions.html" class="tsd-kind-icon">Popover<wbr>Confirm<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="position.html" class="tsd-kind-icon">Position</a>
+					<li class=" tsd-kind-interface">
+						<a href="../interfaces/confirmoptionsinterface.html" class="tsd-kind-icon">Confirm<wbr>Options<wbr>Interface</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-private tsd-is-not-exported">
 						<a href="../interfaces/coords.html" class="tsd-kind-icon">Coords</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="../globals.html#user_options" class="tsd-kind-icon">USER_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../globals.html#optionsfactory" class="tsd-kind-icon">options<wbr>Factory</a>
 					</li>
 				</ul>
 			</nav>
@@ -1013,7 +1018,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

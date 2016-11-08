@@ -3,11 +3,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>angular2-bootstrap-confirm</title>
+	<title>angular-confirmation-popover</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
-	<script src="assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -23,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">angular2-bootstrap-confirm</a>
+					<a href="index.html" class="title">angular-confirmation-popover</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -57,7 +56,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> angular2-bootstrap-confirm</h1>
+			<h1> angular-confirmation-popover</h1>
 		</div>
 	</div>
 </header>
@@ -65,15 +64,15 @@
 	<div class="row">
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
-				<h1 id="angular2-bootstrap-confirm">Angular2 bootstrap confirm</h1>
-				<p><a href="https://travis-ci.org/mattlewis92/angular2-bootstrap-confirm"><img src="https://travis-ci.org/mattlewis92/angular2-bootstrap-confirm.svg?branch=master" alt="Build Status"></a>
-					<a href="http://badge.fury.io/js/angular2-bootstrap-confirm"><img src="https://badge.fury.io/js/angular2-bootstrap-confirm.svg" alt="npm version"></a>
-					<a href="https://david-dm.org/mattlewis92/angular2-bootstrap-confirm#info=devDependencies"><img src="https://david-dm.org/mattlewis92/angular2-bootstrap-confirm/dev-status.svg" alt="devDependency Status"></a>
-					<a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/issues"><img src="https://img.shields.io/github/issues/mattlewis92/angular2-bootstrap-confirm.svg" alt="GitHub issues"></a>
-					<a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/stargazers"><img src="https://img.shields.io/github/stars/mattlewis92/angular2-bootstrap-confirm.svg" alt="GitHub stars"></a>
-				<a href="https://raw.githubusercontent.com/mattlewis92/angular2-bootstrap-confirm/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
+				<h1 id="angular-confirmation-popover">Angular confirmation popover</h1>
+				<p><a href="https://travis-ci.org/mattlewis92/angular-confirmation-popover"><img src="https://travis-ci.org/mattlewis92/angular-confirmation-popover.svg?branch=master" alt="Build Status"></a>
+					<a href="http://badge.fury.io/js/angular-confirmation-popover"><img src="https://badge.fury.io/js/angular-confirmation-popover.svg" alt="npm version"></a>
+					<a href="https://david-dm.org/mattlewis92/angular-confirmation-popover#info=devDependencies"><img src="https://david-dm.org/mattlewis92/angular-confirmation-popover/dev-status.svg" alt="devDependency Status"></a>
+					<a href="https://github.com/mattlewis92/angular-confirmation-popover/issues"><img src="https://img.shields.io/github/issues/mattlewis92/angular-confirmation-popover.svg" alt="GitHub issues"></a>
+					<a href="https://github.com/mattlewis92/angular-confirmation-popover/stargazers"><img src="https://img.shields.io/github/stars/mattlewis92/angular-confirmation-popover.svg" alt="GitHub stars"></a>
+				<a href="https://raw.githubusercontent.com/mattlewis92/angular-confirmation-popover/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a></p>
 				<h2 id="demo">Demo</h2>
-				<p><a href="https://mattlewis92.github.io/angular2-bootstrap-confirm/">https://mattlewis92.github.io/angular2-bootstrap-confirm/</a></p>
+				<p><a href="https://mattlewis92.github.io/angular-confirmation-popover/">https://mattlewis92.github.io/angular-confirmation-popover/</a></p>
 				<h2 id="table-of-contents">Table of contents</h2>
 				<ul>
 					<li><a href="#about">About</a></li>
@@ -83,32 +82,35 @@
 					<li><a href="#licence">License</a></li>
 				</ul>
 				<h2 id="about">About</h2>
-				<p>A simple angular2 directive to display a bootstrap styled confirmation popover when an element is clicked.</p>
+				<p>A simple angular 2.0+ directive to display a bootstrap styled confirmation popover when an element is clicked.</p>
 				<p>Pull requests are welcome.</p>
 				<p><a href="https://github.com/mattlewis92/angular-bootstrap-confirm">AngularJS 1.x version</a></p>
 				<h2 id="installation">Installation</h2>
 				<p>Install through npm:</p>
-				<pre><code>npm install --<span class="hljs-keyword">save</span> angular2-<span class="hljs-keyword">bootstrap</span>-<span class="hljs-keyword">confirm</span>
+				<pre><code>npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save angular-confirmation-popover</span>
 </code></pre><p>Then use it in your app on a component:</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Component} from <span class="hljs-string">'@angular/core'</span>;
-<span class="hljs-keyword">import</span> {ConfirmOptions, Position} from <span class="hljs-string">'angular2-bootstrap-confirm'</span>;
-<span class="hljs-keyword">import</span> {Positioning} from <span class="hljs-string">'angular2-bootstrap-confirm/position'</span>;
-<span class="hljs-comment">// Or if you're already using the @ng-bootstrap/ng-bootstrap module</span>
-<span class="hljs-comment">// import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';</span>
-<span class="hljs-comment">// or if you're using the ng2-bootstrap module</span>
-<span class="hljs-comment">// import {PositionService as Positioning} from 'ng2-bootstrap/components/position';</span>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {NgModule, Component} from <span class="hljs-string">'@angular/core'</span>;
+<span class="hljs-keyword">import</span> {ConfirmationPopoverModule} from <span class="hljs-string">'angular-confirmation-popover'</span>;
 
+<span class="hljs-comment">// first add it to your apps module</span>
+@NgModule({
+  declarations: [MyComponent],
+  imports: [
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: <span class="hljs-string">'danger'</span> <span class="hljs-comment">// set defaults here</span>
+    })
+  ],
+  bootstrap: [MyComponent]
+})
+<span class="hljs-keyword">class</span> MyModule {}
+
+<span class="hljs-comment">// now use it within your component</span>
 @Component({
   selector: <span class="hljs-string">'my-component'</span>,
-  providers: [ <span class="hljs-comment">// you can pass both of these when bootstrapping the app to configure globally throughout your app</span>
-    ConfirmOptions,
-     <span class="hljs-comment">// this is required so you can use the bundled position service rather than rely on the `@ng-bootstrap/ng-bootstrap` module</span>
-    {provide: Position, useClass: Positioning}
-  ],
   template: <span class="hljs-string">`
     &lt;button
       class="btn btn-default"
-      mwlConfirm
+      mwlConfirmationPopover
       [title]="title"
       [message]="message"
       placement="left"
@@ -126,33 +128,20 @@
   <span class="hljs-keyword">public</span> cancelClicked: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
   <span class="hljs-keyword">public</span> isOpen: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
 }
-
-<span class="hljs-comment">// now use within your apps module</span>
-<span class="hljs-keyword">import</span> {NgModule} from <span class="hljs-string">'@angular/core'</span>;
-<span class="hljs-keyword">import</span> {ConfirmModule} from <span class="hljs-string">'angular2-bootstrap-confirm'</span>;
-
-@NgModule({
-  declarations: [MyComponent],
-  imports: [ConfirmModule],
-  bootstrap: [MyComponent]
-})
-<span class="hljs-keyword">class</span> MyModule {}
 </code></pre>
-				<p>You may also find it useful to view the <a href="https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/demo.ts">demo source</a>.</p>
+				<p>You may also find it useful to view the <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.ts">demo source</a>.</p>
 				<h3 id="usage-without-a-module-bundler">Usage without a module bundler</h3>
-				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular2-bootstrap-confirm/position/index.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular2-bootstrap-confirm/dist/umd/angular2-bootstrap-confirm.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular-confirmation-popover/dist/umd/angular-confirmation-popover.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
-    <span class="hljs-comment">// position service available as ng2BootstrapPosition.Positioning</span>
-    <span class="hljs-comment">// confirm options, directive and position token available as ng2BootstrapConfirm.ConfirmOptions, ng2BootstrapConfirm.Confirm, ng2BootstrapConfirm.Position</span>
+    <span class="hljs-comment">// everything is available under the angularConfirmationPopover namespace</span>
 </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 </code></pre><h3 id="usage-with-universal">Usage with universal</h3>
 				<p>You will need to add this line in your server bootstrap code to get this module to work with universal:</p>
 				<pre><code>(<span class="hljs-built_in">global</span> as any).HTMLElement = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {};
 </code></pre><h2 id="documentation">Documentation</h2>
 				<p>All documentation is auto-generated from the source via typedoc and can be viewed here:
-				<a href="https://mattlewis92.github.io/angular2-bootstrap-confirm/docs/">https://mattlewis92.github.io/angular2-bootstrap-confirm/docs/</a></p>
-				<p>The main confirm directive options can be viewed <a href="https://mattlewis92.github.io/angular2-bootstrap-confirm/docs/classes/confirm.html">here</a>.</p>
+				<a href="https://mattlewis92.github.io/angular-confirmation-popover/docs/">https://mattlewis92.github.io/angular-confirmation-popover/docs/</a></p>
+				<p>The main confirm directive options can be viewed <a href="https://mattlewis92.github.io/angular-confirmation-popover/docs/classes/confirm.html">here</a>.</p>
 				<h2 id="development">Development</h2>
 				<h3 id="prepare-your-environment">Prepare your environment</h3>
 				<ul>
@@ -184,13 +173,13 @@
 						<a href="classes/confirm.html" class="tsd-kind-icon">Confirm</a>
 					</li>
 					<li class=" tsd-kind-class">
-						<a href="classes/confirmmodule.html" class="tsd-kind-icon">Confirm<wbr>Module</a>
-					</li>
-					<li class=" tsd-kind-class">
 						<a href="classes/confirmoptions.html" class="tsd-kind-icon">Confirm<wbr>Options</a>
 					</li>
 					<li class=" tsd-kind-class tsd-is-private">
 						<a href="classes/confirmpopover.html" class="tsd-kind-icon">Confirm<wbr>Popover</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/confirmationpopovermodule.html" class="tsd-kind-icon">Confirmation<wbr>Popover<wbr>Module</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/focus.html" class="tsd-kind-icon">Focus</a>
@@ -198,11 +187,17 @@
 					<li class=" tsd-kind-class tsd-is-private">
 						<a href="classes/popoverconfirmoptions.html" class="tsd-kind-icon">Popover<wbr>Confirm<wbr>Options</a>
 					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/position.html" class="tsd-kind-icon">Position</a>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/confirmoptionsinterface.html" class="tsd-kind-icon">Confirm<wbr>Options<wbr>Interface</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-is-private tsd-is-not-exported">
 						<a href="interfaces/coords.html" class="tsd-kind-icon">Coords</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-not-exported">
+						<a href="globals.html#user_options" class="tsd-kind-icon">USER_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#optionsfactory" class="tsd-kind-icon">options<wbr>Factory</a>
 					</li>
 				</ul>
 			</nav>
@@ -269,7 +264,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="assets/js/main.js"></script>
