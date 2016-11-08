@@ -1,6 +1,6 @@
 {
   "name": "angular-confirmation-popover",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "An angular 2.0+ bootstrap confirmation popover",
   "main": "./dist/umd/angular-confirmation-popover.js",
   "module": "./dist/esm/src/index.js",
