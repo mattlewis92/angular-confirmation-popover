@@ -153,6 +153,20 @@ describe('bootstrap confirm', () => {
       expect(hidePopover).to.have.been.calledOnce;
     });
 
+    it('should hide the popover when an element not inside the popover is clicked', () => {
+      const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
+      fixture.detectChanges();
+      const confirm: Confirm = fixture.componentInstance.confirm;
+      clickFixture(fixture);
+      const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
+      confirm.popover.changeDetectorRef.detectChanges();
+      const btn: HTMLElement = document.createElement('button');
+      document.body.appendChild(btn);
+      btn.click();
+      expect(hidePopover).to.have.been.calledOnce;
+      btn.parentNode.removeChild(btn);
+    });
+
     it('should allow the popover title to be customised', () => {
       const popover: ComponentRef<ConfirmPopover> = createPopover();
       expect(popover.location.nativeElement.querySelector('.popover-title')).to.have.html('Are you sure?');
