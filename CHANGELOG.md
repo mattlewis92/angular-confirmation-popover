@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v1.0.4...v2.0.0) (2016-11-08)
+
+
+### Bug Fixes
+
+* **aot:** remove aot hacks ([8f6e092](https://github.com/mattlewis92/angular-confirmation-popover/commit/8f6e092)), closes [#27](https://github.com/mattlewis92/angular-confirmation-popover/issues/27)
+
+
+### Features
+
+* **defaults:** defaults are now configured by passing them via ConfirmModule.forRoot() ([802c1ef](https://github.com/mattlewis92/angular-confirmation-popover/commit/802c1ef))
+* **positioning:** the position service is now bundled by default ([c486999](https://github.com/mattlewis92/angular-confirmation-popover/commit/c486999)), closes [#23](https://github.com/mattlewis92/angular-confirmation-popover/issues/23)
+* rename ConfirmModule to ConfirmationPopoverModule ([1da24d0](https://github.com/mattlewis92/angular-confirmation-popover/commit/1da24d0))
+* rename mwlConfirm to mwlConfirmationPopover ([ef5fcf4](https://github.com/mattlewis92/angular-confirmation-popover/commit/ef5fcf4))
+* rename the npm package ([d1cbaa5](https://github.com/mattlewis92/angular-confirmation-popover/commit/d1cbaa5)), closes [#22](https://github.com/mattlewis92/angular-confirmation-popover/issues/22)
+
+
+### BREAKING CHANGES
+
+* the package name has been renamed from angular2-bootstrap-confirm to angular-confirmation-popover
+* the directive selector has changed from mwlConfirm to mwlConfirmationPopover
+* The ConfirmModule has been renamed to ConfirmationPopoverModule
+* defaults: Before:
+```
+const defaults = new ConfirmOptions();
+defaults.confirmButtonType = 'danger';
+
+providers: [
+  {provide: ConfirmOptions, useValue: defaults}
+]
+```
+
+After:
+```
+imports: [
+  ConfirmModule.forRoot({
+    confirmButtonType: 'danger'
+  })
+]
+```
+* positioning: There is now no longer any exported `Position` token. To migrate just remove any references to it
+* aot: angular 2.1.2 or higher is now required for AOT to work
+
+
+
 <a name="1.0.4"></a>
 ## [1.0.4](https://github.com/mattlewis92/angular-confirmation-popover/compare/v1.0.3...v1.0.4) (2016-10-21)
 
