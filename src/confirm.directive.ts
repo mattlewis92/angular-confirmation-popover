@@ -33,7 +33,7 @@ interface Coords {
 }
 
 /**
- * All properties can be set on the directive as attributes like so (use `ConfirmModule.forRoot()` to configure them globally):
+ * All properties can be set on the directive as attributes like so (use `ConfirmationPopoverModule.forRoot()` to configure them globally):
  * ```
  * <button
  *  class="btn btn-default"

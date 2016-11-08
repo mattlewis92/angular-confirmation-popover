@@ -21,7 +21,7 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
-import {ConfirmModule} from './../src';
+import {ConfirmationPopoverModule} from './../src';
 import {Confirm} from './../src/confirm.directive';
 import {ConfirmPopover} from './../src/confirmPopover.component';
 import {expect, use} from 'chai';
@@ -88,7 +88,7 @@ describe('bootstrap confirm', () => {
     };
 
     beforeEach(() => {
-      TestBed.configureTestingModule({imports: [ConfirmModule.forRoot()], declarations: [TestCmp]});
+      TestBed.configureTestingModule({imports: [ConfirmationPopoverModule.forRoot()], declarations: [TestCmp]});
 
       createPopover = (): ComponentRef<ConfirmPopover> => {
         const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
@@ -434,7 +434,7 @@ describe('bootstrap confirm', () => {
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [
-          ConfirmModule.forRoot({
+          ConfirmationPopoverModule.forRoot({
             confirmText: 'Derp'
           })
         ],

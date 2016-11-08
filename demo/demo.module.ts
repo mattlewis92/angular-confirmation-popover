@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
-import {ConfirmModule} from './../src';
+import {ConfirmationPopoverModule} from './../src';
 import {Demo} from './demo.component';
 
 @NgModule({
@@ -9,7 +9,7 @@ import {Demo} from './demo.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ConfirmModule.forRoot({
+    ConfirmationPopoverModule.forRoot({
       focusButton: 'confirm'
     })
   ],

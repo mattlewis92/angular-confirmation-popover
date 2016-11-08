@@ -20,12 +20,12 @@ export function optionsFactory(userOptions: ConfirmOptions): ConfirmOptions {
   exports: [Confirm, Focus],
   entryComponents: [ConfirmPopover]
 })
-export class ConfirmModule {
+export class ConfirmationPopoverModule {
 
   static forRoot(options: ConfirmOptionsInterface = {}): ModuleWithProviders {
 
     return {
-      ngModule: ConfirmModule,
+      ngModule: ConfirmationPopoverModule,
       providers: [{
         provide: USER_OPTIONS,
         useValue: options

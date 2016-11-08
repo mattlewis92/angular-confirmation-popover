@@ -36,13 +36,13 @@ Then use it in your app on a component:
 
 ```typescript
 import {NgModule, Component} from '@angular/core';
-import {ConfirmModule} from 'angular2-bootstrap-confirm';
+import {ConfirmationPopoverModule} from 'angular2-bootstrap-confirm';
 
 // first add it to your apps module
 @NgModule({
   declarations: [MyComponent],
   imports: [
-    ConfirmModule.forRoot({
+    ConfirmationPopoverModule.forRoot({
       confirmButtonType: 'danger' // set defaults here
     })
   ],
