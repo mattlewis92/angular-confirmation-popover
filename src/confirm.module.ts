@@ -1,5 +1,6 @@
 import {NgModule, ModuleWithProviders, OpaqueToken} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
 import {Confirm} from './confirm.directive';
 import {ConfirmPopover} from './confirmPopover.component';
 import {Focus} from './focus.directive';
@@ -32,7 +33,7 @@ export class ConfirmModule {
         provide: ConfirmOptions,
         useFactory: optionsFactory,
         deps: [USER_OPTIONS]
-      }]
+      }, Positioning]
     };
 
   }

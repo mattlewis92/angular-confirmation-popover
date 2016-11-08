@@ -49,8 +49,7 @@ interface Coords {
  * ```
  */
 @Directive({
-  selector: '[mwlConfirm]',
-  providers: [Positioning]
+  selector: '[mwlConfirm]'
 })
 export class Confirm implements OnDestroy, OnChanges, OnInit {
 
