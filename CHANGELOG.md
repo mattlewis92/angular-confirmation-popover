@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.0.0...v2.0.1) (2016-11-08)
+
+
+### Bug Fixes
+
+* rename all internal directives, components and providers ([356f545](https://github.com/mattlewis92/angular-confirmation-popover/commit/356f545))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v1.0.4...v2.0.0) (2016-11-08)
 
