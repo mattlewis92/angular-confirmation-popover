@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.3"></a>
+## [2.0.3](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.0.2...v2.0.3) (2016-11-08)
+
+
+### Bug Fixes
+
+* **aot:** maybe fix aot compilation ([5d5818a](https://github.com/mattlewis92/angular-confirmation-popover/commit/5d5818a))
+
+
+
 <a name="2.0.2"></a>
 ## [2.0.2](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.0.1...v2.0.2) (2016-11-08)
 

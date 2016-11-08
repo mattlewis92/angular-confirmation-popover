@@ -6,7 +6,7 @@ import {ConfirmationPopoverWindow} from './confirmationPopoverWindow.component';
 import {Focus} from './focus.directive';
 import {ConfirmationPopoverOptions, ConfirmationPopoverOptionsInterface} from './confirmationPopoverOptions.provider';
 
-const USER_OPTIONS: OpaqueToken = new OpaqueToken('confirmation popover user options');
+export const USER_OPTIONS: OpaqueToken = new OpaqueToken('confirmation popover user options');
 
 export function optionsFactory(userOptions: ConfirmationPopoverOptions): ConfirmationPopoverOptions {
   const options: ConfirmationPopoverOptions = new ConfirmationPopoverOptions();
