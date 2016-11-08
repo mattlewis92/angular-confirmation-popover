@@ -1,8 +1,8 @@
 {
-  "name": "angular2-bootstrap-confirm",
+  "name": "angular-confirmation-popover",
   "version": "1.0.4",
-  "description": "An angular2 bootstrap confirmation popover",
-  "main": "./dist/umd/angular2-bootstrap-confirm.js",
+  "description": "An angular 2.0+ bootstrap confirmation popover",
+  "main": "./dist/umd/angular-confirmation-popover.js",
   "module": "./dist/esm/src/index.js",
   "typings": "./dist/esm/src/index.d.ts",
   "scripts": {
@@ -24,20 +24,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattlewis92/angular2-bootstrap-confirm.git"
+    "url": "git+https://github.com/mattlewis92/angular-confirmation-popover.git"
   },
   "keywords": [
+    "angular",
     "angular2",
     "bootstrap",
     "popover",
-    "confirm"
+    "confirm",
+    "confirmation"
   ],
   "author": "Matt Lewis",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mattlewis92/angular2-bootstrap-confirm/issues"
+    "url": "https://github.com/mattlewis92/angular-confirmation-popover/issues"
   },
-  "homepage": "https://github.com/mattlewis92/angular2-bootstrap-confirm#readme",
+  "homepage": "https://github.com/mattlewis92/angular-confirmation-popover#readme",
   "devDependencies": {
     "@angular/common": "~2.1.1",
     "@angular/compiler": "~2.1.1",

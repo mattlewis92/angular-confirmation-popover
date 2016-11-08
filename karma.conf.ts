@@ -13,7 +13,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/angular2-bootstrap-confirm.spec.ts'
+      'test/angular-confirmation-popover.spec.ts'
     ],
 
     // list of files to exclude
@@ -23,7 +23,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/angular2-bootstrap-confirm.spec.ts': ['webpack', 'sourcemap']
+      'test/angular-confirmation-popover.spec.ts': ['webpack', 'sourcemap']
     },
 
     webpack: {

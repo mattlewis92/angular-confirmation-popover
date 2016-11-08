@@ -2,9 +2,9 @@ module.exports = {
   entry: __dirname + '/src/index.ts',
   output: {
     path: __dirname + '/dist/umd',
-    filename: 'angular2-bootstrap-confirm.js',
+    filename: 'angular-confirmation-popover.js',
     libraryTarget: 'umd',
-    library: 'ng2BootstrapConfirm'
+    library: 'angularConfirmationPopover'
   },
   externals: {
     '@angular/core': {

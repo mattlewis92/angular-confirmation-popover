@@ -1,13 +1,13 @@
-# Angular2 bootstrap confirm
-[![Build Status](https://travis-ci.org/mattlewis92/angular2-bootstrap-confirm.svg?branch=master)](https://travis-ci.org/mattlewis92/angular2-bootstrap-confirm)
-[![npm version](https://badge.fury.io/js/angular2-bootstrap-confirm.svg)](http://badge.fury.io/js/angular2-bootstrap-confirm)
-[![devDependency Status](https://david-dm.org/mattlewis92/angular2-bootstrap-confirm/dev-status.svg)](https://david-dm.org/mattlewis92/angular2-bootstrap-confirm#info=devDependencies)
-[![GitHub issues](https://img.shields.io/github/issues/mattlewis92/angular2-bootstrap-confirm.svg)](https://github.com/mattlewis92/angular2-bootstrap-confirm/issues)
-[![GitHub stars](https://img.shields.io/github/stars/mattlewis92/angular2-bootstrap-confirm.svg)](https://github.com/mattlewis92/angular2-bootstrap-confirm/stargazers)
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mattlewis92/angular2-bootstrap-confirm/master/LICENSE)
+# Angular confirmation popover
+[![Build Status](https://travis-ci.org/mattlewis92/angular-confirmation-popover.svg?branch=master)](https://travis-ci.org/mattlewis92/angular-confirmation-popover)
+[![npm version](https://badge.fury.io/js/angular-confirmation-popover.svg)](http://badge.fury.io/js/angular-confirmation-popover)
+[![devDependency Status](https://david-dm.org/mattlewis92/angular-confirmation-popover/dev-status.svg)](https://david-dm.org/mattlewis92/angular-confirmation-popover#info=devDependencies)
+[![GitHub issues](https://img.shields.io/github/issues/mattlewis92/angular-confirmation-popover.svg)](https://github.com/mattlewis92/angular-confirmation-popover/issues)
+[![GitHub stars](https://img.shields.io/github/stars/mattlewis92/angular-confirmation-popover.svg)](https://github.com/mattlewis92/angular-confirmation-popover/stargazers)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mattlewis92/angular-confirmation-popover/master/LICENSE)
 
 ## Demo
-https://mattlewis92.github.io/angular2-bootstrap-confirm/
+https://mattlewis92.github.io/angular-confirmation-popover/
 
 ## Table of contents
 
@@ -19,7 +19,7 @@ https://mattlewis92.github.io/angular2-bootstrap-confirm/
 
 ## About
 
-A simple angular2 directive to display a bootstrap styled confirmation popover when an element is clicked.
+A simple angular 2.0+ directive to display a bootstrap styled confirmation popover when an element is clicked.
 
 Pull requests are welcome.
 
@@ -29,14 +29,14 @@ Pull requests are welcome.
 
 Install through npm:
 ```
-npm install --save angular2-bootstrap-confirm
+npm install --save angular-confirmation-popover
 ```
 
 Then use it in your app on a component:
 
 ```typescript
 import {NgModule, Component} from '@angular/core';
-import {ConfirmationPopoverModule} from 'angular2-bootstrap-confirm';
+import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 
 // first add it to your apps module
 @NgModule({
@@ -77,13 +77,13 @@ class MyComponent {
 
 ```
 
-You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular2-bootstrap-confirm/blob/master/demo/demo.ts).
+You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.ts).
 
 ### Usage without a module bundler
 ```
-<script src="node_modules/angular2-bootstrap-confirm/dist/umd/angular2-bootstrap-confirm.js"></script>
+<script src="node_modules/angular-confirmation-popover/dist/umd/angular-confirmation-popover.js"></script>
 <script>
-    // everything is available under the ng2BootstrapConfirm namespace
+    // everything is available under the angularConfirmationPopover namespace
 </script>
 ```
 
@@ -96,9 +96,9 @@ You will need to add this line in your server bootstrap code to get this module 
 
 ## Documentation
 All documentation is auto-generated from the source via typedoc and can be viewed here:
-https://mattlewis92.github.io/angular2-bootstrap-confirm/docs/
+https://mattlewis92.github.io/angular-confirmation-popover/docs/
 
-The main confirm directive options can be viewed [here](https://mattlewis92.github.io/angular2-bootstrap-confirm/docs/classes/confirm.html).
+The main confirm directive options can be viewed [here](https://mattlewis92.github.io/angular-confirmation-popover/docs/classes/confirm.html).
 
 ## Development
 
