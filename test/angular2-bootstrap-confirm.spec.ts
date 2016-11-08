@@ -42,7 +42,7 @@ describe('bootstrap confirm', () => {
       template: `
         <button
           class="btn btn-default"
-          mwlConfirm
+          mwlConfirmationPopover
           [title]="title"
           [message]="message"
           [confirmText]="confirmText"
@@ -390,7 +390,7 @@ describe('bootstrap confirm', () => {
           </div>
         </template>
         <button
-          mwlConfirm
+          mwlConfirmationPopover
           title="My Title"
           message="My Message"
           placement="right"
@@ -422,7 +422,7 @@ describe('bootstrap confirm', () => {
       template: `
         <button
           class="btn btn-default"
-          mwlConfirm>
+          mwlConfirmationPopover>
           Show popover
         </button>
       `

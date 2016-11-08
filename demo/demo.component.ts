@@ -24,7 +24,7 @@ import {Component} from '@angular/core';
         <span *ngFor="let placement of placements trackBy placement">
           <button
             class="btn btn-default"
-            mwlConfirm
+            mwlConfirmationPopover
             [title]="title"
             [message]="message"
             [confirmText]="confirmText"

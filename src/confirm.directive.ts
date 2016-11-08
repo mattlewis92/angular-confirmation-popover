@@ -37,7 +37,7 @@ interface Coords {
  * ```
  * <button
  *  class="btn btn-default"
- *  mwlConfirm
+ *  mwlConfirmationPopover
  *  [title]="title"
  *  [message]="message"
  *  placement="left"
@@ -49,7 +49,7 @@ interface Coords {
  * ```
  */
 @Directive({
-  selector: '[mwlConfirm]'
+  selector: '[mwlConfirmationPopover]'
 })
 export class Confirm implements OnDestroy, OnChanges, OnInit {
 
@@ -127,7 +127,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
    *   </div>
    * </template>
    *
-   * Then pass customTemplate to the mwlConfirm directive like so `[customTemplate]="customTemplate"`
+   * Then pass customTemplate to the mwlConfirmationPopover directive like so `[customTemplate]="customTemplate"`
    */
   @Input() customTemplate: TemplateRef<any>;
 

@@ -56,7 +56,7 @@ class MyModule {}
   template: `
     <button
       class="btn btn-default"
-      mwlConfirm
+      mwlConfirmationPopover
       [title]="title"
       [message]="message"
       placement="left"
