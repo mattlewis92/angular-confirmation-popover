@@ -20,8 +20,8 @@ import {
   ComponentFactory
 } from '@angular/core';
 import {DOCUMENT} from '@angular/platform-browser';
-import {ConfirmPopover} from './confirmPopover.component';
-import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
+import {ConfirmationPopoverWindow} from './confirmationPopoverWindow.component';
+import {ConfirmationPopoverOptions, ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.provider';
 import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
 
 /**
@@ -51,7 +51,7 @@ interface Coords {
 @Directive({
   selector: '[mwlConfirmationPopover]'
 })
-export class Confirm implements OnDestroy, OnChanges, OnInit {
+export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
 
   /**
    * The title of the popover.
@@ -66,7 +66,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   @Input() message: string;
 
   /**
-   * The text of the confirm button. Default `Confirm`
+   * The text of the confirm button. Default `ConfirmationPopover`
    */
   @Input() confirmText: string;
 
@@ -159,7 +159,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
-  popover: ComponentRef<ConfirmPopover> = null;
+  popover: ComponentRef<ConfirmationPopoverWindow> = null;
 
   /**
    * @private
@@ -167,7 +167,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   constructor(
     private viewContainerRef: ViewContainerRef,
     private elm: ElementRef,
-    private defaultOptions: ConfirmOptions,
+    private defaultOptions: ConfirmationPopoverOptions,
     private cfr: ComponentFactoryResolver,
     private position: Positioning,
     private renderer: Renderer,
@@ -252,7 +252,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
   private showPopover(): void {
     if (!this.popover && !this.isDisabled) {
 
-      const options: PopoverConfirmOptions = new PopoverConfirmOptions();
+      const options: ConfirmationPopoverWindowOptions = new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
         title: this.title,
         message: this.message,
@@ -286,9 +286,9 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
         }
       });
 
-      const componentFactory: ComponentFactory<ConfirmPopover> = this.cfr.resolveComponentFactory(ConfirmPopover);
+      const componentFactory: ComponentFactory<ConfirmationPopoverWindow> = this.cfr.resolveComponentFactory(ConfirmationPopoverWindow);
       const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([{
-        provide: PopoverConfirmOptions,
+        provide: ConfirmationPopoverWindowOptions,
         useValue: options
       }]);
       const contextInjector: Injector = this.viewContainerRef.parentInjector;

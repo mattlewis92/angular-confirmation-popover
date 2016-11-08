@@ -2,7 +2,7 @@ import {
   Component,
   AfterViewInit,
 } from '@angular/core';
-import {PopoverConfirmOptions} from './confirmOptions.provider';
+import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.provider';
 
 /**
  * @private
@@ -53,9 +53,9 @@ import {PopoverConfirmOptions} from './confirmOptions.provider';
     </template>
   `
 })
-export class ConfirmPopover implements AfterViewInit {
+export class ConfirmationPopoverWindow implements AfterViewInit {
 
-  constructor(public options: PopoverConfirmOptions) {}
+  constructor(public options: ConfirmationPopoverWindowOptions) {}
 
   ngAfterViewInit(): void {
     this.options.onAfterViewInit();
