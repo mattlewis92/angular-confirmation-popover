@@ -21,7 +21,7 @@ export function optionsFactory(userOptions: ConfirmOptions): ConfirmOptions {
 })
 export class ConfirmModule {
 
-  static forRoot(options?: ConfirmOptionsInterface): ModuleWithProviders {
+  static forRoot(options: ConfirmOptionsInterface = {}): ModuleWithProviders {
 
     return {
       ngModule: ConfirmModule,
