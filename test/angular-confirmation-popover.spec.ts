@@ -21,11 +21,7 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
-import {
-  ConfirmModule,
-  ConfirmOptions,
-  Position
-} from './../src';
+import {ConfirmationPopoverModule} from './../src';
 import {Confirm} from './../src/confirm.directive';
 import {ConfirmPopover} from './../src/confirmPopover.component';
 import {expect, use} from 'chai';
@@ -38,17 +34,6 @@ use(chaiDom);
 
 TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
 
-class MockPosition implements Position {
-
-  positionElements(hostEl: any, targetEl: any, positionStr: any, appendToBody: any): any {
-    return {
-      top: 20,
-      left: 40
-    };
-  }
-
-}
-
 describe('bootstrap confirm', () => {
 
   describe('Confirm directive', () => {
@@ -57,7 +42,7 @@ describe('bootstrap confirm', () => {
       template: `
         <button
           class="btn btn-default"
-          mwlConfirm
+          mwlConfirmationPopover
           [title]="title"
           [message]="message"
           [confirmText]="confirmText"
@@ -103,13 +88,7 @@ describe('bootstrap confirm', () => {
     };
 
     beforeEach(() => {
-      TestBed.configureTestingModule({imports: [ConfirmModule], declarations: [TestCmp]});
-      TestBed.configureCompiler({
-        providers: [
-          {provide: Position, useClass: MockPosition},
-          ConfirmOptions
-        ]
-      });
+      TestBed.configureTestingModule({imports: [ConfirmationPopoverModule.forRoot()], declarations: [TestCmp]});
 
       createPopover = (): ComponentRef<ConfirmPopover> => {
         const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
@@ -174,6 +153,20 @@ describe('bootstrap confirm', () => {
       expect(hidePopover).to.have.been.calledOnce;
     });
 
+    it('should hide the popover when an element not inside the popover is clicked', () => {
+      const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
+      fixture.detectChanges();
+      const confirm: Confirm = fixture.componentInstance.confirm;
+      clickFixture(fixture);
+      const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
+      confirm.popover.changeDetectorRef.detectChanges();
+      const btn: HTMLElement = document.createElement('button');
+      document.body.appendChild(btn);
+      btn.click();
+      expect(hidePopover).to.have.been.calledOnce;
+      btn.parentNode.removeChild(btn);
+    });
+
     it('should allow the popover title to be customised', () => {
       const popover: ComponentRef<ConfirmPopover> = createPopover();
       expect(popover.location.nativeElement.querySelector('.popover-title')).to.have.html('Are you sure?');
@@ -219,8 +212,8 @@ describe('bootstrap confirm', () => {
 
     it('should position the popover according to the coordinates given by the position service', () => {
       const popover: ComponentRef<ConfirmPopover> = createPopover();
-      expect(popover.location.nativeElement.children[0].style.top).to.equal('20px');
-      expect(popover.location.nativeElement.children[0].style.left).to.equal('40px');
+      expect(popover.location.nativeElement.children[0].style.top).to.equal('-43px');
+      expect(popover.location.nativeElement.children[0].style.left).to.equal('-374px');
     });
 
     it('should re-position the popover when the window resizes', () => {
@@ -397,7 +390,7 @@ describe('bootstrap confirm', () => {
           </div>
         </template>
         <button
-          mwlConfirm
+          mwlConfirmationPopover
           title="My Title"
           message="My Message"
           placement="right"
@@ -429,7 +422,7 @@ describe('bootstrap confirm', () => {
       template: `
         <button
           class="btn btn-default"
-          mwlConfirm>
+          mwlConfirmationPopover>
           Show popover
         </button>
       `
@@ -438,18 +431,16 @@ describe('bootstrap confirm', () => {
       @ViewChild(Confirm) confirm: Confirm;
     }
 
-    const options: ConfirmOptions = new ConfirmOptions();
-    options.confirmText = 'Derp';
-
     beforeEach(() => {
-      TestBed.configureTestingModule({imports: [ConfirmModule], declarations: [TestCmp]});
-      TestBed.configureCompiler({
-        providers: [{
-          provide: Position, useClass: MockPosition
-        }, {
-          provide: ConfirmOptions,
-          useValue: options
-        }]
+      TestBed.configureTestingModule({
+        imports: [
+          ConfirmationPopoverModule.forRoot({
+            confirmText: 'Derp'
+          })
+        ],
+        declarations: [
+          TestCmp
+        ]
       });
     });
 
@@ -460,19 +451,6 @@ describe('bootstrap confirm', () => {
       const popover: ComponentRef<ConfirmPopover> = fixture.componentInstance.confirm.popover;
       popover.changeDetectorRef.detectChanges();
       expect(popover.location.nativeElement.querySelectorAll('button')[0]).to.have.html('Derp');
-    });
-
-  });
-
-  describe('Position', () => {
-
-    it('should throw when constructed', () => {
-      class Positioning extends Position {
-        positionElements(hostEl: any, targetEl: any, positionStr: any, appendToBody: any): any {
-          return;
-        }
-      }
-      expect(() => new Positioning()).to.throw();
     });
 
   });

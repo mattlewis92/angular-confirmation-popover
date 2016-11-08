@@ -1,19 +1,7 @@
 import {Component} from '@angular/core';
-import {ConfirmOptions, Position} from './../src';
-import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
-
-const options: ConfirmOptions = new ConfirmOptions();
-options.focusButton = 'confirm';
 
 @Component({
   selector: 'demo-app',
-  providers: [{
-    provide: ConfirmOptions,
-    useValue: options
-  }, {
-    provide: Position,
-    useClass: Positioning
-  }],
   template: `
     <div>
       <div class="form-group">
@@ -36,7 +24,7 @@ options.focusButton = 'confirm';
         <span *ngFor="let placement of placements trackBy placement">
           <button
             class="btn btn-default"
-            mwlConfirm
+            mwlConfirmationPopover
             [title]="title"
             [message]="message"
             [confirmText]="confirmText"

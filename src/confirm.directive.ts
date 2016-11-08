@@ -22,7 +22,7 @@ import {
 import {DOCUMENT} from '@angular/platform-browser';
 import {ConfirmPopover} from './confirmPopover.component';
 import {ConfirmOptions, PopoverConfirmOptions} from './confirmOptions.provider';
-import {Position} from './position.provider';
+import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
 
 /**
  * @private
@@ -33,11 +33,11 @@ interface Coords {
 }
 
 /**
- * All properties can be set on the directive as attributes like so (use the `ConfirmOptions` provider to configure them globally):
+ * All properties can be set on the directive as attributes like so (use `ConfirmationPopoverModule.forRoot()` to configure them globally):
  * ```
  * <button
  *  class="btn btn-default"
- *  mwlConfirm
+ *  mwlConfirmationPopover
  *  [title]="title"
  *  [message]="message"
  *  placement="left"
@@ -49,7 +49,7 @@ interface Coords {
  * ```
  */
 @Directive({
-  selector: '[mwlConfirm]'
+  selector: '[mwlConfirmationPopover]'
 })
 export class Confirm implements OnDestroy, OnChanges, OnInit {
 
@@ -127,7 +127,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
    *   </div>
    * </template>
    *
-   * Then pass customTemplate to the mwlConfirm directive like so `[customTemplate]="customTemplate"`
+   * Then pass customTemplate to the mwlConfirmationPopover directive like so `[customTemplate]="customTemplate"`
    */
   @Input() customTemplate: TemplateRef<any>;
 
@@ -169,7 +169,7 @@ export class Confirm implements OnDestroy, OnChanges, OnInit {
     private elm: ElementRef,
     private defaultOptions: ConfirmOptions,
     private cfr: ComponentFactoryResolver,
-    private position: Position,
+    private position: Positioning,
     private renderer: Renderer,
     @Inject(DOCUMENT) private document //tslint:disable-line
   ) {}

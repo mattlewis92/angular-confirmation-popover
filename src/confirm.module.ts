@@ -1,8 +1,18 @@
-import {NgModule} from '@angular/core';
+import {NgModule, ModuleWithProviders, OpaqueToken} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
 import {Confirm} from './confirm.directive';
 import {ConfirmPopover} from './confirmPopover.component';
 import {Focus} from './focus.directive';
+import {ConfirmOptions, ConfirmOptionsInterface} from './confirmOptions.provider';
+
+const USER_OPTIONS: OpaqueToken = new OpaqueToken('confirmation popover user options');
+
+export function optionsFactory(userOptions: ConfirmOptions): ConfirmOptions {
+  const options: ConfirmOptions = new ConfirmOptions();
+  Object.assign(options, userOptions);
+  return options;
+}
 
 @NgModule({
   declarations: [Confirm, ConfirmPopover, Focus],
@@ -10,4 +20,22 @@ import {Focus} from './focus.directive';
   exports: [Confirm, Focus],
   entryComponents: [ConfirmPopover]
 })
-export class ConfirmModule {}
+export class ConfirmationPopoverModule {
+
+  static forRoot(options: ConfirmOptionsInterface = {}): ModuleWithProviders {
+
+    return {
+      ngModule: ConfirmationPopoverModule,
+      providers: [{
+        provide: USER_OPTIONS,
+        useValue: options
+      }, {
+        provide: ConfirmOptions,
+        useFactory: optionsFactory,
+        deps: [USER_OPTIONS]
+      }, Positioning]
+    };
+
+  }
+
+}
