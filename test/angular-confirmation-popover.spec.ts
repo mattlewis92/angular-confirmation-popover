@@ -228,7 +228,7 @@ describe('bootstrap confirm', () => {
     it('should re-position the popover when the window resizes', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
-      const positionPopover: Sinon.SinonSpy = sinon.spy(fixture.componentInstance.confirm, 'positionPopover');
+      const positionPopover: sinon.SinonSpy = sinon.spy(fixture.componentInstance.confirm, 'positionPopover');
       window.dispatchEvent(new Event('resize'));
       expect(positionPopover).to.have.been.calledOnce;
     });
@@ -301,7 +301,7 @@ describe('bootstrap confirm', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
       clickFixture(fixture);
-      const hidePopover: Sinon.SinonSpy = sinon.spy(fixture.componentInstance.confirm, 'hidePopover');
+      const hidePopover: sinon.SinonSpy = sinon.spy(fixture.componentInstance.confirm, 'hidePopover');
       fixture.componentInstance.isOpen = false;
       fixture.detectChanges();
       expect(hidePopover).to.have.been.calledOnce;
