@@ -21,6 +21,7 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
+import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
 import {ConfirmationPopoverModule} from './../src';
 import {ConfirmationPopover} from './../src/confirmationPopover.directive';
 import {ConfirmationPopoverWindow} from './../src/confirmationPopoverWindow.component';
@@ -87,8 +88,16 @@ describe('bootstrap confirm', () => {
       fixture.nativeElement.querySelector('button').click();
     };
 
+    class PositionMock {
+      positionElements: sinon.SinonStub = sinon.stub().returns({top: 10, left: 20});
+    }
+
     beforeEach(() => {
-      TestBed.configureTestingModule({imports: [ConfirmationPopoverModule.forRoot()], declarations: [TestCmp]});
+      TestBed.configureTestingModule({
+        imports: [ConfirmationPopoverModule.forRoot()],
+        declarations: [TestCmp],
+        providers: [{provide: Positioning, useClass: PositionMock}]
+      });
 
       createPopover = (): ComponentRef<ConfirmationPopoverWindow> => {
         const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
@@ -212,8 +221,8 @@ describe('bootstrap confirm', () => {
 
     it('should position the popover according to the coordinates given by the position service', () => {
       const popover: ComponentRef<ConfirmationPopoverWindow> = createPopover();
-      expect(popover.location.nativeElement.children[0].style.top).to.equal('-43px');
-      expect(popover.location.nativeElement.children[0].style.left).to.equal('-374px');
+      expect(popover.location.nativeElement.children[0].style.top).to.equal('10px');
+      expect(popover.location.nativeElement.children[0].style.left).to.equal('20px');
     });
 
     it('should re-position the popover when the window resizes', () => {
