@@ -35,6 +35,9 @@ npm install --save angular-confirmation-popover
 Then use it in your app on a component:
 
 ```typescript
+ // include bootstrap - both v3 and v4 are supported
+ // if not using bootstrap you could implement the popover styles yourself
+import 'bootstrap/dist/css/bootstrap.css';
 import {NgModule, Component} from '@angular/core';
 import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 
