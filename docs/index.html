@@ -89,7 +89,10 @@
 				<p>Install through npm:</p>
 				<pre><code>npm <span class="hljs-keyword">install</span> <span class="hljs-comment">--save angular-confirmation-popover</span>
 </code></pre><p>Then use it in your app on a component:</p>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {NgModule, Component} from <span class="hljs-string">'@angular/core'</span>;
+				<pre><code class="lang-typescript"> <span class="hljs-comment">// include bootstrap - both v3 and v4 are supported</span>
+ <span class="hljs-comment">// if not using bootstrap you could implement the popover styles yourself</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">'bootstrap/dist/css/bootstrap.css'</span>;
+<span class="hljs-keyword">import</span> {NgModule, Component} from <span class="hljs-string">'@angular/core'</span>;
 <span class="hljs-keyword">import</span> {ConfirmationPopoverModule} from <span class="hljs-string">'angular-confirmation-popover'</span>;
 
 <span class="hljs-comment">// first add it to your apps module</span>
@@ -129,7 +132,7 @@
   <span class="hljs-keyword">public</span> isOpen: <span class="hljs-built_in">boolean</span> = <span class="hljs-literal">false</span>;
 }
 </code></pre>
-				<p>You may also find it useful to view the <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.ts">demo source</a>.</p>
+				<p>You may also find it useful to view the <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.component.ts">demo source</a>.</p>
 				<h3 id="usage-without-a-module-bundler">Usage without a module bundler</h3>
 				<pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"node_modules/angular-confirmation-popover/dist/umd/angular-confirmation-popover.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript">
@@ -141,7 +144,7 @@
 </code></pre><h2 id="documentation">Documentation</h2>
 				<p>All documentation is auto-generated from the source via typedoc and can be viewed here:
 				<a href="https://mattlewis92.github.io/angular-confirmation-popover/docs/">https://mattlewis92.github.io/angular-confirmation-popover/docs/</a></p>
-				<p>The main confirm directive options can be viewed <a href="https://mattlewis92.github.io/angular-confirmation-popover/docs/classes/confirm.html">here</a>.</p>
+				<p>The main <code>mwlConfirmationPopover</code> directive options can be viewed <a href="https://mattlewis92.github.io/angular-confirmation-popover/docs/classes/confirmationpopover.html">here</a>.</p>
 				<h2 id="development">Development</h2>
 				<h3 id="prepare-your-environment">Prepare your environment</h3>
 				<ul>
