@@ -66,7 +66,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   @Input() message: string;
 
   /**
-   * The text of the confirm button. Default `ConfirmationPopover`
+   * The text of the confirm button. Default `Confirm`
    */
   @Input() confirmText: string;
 
