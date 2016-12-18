@@ -70,7 +70,10 @@ module.exports = function(config) {
             }
           }
         })
-      ].concat(!WATCH ? [new webpack.NoErrorsPlugin()] : [])
+      ].concat(!WATCH ? [new webpack.NoErrorsPlugin()] : []),
+      performance: {
+        hints: false
+      }
     },
 
     remapIstanbulReporter: {

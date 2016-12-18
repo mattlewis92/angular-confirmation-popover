@@ -39,5 +39,8 @@ module.exports = {
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
       __dirname + '/src'
     )
-  ]
+  ],
+  performance: {
+    hints: false
+  }
 };
