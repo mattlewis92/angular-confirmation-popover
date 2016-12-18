@@ -35,6 +35,9 @@ npm install --save angular-confirmation-popover
 Then use it in your app on a component:
 
 ```typescript
+ // include bootstrap - both v3 and v4 are supported
+ // if not using bootstrap you could implement the popover styles yourself
+import 'bootstrap/dist/css/bootstrap.css';
 import {NgModule, Component} from '@angular/core';
 import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
 
@@ -77,7 +80,7 @@ class MyComponent {
 
 ```
 
-You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.ts).
+You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.component.ts).
 
 ### Usage without a module bundler
 ```
@@ -98,7 +101,7 @@ You will need to add this line in your server bootstrap code to get this module 
 All documentation is auto-generated from the source via typedoc and can be viewed here:
 https://mattlewis92.github.io/angular-confirmation-popover/docs/
 
-The main confirm directive options can be viewed [here](https://mattlewis92.github.io/angular-confirmation-popover/docs/classes/confirm.html).
+The main `mwlConfirmationPopover` directive options can be viewed [here](https://mattlewis92.github.io/angular-confirmation-popover/docs/classes/confirmationpopover.html).
 
 ## Development
 

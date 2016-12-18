@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* **aot:** maybe fix aot compilation ([5d5818a](https://github.com/mattlewis92/angular-confirmation-popover/commit/5d5818a))
+* **aot:** fix aot compilation ([5d5818a](https://github.com/mattlewis92/angular-confirmation-popover/commit/5d5818a))
 
 
 
