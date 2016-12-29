@@ -21,7 +21,7 @@ import {Component} from '@angular/core';
         <input type="text" class="form-control" [(ngModel)]="cancelText">
       </div>
       <div class="text-center">
-        <span *ngFor="let placement of placements trackBy placement">
+        <span *ngFor="let placement of placements">
           <button
             class="btn btn-default"
             mwlConfirmationPopover
