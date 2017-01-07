@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.1.0...v2.1.1) (2017-01-07)
+
+
+### Bug Fixes
+
+* downgrade typescript to fix error when consuming the library ([f8ca343](https://github.com/mattlewis92/angular-confirmation-popover/commit/f8ca343))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.0.3...v2.1.0) (2017-01-07)
 
