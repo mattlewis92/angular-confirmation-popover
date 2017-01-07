@@ -268,6 +268,8 @@ describe('bootstrap confirm', () => {
       popover.changeDetectorRef.detectChanges();
       expect(popover.location.nativeElement.querySelectorAll('button')).to.have.length(1);
       expect(popover.location.nativeElement.querySelectorAll('button')[0]).to.have.class('btn-default');
+      expect(popover.location.nativeElement.querySelectorAll('button')[0].parentElement).to.have.class('col-xs-offset-3');
+      expect(popover.location.nativeElement.querySelectorAll('button')[0].parentElement).to.have.class('col-offset-3');
     });
 
     it('should hide the cancel button', () => {
@@ -279,6 +281,8 @@ describe('bootstrap confirm', () => {
       popover.changeDetectorRef.detectChanges();
       expect(popover.location.nativeElement.querySelectorAll('button')).to.have.length(1);
       expect(popover.location.nativeElement.querySelectorAll('button')[0]).to.have.class('btn-danger');
+      expect(popover.location.nativeElement.querySelectorAll('button')[0].parentElement).to.have.class('col-xs-offset-3');
+      expect(popover.location.nativeElement.querySelectorAll('button')[0].parentElement).to.have.class('col-offset-3');
     });
 
     it('should disable the popover from opening', () => {

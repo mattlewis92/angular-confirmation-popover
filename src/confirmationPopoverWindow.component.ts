@@ -22,8 +22,8 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
           <p [innerHTML]="options.message"></p>
           <div class="row">
             <div
-              class="col-xs-6"
-              [class.col-xs-offset-3]="options.hideCancelButton"
+              class="col-xs-6 col-6"
+              [ngClass]="{'col-xs-offset-3 col-offset-3': options.hideCancelButton}"
               *ngIf="!options.hideConfirmButton">
               <button
                 [mwlFocus]="options.focusButton === 'confirm'"
@@ -33,8 +33,8 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
               </button>
             </div>
             <div
-              class="col-xs-6"
-              [class.col-xs-offset-3]="options.hideConfirmButton"
+              class="col-xs-6 col-6"
+              [ngClass]="{'col-xs-offset-3 col-offset-3': options.hideConfirmButton}"
               *ngIf="!options.hideCancelButton">
               <button
                 [mwlFocus]="options.focusButton === 'cancel'"
