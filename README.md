@@ -64,8 +64,7 @@ class MyModule {}
       [message]="message"
       placement="left"
       (confirm)="confirmClicked = true"
-      (cancel)="cancelClicked = true"
-      [(isOpen)]="isOpen">
+      (cancel)="cancelClicked = true">
       Click me!
     </button>
   `
@@ -75,7 +74,6 @@ class MyComponent {
   public message: string = 'Popover description';
   public confirmClicked: boolean = false;
   public cancelClicked: boolean = false;
-  public isOpen: boolean = false;
 }
 
 ```

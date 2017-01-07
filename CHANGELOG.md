@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.0.3...v2.1.0) (2017-01-07)
+
+
+### Features
+
+* support latest bootstrap 4 alpha ([daf1a1c](https://github.com/mattlewis92/angular-confirmation-popover/commit/daf1a1c)), closes [#34](https://github.com/mattlewis92/angular-confirmation-popover/issues/34)
+
+
+
 <a name="2.0.3"></a>
 ## [2.0.3](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.0.2...v2.0.3) (2016-11-08)
 
