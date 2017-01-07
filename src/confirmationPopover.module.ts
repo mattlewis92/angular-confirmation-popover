@@ -1,6 +1,6 @@
 import {NgModule, ModuleWithProviders, OpaqueToken} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
+import {Positioning} from 'positioning';
 import {ConfirmationPopover} from './confirmationPopover.directive';
 import {ConfirmationPopoverWindow} from './confirmationPopoverWindow.component';
 import {Focus} from './focus.directive';

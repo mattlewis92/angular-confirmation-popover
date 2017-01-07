@@ -21,10 +21,10 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
-import {Positioning} from '@ng-bootstrap/ng-bootstrap/util/positioning';
-import {ConfirmationPopoverModule} from './../src';
-import {ConfirmationPopover} from './../src/confirmationPopover.directive';
-import {ConfirmationPopoverWindow} from './../src/confirmationPopoverWindow.component';
+import {Positioning} from 'positioning';
+import {ConfirmationPopoverModule} from '../src';
+import {ConfirmationPopover} from '../src/confirmationPopover.directive';
+import {ConfirmationPopoverWindow} from '../src/confirmationPopoverWindow.component';
 import {expect, use} from 'chai';
 import * as sinon from 'sinon';
 import * as sinonChai from 'sinon-chai';
