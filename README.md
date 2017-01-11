@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/mattlewis92/angular-confirmation-popover.svg?branch=master)](https://travis-ci.org/mattlewis92/angular-confirmation-popover)
 [![codecov](https://codecov.io/gh/mattlewis92/angular-confirmation-popover/branch/master/graph/badge.svg)](https://codecov.io/gh/mattlewis92/angular-confirmation-popover)
 [![npm version](https://badge.fury.io/js/angular-confirmation-popover.svg)](http://badge.fury.io/js/angular-confirmation-popover)
-[![devDependency Status](https://david-dm.org/mattlewis92/angular-confirmation-popover/dev-status.svg)](https://david-dm.org/mattlewis92/angular-confirmation-popover#info=devDependencies)
+[![devDependency Status](https://david-dm.org/mattlewis92/angular-confirmation-popover/dev-status.svg)](https://david-dm.org/mattlewis92/angular-confirmation-popover?type=dev)
 [![GitHub issues](https://img.shields.io/github/issues/mattlewis92/angular-confirmation-popover.svg)](https://github.com/mattlewis92/angular-confirmation-popover/issues)
 [![GitHub stars](https://img.shields.io/github/stars/mattlewis92/angular-confirmation-popover.svg)](https://github.com/mattlewis92/angular-confirmation-popover/stargazers)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/mattlewis92/angular-confirmation-popover/master/LICENSE)
