@@ -65,7 +65,7 @@ module.exports = function(config) {
             }
           }
         })
-      ].concat(config.singleRun ? [new webpack.NoErrorsPlugin()] : []),
+      ].concat(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : []),
       performance: {
         hints: false
       }
