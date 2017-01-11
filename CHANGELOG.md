@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.1.2"></a>
+## [2.1.2](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.1.1...v2.1.2) (2017-01-11)
+
+
+### Bug Fixes
+
+* **positioning:** fix accidental breaking change for rollup users ([db541cc](https://github.com/mattlewis92/angular-confirmation-popover/commit/db541cc))
+
+
+
 <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.1.0...v2.1.1) (2017-01-07)
 
