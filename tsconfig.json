@@ -9,11 +9,12 @@
     "removeComments": false,
     "noImplicitAny": false
   },
-  "files": [
-    "demo/entry.ts"
+  "include": [
+    "demo/**/*",
+    "src/**/*",
+    "test/**/*"
   ],
   "exclude": [
-    "node_modules"
-  ],
-  "compileOnSave": false
+    "node_modules/**/*"
+  ]
 }
