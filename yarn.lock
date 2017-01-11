@@ -3356,9 +3356,9 @@ portfinder@^1.0.9:
     debug "^2.2.0"
     mkdirp "0.5.x"
 
-positioning@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/positioning/-/positioning-1.0.4.tgz#a17a6e594fa6705e71263dfbc5b1ef4fe0db2298"
+positioning@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/positioning/-/positioning-1.1.0.tgz#9284bf36b2e38035728e19afc5e07ee89711e58c"
 
 prelude-ls@~1.1.2:
   version "1.1.2"
