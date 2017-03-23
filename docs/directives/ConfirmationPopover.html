@@ -1,0 +1,1051 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-confirmation-popover documentation</title>
+        <meta name="description" content="">
+        <base href="/angular-confirmation-popover/docs/">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	    <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">angular-confirmation-popover documentation</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="./">angular-confirmation-popover documentation</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="./" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="./overview.html" 
+                                         href="./overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <span class="fa fa-archive"></span>
+                            <span>Modules</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            ></span>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="./modules/ConfirmationPopoverModule.html" >ConfirmationPopoverModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-code"></span>
+                            <span>Directives</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-directives-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-directives-links"
+                            >
+                                <li class="link">
+                                    <a href="./directives/ConfirmationPopover.html"  class="active" >ConfirmationPopover</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-classes-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="./classes/ConfirmationPopoverOptions.html" >ConfirmationPopoverOptions</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-long-arrow-down"></span>
+                            <span>Injectables</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-injectables-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-injectables-links"
+                            >
+                                <li class="link">
+                                    <a href="./injectables/ConfirmationPopoverWindowOptions.html" >ConfirmationPopoverWindowOptions</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple">
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                    data-target="#xs-interfaces-links"
+                                ></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="./interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./interfaces/Coords.html" >Coords</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="divider"></li>
+                    <li class="copyright">
+                            Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                        <img src="./images/compodoc-vectorise.svg" class="img-responsive">
+                            </a>
+                    </li>
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="./">angular-confirmation-popover documentation</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="./" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="./overview.html" 
+                                                href="./overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <span class="fa fa-archive"></span>
+                                   <span>Modules</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   ></span>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="./modules/ConfirmationPopoverModule.html" >ConfirmationPopoverModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-code"></span>
+                                   <span>Directives</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#directives-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="directives-links"
+                   >
+                                       <li class="link">
+                                           <a href="./directives/ConfirmationPopover.html"  class="active" >ConfirmationPopover</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#classes-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="./classes/ConfirmationPopoverOptions.html" >ConfirmationPopoverOptions</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-long-arrow-down"></span>
+                                   <span>Injectables</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#injectables-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="injectables-links"
+                   >
+                                       <li class="link">
+                                           <a href="./injectables/ConfirmationPopoverWindowOptions.html" >ConfirmationPopoverWindowOptions</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple">
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="menu-toggler fa fa-angle-up" data-toggle="collapse"
+                                           data-target="#interfaces-links"
+                   ></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="./interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./interfaces/Coords.html" >Coords</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="divider"></li>
+                           <li class="copyright">
+                                   Documentation generated using <a href="https://compodoc.github.io/compodoc/" target="_blank">
+                                               <img src="./images/compodoc-vectorise.svg" class="img-responsive">
+                                   </a>
+                           </li>
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content directive">
+                   <div class="content-data">
+
+
+
+<ol class="breadcrumb">
+  <li>Directives</li>
+  <li>ConfirmationPopover</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+    </li>
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="infos">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/confirmationPopover.directive.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>All properties can be set on the directive as attributes like so (use <code>ConfirmationPopoverModule.forRoot()</code> to configure them globally):</p>
+<pre><code class="hljs undefined"><button<br>  class="btn btn-default"<br>  mwlConfirmationPopover<br>  [title]="title"<br>  [message]="message"<br>  placement="left"<br>  (confirm)="confirmClicked = true"<br>  (cancel)="cancelClicked = true"<br>  [(isOpen)]="isOpen"><br>   Show confirm popover!<br></button></code></pre>
+            </p>
+
+        <section>
+            <h3>Metadata</h3>
+            <table class="table table-sm table-hover">
+                <tbody>
+
+                    <tr>
+                        <td class="col-md-3">selector</td>
+                        <td class="col-md-9"><code>[mwlConfirmationPopover]</code></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+
+            <section>
+                <h3 id="inputs">Inputs</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>appendToBody</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>Append the element to the document body rather than the trigger element</p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>boolean</code>
+
+                                      </p>
+                                    <p>
+                                      <em>Default value: </em><code>false</code>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>cancelButtonType</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>The bootstrap button type of the cancel button. It can be any supported bootstrap color type<br>e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Default <code>default</code></p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>string</code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>cancelText</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>The text of the cancel button. Default <code>Cancel</code></p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>string</code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>confirmButtonType</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>The bootstrap button type of the confirm button. It can be any supported bootstrap color type<br>e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Default <code>success</code></p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>string</code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>confirmText</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>The text of the confirm button. Default <code>Confirm</code></p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>string</code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>customTemplate</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>A reference to a <template> tag that if set will override the popovers template. Use like so:</p>
+<template #customTemplate let-options="options"><br>   <div [class]="'popover ' + options.placement" style="display: block"><br>     My custom template<br>   </div><br></template>
+
+<p>Then pass customTemplate to the mwlConfirmationPopover directive like so <code>[customTemplate]=&quot;customTemplate&quot;</code></p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>focusButton</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>Set to either <code>confirm</code> or <code>cancel</code> to focus the confirm or cancel button.<br>If omitted, by default it will not focus either button.</p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>string</code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>hideCancelButton</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>Whether to hide the cancel button. Default <code>false</code>.</p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>boolean</code>
+
+                                      </p>
+                                    <p>
+                                      <em>Default value: </em><code>false</code>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>hideConfirmButton</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>Whether to hide the confirm button. Default <code>false</code>.</p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>boolean</code>
+
+                                      </p>
+                                    <p>
+                                      <em>Default value: </em><code>false</code>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>isDisabled</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>Whether to disable showing the popover. Default <code>false</code>.</p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>boolean</code>
+
+                                      </p>
+                                    <p>
+                                      <em>Default value: </em><code>false</code>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>isOpen</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>Will open or show the popover when changed.<br>Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <code>[(isOpen)]=&quot;isOpen&quot;</code></p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>boolean</code>
+
+                                      </p>
+                                    <p>
+                                      <em>Default value: </em><code>false</code>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>message</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>The body text of the popover.</p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>string</code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>placement</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>The placement of the popover. It can be either <code>top</code>, <code>right</code>, <code>bottom</code> or <code>left</code>. Default <code>top</code></p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>string</code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>popoverClass</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>A custom CSS class to be added to the popover</p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>string</code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>title</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>The title of the popover.<br>Note, if you use an expression, you may want to consider using &quot;data-title&quot; instead of &quot;title&quot; so<br>that the browser doesn&#39;t show native tooltips with the angular expression listed.</p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code>string</code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+
+            <section>
+                <h3 id="outputs">Outputs</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>cancel</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>An expression that is called when the cancel button is clicked.</p>
+</div>
+                                    <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>confirm</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>An expression that is called when the confirm button is clicked.</p>
+</div>
+                                    <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <code>isOpenChange</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>Will emit when the popover is opened or closed</p>
+</div>
+                                    <em><code>$event</code> type:</em>    <code>EventEmitter&lt;any&gt;</code>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+
+
+
+
+    </div>
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre><code class="hljs javascript">import {
+  Directive,
+  Input,
+  Output,
+  EventEmitter,
+  HostListener,
+  ViewContainerRef,
+  ComponentRef,
+  OnDestroy,
+  ElementRef,
+  OnChanges,
+  OnInit,
+  ReflectiveInjector,
+  ResolvedReflectiveProvider,
+  ComponentFactoryResolver,
+  Injector,
+  Inject,
+  Renderer,
+  TemplateRef,
+  ComponentFactory
+} from &#x27;@angular/core&#x27;;
+import {DOCUMENT} from &#x27;@angular/platform-browser&#x27;;
+import {ConfirmationPopoverWindow} from &#x27;./confirmationPopoverWindow.component&#x27;;
+import {ConfirmationPopoverOptions, ConfirmationPopoverWindowOptions} from &#x27;./confirmationPopoverOptions.provider&#x27;;
+import {Positioning} from &#x27;positioning&#x27;;
+
+/**
+ * @private
+ */
+interface Coords {
+  top: number;
+  left: number;
+}
+
+/**
+ * All properties can be set on the directive as attributes like so (use &#x60;ConfirmationPopoverModule.forRoot()&#x60; to configure them globally):
+ * &#x60;&#x60;&#x60;
+ * &lt;button
+ *  class&#x3D;&quot;btn btn-default&quot;
+ *  mwlConfirmationPopover
+ *  [title]&#x3D;&quot;title&quot;
+ *  [message]&#x3D;&quot;message&quot;
+ *  placement&#x3D;&quot;left&quot;
+ *  (confirm)&#x3D;&quot;confirmClicked &#x3D; true&quot;
+ *  (cancel)&#x3D;&quot;cancelClicked &#x3D; true&quot;
+ *  [(isOpen)]&#x3D;&quot;isOpen&quot;&gt;
+ *   Show confirm popover!
+ * &lt;/button&gt;
+ * &#x60;&#x60;&#x60;
+ */
+@Directive({
+  selector: &#x27;[mwlConfirmationPopover]&#x27;
+})
+export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
+
+  /**
+   * The title of the popover.
+   * Note, if you use an expression, you may want to consider using &quot;data-title&quot; instead of &quot;title&quot; so
+   * that the browser doesn&#x27;t show native tooltips with the angular expression listed.
+   */
+  @Input() title: string;
+
+  /**
+   * The body text of the popover.
+   */
+  @Input() message: string;
+
+  /**
+   * The text of the confirm button. Default &#x60;Confirm&#x60;
+   */
+  @Input() confirmText: string;
+
+  /**
+   * The text of the cancel button. Default &#x60;Cancel&#x60;
+   */
+  @Input() cancelText: string;
+
+  /**
+   * The placement of the popover. It can be either &#x60;top&#x60;, &#x60;right&#x60;, &#x60;bottom&#x60; or &#x60;left&#x60;. Default &#x60;top&#x60;
+   */
+  @Input() placement: string;
+
+  /**
+   * The bootstrap button type of the confirm button. It can be any supported bootstrap color type
+   * e.g. &#x60;default&#x60;, &#x60;warning&#x60;, &#x60;danger&#x60; etc. Default &#x60;success&#x60;
+   */
+  @Input() confirmButtonType: string;
+
+  /**
+   * The bootstrap button type of the cancel button. It can be any supported bootstrap color type
+   * e.g. &#x60;default&#x60;, &#x60;warning&#x60;, &#x60;danger&#x60; etc. Default &#x60;default&#x60;
+   */
+  @Input() cancelButtonType: string;
+
+  /**
+   * Set to either &#x60;confirm&#x60; or &#x60;cancel&#x60; to focus the confirm or cancel button.
+   * If omitted, by default it will not focus either button.
+   */
+  @Input() focusButton: string;
+
+  /**
+   * Whether to hide the confirm button. Default &#x60;false&#x60;.
+   */
+  @Input() hideConfirmButton: boolean &#x3D; false;
+
+  /**
+   * Whether to hide the cancel button. Default &#x60;false&#x60;.
+   */
+  @Input() hideCancelButton: boolean &#x3D; false;
+
+  /**
+   * Whether to disable showing the popover. Default &#x60;false&#x60;.
+   */
+  @Input() isDisabled: boolean &#x3D; false;
+
+  /**
+   * Will open or show the popover when changed.
+   * Can be sugared with &#x60;isOpenChange&#x60; to emulate 2-way binding like so &#x60;[(isOpen)]&#x3D;&quot;isOpen&quot;&#x60;
+   */
+  @Input() isOpen: boolean &#x3D; false;
+
+  /**
+   * A reference to a &lt;template&gt; tag that if set will override the popovers template. Use like so:
+   * &lt;template #customTemplate let-options&#x3D;&quot;options&quot;&gt;
+   *   &lt;div [class]&#x3D;&quot;&#x27;popover &#x27; + options.placement&quot; style&#x3D;&quot;display: block&quot;&gt;
+   *     My custom template
+   *   &lt;/div&gt;
+   * &lt;/template&gt;
+   *
+   * Then pass customTemplate to the mwlConfirmationPopover directive like so &#x60;[customTemplate]&#x3D;&quot;customTemplate&quot;&#x60;
+   */
+  @Input() customTemplate: TemplateRef&lt;any&gt;;
+
+  /**
+   * Will emit when the popover is opened or closed
+   */
+  @Output() isOpenChange: EventEmitter&lt;any&gt; &#x3D; new EventEmitter(true);
+
+  /**
+   * An expression that is called when the confirm button is clicked.
+   */
+  @Output() confirm: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+
+  /**
+   * An expression that is called when the cancel button is clicked.
+   */
+  @Output() cancel: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+
+  /**
+   * A custom CSS class to be added to the popover
+   */
+  @Input() popoverClass: string;
+
+  /**
+   * Append the element to the document body rather than the trigger element
+   */
+  @Input() appendToBody: boolean &#x3D; false;
+
+  /**
+   * @private
+   */
+  popover: ComponentRef&lt;ConfirmationPopoverWindow&gt; &#x3D; null;
+
+  /**
+   * @private
+   */
+  constructor(
+    private viewContainerRef: ViewContainerRef,
+    private elm: ElementRef,
+    private defaultOptions: ConfirmationPopoverOptions,
+    private cfr: ComponentFactoryResolver,
+    private position: Positioning,
+    private renderer: Renderer,
+    @Inject(DOCUMENT) private document //tslint:disable-line
+  ) {}
+
+  /**
+   * @private
+   */
+  ngOnInit(): void {
+    this.isOpenChange.emit(false);
+  }
+
+  /**
+   * @private
+   */
+  ngOnChanges(changes: any): void {
+    if (changes.isOpen) {
+      if (changes.isOpen.currentValue &#x3D;&#x3D;&#x3D; true) {
+        this.showPopover();
+      } else {
+        this.hidePopover();
+      }
+    }
+  }
+
+  /**
+   * @private
+   */
+  ngOnDestroy(): void {
+    this.hidePopover();
+  }
+
+  /**
+   * @private
+   */
+  onConfirm(): void {
+    this.confirm.emit(null);
+    this.hidePopover();
+  }
+
+  /**
+   * @private
+   */
+  onCancel(): void {
+    this.cancel.emit(null);
+    this.hidePopover();
+  }
+
+  /**
+   * @private
+   */
+  @HostListener(&#x27;document:click&#x27;, [&#x27;$event.target&#x27;])
+  @HostListener(&#x27;document:touchend&#x27;, [&#x27;$event.target&#x27;])
+  onDocumentClick(target: HTMLElement): void {
+
+    if (this.popover &amp;&amp; !this.elm.nativeElement.contains(target) &amp;&amp; !this.popover.location.nativeElement.contains(target)) {
+      this.hidePopover();
+    }
+  }
+
+  /**
+   * @private
+   */
+  @HostListener(&#x27;click&#x27;)
+  togglePopover(): void {
+    if (!this.popover) {
+      this.showPopover();
+    } else {
+      this.hidePopover();
+    }
+  }
+
+  /**
+   * @private
+   */
+  @HostListener(&#x27;window:resize&#x27;)
+  onResize(): void {
+    this.positionPopover();
+  }
+
+  private showPopover(): void {
+    if (!this.popover &amp;&amp; !this.isDisabled) {
+
+      const options: ConfirmationPopoverWindowOptions &#x3D; new ConfirmationPopoverWindowOptions();
+      Object.assign(options, this.defaultOptions, {
+        title: this.title,
+        message: this.message,
+        onConfirm: (): void &#x3D;&gt; {
+          this.onConfirm();
+        },
+        onCancel: (): void &#x3D;&gt; {
+          this.onCancel();
+        },
+        onAfterViewInit: () : void &#x3D;&gt; {
+          this.positionPopover();
+        }
+      });
+
+      const optionalParams: string[] &#x3D; [
+        &#x27;confirmText&#x27;,
+        &#x27;cancelText&#x27;,
+        &#x27;placement&#x27;,
+        &#x27;confirmButtonType&#x27;,
+        &#x27;cancelButtonType&#x27;,
+        &#x27;focusButton&#x27;,
+        &#x27;hideConfirmButton&#x27;,
+        &#x27;hideCancelButton&#x27;,
+        &#x27;popoverClass&#x27;,
+        &#x27;appendToBody&#x27;,
+        &#x27;customTemplate&#x27;
+      ];
+      optionalParams.forEach(param &#x3D;&gt; {
+        if (this[param]) {
+          options[param] &#x3D; this[param];
+        }
+      });
+
+      const componentFactory: ComponentFactory&lt;ConfirmationPopoverWindow&gt; &#x3D; this.cfr.resolveComponentFactory(ConfirmationPopoverWindow);
+      const binding: ResolvedReflectiveProvider[] &#x3D; ReflectiveInjector.resolve([{
+        provide: ConfirmationPopoverWindowOptions,
+        useValue: options
+      }]);
+      const contextInjector: Injector &#x3D; this.viewContainerRef.parentInjector;
+      const childInjector: Injector &#x3D; ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
+      this.popover &#x3D; this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
+      if (this.appendToBody) {
+        this.renderer.invokeElementMethod(this.document.body, &#x27;appendChild&#x27;, [this.popover.location.nativeElement]);
+      }
+      this.isOpenChange.emit(true);
+
+    }
+  }
+
+  private positionPopover(): void {
+    if (this.popover) {
+      const popoverElement: HTMLElement &#x3D; this.popover.location.nativeElement.children[0];
+      const popoverPosition: Coords &#x3D; this.position.positionElements(
+        this.elm.nativeElement,
+        popoverElement,
+        this.placement || this.defaultOptions.placement,
+        this.appendToBody || this.defaultOptions.appendToBody
+      );
+      this.renderer.setElementStyle(popoverElement, &#x27;top&#x27;, &#x60;${popoverPosition.top}px&#x60;);
+      this.renderer.setElementStyle(popoverElement, &#x27;left&#x27;, &#x60;${popoverPosition.left}px&#x60;);
+    }
+  }
+
+  private hidePopover(): void {
+    if (this.popover) {
+      this.popover.destroy();
+      this.popover &#x3D; null;
+      this.isOpenChange.emit(false);
+    }
+  }
+
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/search/search.js"></script>
+       <script src="./js/search/lunr.min.js"></script>
+       <script src="./js/search/search-lunr.js"></script>
+
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/highlight.pack.js"></script>
+       <script src="./js/libs/highlightjs-line-numbers.min.js"></script>
+       <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                hljs.initHighlightingOnLoad();
+                hljs.initLineNumbersOnLoad();
+            });
+       </script>
+
+    </body>
+</html>
