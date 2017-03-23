@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["es2015", "dom"]
+  },
+  "files": [
+    "src/confirmationPopover.module.ts",
+    "src/confirmationPopover.directive.ts",
+    "src/confirmationPopoverOptions.provider.ts"
+  ]
+}
