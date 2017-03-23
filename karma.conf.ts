@@ -23,10 +23,7 @@ module.exports = function(config) {
 
     webpack: {
       resolve: {
-        extensions: ['.ts', '.js'],
-        alias: {
-          'sinon': 'sinon/pkg/sinon'
-        }
+        extensions: ['.ts', '.js']
       },
       module: {
         rules: [{
@@ -38,9 +35,6 @@ module.exports = function(config) {
           test: /\.ts$/,
           loader: 'awesome-typescript-loader',
           exclude: /node_modules/
-        }, {
-          test: /sinon.js$/,
-          loader: 'imports-loader?define=>false,require=>false'
         }, {
           test: /src\/.+\.ts$/,
           exclude: /(test|node_modules)/,
@@ -65,10 +59,7 @@ module.exports = function(config) {
             }
           }
         })
-      ].concat(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : []),
-      performance: {
-        hints: false
-      }
+      ].concat(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : [])
     },
 
     remapIstanbulReporter: {
