@@ -97,10 +97,10 @@ You will need to add this line in your server bootstrap code to get this module 
 ```
 
 ## Documentation
-All documentation is auto-generated from the source via typedoc and can be viewed here:
+All documentation is auto-generated from the source via compodoc and can be viewed here:
 https://mattlewis92.github.io/angular-confirmation-popover/docs/
 
-The main `mwlConfirmationPopover` directive options can be viewed [here](https://mattlewis92.github.io/angular-confirmation-popover/docs/classes/confirmationpopover.html).
+The main `mwlConfirmationPopover` directive options can be viewed [here](https://mattlewis92.github.io/angular-confirmation-popover/docs/directives/ConfirmationPopover.html).
 
 ## Development
 
