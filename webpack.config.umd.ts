@@ -1,4 +1,6 @@
-module.exports = {
+const webpackAngularExternals = require('webpack-angular-externals');
+
+export default {
   entry: __dirname + '/src/index.ts',
   output: {
     path: __dirname + '/dist/umd',
@@ -6,26 +8,9 @@ module.exports = {
     libraryTarget: 'umd',
     library: 'angularConfirmationPopover'
   },
-  externals: {
-    '@angular/core': {
-      root: ['ng', 'core'],
-      commonjs: '@angular/core',
-      commonjs2: '@angular/core',
-      amd: '@angular/core'
-    },
-    '@angular/common': {
-      root: ['ng', 'common'],
-      commonjs: '@angular/common',
-      commonjs2: '@angular/common',
-      amd: '@angular/common'
-    },
-    '@angular/platform-browser': {
-      root: ['ng', 'platformBrowser'],
-      commonjs: '@angular/platform-browser',
-      commonjs2: '@angular/platform-browser',
-      amd: '@angular/platform-browser'
-    }
-  },
+  externals: [
+    webpackAngularExternals()
+  ],
   devtool: 'source-map',
   module: {
     rules: [{
@@ -41,8 +26,5 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.js']
-  },
-  performance: {
-    hints: false
   }
 };

@@ -1,6 +1,6 @@
-const webpack = require('webpack');
+import * as webpack from 'webpack';
 
-module.exports = function(config) {
+export default function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -23,10 +23,7 @@ module.exports = function(config) {
 
     webpack: {
       resolve: {
-        extensions: ['.ts', '.js'],
-        alias: {
-          'sinon': 'sinon/pkg/sinon'
-        }
+        extensions: ['.ts', '.js']
       },
       module: {
         rules: [{
@@ -39,12 +36,9 @@ module.exports = function(config) {
           loader: 'awesome-typescript-loader',
           exclude: /node_modules/
         }, {
-          test: /sinon.js$/,
-          loader: 'imports-loader?define=>false,require=>false'
-        }, {
           test: /src\/.+\.ts$/,
           exclude: /(test|node_modules)/,
-          loader: 'sourcemap-istanbul-instrumenter-loader?force-sourcemap=true',
+          loader: 'istanbul-instrumenter-loader',
           enforce: 'post'
         }]
       },
@@ -65,24 +59,24 @@ module.exports = function(config) {
             }
           }
         })
-      ].concat(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : []),
-      performance: {
-        hints: false
-      }
+      ].concat(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : [])
     },
 
-    remapIstanbulReporter: {
-      reports: {
-        html: 'coverage/html',
-        'text-summary': null,
-        lcovonly: 'coverage/lcov.info'
+    coverageIstanbulReporter: {
+      reports: ['text-summary', 'html', 'lcovonly'],
+      fixWebpackSourcePaths: true,
+      thresholds: {
+        statements: 100,
+        lines: 100,
+        branches: 100,
+        functions: 100
       }
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage', 'karma-remap-istanbul'],
+    reporters: ['progress', 'coverage-istanbul'],
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG

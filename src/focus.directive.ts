@@ -3,7 +3,8 @@ import {
   ElementRef,
   Input,
   OnChanges,
-  Renderer
+  Renderer,
+  SimpleChanges
 } from '@angular/core';
 
 /**
@@ -18,8 +19,8 @@ export class Focus implements OnChanges {
 
   constructor(private renderer: Renderer, private elm: ElementRef) {}
 
-  ngOnChanges(changes: any): void {
-    if (changes.mwlFocus && this.mwlFocus === true) {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['mwlFocus'] && this.mwlFocus === true) {
       this.renderer.invokeElementMethod(this.elm.nativeElement, 'focus', []);
     }
   }
