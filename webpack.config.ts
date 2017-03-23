@@ -1,7 +1,7 @@
-const webpack = require('webpack');
+import * as webpack from 'webpack';
 const IS_PROD = process.argv.indexOf('-p') > -1;
 
-module.exports = {
+export default {
   devtool: IS_PROD ? 'source-map' : 'eval',
   entry: __dirname + '/demo/entry.ts',
   output: {
@@ -39,8 +39,5 @@ module.exports = {
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
       __dirname + '/src'
     )
-  ],
-  performance: {
-    hints: false
-  }
+  ]
 };

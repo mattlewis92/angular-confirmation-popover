@@ -56,6 +56,7 @@
     "@types/node": "^7.0.0",
     "@types/sinon": "^1.16.30",
     "@types/sinon-chai": "^2.7.27",
+    "@types/webpack": "^2.2.12",
     "awesome-typescript-loader": "^3.1.2",
     "chai": "^3.5.0",
     "chai-dom": "^1.4.0",
@@ -85,6 +86,7 @@
     "typescript": "~2.0.10",
     "validate-commit-msg": "^2.8.0",
     "webpack": "^2.3.1",
+    "webpack-angular-externals": "^1.0.2",
     "webpack-dev-server": "^2.4.2",
     "zone.js": "^0.8.5"
   },
