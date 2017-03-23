@@ -38,7 +38,7 @@ module.exports = function(config) {
         }, {
           test: /src\/.+\.ts$/,
           exclude: /(test|node_modules)/,
-          loader: 'sourcemap-istanbul-instrumenter-loader?force-sourcemap=true',
+          loader: 'istanbul-instrumenter-loader',
           enforce: 'post'
         }]
       },
@@ -62,18 +62,21 @@ module.exports = function(config) {
       ].concat(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : [])
     },
 
-    remapIstanbulReporter: {
-      reports: {
-        html: 'coverage/html',
-        'text-summary': null,
-        lcovonly: 'coverage/lcov.info'
+    coverageIstanbulReporter: {
+      reports: ['text-summary', 'html', 'lcovonly'],
+      fixWebpackSourcePaths: true,
+      thresholds: {
+        statements: 100,
+        lines: 100,
+        branches: 100,
+        functions: 100
       }
     },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage', 'karma-remap-istanbul'],
+    reporters: ['progress', 'coverage-istanbul'],
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
