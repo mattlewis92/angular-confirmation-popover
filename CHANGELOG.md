@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.1.3...v3.0.0) (2017-03-24)
+
+
+### Bug Fixes
+
+* remove <template> deprecation warning ([11f2820](https://github.com/mattlewis92/angular-confirmation-popover/commit/11f2820))
+
+
+### BREAKING CHANGES
+
+* angular 4.0 or higher is now required to use this module. The
+[upgrade](http://angularjs.blogspot.co.uk/2017/03/angular-400-now-available.html) should be seamless
+for most users
+
+
+
 <a name="2.1.3"></a>
 ## [2.1.3](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.1.2...v2.1.3) (2017-03-23)
 

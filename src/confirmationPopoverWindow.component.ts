@@ -14,7 +14,7 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
     }
   `],
   template: `
-    <template #defaultTemplate let-options="options">
+    <ng-template #defaultTemplate let-options="options">
       <div [class]="'popover ' + options.placement + ' popover-' + options.placement + ' ' + options.popoverClass">
         <div class="popover-arrow arrow"></div>
         <h3 class="popover-title" [innerHTML]="options.title"></h3>
@@ -46,11 +46,11 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
           </div>
         </div>
       </div>
-    </template>
-    <template
+    </ng-template>
+    <ng-template
       [ngTemplateOutlet]="options.customTemplate || defaultTemplate"
-      [ngOutletContext]="{options: options}">
-    </template>
+      [ngTemplateOutletContext]="{options: options}">
+    </ng-template>
   `
 })
 export class ConfirmationPopoverWindow implements AfterViewInit {
