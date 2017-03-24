@@ -352,7 +352,7 @@
         </div>
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
-        <pre><code class="hljs javascript">import {NgModule, ModuleWithProviders, OpaqueToken} from &#x27;@angular/core&#x27;;
+        <pre><code class="hljs javascript">import {NgModule, ModuleWithProviders, InjectionToken} from &#x27;@angular/core&#x27;;
 import {CommonModule} from &#x27;@angular/common&#x27;;
 import {Positioning} from &#x27;positioning&#x27;;
 import {ConfirmationPopover} from &#x27;./confirmationPopover.directive&#x27;;
@@ -360,7 +360,7 @@ import {ConfirmationPopoverWindow} from &#x27;./confirmationPopoverWindow.compon
 import {Focus} from &#x27;./focus.directive&#x27;;
 import {ConfirmationPopoverOptions, ConfirmationPopoverOptionsInterface} from &#x27;./confirmationPopoverOptions.provider&#x27;;
 
-export const USER_OPTIONS: OpaqueToken &#x3D; new OpaqueToken(&#x27;confirmation popover user options&#x27;);
+export const USER_OPTIONS: InjectionToken&lt;string&gt; &#x3D; new InjectionToken(&#x27;confirmation popover user options&#x27;);
 
 export function optionsFactory(userOptions: ConfirmationPopoverOptions): ConfirmationPopoverOptions {
   const options: ConfirmationPopoverOptions &#x3D; new ConfirmationPopoverOptions();
