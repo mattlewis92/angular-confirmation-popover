@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-* remove <template> deprecation warning ([11f2820](https://github.com/mattlewis92/angular-confirmation-popover/commit/11f2820))
+* remove `<template>` deprecation warning ([11f2820](https://github.com/mattlewis92/angular-confirmation-popover/commit/11f2820))
 
 
 ### BREAKING CHANGES
