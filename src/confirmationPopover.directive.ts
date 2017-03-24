@@ -15,7 +15,7 @@ import {
   ComponentFactoryResolver,
   Injector,
   Inject,
-  Renderer,
+  Renderer2,
   TemplateRef,
   ComponentFactory
 } from '@angular/core';
@@ -170,7 +170,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
     private defaultOptions: ConfirmationPopoverOptions,
     private cfr: ComponentFactoryResolver,
     private position: Positioning,
-    private renderer: Renderer,
+    private renderer: Renderer2,
     @Inject(DOCUMENT) private document //tslint:disable-line
   ) {}
 
@@ -295,7 +295,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
       const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
       this.popover = this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
       if (this.appendToBody) {
-        this.renderer.invokeElementMethod(this.document.body, 'appendChild', [this.popover.location.nativeElement]);
+        this.document.body.appendChild(this.popover.location.nativeElement);
       }
       this.isOpenChange.emit(true);
 
@@ -311,8 +311,8 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
         this.placement || this.defaultOptions.placement,
         this.appendToBody || this.defaultOptions.appendToBody
       );
-      this.renderer.setElementStyle(popoverElement, 'top', `${popoverPosition.top}px`);
-      this.renderer.setElementStyle(popoverElement, 'left', `${popoverPosition.left}px`);
+      this.renderer.setStyle(popoverElement, 'top', `${popoverPosition.top}px`);
+      this.renderer.setStyle(popoverElement, 'left', `${popoverPosition.left}px`);
     }
   }
 

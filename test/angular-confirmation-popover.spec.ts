@@ -391,7 +391,7 @@ describe('bootstrap confirm', () => {
     it('should allow a custom template to be set', () => {
 
       const html: string = `
-        <template #customTemplate let-options="options">
+        <ng-template #customTemplate let-options="options">
           <div [class]="'popover ' + options.placement" style="display: block">
             <div class="arrow"></div>
             <h3 class="popover-title">{{ options.title }}</h3>
@@ -401,7 +401,7 @@ describe('bootstrap confirm', () => {
                <button [mwlFocus]="options.focusButton === 'confirm'">Confirm</button>
             </div>
           </div>
-        </template>
+        </ng-template>
         <button
           mwlConfirmationPopover
           title="My Title"

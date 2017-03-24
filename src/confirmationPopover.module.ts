@@ -1,4 +1,4 @@
-import {NgModule, ModuleWithProviders, OpaqueToken} from '@angular/core';
+import {NgModule, ModuleWithProviders, InjectionToken} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Positioning} from 'positioning';
 import {ConfirmationPopover} from './confirmationPopover.directive';
@@ -6,7 +6,7 @@ import {ConfirmationPopoverWindow} from './confirmationPopoverWindow.component';
 import {Focus} from './focus.directive';
 import {ConfirmationPopoverOptions, ConfirmationPopoverOptionsInterface} from './confirmationPopoverOptions.provider';
 
-export const USER_OPTIONS: OpaqueToken = new OpaqueToken('confirmation popover user options');
+export const USER_OPTIONS: InjectionToken<string> = new InjectionToken('confirmation popover user options');
 
 export function optionsFactory(userOptions: ConfirmationPopoverOptions): ConfirmationPopoverOptions {
   const options: ConfirmationPopoverOptions = new ConfirmationPopoverOptions();
