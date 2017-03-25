@@ -28,7 +28,7 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
               <button
                 [mwlFocus]="options.focusButton === 'confirm'"
                 [class]="'btn btn-block btn-' + options.confirmButtonType"
-                (click)="options.onConfirm()"
+                (click)="options.onConfirm({clickEvent: $event})"
                 [innerHtml]="options.confirmText">
               </button>
             </div>
@@ -39,7 +39,7 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
               <button
                 [mwlFocus]="options.focusButton === 'cancel'"
                 [class]="'btn btn-block btn-' + options.cancelButtonType"
-                (click)="options.onCancel()"
+                (click)="options.onCancel({clickEvent: $event})"
                 [innerHtml]="options.cancelText">
               </button>
             </div>

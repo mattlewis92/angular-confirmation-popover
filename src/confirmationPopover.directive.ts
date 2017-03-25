@@ -32,6 +32,10 @@ interface Coords {
   left: number;
 }
 
+interface ConfirmCancelEvent {
+  clickEvent: MouseEvent;
+}
+
 /**
  * All properties can be set on the directive as attributes like so (use `ConfirmationPopoverModule.forRoot()` to configure them globally):
  * ```
@@ -134,17 +138,17 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * Will emit when the popover is opened or closed
    */
-  @Output() isOpenChange: EventEmitter<any> = new EventEmitter(true);
+  @Output() isOpenChange: EventEmitter<boolean> = new EventEmitter(true);
 
   /**
    * An expression that is called when the confirm button is clicked.
    */
-  @Output() confirm: EventEmitter<any> = new EventEmitter();
+  @Output() confirm: EventEmitter<ConfirmCancelEvent> = new EventEmitter();
 
   /**
    * An expression that is called when the cancel button is clicked.
    */
-  @Output() cancel: EventEmitter<any> = new EventEmitter();
+  @Output() cancel: EventEmitter<ConfirmCancelEvent> = new EventEmitter();
 
   /**
    * A custom CSS class to be added to the popover
@@ -204,16 +208,16 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
-  onConfirm(): void {
-    this.confirm.emit(null);
+  onConfirm(event: ConfirmCancelEvent): void {
+    this.confirm.emit(event);
     this.hidePopover();
   }
 
   /**
    * @private
    */
-  onCancel(): void {
-    this.cancel.emit(null);
+  onCancel(event: ConfirmCancelEvent): void {
+    this.cancel.emit(event);
     this.hidePopover();
   }
 
@@ -256,11 +260,11 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
       Object.assign(options, this.defaultOptions, {
         title: this.title,
         message: this.message,
-        onConfirm: (): void => {
-          this.onConfirm();
+        onConfirm: (event: ConfirmCancelEvent): void => {
+          this.onConfirm(event);
         },
-        onCancel: (): void => {
-          this.onCancel();
+        onCancel: (event: ConfirmCancelEvent): void => {
+          this.onCancel(event);
         },
         onAfterViewInit: () : void => {
           this.positionPopover();
