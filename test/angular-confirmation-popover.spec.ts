@@ -49,8 +49,8 @@ describe('bootstrap confirm', () => {
           [confirmText]="confirmText"
           [cancelText]="cancelText"
           [placement]="placement"
-          (confirm)="confirmClicked = true"
-          (cancel)="cancelClicked = true"
+          (confirm)="confirmClicked($event)"
+          (cancel)="cancelClicked($event)"
           confirmButtonType="danger"
           cancelButtonType="default"
           [popoverClass]="popoverClass"
@@ -71,8 +71,6 @@ describe('bootstrap confirm', () => {
       message: string = 'Are you really <b>sure</b> you want to do this?';
       confirmText: string = 'Yes <i class="glyphicon glyphicon-ok"></i>';
       cancelText: string = 'No <i class="glyphicon glyphicon-remove"></i>';
-      confirmClicked: boolean = false;
-      cancelClicked: boolean = false;
       focusButton: string;
       hideConfirmButton: boolean = false;
       hideCancelButton: boolean = false;
@@ -80,6 +78,8 @@ describe('bootstrap confirm', () => {
       isOpen: boolean;
       popoverClass: string = 'my-class';
       appendToBody: boolean = false;
+      confirmClicked: sinon.SinonSpy = sinon.spy();
+      cancelClicked: sinon.SinonSpy = sinon.spy();
     }
 
     let createPopover: Function;
@@ -317,9 +317,10 @@ describe('bootstrap confirm', () => {
       clickFixture(fixture);
       const popover: ComponentRef<ConfirmationPopoverWindow> = fixture.componentInstance.confirm.popover;
       popover.changeDetectorRef.detectChanges();
-      expect(fixture.componentInstance.confirmClicked).to.be.false;
+      expect(fixture.componentInstance.confirmClicked).not.to.have.been.called;
       popover.location.nativeElement.querySelectorAll('button')[0].click();
-      expect(fixture.componentInstance.confirmClicked).to.be.true;
+      expect(fixture.componentInstance.confirmClicked).to.have.been.calledOnce;
+      expect(fixture.componentInstance.confirmClicked.getCall(0).args[0].clickEvent instanceof MouseEvent).to.be.true;
     });
 
     it('should call the cancel callback when the cancel button is clicked', () => {
@@ -328,9 +329,10 @@ describe('bootstrap confirm', () => {
       clickFixture(fixture);
       const popover: ComponentRef<ConfirmationPopoverWindow> = fixture.componentInstance.confirm.popover;
       popover.changeDetectorRef.detectChanges();
-      expect(fixture.componentInstance.cancelClicked).to.be.false;
+      expect(fixture.componentInstance.cancelClicked).not.to.have.been.called;
       popover.location.nativeElement.querySelectorAll('button')[1].click();
-      expect(fixture.componentInstance.cancelClicked).to.be.true;
+      expect(fixture.componentInstance.cancelClicked).to.have.been.calledOnce;
+      expect(fixture.componentInstance.cancelClicked.getCall(0).args[0].clickEvent instanceof MouseEvent).to.be.true;
     });
 
     it('should initialise isOpen to false', async(() => {
