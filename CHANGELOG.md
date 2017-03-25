@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.0.0...v3.1.0) (2017-03-25)
+
+
+### Features
+
+* expose mouseClick event on confirm / cancel ([e7aac49](https://github.com/mattlewis92/angular-confirmation-popover/commit/e7aac49)), closes [#39](https://github.com/mattlewis92/angular-confirmation-popover/issues/39)
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v2.1.3...v3.0.0) (2017-03-24)
 
