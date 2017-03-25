@@ -32,7 +32,10 @@ interface Coords {
   left: number;
 }
 
-interface ConfirmCancelEvent {
+/**
+ * @private
+ */
+export interface ConfirmCancelEvent {
   clickEvent: MouseEvent;
 }
 
