@@ -133,6 +133,9 @@
                                 id="xs-interfaces-links"
                             >
                                 <li class="link">
+                                    <a href="./interfaces/ConfirmCancelEvent.html" >ConfirmCancelEvent</a>
+                                </li>
+                                <li class="link">
                                     <a href="./interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
                                 </li>
                                 <li class="link">
@@ -271,6 +274,9 @@
                                <ul class="links collapse in"
                                        id="interfaces-links"
                    >
+                                       <li class="link">
+                                           <a href="./interfaces/ConfirmCancelEvent.html" >ConfirmCancelEvent</a>
+                                       </li>
                                        <li class="link">
                                            <a href="./interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
                                        </li>
@@ -420,6 +426,13 @@ interface Coords {
 }
 
 /**
+ * @private
+ */
+export interface ConfirmCancelEvent {
+  clickEvent: MouseEvent;
+}
+
+/**
  * All properties can be set on the directive as attributes like so (use &#x60;ConfirmationPopoverModule.forRoot()&#x60; to configure them globally):
  * &#x60;&#x60;&#x60;
  * &lt;button
@@ -521,17 +534,17 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * Will emit when the popover is opened or closed
    */
-  @Output() isOpenChange: EventEmitter&lt;any&gt; &#x3D; new EventEmitter(true);
+  @Output() isOpenChange: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter(true);
 
   /**
    * An expression that is called when the confirm button is clicked.
    */
-  @Output() confirm: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  @Output() confirm: EventEmitter&lt;ConfirmCancelEvent&gt; &#x3D; new EventEmitter();
 
   /**
    * An expression that is called when the cancel button is clicked.
    */
-  @Output() cancel: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  @Output() cancel: EventEmitter&lt;ConfirmCancelEvent&gt; &#x3D; new EventEmitter();
 
   /**
    * A custom CSS class to be added to the popover
@@ -591,16 +604,16 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
-  onConfirm(): void {
-    this.confirm.emit(null);
+  onConfirm(event: ConfirmCancelEvent): void {
+    this.confirm.emit(event);
     this.hidePopover();
   }
 
   /**
    * @private
    */
-  onCancel(): void {
-    this.cancel.emit(null);
+  onCancel(event: ConfirmCancelEvent): void {
+    this.cancel.emit(event);
     this.hidePopover();
   }
 
@@ -643,11 +656,11 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
       Object.assign(options, this.defaultOptions, {
         title: this.title,
         message: this.message,
-        onConfirm: (): void &#x3D;&gt; {
-          this.onConfirm();
+        onConfirm: (event: ConfirmCancelEvent): void &#x3D;&gt; {
+          this.onConfirm(event);
         },
-        onCancel: (): void &#x3D;&gt; {
-          this.onCancel();
+        onCancel: (event: ConfirmCancelEvent): void &#x3D;&gt; {
+          this.onCancel(event);
         },
         onAfterViewInit: () : void &#x3D;&gt; {
           this.positionPopover();
