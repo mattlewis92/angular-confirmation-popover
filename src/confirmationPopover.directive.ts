@@ -41,8 +41,8 @@ export interface ConfirmCancelEvent {
 
 /**
  * All properties can be set on the directive as attributes like so (use `ConfirmationPopoverModule.forRoot()` to configure them globally):
- * ```
- * <button
+ * ```html
+ * &lt;button
  *  class="btn btn-default"
  *  mwlConfirmationPopover
  *  [title]="title"
@@ -50,9 +50,9 @@ export interface ConfirmCancelEvent {
  *  placement="left"
  *  (confirm)="confirmClicked = true"
  *  (cancel)="cancelClicked = true"
- *  [(isOpen)]="isOpen">
+ *  [(isOpen)]="isOpen"&gt;
  *   Show confirm popover!
- * </button>
+ * &lt;/button&gt;
  * ```
  */
 @Directive({
@@ -127,12 +127,14 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   @Input() isOpen: boolean = false;
 
   /**
-   * A reference to a <template> tag that if set will override the popovers template. Use like so:
-   * <template #customTemplate let-options="options">
-   *   <div [class]="'popover ' + options.placement" style="display: block">
+   * A reference to a &lt;template&gt; tag that if set will override the popovers template. Use like so:
+   * ```html
+   * &lt;ng-template #customTemplate let-options="options"&gt;
+   *   &lt;div [class]="'popover ' + options.placement" style="display: block"&gt;
    *     My custom template
-   *   </div>
-   * </template>
+   *   &lt;/div&gt;
+   * &lt;/ng-template&gt;
+   * ```
    *
    * Then pass customTemplate to the mwlConfirmationPopover directive like so `[customTemplate]="customTemplate"`
    */
