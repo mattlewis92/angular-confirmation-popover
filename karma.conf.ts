@@ -30,7 +30,11 @@ export default function(config) {
           test: /\.ts$/,
           loader: 'tslint-loader',
           exclude: /node_modules/,
-          enforce: 'pre'
+          enforce: 'pre',
+          options: {
+            emitErrors: config.singleRun,
+            failOnHint: config.singleRun
+          }
         }, {
           test: /\.ts$/,
           loader: 'awesome-typescript-loader',
@@ -50,15 +54,7 @@ export default function(config) {
         new webpack.ContextReplacementPlugin(
           /angular(\\|\/)core(\\|\/)@angular/,
           __dirname + '/src'
-        ),
-        new webpack.LoaderOptionsPlugin({
-          options: {
-            tslint: {
-              emitErrors: config.singleRun,
-              failOnHint: false
-            }
-          }
-        })
+        )
       ].concat(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : [])
     },
 
