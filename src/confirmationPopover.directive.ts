@@ -1,4 +1,4 @@
-import {
+﻿import {
   Directive,
   Input,
   Output,
@@ -18,11 +18,11 @@ import {
   Renderer2,
   TemplateRef,
   ComponentFactory
-} from '@angular/core';
-import {DOCUMENT} from '@angular/platform-browser';
-import {ConfirmationPopoverWindow} from './confirmationPopoverWindow.component';
-import {ConfirmationPopoverOptions, ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.provider';
-import {Positioning} from 'positioning';
+  } from '@angular/core';
+import { DOCUMENT } from '@angular/platform-browser';
+import { ConfirmationPopoverWindow } from './confirmationPopoverWindow.component';
+import { ConfirmationPopoverOptions, ConfirmationPopoverWindowOptions } from './confirmationPopoverOptions.provider';
+import { Positioning } from 'positioning';
 
 /**
  * @private
@@ -163,7 +163,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * Append the element to the document body rather than the trigger element
    */
-  @Input() appendToBody: boolean = false;
+  @Input() appendToBody: boolean = null;
 
   /**
    * @private
@@ -181,7 +181,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
     private position: Positioning,
     private renderer: Renderer2,
     @Inject(DOCUMENT) private document //tslint:disable-line
-  ) {}
+  ) { }
 
   /**
    * @private
@@ -271,7 +271,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
         onCancel: (event: ConfirmCancelEvent): void => {
           this.onCancel(event);
         },
-        onAfterViewInit: () : void => {
+        onAfterViewInit: (): void => {
           this.positionPopover();
         }
       });
@@ -303,7 +303,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
       const contextInjector: Injector = this.viewContainerRef.parentInjector;
       const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
       this.popover = this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
-      if (this.appendToBody) {
+      if (this.appendToBody || (this.defaultOptions.appendToBody && this.appendToBody != false)) {
         this.document.body.appendChild(this.popover.location.nativeElement);
       }
       this.isOpenChange.emit(true);
@@ -318,7 +318,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
         this.elm.nativeElement,
         popoverElement,
         this.placement || this.defaultOptions.placement,
-        this.appendToBody || this.defaultOptions.appendToBody
+        this.appendToBody || (this.defaultOptions.appendToBody && this.appendToBody != false)
       );
       this.renderer.setStyle(popoverElement, 'top', `${popoverPosition.top}px`);
       this.renderer.setStyle(popoverElement, 'left', `${popoverPosition.left}px`);
