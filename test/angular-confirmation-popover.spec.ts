@@ -446,7 +446,7 @@ describe('bootstrap confirm', () => {
       @ViewChild(ConfirmationPopover) confirm: ConfirmationPopover;
     }
 
-    beforeEach(() => {
+    it('should allow default options to be configured globally', () => {
       TestBed.configureTestingModule({
         imports: [
           ConfirmationPopoverModule.forRoot({
@@ -457,15 +457,32 @@ describe('bootstrap confirm', () => {
           TestCmp
         ]
       });
-    });
-
-    it('should allow default options to be configured globally', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
       fixture.nativeElement.querySelector('button').click();
       const popover: ComponentRef<ConfirmationPopoverWindow> = fixture.componentInstance.confirm.popover;
       popover.changeDetectorRef.detectChanges();
       expect(popover.location.nativeElement.querySelectorAll('button')[0]).to.have.html('Derp');
+    });
+
+    it('should allow the appendToBody option to be configured globally', () => {
+      TestBed.configureTestingModule({
+        imports: [
+          ConfirmationPopoverModule.forRoot({
+            appendToBody: true
+          })
+        ],
+        declarations: [
+          TestCmp
+        ]
+      });
+      const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
+      fixture.detectChanges();
+      fixture.nativeElement.querySelector('button').click();
+      const popover: ComponentRef<ConfirmationPopoverWindow> = fixture.componentInstance.confirm.popover;
+      popover.changeDetectorRef.detectChanges();
+      expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0]).to.have.class('popover');
+      expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).not.to.be.ok;
     });
 
   });
