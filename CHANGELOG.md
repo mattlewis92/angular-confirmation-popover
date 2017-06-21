@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.1.1"></a>
+## [3.1.1](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.1.0...v3.1.1) (2017-06-21)
+
+
+### Bug Fixes
+
+* allow appendToBody to be set globally ([e89eb10](https://github.com/mattlewis92/angular-confirmation-popover/commit/e89eb10)), closes [#45](https://github.com/mattlewis92/angular-confirmation-popover/issues/45) [#46](https://github.com/mattlewis92/angular-confirmation-popover/issues/46)
+
+
+
 <a name="3.1.0"></a>
 # [3.1.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.0.0...v3.1.0) (2017-03-25)
 
