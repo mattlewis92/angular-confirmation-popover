@@ -108,12 +108,12 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * Whether to hide the confirm button. Default `false`.
    */
-  @Input() hideConfirmButton: boolean = false;
+  @Input() hideConfirmButton: boolean;
 
   /**
    * Whether to hide the cancel button. Default `false`.
    */
-  @Input() hideCancelButton: boolean = false;
+  @Input() hideCancelButton: boolean;
 
   /**
    * Whether to disable showing the popover. Default `false`.
@@ -163,7 +163,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * Append the element to the document body rather than the trigger element
    */
-  @Input() appendToBody: boolean = false;
+  @Input() appendToBody: boolean;
 
   /**
    * @private
@@ -290,7 +290,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
         'customTemplate'
       ];
       optionalParams.forEach(param => {
-        if (this[param]) {
+        if (typeof this[param] !== 'undefined') {
           options[param] = this[param];
         }
       });
@@ -303,7 +303,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
       const contextInjector: Injector = this.viewContainerRef.parentInjector;
       const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
       this.popover = this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
-      if (this.appendToBody) {
+      if (options.appendToBody) {
         this.document.body.appendChild(this.popover.location.nativeElement);
       }
       this.isOpenChange.emit(true);

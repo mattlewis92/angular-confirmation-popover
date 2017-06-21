@@ -485,6 +485,38 @@ describe('bootstrap confirm', () => {
       expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).not.to.be.ok;
     });
 
+    it('should allow the appendToBody option to be overridden locally when set to true globally', () => {
+      TestBed.overrideComponent(TestCmp, {
+        set: {
+          template: `
+            <button
+              class="btn btn-default"
+              mwlConfirmationPopover
+              [appendToBody]="false">
+              Show popover
+            </button>
+          `
+        }
+      });
+      TestBed.configureTestingModule({
+        imports: [
+          ConfirmationPopoverModule.forRoot({
+            appendToBody: true
+          })
+        ],
+        declarations: [
+          TestCmp
+        ]
+      });
+      const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
+      fixture.detectChanges();
+      fixture.nativeElement.querySelector('button').click();
+      const popover: ComponentRef<ConfirmationPopoverWindow> = fixture.componentInstance.confirm.popover;
+      popover.changeDetectorRef.detectChanges();
+      expect((<HTMLElement>document.body.children[document.body.children.length - 1]).children[0]).not.to.have.class('popover');
+      expect(fixture.componentRef.location.nativeElement.querySelector('.popover')).to.be.ok;
+    });
+
   });
 
 });
