@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.2.0"></a>
+# [3.2.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.1.1...v3.2.0) (2017-08-28)
+
+
+### Features
+
+* support bootstrap 4 beta ([1e5ef68](https://github.com/mattlewis92/angular-confirmation-popover/commit/1e5ef68)), closes [#51](https://github.com/mattlewis92/angular-confirmation-popover/issues/51)
+
+
+### Performance Improvements
+
+* lazily initialise event handlers ([08eebab](https://github.com/mattlewis92/angular-confirmation-popover/commit/08eebab)), closes [#52](https://github.com/mattlewis92/angular-confirmation-popover/issues/52)
+
+
+
 <a name="3.1.1"></a>
 ## [3.1.1](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.1.0...v3.1.1) (2017-06-21)
 
