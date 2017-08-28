@@ -104,6 +104,6 @@
     }
   },
   "dependencies": {
-    "positioning": "^1.1.0"
+    "positioning": "^1.3.1"
   }
 }
