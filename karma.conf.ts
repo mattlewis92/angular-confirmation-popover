@@ -71,7 +71,13 @@ export default function(config) {
 
     coverageIstanbulReporter: {
       reports: ['text-summary', 'html', 'lcovonly'],
-      fixWebpackSourcePaths: true
+      fixWebpackSourcePaths: true,
+      thresholds: {
+        statements: 99,
+        lines: 99,
+        branches: 96,
+        functions: 96
+      }
     },
 
     mime: {
