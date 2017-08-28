@@ -228,6 +228,11 @@ describe('bootstrap confirm', () => {
     it('should re-position the popover when the window resizes', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
+      fixture.componentInstance.focusButton = 'confirm';
+      fixture.detectChanges();
+      clickFixture(fixture);
+      const popover: ComponentRef<ConfirmationPopoverWindow> = fixture.componentInstance.confirm.popover;
+      popover.changeDetectorRef.detectChanges();
       const positionPopover: sinon.SinonSpy = sinon.spy(fixture.componentInstance.confirm as any, 'positionPopover');
       window.dispatchEvent(new Event('resize'));
       expect(positionPopover).to.have.been.calledOnce;

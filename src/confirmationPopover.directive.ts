@@ -173,6 +173,11 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
+  eventListeners: Function[] = [];
+
+  /**
+   * @private
+   */
   constructor(
     private viewContainerRef: ViewContainerRef,
     private elm: ElementRef,
@@ -229,18 +234,6 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
-  @HostListener('document:click', ['$event.target'])
-  @HostListener('document:touchend', ['$event.target'])
-  onDocumentClick(target: HTMLElement): void {
-
-    if (this.popover && !this.elm.nativeElement.contains(target) && !this.popover.location.nativeElement.contains(target)) {
-      this.hidePopover();
-    }
-  }
-
-  /**
-   * @private
-   */
   @HostListener('click')
   togglePopover(): void {
     if (!this.popover) {
@@ -250,16 +243,20 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
     }
   }
 
-  /**
-   * @private
-   */
-  @HostListener('window:resize')
-  onResize(): void {
-    this.positionPopover();
+  private onDocumentClick(event: Event): void {
+    if (this.popover && !this.elm.nativeElement.contains(event.target) && !this.popover.location.nativeElement.contains(event.target)) {
+      this.hidePopover();
+    }
   }
 
   private showPopover(): void {
     if (!this.popover && !this.isDisabled) {
+
+      this.eventListeners = [
+        this.renderer.listen('document', 'click', (event: Event) => this.onDocumentClick(event)),
+        this.renderer.listen('document', 'touchend', (event: Event) => this.onDocumentClick(event)),
+        this.renderer.listen('window', 'resize', () => this.positionPopover())
+      ];
 
       const options: ConfirmationPopoverWindowOptions = new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
@@ -330,6 +327,8 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
       this.popover.destroy();
       this.popover = null;
       this.isOpenChange.emit(false);
+      this.eventListeners.forEach(fn => fn());
+      this.eventListeners = [];
     }
   }
 
