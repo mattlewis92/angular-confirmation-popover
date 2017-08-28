@@ -12,13 +12,28 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
     .popover {
       display: block;
     }
+    .bs-popover-top .arrow, .bs-popover-bottom .arrow {
+      left: 50%;
+    }
+    .bs-popover-left .arrow, .bs-popover-right .arrow {
+      top: 50%;
+    }
+    .btn {
+      transition: none;
+    }
   `],
   template: `
     <ng-template #defaultTemplate let-options="options">
-      <div [class]="'popover ' + options.placement + ' popover-' + options.placement + ' ' + options.popoverClass">
+      <div [ngClass]="[
+        'popover',
+        options.placement,
+        'popover-' + options.placement,
+        'bs-popover-' + options.placement,
+        options.popoverClass
+      ]">
         <div class="popover-arrow arrow"></div>
-        <h3 class="popover-title" [innerHTML]="options.title"></h3>
-        <div class="popover-content">
+        <h3 class="popover-title popover-header" [innerHTML]="options.title"></h3>
+        <div class="popover-content popover-body">
           <p [innerHTML]="options.message"></p>
           <div class="row">
             <div

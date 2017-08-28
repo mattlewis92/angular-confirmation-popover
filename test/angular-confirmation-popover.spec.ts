@@ -5,7 +5,7 @@ import 'zone.js/dist/async-test';
 import 'zone.js/dist/fake-async-test';
 import 'zone.js/dist/sync-test';
 import 'zone.js/dist/proxy';
-import 'zone.js/dist/jasmine-patch';
+import 'zone.js/dist/mocha-patch';
 import 'rxjs';
 import {
   Component,
@@ -113,7 +113,7 @@ describe('bootstrap confirm', () => {
     it('should show a popover when the element is clicked', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
-      const confirm: ConfirmationPopover = fixture.componentInstance.confirm;
+      const confirm: any = fixture.componentInstance.confirm;
       const showPopover: Function = sinon.spy(confirm, 'showPopover');
       expect(confirm.popover).not.to.be.ok;
       clickFixture(fixture);
@@ -124,7 +124,7 @@ describe('bootstrap confirm', () => {
     it('should hide the popover when the element is clicked if the popover is open', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
-      const confirm: ConfirmationPopover = fixture.componentInstance.confirm;
+      const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
       const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
       clickFixture(fixture);
@@ -134,7 +134,7 @@ describe('bootstrap confirm', () => {
     it('should hide the popover when the parent component is destroyed', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
-      const confirm: ConfirmationPopover = fixture.componentInstance.confirm;
+      const confirm: any = fixture.componentInstance.confirm;
       const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
       fixture.destroy();
       expect(hidePopover).to.have.been.calledOnce;
@@ -143,7 +143,7 @@ describe('bootstrap confirm', () => {
     it('should hide the popover when the confirm button is clicked', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
-      const confirm: ConfirmationPopover = fixture.componentInstance.confirm;
+      const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
       const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
       confirm.popover.changeDetectorRef.detectChanges();
@@ -154,7 +154,7 @@ describe('bootstrap confirm', () => {
     it('should hide the popover when the cancel button is clicked', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
-      const confirm: ConfirmationPopover = fixture.componentInstance.confirm;
+      const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
       const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
       confirm.popover.changeDetectorRef.detectChanges();
@@ -165,7 +165,7 @@ describe('bootstrap confirm', () => {
     it('should hide the popover when an element not inside the popover is clicked', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
-      const confirm: ConfirmationPopover = fixture.componentInstance.confirm;
+      const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
       const hidePopover: Function = sinon.spy(confirm, 'hidePopover');
       confirm.popover.changeDetectorRef.detectChanges();
@@ -228,7 +228,12 @@ describe('bootstrap confirm', () => {
     it('should re-position the popover when the window resizes', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
-      const positionPopover: sinon.SinonSpy = sinon.spy(fixture.componentInstance.confirm, 'positionPopover');
+      fixture.componentInstance.focusButton = 'confirm';
+      fixture.detectChanges();
+      clickFixture(fixture);
+      const popover: ComponentRef<ConfirmationPopoverWindow> = fixture.componentInstance.confirm.popover;
+      popover.changeDetectorRef.detectChanges();
+      const positionPopover: sinon.SinonSpy = sinon.spy(fixture.componentInstance.confirm as any, 'positionPopover');
       window.dispatchEvent(new Event('resize'));
       expect(positionPopover).to.have.been.calledOnce;
     });
@@ -305,7 +310,7 @@ describe('bootstrap confirm', () => {
       const fixture: ComponentFixture<TestCmp> = TestBed.createComponent(TestCmp);
       fixture.detectChanges();
       clickFixture(fixture);
-      const hidePopover: sinon.SinonSpy = sinon.spy(fixture.componentInstance.confirm, 'hidePopover');
+      const hidePopover: sinon.SinonSpy = sinon.spy(fixture.componentInstance.confirm as any, 'hidePopover');
       fixture.componentInstance.isOpen = false;
       fixture.detectChanges();
       expect(hidePopover).to.have.been.calledOnce;

@@ -1,4 +1,5 @@
 import * as webpack from 'webpack';
+import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export default function(config) {
   config.set({
@@ -8,7 +9,7 @@ export default function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['mocha'],
 
     // list of files / patterns to load in the browser
     files: [
@@ -37,8 +38,11 @@ export default function(config) {
           }
         }, {
           test: /\.ts$/,
-          loader: 'awesome-typescript-loader',
-          exclude: /node_modules/
+          loader: 'ts-loader',
+          exclude: /node_modules/,
+          options: {
+            transpileOnly: !config.singleRun
+          }
         }, {
           test: /src\/.+\.ts$/,
           exclude: /(test|node_modules)/,
@@ -55,18 +59,29 @@ export default function(config) {
           /angular(\\|\/)core(\\|\/)@angular/,
           __dirname + '/src'
         )
-      ].concat(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : [])
+      ].concat(config.singleRun ? [
+        new webpack.NoEmitOnErrorsPlugin()
+      ] : [
+        new ForkTsCheckerWebpackPlugin({
+          watch: ['./src', './test'],
+          formatter: 'codeframe'
+        })
+      ])
     },
 
     coverageIstanbulReporter: {
       reports: ['text-summary', 'html', 'lcovonly'],
       fixWebpackSourcePaths: true,
       thresholds: {
-        statements: 100,
-        lines: 100,
-        branches: 100,
-        functions: 100
+        statements: 99,
+        lines: 99,
+        branches: 96,
+        functions: 96
       }
+    },
+
+    mime: {
+      'text/x-typescript': ['ts']
     },
 
     // test results reporter to use
@@ -80,6 +95,6 @@ export default function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS']
+    browsers: ['ChromeHeadless']
   });
 };
