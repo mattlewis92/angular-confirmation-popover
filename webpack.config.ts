@@ -1,4 +1,5 @@
 import * as webpack from 'webpack';
+import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 const IS_PROD = process.argv.indexOf('-p') > -1;
 
 export default {
@@ -11,13 +12,20 @@ export default {
   module: {
     rules: [{
       test: /\.ts$/,
-      loader: 'tslint-loader?emitErrors=false&failOnHint=false',
+      loader: 'tslint-loader',
       exclude: /node_modules/,
-      enforce: 'pre'
+      enforce: 'pre',
+      options: {
+        emitErrors: IS_PROD,
+        failOnHint: IS_PROD
+      }
     }, {
       test: /\.ts$/,
-      loader: 'awesome-typescript-loader',
-      exclude: /node_modules/
+      loader: 'ts-loader',
+      exclude: /node_modules/,
+      options: {
+        transpileOnly: true
+      }
     }]
   },
   resolve: {
@@ -38,6 +46,11 @@ export default {
     new webpack.ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)@angular/,
       __dirname + '/src'
-    )
+    ),
+    new ForkTsCheckerWebpackPlugin({
+      watch: ['./src', './demo'],
+      formatter: 'codeframe',
+      async: !IS_PROD
+    })
   ]
 };

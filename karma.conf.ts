@@ -1,4 +1,5 @@
 import * as webpack from 'webpack';
+import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export default function(config) {
   config.set({
@@ -37,8 +38,11 @@ export default function(config) {
           }
         }, {
           test: /\.ts$/,
-          loader: 'awesome-typescript-loader',
-          exclude: /node_modules/
+          loader: 'ts-loader',
+          exclude: /node_modules/,
+          options: {
+            transpileOnly: true
+          }
         }, {
           test: /src\/.+\.ts$/,
           exclude: /(test|node_modules)/,
@@ -47,6 +51,11 @@ export default function(config) {
         }]
       },
       plugins: [
+        new ForkTsCheckerWebpackPlugin({
+          watch: ['./src', './test'],
+          formatter: 'codeframe',
+          async: !config.singleRun
+        }),
         new webpack.SourceMapDevToolPlugin({
           filename: null,
           test: /\.(ts|js)($|\?)/i
