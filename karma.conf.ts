@@ -41,7 +41,7 @@ export default function(config) {
           loader: 'ts-loader',
           exclude: /node_modules/,
           options: {
-            transpileOnly: true
+            transpileOnly: !config.singleRun
           }
         }, {
           test: /src\/.+\.ts$/,
@@ -51,11 +51,6 @@ export default function(config) {
         }]
       },
       plugins: [
-        new ForkTsCheckerWebpackPlugin({
-          watch: ['./src', './test'],
-          formatter: 'codeframe',
-          async: !config.singleRun
-        }),
         new webpack.SourceMapDevToolPlugin({
           filename: null,
           test: /\.(ts|js)($|\?)/i
@@ -64,7 +59,14 @@ export default function(config) {
           /angular(\\|\/)core(\\|\/)@angular/,
           __dirname + '/src'
         )
-      ].concat(config.singleRun ? [new webpack.NoEmitOnErrorsPlugin()] : [])
+      ].concat(config.singleRun ? [
+        new webpack.NoEmitOnErrorsPlugin()
+      ] : [
+        new ForkTsCheckerWebpackPlugin({
+          watch: ['./src', './test'],
+          formatter: 'codeframe'
+        })
+      ])
     },
 
     coverageIstanbulReporter: {
