@@ -62,10 +62,10 @@ export default function(config) {
       reports: ['text-summary', 'html', 'lcovonly'],
       fixWebpackSourcePaths: true,
       thresholds: {
-        statements: 100,
-        lines: 100,
-        branches: 100,
-        functions: 100
+        statements: 99,
+        lines: 99,
+        branches: 96,
+        functions: 96
       }
     },
 
