@@ -40,7 +40,7 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
               class="col-xs-6 col-6"
               [ngClass]="{'col-xs-offset-3 col-offset-3': options.hideCancelButton}"
               *ngIf="!options.hideConfirmButton">
-              <button
+              <button type="button"
                 [mwlFocus]="options.focusButton === 'confirm'"
                 [class]="'btn btn-block btn-' + options.confirmButtonType"
                 (click)="options.onConfirm({clickEvent: $event})"
@@ -51,7 +51,7 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
               class="col-xs-6 col-6"
               [ngClass]="{'col-xs-offset-3 col-offset-3': options.hideConfirmButton}"
               *ngIf="!options.hideCancelButton">
-              <button
+              <button type="button"
                 [mwlFocus]="options.focusButton === 'cancel'"
                 [class]="'btn btn-block btn-' + options.cancelButtonType"
                 (click)="options.onCancel({clickEvent: $event})"
