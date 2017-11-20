@@ -62,10 +62,14 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
 
   /**
    * The title of the popover.
-   * Note, if you use an expression, you may want to consider using "data-title" instead of "title" so
-   * that the browser doesn't show native tooltips with the angular expression listed.
+   * Deprecated, will be removed in v4 - use popoverTitle instead
    */
   @Input() title: string;
+
+  /**
+   * The title of the popover
+   */
+  @Input() popoverTitle: string;
 
   /**
    * The body text of the popover.
@@ -260,7 +264,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
 
       const options: ConfirmationPopoverWindowOptions = new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
-        title: this.title,
+        title: this.popoverTitle || this.title,
         message: this.message,
         onConfirm: (event: ConfirmCancelEvent): void => {
           this.onConfirm(event);
