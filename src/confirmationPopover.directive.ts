@@ -42,7 +42,7 @@ export interface ConfirmCancelEvent {
 /**
  * All properties can be set on the directive as attributes like so (use `ConfirmationPopoverModule.forRoot()` to configure them globally):
  * ```html
- * &lt;button
+ * <button
  *  class="btn btn-default"
  *  mwlConfirmationPopover
  *  [title]="title"
@@ -50,9 +50,9 @@ export interface ConfirmCancelEvent {
  *  placement="left"
  *  (confirm)="confirmClicked = true"
  *  (cancel)="cancelClicked = true"
- *  [(isOpen)]="isOpen"&gt;
+ *  [(isOpen)]="isOpen">
  *   Show confirm popover!
- * &lt;/button&gt;
+ * </button>
  * ```
  */
 @Directive({
@@ -62,10 +62,14 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
 
   /**
    * The title of the popover.
-   * Note, if you use an expression, you may want to consider using "data-title" instead of "title" so
-   * that the browser doesn't show native tooltips with the angular expression listed.
+   * Deprecated, will be removed in v4 - use popoverTitle instead
    */
   @Input() title: string;
+
+  /**
+   * The title of the popover
+   */
+  @Input() popoverTitle: string;
 
   /**
    * The body text of the popover.
@@ -127,13 +131,13 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   @Input() isOpen: boolean = false;
 
   /**
-   * A reference to a &lt;template&gt; tag that if set will override the popovers template. Use like so:
+   * A reference to a <ng-template> tag that if set will override the popovers template. Use like so:
    * ```html
-   * &lt;ng-template #customTemplate let-options="options"&gt;
-   *   &lt;div [class]="'popover ' + options.placement" style="display: block"&gt;
+   * <ng-template #customTemplate let-options="options">
+   *   <div [class]="'popover ' + options.placement" style="display: block">
    *     My custom template
-   *   &lt;/div&gt;
-   * &lt;/ng-template&gt;
+   *   </div>
+   * </ng-template>
    * ```
    *
    * Then pass customTemplate to the mwlConfirmationPopover directive like so `[customTemplate]="customTemplate"`
@@ -260,7 +264,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
 
       const options: ConfirmationPopoverWindowOptions = new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
-        title: this.title,
+        title: this.popoverTitle || this.title,
         message: this.message,
         onConfirm: (event: ConfirmCancelEvent): void => {
           this.onConfirm(event);
