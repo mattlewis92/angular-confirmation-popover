@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.3.0"></a>
+# [3.3.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.2.0...v3.3.0) (2017-11-20)
+
+
+### Bug Fixes
+
+* add support for angular 5 ([02c0048](https://github.com/mattlewis92/angular-confirmation-popover/commit/02c0048)), closes [#60](https://github.com/mattlewis92/angular-confirmation-popover/issues/60)
+* make buttons behave as buttons ([e1ffaa3](https://github.com/mattlewis92/angular-confirmation-popover/commit/e1ffaa3)), closes [#58](https://github.com/mattlewis92/angular-confirmation-popover/issues/58)
+
+
+### Features
+
+* **popoverTitle:** add replacement for title input ([00b0b2c](https://github.com/mattlewis92/angular-confirmation-popover/commit/00b0b2c)), closes [#56](https://github.com/mattlewis92/angular-confirmation-popover/issues/56)
+
+
+
 <a name="3.2.0"></a>
 # [3.2.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.1.1...v3.2.0) (2017-08-28)
 
