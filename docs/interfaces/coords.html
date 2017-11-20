@@ -48,14 +48,14 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
-                                    <a href="./changelog.html"
-                                        >
+                                        <a href="../changelog.html"
+                                    >
                                         <span class="fa fa-file-text-o"></span>CHANGELOG
                                     </a>
                                 </li>
                                 <li class="link">
-                                    <a href="./license.html"
-                                        >
+                                        <a href="../license.html"
+                                    >
                                         <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
@@ -133,6 +133,7 @@
                                 </li>
                         </ul>
                     </li>
+            
             
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
@@ -225,14 +226,14 @@
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                        </li>
                                        <li class="link">
-                                           <a href="./changelog.html"
-                                               >
+                                               <a href="../changelog.html"
+                                           >
                                                <span class="fa fa-file-text-o"></span>CHANGELOG
                                            </a>
                                        </li>
                                        <li class="link">
-                                           <a href="./license.html"
-                                               >
+                                               <a href="../license.html"
+                                           >
                                                <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
@@ -311,6 +312,7 @@
                                </ul>
                            </li>
                    
+                   
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
                                        data-target="#interfaces-links"
@@ -379,6 +381,7 @@
 
 
 
+
 <ol class="breadcrumb">
   <li>Interfaces</li>
   <li>Coords</li>
@@ -403,6 +406,7 @@
         <p class="comment">
             <code>src/confirmationPopover.directive.ts</code>
         </p>
+
 
 
         <section>
@@ -439,7 +443,7 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="left"></a>
-                                        <b>left</b>
+                                        <span class="name"><b>left</b><a href="#left"><span class="fa fa-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -472,7 +476,7 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="top"></a>
-                                        <b>top</b>
+                                        <span class="name"><b>top</b><a href="#top"><span class="fa fa-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -549,7 +553,7 @@ export interface ConfirmCancelEvent {
 /**
  * All properties can be set on the directive as attributes like so (use &#x60;ConfirmationPopoverModule.forRoot()&#x60; to configure them globally):
  * &#x60;&#x60;&#x60;html
- * &amp;lt;button
+ * &lt;button
  *  class&#x3D;&quot;btn btn-default&quot;
  *  mwlConfirmationPopover
  *  [title]&#x3D;&quot;title&quot;
@@ -557,9 +561,9 @@ export interface ConfirmCancelEvent {
  *  placement&#x3D;&quot;left&quot;
  *  (confirm)&#x3D;&quot;confirmClicked &#x3D; true&quot;
  *  (cancel)&#x3D;&quot;cancelClicked &#x3D; true&quot;
- *  [(isOpen)]&#x3D;&quot;isOpen&quot;&amp;gt;
+ *  [(isOpen)]&#x3D;&quot;isOpen&quot;&gt;
  *   Show confirm popover!
- * &amp;lt;/button&amp;gt;
+ * &lt;/button&gt;
  * &#x60;&#x60;&#x60;
  */
 @Directive({
@@ -569,10 +573,14 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
 
   /**
    * The title of the popover.
-   * Note, if you use an expression, you may want to consider using &quot;data-title&quot; instead of &quot;title&quot; so
-   * that the browser doesn&#x27;t show native tooltips with the angular expression listed.
+   * Deprecated, will be removed in v4 - use popoverTitle instead
    */
   @Input() title: string;
+
+  /**
+   * The title of the popover
+   */
+  @Input() popoverTitle: string;
 
   /**
    * The body text of the popover.
@@ -634,13 +642,13 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   @Input() isOpen: boolean &#x3D; false;
 
   /**
-   * A reference to a &amp;lt;template&amp;gt; tag that if set will override the popovers template. Use like so:
+   * A reference to a &lt;ng-template&gt; tag that if set will override the popovers template. Use like so:
    * &#x60;&#x60;&#x60;html
-   * &amp;lt;ng-template #customTemplate let-options&#x3D;&quot;options&quot;&amp;gt;
-   *   &amp;lt;div [class]&#x3D;&quot;&#x27;popover &#x27; + options.placement&quot; style&#x3D;&quot;display: block&quot;&amp;gt;
+   * &lt;ng-template #customTemplate let-options&#x3D;&quot;options&quot;&gt;
+   *   &lt;div [class]&#x3D;&quot;&#x27;popover &#x27; + options.placement&quot; style&#x3D;&quot;display: block&quot;&gt;
    *     My custom template
-   *   &amp;lt;/div&amp;gt;
-   * &amp;lt;/ng-template&amp;gt;
+   *   &lt;/div&gt;
+   * &lt;/ng-template&gt;
    * &#x60;&#x60;&#x60;
    *
    * Then pass customTemplate to the mwlConfirmationPopover directive like so &#x60;[customTemplate]&#x3D;&quot;customTemplate&quot;&#x60;
@@ -767,7 +775,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
 
       const options: ConfirmationPopoverWindowOptions &#x3D; new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
-        title: this.title,
+        title: this.popoverTitle || this.title,
         message: this.message,
         onConfirm: (event: ConfirmCancelEvent): void &#x3D;&gt; {
           this.onConfirm(event);

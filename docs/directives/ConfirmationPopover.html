@@ -48,14 +48,14 @@
                                   <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                 </li>
                                 <li class="link">
-                                    <a href="./changelog.html"
-                                        >
+                                        <a href="../changelog.html"
+                                    >
                                         <span class="fa fa-file-text-o"></span>CHANGELOG
                                     </a>
                                 </li>
                                 <li class="link">
-                                    <a href="./license.html"
-                                        >
+                                        <a href="../license.html"
+                                    >
                                         <span class="fa fa-file-text-o"></span>LICENSE
                                     </a>
                                 </li>
@@ -133,6 +133,7 @@
                                 </li>
                         </ul>
                     </li>
+            
             
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse"
@@ -225,14 +226,14 @@
                                          <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
                                        </li>
                                        <li class="link">
-                                           <a href="./changelog.html"
-                                               >
+                                               <a href="../changelog.html"
+                                           >
                                                <span class="fa fa-file-text-o"></span>CHANGELOG
                                            </a>
                                        </li>
                                        <li class="link">
-                                           <a href="./license.html"
-                                               >
+                                               <a href="../license.html"
+                                           >
                                                <span class="fa fa-file-text-o"></span>LICENSE
                                            </a>
                                        </li>
@@ -310,6 +311,7 @@
                                        </li>
                                </ul>
                            </li>
+                   
                    
                            <li class="chapter">
                                <div class="simple menu-toggler" data-toggle="collapse"
@@ -406,7 +408,7 @@
             </p>
             <p class="comment">
                 <p>All properties can be set on the directive as attributes like so (use <code>ConfirmationPopoverModule.forRoot()</code> to configure them globally):</p>
-<pre class="line-numbers"><code class="language-html">&amp;lt;button
+<pre class="line-numbers"><code class="language-html">&lt;button
   class=&quot;btn btn-default&quot;
   mwlConfirmationPopover
   [title]=&quot;title&quot;
@@ -414,18 +416,18 @@
   placement=&quot;left&quot;
   (confirm)=&quot;confirmClicked = true&quot;
   (cancel)=&quot;cancelClicked = true&quot;
-  [(isOpen)]=&quot;isOpen&quot;&amp;gt;
+  [(isOpen)]=&quot;isOpen&quot;&gt;
    Show confirm popover!
-&amp;lt;/button&amp;gt;</code></pre>
+&lt;/button&gt;</code></pre>
             </p>
 
             <p class="comment">
                 <h3>Implements</h3>
             </p>
             <p class="comment">
-                        <code><a href="https://angular.io/docs/ts/latest/api/core/index/OnDestroy-interface.html" target="_blank" >OnDestroy</a></code>
-                        <code><a href="https://angular.io/docs/ts/latest/api/core/index/OnChanges-interface.html" target="_blank" >OnChanges</a></code>
-                        <code><a href="https://angular.io/docs/ts/latest/api/core/index/OnInit-interface.html" target="_blank" >OnInit</a></code>
+                        <code><a href="https://angular.io/docs/ts/latest/api/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+                        <code><a href="https://angular.io/docs/ts/latest/api/api/core/OnChanges" target="_blank" >OnChanges</a></code>
+                        <code><a href="https://angular.io/docs/ts/latest/api/api/core/OnInit" target="_blank" >OnInit</a></code>
             </p>
 
 
@@ -487,9 +489,6 @@
                                     <li>
                                          <a href="#onConfirm">onConfirm</a>
                                     </li>
-                                    <li>
-                                         <a href="#togglePopover">togglePopover</a>
-                                    </li>
                                 </ul>
                             </td>
                         </tr>
@@ -544,7 +543,44 @@
                                         <a href="#popoverClass">popoverClass</a>
                                     </li>
                                     <li>
+                                        <a href="#popoverTitle">popoverTitle</a>
+                                    </li>
+                                    <li>
                                         <a href="#title">title</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <h6><b>Outputs</b></h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <ul class="index-list">
+                                    <li>
+                                        <a href="#cancel">cancel</a>
+                                    </li>
+                                    <li>
+                                        <a href="#confirm">confirm</a>
+                                    </li>
+                                    <li>
+                                        <a href="#isOpenChange">isOpenChange</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <h6><b>HostListeners</b></h6>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <ul class="index-list">
+                                    <li>
+                                        <a href="#click">click</a>
                                     </li>
                                 </ul>
                             </td>
@@ -559,17 +595,94 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>constructor(viewContainerRef: <a href="https://angular.io/docs/ts/latest/api/core/index/ViewContainerRef-class.html" target="_blank">ViewContainerRef</a>, elm: <a href="https://angular.io/docs/ts/latest/api/core/index/ElementRef-class.html" target="_blank">ElementRef</a>, defaultOptions: <a href="../classes/ConfirmationPopoverOptions.html">ConfirmationPopoverOptions</a>, cfr: <a href="https://angular.io/docs/ts/latest/api/core/index/ComponentFactoryResolver-class.html" target="_blank">ComponentFactoryResolver</a>, position: Positioning, renderer: <a href="https://angular.io/docs/ts/latest/api/core/index/Renderer2-class.html" target="_blank">Renderer2</a>, document: )</code>
+                                    <code>constructor(viewContainerRef: <a href="https://angular.io/docs/ts/latest/api/api/core/ViewContainerRef" target="_blank">ViewContainerRef</a>, elm: <a href="https://angular.io/docs/ts/latest/api/api/core/ElementRef" target="_blank">ElementRef</a>, defaultOptions: <a href="../classes/ConfirmationPopoverOptions.html">ConfirmationPopoverOptions</a>, cfr: <a href="https://angular.io/docs/ts/latest/api/api/core/ComponentFactoryResolver" target="_blank">ComponentFactoryResolver</a>, position: Positioning, renderer: <a href="https://angular.io/docs/ts/latest/api/api/core/Renderer2" target="_blank">Renderer2</a>, document: )</code>
                                 </td>
                             </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">src/confirmationPopover.directive.ts:176</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">src/confirmationPopover.directive.ts:180</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div>
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>viewContainerRef</td>
+                                                              <td>
+                                                                        <code><a href="https://angular.io/docs/ts/latest/api/api/core/ViewContainerRef" target="_blank" >ViewContainerRef</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>elm</td>
+                                                              <td>
+                                                                        <code><a href="https://angular.io/docs/ts/latest/api/api/core/ElementRef" target="_blank" >ElementRef</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>defaultOptions</td>
+                                                              <td>
+                                                                        <code><a href="../classes/ConfirmationPopoverOptions.html" target="_self" >ConfirmationPopoverOptions</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>cfr</td>
+                                                              <td>
+                                                                        <code><a href="https://angular.io/docs/ts/latest/api/api/core/ComponentFactoryResolver" target="_blank" >ComponentFactoryResolver</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>position</td>
+                                                              <td>
+                                                                        <code>Positioning</code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>renderer</td>
+                                                              <td>
+                                                                        <code><a href="https://angular.io/docs/ts/latest/api/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                            <tr>
+                                                              <td>document</td>
+                                                              <td>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -596,7 +709,7 @@
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="166" class="link-to-prism">src/confirmationPopover.directive.ts:166</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/confirmationPopover.directive.ts:170</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -620,7 +733,7 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/confirmationPopover.directive.ts:100</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/confirmationPopover.directive.ts:104</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -643,7 +756,7 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/confirmationPopover.directive.ts:83</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/confirmationPopover.directive.ts:87</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -667,7 +780,7 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/confirmationPopover.directive.ts:94</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/confirmationPopover.directive.ts:98</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -690,7 +803,7 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/confirmationPopover.directive.ts:78</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/confirmationPopover.directive.ts:82</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -703,12 +816,12 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                                     <code>customTemplate</code>
                                 </td>
                                 <td class="col-md-10">
-                                    <div><p>A reference to a &lt;template&gt; tag that if set will override the popovers template. Use like so:</p>
-<pre class="line-numbers"><code class="language-html">&amp;lt;ng-template #customTemplate let-options=&quot;options&quot;&amp;gt;
-   &amp;lt;div [class]=&quot;&#39;popover &#39; + options.placement&quot; style=&quot;display: block&quot;&amp;gt;
+                                    <div><p>A reference to a <ng-template> tag that if set will override the popovers template. Use like so:</p>
+<pre class="line-numbers"><code class="language-html">&lt;ng-template #customTemplate let-options=&quot;options&quot;&gt;
+   &lt;div [class]=&quot;&#39;popover &#39; + options.placement&quot; style=&quot;display: block&quot;&gt;
      My custom template
-   &amp;lt;/div&amp;gt;
-&amp;lt;/ng-template&amp;gt;</code></pre><p>Then pass customTemplate to the mwlConfirmationPopover directive like so <code>[customTemplate]=&quot;customTemplate&quot;</code></p>
+   &lt;/div&gt;
+&lt;/ng-template&gt;</code></pre><p>Then pass customTemplate to the mwlConfirmationPopover directive like so <code>[customTemplate]=&quot;customTemplate&quot;</code></p>
 </div>
                                       <p>
                                         <em>Type:</em>    <code>TemplateRef&lt;any&gt;</code>
@@ -718,7 +831,7 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">src/confirmationPopover.directive.ts:141</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">src/confirmationPopover.directive.ts:145</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -742,7 +855,7 @@ If omitted, by default it will not focus either button.</p>
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/confirmationPopover.directive.ts:106</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">src/confirmationPopover.directive.ts:110</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -765,7 +878,7 @@ If omitted, by default it will not focus either button.</p>
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/confirmationPopover.directive.ts:116</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">src/confirmationPopover.directive.ts:120</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -788,7 +901,7 @@ If omitted, by default it will not focus either button.</p>
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/confirmationPopover.directive.ts:111</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/confirmationPopover.directive.ts:115</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -814,7 +927,7 @@ If omitted, by default it will not focus either button.</p>
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">src/confirmationPopover.directive.ts:121</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/confirmationPopover.directive.ts:125</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -841,7 +954,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/confirmationPopover.directive.ts:127</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/confirmationPopover.directive.ts:131</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -864,7 +977,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/confirmationPopover.directive.ts:73</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/confirmationPopover.directive.ts:77</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -887,7 +1000,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/confirmationPopover.directive.ts:88</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/confirmationPopover.directive.ts:92</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -910,7 +1023,30 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">src/confirmationPopover.directive.ts:161</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">src/confirmationPopover.directive.ts:165</a></div>
+                                        </td>
+                                    </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-2">
+                                    <a name="popoverTitle"></a>
+                                    <code>popoverTitle</code>
+                                </td>
+                                <td class="col-md-10">
+                                    <div><p>The title of the popover</p>
+</div>
+                                      <p>
+                                        <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                      </p>
+                                </td>
+                            </tr>
+                                    <tr>
+                                        <td class="col-md-2" colspan="2">
+                                            <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/confirmationPopover.directive.ts:72</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -924,8 +1060,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                                 </td>
                                 <td class="col-md-10">
                                     <div><p>The title of the popover.
-Note, if you use an expression, you may want to consider using &quot;data-title&quot; instead of &quot;title&quot; so
-that the browser doesn&#39;t show native tooltips with the angular expression listed.</p>
+Deprecated, will be removed in v4 - use popoverTitle instead</p>
 </div>
                                       <p>
                                         <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -935,7 +1070,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/confirmationPopover.directive.ts:68</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/confirmationPopover.directive.ts:67</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -960,7 +1095,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="156" class="link-to-prism">src/confirmationPopover.directive.ts:156</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">src/confirmationPopover.directive.ts:160</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -981,7 +1116,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">src/confirmationPopover.directive.ts:151</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">src/confirmationPopover.directive.ts:155</a></div>
                                         </td>
                                     </tr>
                         </tbody>
@@ -1002,9 +1137,36 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             </tr>
                                     <tr>
                                         <td class="col-md-2" colspan="2">
-                                            <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">src/confirmationPopover.directive.ts:146</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">src/confirmationPopover.directive.ts:150</a></div>
                                         </td>
                                     </tr>
+                        </tbody>
+                    </table>
+            </section>
+
+
+            <section>
+                <h3>HostListeners</h3>        <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <a name="click"></a>
+                                    <span class="name"><b> click</b><a href="#click"><span class="fa fa-link"></span></a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-4">
+            <code>click()</code>
+                                </td>
+                            </tr>
+            
+            
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <div class="io-line">Defined in <a href="" data-line="242" class="link-to-prism">src/confirmationPopover.directive.ts:242</a></div>
+                                        </td>
+                                    </tr>
+            
                         </tbody>
                     </table>
             </section>
@@ -1019,7 +1181,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             <tr>
                                 <td class="col-md-4">
                                     <a name="ngOnChanges"></a>
-                                    <b> ngOnChanges</b>
+                                    <span class="name"><b> ngOnChanges</b><a href="#ngOnChanges"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
@@ -1031,13 +1193,37 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">src/confirmationPopover.directive.ts:201</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="205" class="link-to-prism">src/confirmationPopover.directive.ts:205</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
             
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>changes</td>
+                                                              <td>
+                                                                      <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
                                         <div>
                                         </div>
                                         <div class="io-description">
@@ -1056,7 +1242,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             <tr>
                                 <td class="col-md-4">
                                     <a name="ngOnDestroy"></a>
-                                    <b> ngOnDestroy</b>
+                                    <span class="name"><b> ngOnDestroy</b><a href="#ngOnDestroy"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
@@ -1068,22 +1254,17 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="214" class="link-to-prism">src/confirmationPopover.directive.ts:214</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="218" class="link-to-prism">src/confirmationPopover.directive.ts:218</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
             
-                                        <div>
-                                        </div>
                                         <div class="io-description">
                                             <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
             
                                         </div>
-                                            <div class="io-description">
-                                                
-                                            </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -1093,7 +1274,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             <tr>
                                 <td class="col-md-4">
                                     <a name="ngOnInit"></a>
-                                    <b> ngOnInit</b>
+                                    <span class="name"><b> ngOnInit</b><a href="#ngOnInit"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
@@ -1105,22 +1286,17 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="194" class="link-to-prism">src/confirmationPopover.directive.ts:194</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="198" class="link-to-prism">src/confirmationPopover.directive.ts:198</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
             
-                                        <div>
-                                        </div>
                                         <div class="io-description">
                                             <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
             
                                         </div>
-                                            <div class="io-description">
-                                                
-                                            </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -1130,7 +1306,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             <tr>
                                 <td class="col-md-4">
                                     <a name="onCancel"></a>
-                                    <b> onCancel</b>
+                                    <span class="name"><b> onCancel</b><a href="#onCancel"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
@@ -1142,13 +1318,37 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="229" class="link-to-prism">src/confirmationPopover.directive.ts:229</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="233" class="link-to-prism">src/confirmationPopover.directive.ts:233</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
             
+                                        <div class="io-description">
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>event</td>
+                                                              <td>
+                                                                      <code><a href="../interfaces/ConfirmCancelEvent.html" target="_self" >ConfirmCancelEvent</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
                                         <div>
                                         </div>
                                         <div class="io-description">
@@ -1167,7 +1367,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             <tr>
                                 <td class="col-md-4">
                                     <a name="onConfirm"></a>
-                                    <b> onConfirm</b>
+                                    <span class="name"><b> onConfirm</b><a href="#onConfirm"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
@@ -1179,55 +1379,37 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
             
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="221" class="link-to-prism">src/confirmationPopover.directive.ts:221</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="225" class="link-to-prism">src/confirmationPopover.directive.ts:225</a></div>
                                         </td>
                                     </tr>
             
                             <tr>
                                 <td class="col-md-4">
             
-                                        <div>
-                                        </div>
                                         <div class="io-description">
-                                            <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-            
+                                                <b>Parameters :</b>
+                                                <table class="params">
+                                                    <thead>
+                                                        <tr>
+                                                            <td>Name</td>
+                                                            <td>Type</td>
+                                                            <td>Optional</td>
+                                                            <td>Description</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                            <tr>
+                                                              <td>event</td>
+                                                              <td>
+                                                                      <code><a href="../interfaces/ConfirmCancelEvent.html" target="_self" >ConfirmCancelEvent</a></code>
+                                                              </td>
+                                                              <td>
+                                                              </td>
+                                                              <td></td>
+                                                            </tr>
+                                                    </tbody>
+                                                </table>
                                         </div>
-                                            <div class="io-description">
-                                                
-                                            </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <a name="togglePopover"></a>
-                                    <b> togglePopover</b>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="col-md-4">
-            <code>togglePopover()</code>
-                                </td>
-                            </tr>
-            
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Decorators : </i><code>HostListener</code>
-                                    </td>
-                                </tr>
-            
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="238" class="link-to-prism">src/confirmationPopover.directive.ts:238</a></div>
-                                        </td>
-                                    </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            
                                         <div>
                                         </div>
                                         <div class="io-description">
@@ -1253,24 +1435,24 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             <tr>
                                 <td class="col-md-4">
                                     <a name="eventListeners"></a>
-                                    <b> eventListeners</b>
+                                    <span class="name"><b> eventListeners</b><a href="#eventListeners"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <code>eventListeners:     <code>[]</code>
+                                    <code>eventListeners:     <code>Function[]</code>
             </code>
                                 </td>
                             </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Type : </i>    <code>[]</code>
+                                        <i>Type : </i>    <code>Function[]</code>
             
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="176" class="link-to-prism">src/confirmationPopover.directive.ts:176</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="180" class="link-to-prism">src/confirmationPopover.directive.ts:180</a></div>
                                         </td>
                                     </tr>
             
@@ -1282,7 +1464,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                             <tr>
                                 <td class="col-md-4">
                                     <a name="popover"></a>
-                                    <b> popover</b>
+                                    <span class="name"><b> popover</b><a href="#popover"><span class="fa fa-link"></span></a></span>
                                 </td>
                             </tr>
                             <tr>
@@ -1299,7 +1481,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="171" class="link-to-prism">src/confirmationPopover.directive.ts:171</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="175" class="link-to-prism">src/confirmationPopover.directive.ts:175</a></div>
                                         </td>
                                     </tr>
             
@@ -1307,6 +1489,7 @@ that the browser doesn&#39;t show native tooltips with the angular expression li
                         </tbody>
                     </table>
             </section>
+
 
     </div>
 
@@ -1356,7 +1539,7 @@ export interface ConfirmCancelEvent {
 /**
  * All properties can be set on the directive as attributes like so (use &#x60;ConfirmationPopoverModule.forRoot()&#x60; to configure them globally):
  * &#x60;&#x60;&#x60;html
- * &amp;lt;button
+ * &lt;button
  *  class&#x3D;&quot;btn btn-default&quot;
  *  mwlConfirmationPopover
  *  [title]&#x3D;&quot;title&quot;
@@ -1364,9 +1547,9 @@ export interface ConfirmCancelEvent {
  *  placement&#x3D;&quot;left&quot;
  *  (confirm)&#x3D;&quot;confirmClicked &#x3D; true&quot;
  *  (cancel)&#x3D;&quot;cancelClicked &#x3D; true&quot;
- *  [(isOpen)]&#x3D;&quot;isOpen&quot;&amp;gt;
+ *  [(isOpen)]&#x3D;&quot;isOpen&quot;&gt;
  *   Show confirm popover!
- * &amp;lt;/button&amp;gt;
+ * &lt;/button&gt;
  * &#x60;&#x60;&#x60;
  */
 @Directive({
@@ -1376,10 +1559,14 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
 
   /**
    * The title of the popover.
-   * Note, if you use an expression, you may want to consider using &quot;data-title&quot; instead of &quot;title&quot; so
-   * that the browser doesn&#x27;t show native tooltips with the angular expression listed.
+   * Deprecated, will be removed in v4 - use popoverTitle instead
    */
   @Input() title: string;
+
+  /**
+   * The title of the popover
+   */
+  @Input() popoverTitle: string;
 
   /**
    * The body text of the popover.
@@ -1441,13 +1628,13 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   @Input() isOpen: boolean &#x3D; false;
 
   /**
-   * A reference to a &amp;lt;template&amp;gt; tag that if set will override the popovers template. Use like so:
+   * A reference to a &lt;ng-template&gt; tag that if set will override the popovers template. Use like so:
    * &#x60;&#x60;&#x60;html
-   * &amp;lt;ng-template #customTemplate let-options&#x3D;&quot;options&quot;&amp;gt;
-   *   &amp;lt;div [class]&#x3D;&quot;&#x27;popover &#x27; + options.placement&quot; style&#x3D;&quot;display: block&quot;&amp;gt;
+   * &lt;ng-template #customTemplate let-options&#x3D;&quot;options&quot;&gt;
+   *   &lt;div [class]&#x3D;&quot;&#x27;popover &#x27; + options.placement&quot; style&#x3D;&quot;display: block&quot;&gt;
    *     My custom template
-   *   &amp;lt;/div&amp;gt;
-   * &amp;lt;/ng-template&amp;gt;
+   *   &lt;/div&gt;
+   * &lt;/ng-template&gt;
    * &#x60;&#x60;&#x60;
    *
    * Then pass customTemplate to the mwlConfirmationPopover directive like so &#x60;[customTemplate]&#x3D;&quot;customTemplate&quot;&#x60;
@@ -1574,7 +1761,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
 
       const options: ConfirmationPopoverWindowOptions &#x3D; new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
-        title: this.title,
+        title: this.popoverTitle || this.title,
         message: this.message,
         onConfirm: (event: ConfirmCancelEvent): void &#x3D;&gt; {
           this.onConfirm(event);
@@ -1651,6 +1838,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
     </div>
 
 </div>
+
 
 
 
