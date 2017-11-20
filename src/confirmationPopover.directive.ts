@@ -127,13 +127,13 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   @Input() isOpen: boolean = false;
 
   /**
-   * A reference to a &lt;template&gt; tag that if set will override the popovers template. Use like so:
+   * A reference to a <ng-template> tag that if set will override the popovers template. Use like so:
    * ```html
-   * &lt;ng-template #customTemplate let-options="options"&gt;
-   *   &lt;div [class]="'popover ' + options.placement" style="display: block"&gt;
+   * <ng-template #customTemplate let-options="options">
+   *   <div [class]="'popover ' + options.placement" style="display: block">
    *     My custom template
-   *   &lt;/div&gt;
-   * &lt;/ng-template&gt;
+   *   </div>
+   * </ng-template>
    * ```
    *
    * Then pass customTemplate to the mwlConfirmationPopover directive like so `[customTemplate]="customTemplate"`
