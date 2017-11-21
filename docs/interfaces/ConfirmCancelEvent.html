@@ -548,8 +548,14 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
 
   /**
    * The body text of the popover.
+   * Deprecated, will be removed in v4 - use popoverMessage instead
    */
   @Input() message: string;
+
+  /**
+   * The body text of the popover.
+   */
+  @Input() popoverMessage: string;
 
   /**
    * The text of the confirm button. Default &#x60;Confirm&#x60;
