@@ -746,7 +746,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
       const options: ConfirmationPopoverWindowOptions &#x3D; new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
         title: this.popoverTitle || this.title,
-        message: this.message,
+        message: this.popoverMessage || this.message,
         onConfirm: (event: ConfirmCancelEvent): void &#x3D;&gt; {
           this.onConfirm(event);
         },
