@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.4.0"></a>
+# [3.4.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.3.0...v3.4.0) (2017-11-21)
+
+
+### Bug Fixes
+
+* **aot:** fix aot compiling with angular4 ([b81a45d](https://github.com/mattlewis92/angular-confirmation-popover/commit/b81a45d)), closes [#63](https://github.com/mattlewis92/angular-confirmation-popover/issues/63)
+
+
+### Features
+
+* **popoverMessage:** add message input alias for consistency ([d134e10](https://github.com/mattlewis92/angular-confirmation-popover/commit/d134e10)), closes [#64](https://github.com/mattlewis92/angular-confirmation-popover/issues/64)
+
+
+
 <a name="3.3.0"></a>
 # [3.3.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.2.0...v3.3.0) (2017-11-20)
 
