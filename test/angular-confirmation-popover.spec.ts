@@ -44,8 +44,8 @@ describe('bootstrap confirm', () => {
         <button
           class="btn btn-default"
           mwlConfirmationPopover
-          [title]="title"
-          [message]="message"
+          [popoverTitle]="popoverTitle"
+          [popoverMessage]="popoverMessage"
           [confirmText]="confirmText"
           [cancelText]="cancelText"
           [placement]="placement"
@@ -68,8 +68,8 @@ describe('bootstrap confirm', () => {
       @ViewChild(ConfirmationPopoverDirective)
       confirm: ConfirmationPopoverDirective;
       placement: string = 'left';
-      title: string = 'Are you sure?';
-      message: string = 'Are you really <b>sure</b> you want to do this?';
+      popoverTitle: string = 'Are you sure?';
+      popoverMessage: string = 'Are you really <b>sure</b> you want to do this?';
       confirmText: string = 'Yes <i class="glyphicon glyphicon-ok"></i>';
       cancelText: string = 'No <i class="glyphicon glyphicon-remove"></i>';
       focusButton: string;
@@ -571,9 +571,9 @@ describe('bootstrap confirm', () => {
         <ng-template #customTemplate let-options="options">
           <div [class]="'popover ' + options.placement" style="display: block">
             <div class="arrow"></div>
-            <h3 class="popover-title">{{ options.title }}</h3>
+            <h3 class="popover-title">{{ options.popoverTitle }}</h3>
             <div class="popover-content">
-               <p [innerHTML]="options.message"></p>
+               <p [innerHTML]="options.popoverMessage"></p>
                <div id="customTemplate">Custom template</div>
                <button [mwlFocus]="options.focusButton === 'confirm'">Confirm</button>
             </div>
@@ -581,8 +581,8 @@ describe('bootstrap confirm', () => {
         </ng-template>
         <button
           mwlConfirmationPopover
-          title="My Title"
-          message="My Message"
+          popoverTitle="My Title"
+          popoverMessage="My Message"
           placement="right"
           focusButton="confirm"
           [customTemplate]="customTemplate">

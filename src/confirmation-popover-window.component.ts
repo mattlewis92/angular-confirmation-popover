@@ -31,9 +31,9 @@ import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-
         options.popoverClass
       ]">
         <div class="popover-arrow arrow"></div>
-        <h3 class="popover-title popover-header" [innerHTML]="options.title"></h3>
+        <h3 class="popover-title popover-header" [innerHTML]="options.popoverTitle"></h3>
         <div class="popover-content popover-body">
-          <p [innerHTML]="options.message"></p>
+          <p [innerHTML]="options.popoverMessage"></p>
           <div class="row">
             <div
               class="col-xs-6 col-6"

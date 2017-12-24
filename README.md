@@ -61,8 +61,8 @@ class MyModule {}
     <button
       class="btn btn-default"
       mwlConfirmationPopover
-      [title]="title"
-      [message]="message"
+      [popoverTitle]="popoverTitle"
+      [popoverMessage]="popoverMessage"
       placement="left"
       (confirm)="confirmClicked = true"
       (cancel)="cancelClicked = true">
@@ -71,8 +71,8 @@ class MyModule {}
   `
 })
 class MyComponent {
-  public title: string = 'Popover title';
-  public message: string = 'Popover description';
+  public popoverTitle: string = 'Popover title';
+  public popoverMessage: string = 'Popover description';
   public confirmClicked: boolean = false;
   public cancelClicked: boolean = false;
 }

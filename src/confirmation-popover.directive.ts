@@ -36,8 +36,8 @@ export interface ConfirmCancelEvent {
  * <button
  *  class="btn btn-default"
  *  mwlConfirmationPopover
- *  [title]="title"
- *  [message]="message"
+ *  [popoverTitle]="popoverTitle"
+ *  [popoverMessage]="popoverMessage"
  *  placement="left"
  *  (confirm)="confirmClicked = true"
  *  (cancel)="cancelClicked = true"
@@ -52,21 +52,9 @@ export interface ConfirmCancelEvent {
 export class ConfirmationPopoverDirective
   implements OnDestroy, OnChanges, OnInit {
   /**
-   * The title of the popover.
-   * Deprecated, will be removed in v4 - use popoverTitle instead
-   */
-  @Input() title: string;
-
-  /**
    * The title of the popover
    */
   @Input() popoverTitle: string;
-
-  /**
-   * The body text of the popover.
-   * Deprecated, will be removed in v4 - use popoverMessage instead
-   */
-  @Input() message: string;
 
   /**
    * The body text of the popover.
@@ -272,8 +260,8 @@ export class ConfirmationPopoverDirective
 
       const options = new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
-        title: this.popoverTitle || this.title,
-        message: this.popoverMessage || this.message,
+        popoverTitle: this.popoverTitle,
+        popoverMessage: this.popoverMessage,
         onConfirm: (event: ConfirmCancelEvent): void => {
           this.onConfirm(event);
         },

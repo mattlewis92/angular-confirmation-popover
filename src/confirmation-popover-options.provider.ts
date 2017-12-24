@@ -5,12 +5,12 @@ export interface ConfirmationPopoverOptionsInterface {
   /**
    * The popover title
    */
-  title?: string;
+  popoverTitle?: string;
 
   /**
    * The popover message
    */
-  message?: string;
+  popoverMessage?: string;
 
   /**
    * The popover confirmation button text
@@ -65,8 +65,8 @@ export interface ConfirmationPopoverOptionsInterface {
 
 export class ConfirmationPopoverOptions
   implements ConfirmationPopoverOptionsInterface {
-  title: string;
-  message: string;
+  popoverTitle: string;
+  popoverMessage: string;
   confirmText: string = 'Confirm';
   cancelText: string = 'Cancel';
   confirmButtonType: string = 'success';

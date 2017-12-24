@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
     <div>
       <div class="form-group">
         <label>Title</label>
-        <input type="text" class="form-control" [(ngModel)]="title">
+        <input type="text" class="form-control" [(ngModel)]="popoverTitle">
       </div>
       <div class="form-group">
         <label>Message (Yes you can even include html!)</label>
-        <input type="text" class="form-control" [(ngModel)]="message">
+        <input type="text" class="form-control" [(ngModel)]="popoverMessage">
       </div>
       <div class="form-group">
         <label>Confirm text</label>
@@ -25,8 +25,8 @@ import { Component } from '@angular/core';
           <button
             class="btn btn-default"
             mwlConfirmationPopover
-            [title]="title"
-            [message]="message"
+            [popoverTitle]="popoverTitle"
+            [popoverMessage]="popoverMessage"
             [confirmText]="confirmText"
             [cancelText]="cancelText"
             [placement]="placement"
@@ -51,8 +51,8 @@ import { Component } from '@angular/core';
 })
 export class DemoComponent {
   placements: string[] = ['top', 'left', 'right', 'bottom'];
-  title: string = 'Are you sure?';
-  message: string = 'Are you really <b>sure</b> you want to do this?';
+  popoverTitle: string = 'Are you sure?';
+  popoverMessage: string = 'Are you really <b>sure</b> you want to do this?';
   confirmText: string = 'Yes <i class="glyphicon glyphicon-ok"></i>';
   cancelText: string = 'No <i class="glyphicon glyphicon-remove"></i>';
   confirmClicked: boolean = false;
