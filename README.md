@@ -79,14 +79,6 @@ class MyComponent {
 
 You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.component.ts).
 
-### Usage without a module bundler
-```
-<script src="node_modules/angular-confirmation-popover/dist/umd/angular-confirmation-popover.js"></script>
-<script>
-    // everything is available under the angularConfirmationPopover namespace
-</script>
-```
-
 ### Usage with universal
 
 You will need to add this line in your server bootstrap code to get this module to work with universal:
