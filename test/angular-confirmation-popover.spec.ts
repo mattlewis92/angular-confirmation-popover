@@ -9,7 +9,13 @@ import 'zone.js/dist/proxy';
 import 'zone.js/dist/mocha-patch';
 import 'rxjs/Observable';
 import { Component, ViewChild, ComponentRef } from '@angular/core';
-import { async, TestBed, ComponentFixture } from '@angular/core/testing';
+import {
+  async,
+  TestBed,
+  ComponentFixture,
+  fakeAsync,
+  flush
+} from '@angular/core/testing';
 import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
@@ -175,21 +181,26 @@ describe('bootstrap confirm', () => {
       expect(hidePopover).to.have.been.calledOnce;
     });
 
-    it('should hide the popover when an element not inside the popover is clicked', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
-      fixture.detectChanges();
-      const confirm: any = fixture.componentInstance.confirm;
-      clickFixture(fixture);
-      const hidePopover = sinon.spy(confirm, 'hidePopover');
-      confirm.popover.changeDetectorRef.detectChanges();
-      const btn: HTMLElement = document.createElement('button');
-      document.body.appendChild(btn);
-      btn.click();
-      expect(hidePopover).to.have.been.calledOnce;
-      btn.parentNode!.removeChild(btn);
-    });
+    it(
+      'should hide the popover when an element not inside the popover is clicked',
+      fakeAsync(() => {
+        const fixture: ComponentFixture<
+          TestComponent
+        > = TestBed.createComponent(TestComponent);
+        fixture.detectChanges();
+        const confirm: any = fixture.componentInstance.confirm;
+        clickFixture(fixture);
+        const hidePopover = sinon.spy(confirm, 'hidePopover');
+        confirm.popover.changeDetectorRef.detectChanges();
+        flush();
+        const btn: HTMLElement = document.createElement('button');
+        document.body.appendChild(btn);
+        btn.click();
+        flush();
+        expect(hidePopover).to.have.been.calledOnce;
+        btn.parentNode!.removeChild(btn);
+      })
+    );
 
     it('should allow the popover title to be customised', () => {
       const popover: ComponentRef<
@@ -275,24 +286,28 @@ describe('bootstrap confirm', () => {
       );
     });
 
-    it('should re-position the popover when the window resizes', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
-      fixture.detectChanges();
-      fixture.componentInstance.focusButton = 'confirm';
-      fixture.detectChanges();
-      clickFixture(fixture);
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
-        fixture.componentInstance.confirm.popover;
-      popover.changeDetectorRef.detectChanges();
-      const positionPopover: sinon.SinonSpy = sinon.spy(
-        fixture.componentInstance.confirm as any,
-        'positionPopover'
-      );
-      window.dispatchEvent(new Event('resize'));
-      expect(positionPopover).to.have.been.calledOnce;
-    });
+    it(
+      'should re-position the popover when the window resizes',
+      fakeAsync(() => {
+        const fixture: ComponentFixture<
+          TestComponent
+        > = TestBed.createComponent(TestComponent);
+        fixture.detectChanges();
+        fixture.componentInstance.focusButton = 'confirm';
+        fixture.detectChanges();
+        clickFixture(fixture);
+        const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+          fixture.componentInstance.confirm.popover;
+        popover.changeDetectorRef.detectChanges();
+        flush();
+        const positionPopover: sinon.SinonSpy = sinon.spy(
+          fixture.componentInstance.confirm as any,
+          'positionPopover'
+        );
+        window.dispatchEvent(new Event('resize'));
+        expect(positionPopover).to.have.been.calledOnce;
+      })
+    );
 
     it('should not focus either button by default', () => {
       const popover: ComponentRef<

@@ -255,15 +255,20 @@ export class ConfirmationPopoverDirective
 
   private showPopover(): void {
     if (!this.popover && !this.isDisabled) {
-      this.eventListeners = [
-        this.renderer.listen('document', 'click', (event: Event) =>
-          this.onDocumentClick(event)
-        ),
-        this.renderer.listen('document', 'touchend', (event: Event) =>
-          this.onDocumentClick(event)
-        ),
-        this.renderer.listen('window', 'resize', () => this.positionPopover())
-      ];
+      // work around for https://github.com/mattlewis92/angular-confirmation-popover/issues/65
+      // otherwise the document click event gets fired after the click event
+      // that triggered the popover to open (no idea why this is so)
+      setTimeout(() => {
+        this.eventListeners = [
+          this.renderer.listen('document', 'click', (event: Event) =>
+            this.onDocumentClick(event)
+          ),
+          this.renderer.listen('document', 'touchend', (event: Event) =>
+            this.onDocumentClick(event)
+          ),
+          this.renderer.listen('window', 'resize', () => this.positionPopover())
+        ];
+      });
 
       const options = new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
