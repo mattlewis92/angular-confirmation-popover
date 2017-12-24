@@ -10,8 +10,7 @@ import {
   ElementRef,
   OnChanges,
   OnInit,
-  ReflectiveInjector,
-  ResolvedReflectiveProvider,
+  Injector,
   ComponentFactoryResolver,
   Renderer2,
   TemplateRef,
@@ -24,7 +23,7 @@ import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-
 import { Positioning } from 'positioning';
 
 /**
- * @private
+ * @internal
  */
 export interface ConfirmCancelEvent {
   clickEvent: MouseEvent;
@@ -36,8 +35,8 @@ export interface ConfirmCancelEvent {
  * <button
  *  class="btn btn-default"
  *  mwlConfirmationPopover
- *  [title]="title"
- *  [message]="message"
+ *  [popoverTitle]="popoverTitle"
+ *  [popoverMessage]="popoverMessage"
  *  placement="left"
  *  (confirm)="confirmClicked = true"
  *  (cancel)="cancelClicked = true"
@@ -52,21 +51,9 @@ export interface ConfirmCancelEvent {
 export class ConfirmationPopoverDirective
   implements OnDestroy, OnChanges, OnInit {
   /**
-   * The title of the popover.
-   * Deprecated, will be removed in v4 - use popoverTitle instead
-   */
-  @Input() title: string;
-
-  /**
    * The title of the popover
    */
   @Input() popoverTitle: string;
-
-  /**
-   * The body text of the popover.
-   * Deprecated, will be removed in v4 - use popoverMessage instead
-   */
-  @Input() message: string;
 
   /**
    * The body text of the popover.
@@ -167,17 +154,19 @@ export class ConfirmationPopoverDirective
   @Input() appendToBody: boolean;
 
   /**
-   * @private
+   * Swap the order of the confirm and cancel buttons
+   */
+  @Input() reverseButtonOrder: boolean;
+
+  /**
+   * @internal
    */
   popover: ComponentRef<ConfirmationPopoverWindowComponent>;
 
-  /**
-   * @private
-   */
-  eventListeners: Array<() => void> = [];
+  private eventListeners: Array<() => void> = [];
 
   /**
-   * @private
+   * @internal
    */
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -189,14 +178,14 @@ export class ConfirmationPopoverDirective
   ) {}
 
   /**
-   * @private
+   * @internal
    */
   ngOnInit(): void {
     this.isOpenChange.emit(false);
   }
 
   /**
-   * @private
+   * @internal
    */
   ngOnChanges(changes: SimpleChanges) {
     if (changes.isOpen) {
@@ -209,14 +198,14 @@ export class ConfirmationPopoverDirective
   }
 
   /**
-   * @private
+   * @internal
    */
   ngOnDestroy() {
     this.hidePopover();
   }
 
   /**
-   * @private
+   * @internal
    */
   onConfirm(event: ConfirmCancelEvent) {
     this.confirm.emit(event);
@@ -224,7 +213,7 @@ export class ConfirmationPopoverDirective
   }
 
   /**
-   * @private
+   * @internal
    */
   onCancel(event: ConfirmCancelEvent) {
     this.cancel.emit(event);
@@ -232,7 +221,7 @@ export class ConfirmationPopoverDirective
   }
 
   /**
-   * @private
+   * @internal
    */
   @HostListener('click')
   togglePopover(): void {
@@ -272,8 +261,8 @@ export class ConfirmationPopoverDirective
 
       const options = new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
-        title: this.popoverTitle || this.title,
-        message: this.popoverMessage || this.message,
+        popoverTitle: this.popoverTitle,
+        popoverMessage: this.popoverMessage,
         onConfirm: (event: ConfirmCancelEvent): void => {
           this.onConfirm(event);
         },
@@ -296,7 +285,8 @@ export class ConfirmationPopoverDirective
         'hideCancelButton',
         'popoverClass',
         'appendToBody',
-        'customTemplate'
+        'customTemplate',
+        'reverseButtonOrder'
       ];
       optionalParams.forEach(param => {
         if (typeof this[param] !== 'undefined') {
@@ -307,16 +297,14 @@ export class ConfirmationPopoverDirective
       const componentFactory: ComponentFactory<
         ConfirmationPopoverWindowComponent
       > = this.cfr.resolveComponentFactory(ConfirmationPopoverWindowComponent);
-      const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([
-        {
-          provide: ConfirmationPopoverWindowOptions,
-          useValue: options
-        }
-      ]);
-      const contextInjector = this.viewContainerRef.parentInjector;
-      const childInjector = ReflectiveInjector.fromResolvedProviders(
-        binding,
-        contextInjector
+      const childInjector = Injector.create(
+        [
+          {
+            provide: ConfirmationPopoverWindowOptions,
+            useValue: options
+          }
+        ],
+        this.viewContainerRef.parentInjector
       );
       this.popover = this.viewContainerRef.createComponent(
         componentFactory,

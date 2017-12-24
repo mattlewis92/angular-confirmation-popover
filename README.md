@@ -20,9 +20,7 @@ https://mattlewis92.github.io/angular-confirmation-popover/
 
 ## About
 
-A simple angular 4.0+ directive to display a bootstrap styled confirmation popover when an element is clicked.
-
-Pull requests are welcome.
+A simple angular 5.0+ directive to display a bootstrap styled confirmation popover when an element is clicked.
 
 [AngularJS 1.x version](https://github.com/mattlewis92/angular-bootstrap-confirm)
 
@@ -39,8 +37,8 @@ Then use it in your app on a component:
  // include bootstrap - both v3 and v4 are supported
  // if not using bootstrap you could implement the popover styles yourself
 import 'bootstrap/dist/css/bootstrap.css';
-import {NgModule, Component} from '@angular/core';
-import {ConfirmationPopoverModule} from 'angular-confirmation-popover';
+import { NgModule, Component } from '@angular/core';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 // first add it to your apps module
 @NgModule({
@@ -61,8 +59,8 @@ class MyModule {}
     <button
       class="btn btn-default"
       mwlConfirmationPopover
-      [title]="title"
-      [message]="message"
+      [popoverTitle]="popoverTitle"
+      [popoverMessage]="popoverMessage"
       placement="left"
       (confirm)="confirmClicked = true"
       (cancel)="cancelClicked = true">
@@ -71,8 +69,8 @@ class MyModule {}
   `
 })
 class MyComponent {
-  public title: string = 'Popover title';
-  public message: string = 'Popover description';
+  public popoverTitle: string = 'Popover title';
+  public popoverMessage: string = 'Popover description';
   public confirmClicked: boolean = false;
   public cancelClicked: boolean = false;
 }
@@ -80,14 +78,6 @@ class MyComponent {
 ```
 
 You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.component.ts).
-
-### Usage without a module bundler
-```
-<script src="node_modules/angular-confirmation-popover/dist/umd/angular-confirmation-popover.js"></script>
-<script>
-    // everything is available under the angularConfirmationPopover namespace
-</script>
-```
 
 ### Usage with universal
 

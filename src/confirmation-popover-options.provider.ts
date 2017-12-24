@@ -1,16 +1,13 @@
-import { TemplateRef, Injectable } from '@angular/core';
-import { ConfirmCancelEvent } from './confirmation-popover.directive';
-
 export interface ConfirmationPopoverOptionsInterface {
   /**
    * The popover title
    */
-  title?: string;
+  popoverTitle?: string;
 
   /**
    * The popover message
    */
-  message?: string;
+  popoverMessage?: string;
 
   /**
    * The popover confirmation button text
@@ -61,12 +58,17 @@ export interface ConfirmationPopoverOptionsInterface {
    * Whether to append the popover to the document body
    */
   appendToBody?: boolean;
+
+  /**
+   * Swap the order of the confirm and cancel buttons
+   */
+  reverseButtonOrder?: boolean;
 }
 
 export class ConfirmationPopoverOptions
   implements ConfirmationPopoverOptionsInterface {
-  title: string;
-  message: string;
+  popoverTitle: string;
+  popoverMessage: string;
   confirmText: string = 'Confirm';
   cancelText: string = 'Cancel';
   confirmButtonType: string = 'success';
@@ -77,4 +79,5 @@ export class ConfirmationPopoverOptions
   hideCancelButton: boolean = false;
   popoverClass: string = '';
   appendToBody: boolean = false;
+  reverseButtonOrder: boolean = false;
 }

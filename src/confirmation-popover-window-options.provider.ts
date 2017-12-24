@@ -3,7 +3,7 @@ import { Injectable, TemplateRef } from '@angular/core';
 import { ConfirmationPopoverOptions } from './confirmation-popover-options.provider';
 
 /**
- * @private
+ * @internal
  */
 @Injectable()
 export class ConfirmationPopoverWindowOptions extends ConfirmationPopoverOptions {
