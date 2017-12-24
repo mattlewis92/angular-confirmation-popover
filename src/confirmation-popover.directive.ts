@@ -10,8 +10,7 @@ import {
   ElementRef,
   OnChanges,
   OnInit,
-  ReflectiveInjector,
-  ResolvedReflectiveProvider,
+  Injector,
   ComponentFactoryResolver,
   Renderer2,
   TemplateRef,
@@ -298,16 +297,14 @@ export class ConfirmationPopoverDirective
       const componentFactory: ComponentFactory<
         ConfirmationPopoverWindowComponent
       > = this.cfr.resolveComponentFactory(ConfirmationPopoverWindowComponent);
-      const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([
-        {
-          provide: ConfirmationPopoverWindowOptions,
-          useValue: options
-        }
-      ]);
-      const contextInjector = this.viewContainerRef.parentInjector;
-      const childInjector = ReflectiveInjector.fromResolvedProviders(
-        binding,
-        contextInjector
+      const childInjector = Injector.create(
+        [
+          {
+            provide: ConfirmationPopoverWindowOptions,
+            useValue: options
+          }
+        ],
+        this.viewContainerRef.parentInjector
       );
       this.popover = this.viewContainerRef.createComponent(
         componentFactory,
