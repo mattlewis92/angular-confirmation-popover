@@ -95,7 +95,7 @@
                                 id="xs-directives-links"
                             >
                                 <li class="link">
-                                    <a href="../directives/ConfirmationPopover.html" >ConfirmationPopover</a>
+                                    <a href="../directives/ConfirmationPopoverDirective.html" >ConfirmationPopoverDirective</a>
                                 </li>
                         </ul>
                     </li>
@@ -117,22 +117,6 @@
                         </ul>
                     </li>
             
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse"
-                                data-target="#xs-injectables-links"
-                            >
-                            <span class="fa fa-long-arrow-down"></span>
-                            <span>Injectables</span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
-                        <ul class="links collapse "
-                                id="xs-injectables-links"
-                            >
-                                <li class="link">
-                                    <a href="../injectables/ConfirmationPopoverWindowOptions.html" >ConfirmationPopoverWindowOptions</a>
-                                </li>
-                        </ul>
-                    </li>
             
             
                     <li class="chapter">
@@ -151,9 +135,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../interfaces/Coords.html" >Coords</a>
                                 </li>
                         </ul>
                     </li>
@@ -273,7 +254,7 @@
                                        id="directives-links"
                    >
                                        <li class="link">
-                                           <a href="../directives/ConfirmationPopover.html" >ConfirmationPopover</a>
+                                           <a href="../directives/ConfirmationPopoverDirective.html" >ConfirmationPopoverDirective</a>
                                        </li>
                                </ul>
                            </li>
@@ -295,22 +276,6 @@
                                </ul>
                            </li>
                    
-                           <li class="chapter">
-                               <div class="simple menu-toggler" data-toggle="collapse"
-                                       data-target="#injectables-links"
-                   >
-                                   <span class="fa fa-long-arrow-down"></span>
-                                   <span>Injectables</span>
-                                   <span class="fa fa-angle-down"></span>
-                               </div>
-                               <ul class="links collapse "
-                                       id="injectables-links"
-                   >
-                                       <li class="link">
-                                           <a href="../injectables/ConfirmationPopoverWindowOptions.html" >ConfirmationPopoverWindowOptions</a>
-                                       </li>
-                               </ul>
-                           </li>
                    
                    
                            <li class="chapter">
@@ -329,9 +294,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../interfaces/Coords.html" >Coords</a>
                                        </li>
                                </ul>
                            </li>
@@ -393,13 +355,13 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info">
+    <div class="tab-pane fade active in" id="c-info">
 
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/confirmationPopover.module.ts</code>
+            <code>src/confirmation-popover.module.ts</code>
         </p>
 
 
@@ -409,13 +371,15 @@
                     <h3>Declarations<a href="https://angular.io/api/core/NgModule#declarations" target="_blank" title="Official documentation about module declarations"><span class="fa fa-info-circle"></span></a></h3>
                     <ul class="list-group">
                             <li class="list-group-item">
-                                <a href="../s/ConfirmationPopover.html">ConfirmationPopover</a>
+                                <a href="../directives/ConfirmationPopoverDirective.html">ConfirmationPopoverDirective</a>
                             </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h3>EntryComponents<a href="https://angular.io/api/core/NgModule#entryComponents" target="_blank" title="Official documentation about module entryComponents"><span class="fa fa-info-circle"></span></a></h3>
+                    <ul class="list-group">
                             <li class="list-group-item">
-                                <a href="../s/ConfirmationPopoverWindow.html">ConfirmationPopoverWindow</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="../s/Focus.html">Focus</a>
+                                <a href="../components/ConfirmationPopoverWindowComponent.html">ConfirmationPopoverWindowComponent</a>
                             </li>
                     </ul>
                 </div>
@@ -423,10 +387,7 @@
                     <h3>Exports<a href="https://angular.io/api/core/NgModule#exports" target="_blank" title="Official documentation about module exports"><span class="fa fa-info-circle"></a></h3>
                     <ul class="list-group">
                             <li class="list-group-item">
-                                    <a href="../s/ConfirmationPopover.html" >ConfirmationPopover</a>
-                            </li>
-                            <li class="list-group-item">
-                                    <a href="../s/Focus.html" >Focus</a>
+                                    <a href="../directives/ConfirmationPopoverDirective.html" >ConfirmationPopoverDirective</a>
                             </li>
                     </ul>
                 </div>
@@ -435,48 +396,62 @@
     </div>
 
 
-    <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import {NgModule, ModuleWithProviders, InjectionToken} from &#x27;@angular/core&#x27;;
-import {CommonModule} from &#x27;@angular/common&#x27;;
-import {Positioning} from &#x27;positioning&#x27;;
-import {ConfirmationPopover} from &#x27;./confirmationPopover.directive&#x27;;
-import {ConfirmationPopoverWindow} from &#x27;./confirmationPopoverWindow.component&#x27;;
-import {Focus} from &#x27;./focus.directive&#x27;;
-import {ConfirmationPopoverOptions, ConfirmationPopoverOptionsInterface} from &#x27;./confirmationPopoverOptions.provider&#x27;;
+    <div class="tab-pane fade tab-source-code" id="c-source">
+        <pre class="line-numbers"><code class="language-typescript">import { NgModule, ModuleWithProviders, InjectionToken } from &#x27;@angular/core&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { Positioning } from &#x27;positioning&#x27;;
+import { ConfirmationPopoverDirective } from &#x27;./confirmation-popover.directive&#x27;;
+import { ConfirmationPopoverWindowComponent } from &#x27;./confirmation-popover-window.component&#x27;;
+import { FocusDirective } from &#x27;./focus.directive&#x27;;
+import {
+  ConfirmationPopoverOptions,
+  ConfirmationPopoverOptionsInterface
+} from &#x27;./confirmation-popover-options.provider&#x27;;
 
-export const USER_OPTIONS: InjectionToken&lt;string&gt; &#x3D; new InjectionToken(&#x27;confirmation popover user options&#x27;);
+export const USER_OPTIONS: InjectionToken&lt;string&gt; &#x3D; new InjectionToken(
+  &#x27;confirmation popover user options&#x27;
+);
 
-export function optionsFactory(userOptions: ConfirmationPopoverOptions): ConfirmationPopoverOptions {
+export function optionsFactory(
+  userOptions: ConfirmationPopoverOptions
+): ConfirmationPopoverOptions {
   const options: ConfirmationPopoverOptions &#x3D; new ConfirmationPopoverOptions();
   Object.assign(options, userOptions);
   return options;
 }
 
 @NgModule({
-  declarations: [ConfirmationPopover, ConfirmationPopoverWindow, Focus],
+  declarations: [
+    ConfirmationPopoverDirective,
+    ConfirmationPopoverWindowComponent,
+    FocusDirective
+  ],
   imports: [CommonModule],
-  exports: [ConfirmationPopover, Focus],
-  entryComponents: [ConfirmationPopoverWindow]
+  exports: [ConfirmationPopoverDirective, FocusDirective],
+  entryComponents: [ConfirmationPopoverWindowComponent]
 })
 export class ConfirmationPopoverModule {
-
-  static forRoot(options: ConfirmationPopoverOptionsInterface &#x3D; {}): ModuleWithProviders {
-
+  static forRoot(
+    options: ConfirmationPopoverOptionsInterface &#x3D; {}
+  ): ModuleWithProviders {
     return {
       ngModule: ConfirmationPopoverModule,
-      providers: [{
-        provide: USER_OPTIONS,
-        useValue: options
-      }, {
-        provide: ConfirmationPopoverOptions,
-        useFactory: optionsFactory,
-        deps: [USER_OPTIONS]
-      }, Positioning]
+      providers: [
+        {
+          provide: USER_OPTIONS,
+          useValue: options
+        },
+        {
+          provide: ConfirmationPopoverOptions,
+          useFactory: optionsFactory,
+          deps: [USER_OPTIONS]
+        },
+        Positioning
+      ]
     };
-
   }
-
-}</code></pre>
+}
+</code></pre>
     </div>
 </div>
 

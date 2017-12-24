@@ -95,7 +95,7 @@
                                 id="xs-directives-links"
                             >
                                 <li class="link">
-                                    <a href="../directives/ConfirmationPopover.html" >ConfirmationPopover</a>
+                                    <a href="../directives/ConfirmationPopoverDirective.html" >ConfirmationPopoverDirective</a>
                                 </li>
                         </ul>
                     </li>
@@ -117,22 +117,6 @@
                         </ul>
                     </li>
             
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse"
-                                data-target="#xs-injectables-links"
-                            >
-                            <span class="fa fa-long-arrow-down"></span>
-                            <span>Injectables</span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
-                        <ul class="links collapse "
-                                id="xs-injectables-links"
-                            >
-                                <li class="link">
-                                    <a href="../injectables/ConfirmationPopoverWindowOptions.html" >ConfirmationPopoverWindowOptions</a>
-                                </li>
-                        </ul>
-                    </li>
             
             
                     <li class="chapter">
@@ -151,9 +135,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../interfaces/Coords.html" >Coords</a>
                                 </li>
                         </ul>
                     </li>
@@ -273,7 +254,7 @@
                                        id="directives-links"
                    >
                                        <li class="link">
-                                           <a href="../directives/ConfirmationPopover.html" >ConfirmationPopover</a>
+                                           <a href="../directives/ConfirmationPopoverDirective.html" >ConfirmationPopoverDirective</a>
                                        </li>
                                </ul>
                            </li>
@@ -295,22 +276,6 @@
                                </ul>
                            </li>
                    
-                           <li class="chapter">
-                               <div class="simple menu-toggler" data-toggle="collapse"
-                                       data-target="#injectables-links"
-                   >
-                                   <span class="fa fa-long-arrow-down"></span>
-                                   <span>Injectables</span>
-                                   <span class="fa fa-angle-down"></span>
-                               </div>
-                               <ul class="links collapse "
-                                       id="injectables-links"
-                   >
-                                       <li class="link">
-                                           <a href="../injectables/ConfirmationPopoverWindowOptions.html" >ConfirmationPopoverWindowOptions</a>
-                                       </li>
-                               </ul>
-                           </li>
                    
                    
                            <li class="chapter">
@@ -329,9 +294,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../interfaces/Coords.html" >Coords</a>
                                        </li>
                                </ul>
                            </li>
@@ -398,12 +360,12 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info">
+    <div class="tab-pane fade active in" id="c-info">
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/confirmationPopoverOptions.provider.ts</code>
+            <code>src/confirmation-popover-options.provider.ts</code>
         </p>
 
 
@@ -429,40 +391,40 @@
                             <td class="col-md-4">
                                 <ul class="index-list">
                                     <li>
-                                         <a href="#appendToBody">appendToBody</a>
+                                        <a href="#appendToBody">appendToBody</a>
                                     </li>
                                     <li>
-                                         <a href="#cancelButtonType">cancelButtonType</a>
+                                        <a href="#cancelButtonType">cancelButtonType</a>
                                     </li>
                                     <li>
-                                         <a href="#cancelText">cancelText</a>
+                                        <a href="#cancelText">cancelText</a>
                                     </li>
                                     <li>
-                                         <a href="#confirmButtonType">confirmButtonType</a>
+                                        <a href="#confirmButtonType">confirmButtonType</a>
                                     </li>
                                     <li>
-                                         <a href="#confirmText">confirmText</a>
+                                        <a href="#confirmText">confirmText</a>
                                     </li>
                                     <li>
-                                         <a href="#focusButton">focusButton</a>
+                                        <a href="#focusButton">focusButton</a>
                                     </li>
                                     <li>
-                                         <a href="#hideCancelButton">hideCancelButton</a>
+                                        <a href="#hideCancelButton">hideCancelButton</a>
                                     </li>
                                     <li>
-                                         <a href="#hideConfirmButton">hideConfirmButton</a>
+                                        <a href="#hideConfirmButton">hideConfirmButton</a>
                                     </li>
                                     <li>
-                                         <a href="#message">message</a>
+                                        <a href="#message">message</a>
                                     </li>
                                     <li>
-                                         <a href="#placement">placement</a>
+                                        <a href="#placement">placement</a>
                                     </li>
                                     <li>
-                                         <a href="#popoverClass">popoverClass</a>
+                                        <a href="#popoverClass">popoverClass</a>
                                     </li>
                                     <li>
-                                         <a href="#title">title</a>
+                                        <a href="#title">title</a>
                                     </li>
                                 </ul>
                             </td>
@@ -484,7 +446,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="appendToBody"></a>
-                                    <span class="name"><b> appendToBody</b><a href="#appendToBody"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        appendToBody
+                                        </b>
+                                        <a href="#appendToBody"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -506,7 +473,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:80</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/confirmation-popover-options.provider.ts:79</a></div>
                                         </td>
                                     </tr>
             
@@ -518,7 +485,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="cancelButtonType"></a>
-                                    <span class="name"><b> cancelButtonType</b><a href="#cancelButtonType"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        cancelButtonType
+                                        </b>
+                                        <a href="#cancelButtonType"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -535,12 +507,12 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Default value : </i><code>default</code>
+                                        <i>Default value : </i><code>&#x27;default&#x27;</code>
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:74</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/confirmation-popover-options.provider.ts:73</a></div>
                                         </td>
                                     </tr>
             
@@ -552,7 +524,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="cancelText"></a>
-                                    <span class="name"><b> cancelText</b><a href="#cancelText"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        cancelText
+                                        </b>
+                                        <a href="#cancelText"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -569,12 +546,12 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Default value : </i><code>Cancel</code>
+                                        <i>Default value : </i><code>&#x27;Cancel&#x27;</code>
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:72</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/confirmation-popover-options.provider.ts:71</a></div>
                                         </td>
                                     </tr>
             
@@ -586,7 +563,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="confirmButtonType"></a>
-                                    <span class="name"><b> confirmButtonType</b><a href="#confirmButtonType"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        confirmButtonType
+                                        </b>
+                                        <a href="#confirmButtonType"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -603,12 +585,12 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Default value : </i><code>success</code>
+                                        <i>Default value : </i><code>&#x27;success&#x27;</code>
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:73</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/confirmation-popover-options.provider.ts:72</a></div>
                                         </td>
                                     </tr>
             
@@ -620,7 +602,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="confirmText"></a>
-                                    <span class="name"><b> confirmText</b><a href="#confirmText"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        confirmText
+                                        </b>
+                                        <a href="#confirmText"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -637,12 +624,12 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Default value : </i><code>Confirm</code>
+                                        <i>Default value : </i><code>&#x27;Confirm&#x27;</code>
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:71</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/confirmation-popover-options.provider.ts:70</a></div>
                                         </td>
                                     </tr>
             
@@ -654,7 +641,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="focusButton"></a>
-                                    <span class="name"><b> focusButton</b><a href="#focusButton"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        focusButton
+                                        </b>
+                                        <a href="#focusButton"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -671,7 +663,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:76</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/confirmation-popover-options.provider.ts:75</a></div>
                                         </td>
                                     </tr>
             
@@ -683,7 +675,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="hideCancelButton"></a>
-                                    <span class="name"><b> hideCancelButton</b><a href="#hideCancelButton"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        hideCancelButton
+                                        </b>
+                                        <a href="#hideCancelButton"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -705,7 +702,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:78</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/confirmation-popover-options.provider.ts:77</a></div>
                                         </td>
                                     </tr>
             
@@ -717,7 +714,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="hideConfirmButton"></a>
-                                    <span class="name"><b> hideConfirmButton</b><a href="#hideConfirmButton"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        hideConfirmButton
+                                        </b>
+                                        <a href="#hideConfirmButton"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -739,7 +741,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:77</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/confirmation-popover-options.provider.ts:76</a></div>
                                         </td>
                                     </tr>
             
@@ -751,7 +753,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="message"></a>
-                                    <span class="name"><b> message</b><a href="#message"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        message
+                                        </b>
+                                        <a href="#message"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -768,7 +775,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:70</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/confirmation-popover-options.provider.ts:69</a></div>
                                         </td>
                                     </tr>
             
@@ -780,7 +787,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="placement"></a>
-                                    <span class="name"><b> placement</b><a href="#placement"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        placement
+                                        </b>
+                                        <a href="#placement"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -797,12 +809,12 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <i>Default value : </i><code>top</code>
+                                        <i>Default value : </i><code>&#x27;top&#x27;</code>
                                     </td>
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:75</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/confirmation-popover-options.provider.ts:74</a></div>
                                         </td>
                                     </tr>
             
@@ -814,7 +826,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="popoverClass"></a>
-                                    <span class="name"><b> popoverClass</b><a href="#popoverClass"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        popoverClass
+                                        </b>
+                                        <a href="#popoverClass"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -829,9 +846,14 @@
             
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                                    </td>
+                                </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:79</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/confirmation-popover-options.provider.ts:78</a></div>
                                         </td>
                                     </tr>
             
@@ -843,7 +865,12 @@
                             <tr>
                                 <td class="col-md-4">
                                     <a name="title"></a>
-                                    <span class="name"><b> title</b><a href="#title"><span class="fa fa-link"></span></a></span>
+                                    <span class="name">
+                                        <b>
+                                        title
+                                        </b>
+                                        <a href="#title"><span class="fa fa-link"></span></a>
+                                    </span>
                                 </td>
                             </tr>
                             <tr>
@@ -860,7 +887,7 @@
                                 </tr>
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/confirmationPopoverOptions.provider.ts:69</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/confirmation-popover-options.provider.ts:68</a></div>
                                         </td>
                                     </tr>
             
@@ -872,11 +899,11 @@
     </div>
 
 
-    <div class="tab-pane fade tab-source-code" id="source">
-        <pre class="line-numbers"><code class="language-typescript">import {TemplateRef, Injectable} from &#x27;@angular/core&#x27;;
+    <div class="tab-pane fade tab-source-code" id="c-source">
+        <pre class="line-numbers"><code class="language-typescript">import { TemplateRef, Injectable } from &#x27;@angular/core&#x27;;
+import { ConfirmCancelEvent } from &#x27;./confirmation-popover.directive&#x27;;
 
 export interface ConfirmationPopoverOptionsInterface {
-
   /**
    * The popover title
    */
@@ -936,11 +963,10 @@ export interface ConfirmationPopoverOptionsInterface {
    * Whether to append the popover to the document body
    */
   appendToBody?: boolean;
-
 }
 
-export class ConfirmationPopoverOptions implements ConfirmationPopoverOptionsInterface {
-
+export class ConfirmationPopoverOptions
+  implements ConfirmationPopoverOptionsInterface {
   title: string;
   message: string;
   confirmText: string &#x3D; &#x27;Confirm&#x27;;
@@ -953,20 +979,6 @@ export class ConfirmationPopoverOptions implements ConfirmationPopoverOptionsInt
   hideCancelButton: boolean &#x3D; false;
   popoverClass: string &#x3D; &#x27;&#x27;;
   appendToBody: boolean &#x3D; false;
-
-}
-
-/**
- * @private
- */
-@Injectable()
-export class ConfirmationPopoverWindowOptions extends ConfirmationPopoverOptions {
-
-  public onConfirm: Function;
-  public onCancel: Function;
-  public onAfterViewInit: Function;
-  public customTemplate: TemplateRef&lt;any&gt;;
-
 }
 </code></pre>
     </div>

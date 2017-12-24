@@ -95,7 +95,7 @@
                                 id="xs-directives-links"
                             >
                                 <li class="link">
-                                    <a href="../directives/ConfirmationPopover.html" >ConfirmationPopover</a>
+                                    <a href="../directives/ConfirmationPopoverDirective.html" >ConfirmationPopoverDirective</a>
                                 </li>
                         </ul>
                     </li>
@@ -117,22 +117,6 @@
                         </ul>
                     </li>
             
-                    <li class="chapter">
-                        <div class="simple menu-toggler" data-toggle="collapse"
-                                data-target="#xs-injectables-links"
-                            >
-                            <span class="fa fa-long-arrow-down"></span>
-                            <span>Injectables</span>
-                            <span class="fa fa-angle-down"></span>
-                        </div>
-                        <ul class="links collapse "
-                                id="xs-injectables-links"
-                            >
-                                <li class="link">
-                                    <a href="../injectables/ConfirmationPopoverWindowOptions.html" >ConfirmationPopoverWindowOptions</a>
-                                </li>
-                        </ul>
-                    </li>
             
             
                     <li class="chapter">
@@ -151,9 +135,6 @@
                                 </li>
                                 <li class="link">
                                     <a href="../interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
-                                </li>
-                                <li class="link">
-                                    <a href="../interfaces/Coords.html" >Coords</a>
                                 </li>
                         </ul>
                     </li>
@@ -273,7 +254,7 @@
                                        id="directives-links"
                    >
                                        <li class="link">
-                                           <a href="../directives/ConfirmationPopover.html" >ConfirmationPopover</a>
+                                           <a href="../directives/ConfirmationPopoverDirective.html" >ConfirmationPopoverDirective</a>
                                        </li>
                                </ul>
                            </li>
@@ -295,22 +276,6 @@
                                </ul>
                            </li>
                    
-                           <li class="chapter">
-                               <div class="simple menu-toggler" data-toggle="collapse"
-                                       data-target="#injectables-links"
-                   >
-                                   <span class="fa fa-long-arrow-down"></span>
-                                   <span>Injectables</span>
-                                   <span class="fa fa-angle-down"></span>
-                               </div>
-                               <ul class="links collapse "
-                                       id="injectables-links"
-                   >
-                                       <li class="link">
-                                           <a href="../injectables/ConfirmationPopoverWindowOptions.html" >ConfirmationPopoverWindowOptions</a>
-                                       </li>
-                               </ul>
-                           </li>
                    
                    
                            <li class="chapter">
@@ -329,9 +294,6 @@
                                        </li>
                                        <li class="link">
                                            <a href="../interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../interfaces/Coords.html" >Coords</a>
                                        </li>
                                </ul>
                            </li>
@@ -399,12 +361,12 @@
 </ul>
 
 <div class="tab-content">
-    <div class="tab-pane fade active in" id="info">
+    <div class="tab-pane fade active in" id="c-info">
         <p class="comment">
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/confirmationPopover.directive.ts</code>
+            <code>src/confirmation-popover.directive.ts</code>
         </p>
 
 
@@ -462,7 +424,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/confirmationPopover.directive.ts:39</a></div>
+                                            <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/confirmation-popover.directive.ts:30</a></div>
                                         </td>
                                     </tr>
 
@@ -472,7 +434,7 @@
     </div>
 
 
-    <div class="tab-pane fade tab-source-code" id="source">
+    <div class="tab-pane fade tab-source-code" id="c-source">
         <pre class="line-numbers"><code class="language-typescript">import {
   Directive,
   Input,
@@ -488,24 +450,15 @@
   ReflectiveInjector,
   ResolvedReflectiveProvider,
   ComponentFactoryResolver,
-  Injector,
-  Inject,
   Renderer2,
   TemplateRef,
-  ComponentFactory
+  ComponentFactory,
+  SimpleChanges
 } from &#x27;@angular/core&#x27;;
-import {DOCUMENT} from &#x27;@angular/platform-browser&#x27;;
-import {ConfirmationPopoverWindow} from &#x27;./confirmationPopoverWindow.component&#x27;;
-import {ConfirmationPopoverOptions, ConfirmationPopoverWindowOptions} from &#x27;./confirmationPopoverOptions.provider&#x27;;
-import {Positioning} from &#x27;positioning&#x27;;
-
-/**
- * @private
- */
-interface Coords {
-  top: number;
-  left: number;
-}
+import { ConfirmationPopoverWindowComponent } from &#x27;./confirmation-popover-window.component&#x27;;
+import { ConfirmationPopoverOptions } from &#x27;./confirmation-popover-options.provider&#x27;;
+import { ConfirmationPopoverWindowOptions } from &#x27;./confirmation-popover-window-options.provider&#x27;;
+import { Positioning } from &#x27;positioning&#x27;;
 
 /**
  * @private
@@ -533,8 +486,8 @@ export interface ConfirmCancelEvent {
 @Directive({
   selector: &#x27;[mwlConfirmationPopover]&#x27;
 })
-export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
-
+export class ConfirmationPopoverDirective
+  implements OnDestroy, OnChanges, OnInit {
   /**
    * The title of the popover.
    * Deprecated, will be removed in v4 - use popoverTitle instead
@@ -653,12 +606,12 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
-  popover: ComponentRef&lt;ConfirmationPopoverWindow&gt; &#x3D; null;
+  popover: ComponentRef&lt;ConfirmationPopoverWindowComponent&gt;;
 
   /**
    * @private
    */
-  eventListeners: Function[] &#x3D; [];
+  eventListeners: Array&lt;() &#x3D;&gt; void&gt; &#x3D; [];
 
   /**
    * @private
@@ -669,8 +622,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
     private defaultOptions: ConfirmationPopoverOptions,
     private cfr: ComponentFactoryResolver,
     private position: Positioning,
-    private renderer: Renderer2,
-    @Inject(DOCUMENT) private document //tslint:disable-line
+    private renderer: Renderer2
   ) {}
 
   /**
@@ -683,7 +635,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
-  ngOnChanges(changes: any): void {
+  ngOnChanges(changes: SimpleChanges) {
     if (changes.isOpen) {
       if (changes.isOpen.currentValue &#x3D;&#x3D;&#x3D; true) {
         this.showPopover();
@@ -696,14 +648,14 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.hidePopover();
   }
 
   /**
    * @private
    */
-  onConfirm(event: ConfirmCancelEvent): void {
+  onConfirm(event: ConfirmCancelEvent) {
     this.confirm.emit(event);
     this.hidePopover();
   }
@@ -711,7 +663,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
-  onCancel(event: ConfirmCancelEvent): void {
+  onCancel(event: ConfirmCancelEvent) {
     this.cancel.emit(event);
     this.hidePopover();
   }
@@ -729,21 +681,33 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   }
 
   private onDocumentClick(event: Event): void {
-    if (this.popover &amp;&amp; !this.elm.nativeElement.contains(event.target) &amp;&amp; !this.popover.location.nativeElement.contains(event.target)) {
+    if (
+      this.popover &amp;&amp;
+      !this.elm.nativeElement.contains(event.target) &amp;&amp;
+      !this.popover.location.nativeElement.contains(event.target)
+    ) {
       this.hidePopover();
     }
   }
 
   private showPopover(): void {
     if (!this.popover &amp;&amp; !this.isDisabled) {
+      // work around for https://github.com/mattlewis92/angular-confirmation-popover/issues/65
+      // otherwise the document click event gets fired after the click event
+      // that triggered the popover to open (no idea why this is so)
+      setTimeout(() &#x3D;&gt; {
+        this.eventListeners &#x3D; [
+          this.renderer.listen(&#x27;document&#x27;, &#x27;click&#x27;, (event: Event) &#x3D;&gt;
+            this.onDocumentClick(event)
+          ),
+          this.renderer.listen(&#x27;document&#x27;, &#x27;touchend&#x27;, (event: Event) &#x3D;&gt;
+            this.onDocumentClick(event)
+          ),
+          this.renderer.listen(&#x27;window&#x27;, &#x27;resize&#x27;, () &#x3D;&gt; this.positionPopover())
+        ];
+      });
 
-      this.eventListeners &#x3D; [
-        this.renderer.listen(&#x27;document&#x27;, &#x27;click&#x27;, (event: Event) &#x3D;&gt; this.onDocumentClick(event)),
-        this.renderer.listen(&#x27;document&#x27;, &#x27;touchend&#x27;, (event: Event) &#x3D;&gt; this.onDocumentClick(event)),
-        this.renderer.listen(&#x27;window&#x27;, &#x27;resize&#x27;, () &#x3D;&gt; this.positionPopover())
-      ];
-
-      const options: ConfirmationPopoverWindowOptions &#x3D; new ConfirmationPopoverWindowOptions();
+      const options &#x3D; new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
         title: this.popoverTitle || this.title,
         message: this.popoverMessage || this.message,
@@ -753,12 +717,12 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
         onCancel: (event: ConfirmCancelEvent): void &#x3D;&gt; {
           this.onCancel(event);
         },
-        onAfterViewInit: () : void &#x3D;&gt; {
+        onAfterViewInit: (): void &#x3D;&gt; {
           this.positionPopover();
         }
       });
 
-      const optionalParams: string[] &#x3D; [
+      const optionalParams: Array&lt;keyof ConfirmationPopoverDirective&gt; &#x3D; [
         &#x27;confirmText&#x27;,
         &#x27;cancelText&#x27;,
         &#x27;placement&#x27;,
@@ -773,50 +737,63 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
       ];
       optionalParams.forEach(param &#x3D;&gt; {
         if (typeof this[param] !&#x3D;&#x3D; &#x27;undefined&#x27;) {
-          options[param] &#x3D; this[param];
+          (options as any)[param] &#x3D; this[param];
         }
       });
 
-      const componentFactory: ComponentFactory&lt;ConfirmationPopoverWindow&gt; &#x3D; this.cfr.resolveComponentFactory(ConfirmationPopoverWindow);
-      const binding: ResolvedReflectiveProvider[] &#x3D; ReflectiveInjector.resolve([{
-        provide: ConfirmationPopoverWindowOptions,
-        useValue: options
-      }]);
-      const contextInjector: Injector &#x3D; this.viewContainerRef.parentInjector;
-      const childInjector: Injector &#x3D; ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
-      this.popover &#x3D; this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
+      const componentFactory: ComponentFactory&lt;
+        ConfirmationPopoverWindowComponent
+      &gt; &#x3D; this.cfr.resolveComponentFactory(ConfirmationPopoverWindowComponent);
+      const binding: ResolvedReflectiveProvider[] &#x3D; ReflectiveInjector.resolve([
+        {
+          provide: ConfirmationPopoverWindowOptions,
+          useValue: options
+        }
+      ]);
+      const contextInjector &#x3D; this.viewContainerRef.parentInjector;
+      const childInjector &#x3D; ReflectiveInjector.fromResolvedProviders(
+        binding,
+        contextInjector
+      );
+      this.popover &#x3D; this.viewContainerRef.createComponent(
+        componentFactory,
+        this.viewContainerRef.length,
+        childInjector
+      );
       if (options.appendToBody) {
-        this.document.body.appendChild(this.popover.location.nativeElement);
+        document.body.appendChild(this.popover.location.nativeElement);
       }
       this.isOpenChange.emit(true);
-
     }
   }
 
   private positionPopover(): void {
     if (this.popover) {
-      const popoverElement: HTMLElement &#x3D; this.popover.location.nativeElement.children[0];
-      const popoverPosition: Coords &#x3D; this.position.positionElements(
+      const popoverElement &#x3D; this.popover.location.nativeElement.children[0];
+      const popoverPosition &#x3D; this.position.positionElements(
         this.elm.nativeElement,
         popoverElement,
         this.placement || this.defaultOptions.placement,
         this.appendToBody || this.defaultOptions.appendToBody
       );
       this.renderer.setStyle(popoverElement, &#x27;top&#x27;, &#x60;${popoverPosition.top}px&#x60;);
-      this.renderer.setStyle(popoverElement, &#x27;left&#x27;, &#x60;${popoverPosition.left}px&#x60;);
+      this.renderer.setStyle(
+        popoverElement,
+        &#x27;left&#x27;,
+        &#x60;${popoverPosition.left}px&#x60;
+      );
     }
   }
 
   private hidePopover(): void {
     if (this.popover) {
       this.popover.destroy();
-      this.popover &#x3D; null;
+      delete this.popover;
       this.isOpenChange.emit(false);
       this.eventListeners.forEach(fn &#x3D;&gt; fn());
       this.eventListeners &#x3D; [];
     }
   }
-
 }
 </code></pre>
     </div>
