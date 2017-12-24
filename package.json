@@ -107,7 +107,6 @@
     "typescript": "~2.5.3",
     "validate-commit-msg": "^2.8.0",
     "webpack": "^3.10.0",
-    "webpack-angular-externals": "^1.0.2",
     "webpack-dev-server": "^2.9.7",
     "zone.js": "^0.8.18"
   },
