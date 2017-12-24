@@ -1,6 +1,3 @@
-import { TemplateRef, Injectable } from '@angular/core';
-import { ConfirmCancelEvent } from './confirmation-popover.directive';
-
 export interface ConfirmationPopoverOptionsInterface {
   /**
    * The popover title

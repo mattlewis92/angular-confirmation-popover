@@ -24,7 +24,7 @@ import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-
 import { Positioning } from 'positioning';
 
 /**
- * @private
+ * @internal
  */
 export interface ConfirmCancelEvent {
   clickEvent: MouseEvent;
@@ -155,17 +155,14 @@ export class ConfirmationPopoverDirective
   @Input() appendToBody: boolean;
 
   /**
-   * @private
+   * @internal
    */
   popover: ComponentRef<ConfirmationPopoverWindowComponent>;
 
-  /**
-   * @private
-   */
-  eventListeners: Array<() => void> = [];
+  private eventListeners: Array<() => void> = [];
 
   /**
-   * @private
+   * @internal
    */
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -177,14 +174,14 @@ export class ConfirmationPopoverDirective
   ) {}
 
   /**
-   * @private
+   * @internal
    */
   ngOnInit(): void {
     this.isOpenChange.emit(false);
   }
 
   /**
-   * @private
+   * @internal
    */
   ngOnChanges(changes: SimpleChanges) {
     if (changes.isOpen) {
@@ -197,14 +194,14 @@ export class ConfirmationPopoverDirective
   }
 
   /**
-   * @private
+   * @internal
    */
   ngOnDestroy() {
     this.hidePopover();
   }
 
   /**
-   * @private
+   * @internal
    */
   onConfirm(event: ConfirmCancelEvent) {
     this.confirm.emit(event);
@@ -212,7 +209,7 @@ export class ConfirmationPopoverDirective
   }
 
   /**
-   * @private
+   * @internal
    */
   onCancel(event: ConfirmCancelEvent) {
     this.cancel.emit(event);
@@ -220,7 +217,7 @@ export class ConfirmationPopoverDirective
   }
 
   /**
-   * @private
+   * @internal
    */
   @HostListener('click')
   togglePopover(): void {
