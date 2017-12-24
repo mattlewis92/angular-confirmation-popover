@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="3.4.2"></a>
+## [3.4.2](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.4.1...v3.4.2) (2017-12-24)
+
+
+### Bug Fixes
+
+* **isOpen:** allow an external button click to open the popover ([85be07d](https://github.com/mattlewis92/angular-confirmation-popover/commit/85be07d))
+
+
+
 <a name="3.4.1"></a>
 ## [3.4.1](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.4.0...v3.4.1) (2017-11-21)
 

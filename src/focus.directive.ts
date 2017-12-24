@@ -13,8 +13,7 @@ import {
 @Directive({
   selector: '[mwlFocus]'
 })
-export class Focus implements OnChanges {
-
+export class FocusDirective implements OnChanges {
   @Input() mwlFocus: boolean;
 
   constructor(private elm: ElementRef) {}
@@ -24,5 +23,4 @@ export class Focus implements OnChanges {
       this.elm.nativeElement.focus();
     }
   }
-
 }
