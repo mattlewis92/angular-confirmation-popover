@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.4.2...v4.0.0) (2017-12-24)
+
+
+### Features
+
+* remove deprecated `title` and `message` options ([872bc8f](https://github.com/mattlewis92/angular-confirmation-popover/commit/872bc8f)), closes [#62](https://github.com/mattlewis92/angular-confirmation-popover/issues/62)
+* upgrade to angular 5 ([e463e8c](https://github.com/mattlewis92/angular-confirmation-popover/commit/e463e8c))
+* use ng-packagr for bundling the library ([8bc9a0c](https://github.com/mattlewis92/angular-confirmation-popover/commit/8bc9a0c))
+* **reverseButtonOrder:** allow the button order to be reversed ([a6ca883](https://github.com/mattlewis92/angular-confirmation-popover/commit/a6ca883))
+
+
+### BREAKING CHANGES
+
+* **reverseButtonOrder:** By default the cancel button is on the left and the confirm button is on the right.
+To get the old behaviour set `reverseButtonOrder` to true. Also flexbox is now required to use this
+package, so IE10 or higher is now required to use this package.
+* The umd bundle path has changed from
+`angular-confirmation-popover/dist/umd/angular-confirmation-popover.js` to
+`angular-confirmation-popover/bundles/angular-confirmation-popover.umd.js`
+* angular 5 or higher is now required to use this package
+* The `title` option has been renamed to `popoverTitle`, and `message` has been renamed to
+`popoverMessage`
+
+
+
 <a name="3.4.2"></a>
 ## [3.4.2](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.4.1...v3.4.2) (2017-12-24)
 
