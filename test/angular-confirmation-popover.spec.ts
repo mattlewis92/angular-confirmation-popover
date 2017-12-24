@@ -16,8 +16,8 @@ import {
 } from '@angular/platform-browser-dynamic/testing';
 import { Positioning } from 'positioning';
 import { ConfirmationPopoverModule } from '../src';
-import { ConfirmationPopoverDirective } from '../src/confirmationPopover.directive';
-import { ConfirmationPopoverWindowComponent } from '../src/confirmationPopoverWindow.component';
+import { ConfirmationPopoverDirective } from '../src/confirmation-popover.directive';
+import { ConfirmationPopoverWindowComponent } from '../src/confirmation-popover-window.component';
 import { expect, use } from 'chai';
 import * as sinon from 'sinon';
 import * as sinonChai from 'sinon-chai';

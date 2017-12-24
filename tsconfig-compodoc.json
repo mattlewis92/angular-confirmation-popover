@@ -8,8 +8,8 @@
     "lib": ["es2015", "dom"]
   },
   "files": [
-    "src/confirmationPopover.module.ts",
-    "src/confirmationPopover.directive.ts",
-    "src/confirmationPopoverOptions.provider.ts"
+    "src/confirmation-popover.module.ts",
+    "src/confirmation-popover.directive.ts",
+    "src/confirmation-popover-options.provider.ts"
   ]
 }

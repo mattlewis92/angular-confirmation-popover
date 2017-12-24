@@ -18,9 +18,9 @@ import {
   ComponentFactory,
   SimpleChanges
 } from '@angular/core';
-import { ConfirmationPopoverWindowComponent } from './confirmationPopoverWindow.component';
-import { ConfirmationPopoverOptions } from './confirmationPopoverOptions.provider';
-import { ConfirmationPopoverWindowOptions } from './confirmationPopoverWindowOptions.provider';
+import { ConfirmationPopoverWindowComponent } from './confirmation-popover-window.component';
+import { ConfirmationPopoverOptions } from './confirmation-popover-options.provider';
+import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-options.provider';
 import { Positioning } from 'positioning';
 
 /**

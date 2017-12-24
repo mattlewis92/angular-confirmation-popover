@@ -1,6 +1,6 @@
-import { ConfirmCancelEvent } from './confirmationPopover.directive';
+import { ConfirmCancelEvent } from './confirmation-popover.directive';
 import { Injectable, TemplateRef } from '@angular/core';
-import { ConfirmationPopoverOptions } from './confirmationPopoverOptions.provider';
+import { ConfirmationPopoverOptions } from './confirmation-popover-options.provider';
 
 /**
  * @private

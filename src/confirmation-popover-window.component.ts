@@ -1,5 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { ConfirmationPopoverWindowOptions } from './confirmationPopoverWindowOptions.provider';
+import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-options.provider';
 
 /**
  * @private
