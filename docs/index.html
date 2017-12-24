@@ -131,9 +131,6 @@
                                 id="xs-interfaces-links"
                             >
                                 <li class="link">
-                                    <a href="./interfaces/ConfirmCancelEvent.html" >ConfirmCancelEvent</a>
-                                </li>
-                                <li class="link">
                                     <a href="./interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
                                 </li>
                         </ul>
@@ -290,9 +287,6 @@
                                        id="interfaces-links"
                    >
                                        <li class="link">
-                                           <a href="./interfaces/ConfirmCancelEvent.html" >ConfirmCancelEvent</a>
-                                       </li>
-                                       <li class="link">
                                            <a href="./interfaces/ConfirmationPopoverOptionsInterface.html" >ConfirmationPopoverOptionsInterface</a>
                                        </li>
                                </ul>
@@ -354,8 +348,7 @@
 <li><a href="#licence">License</a></li>
 </ul>
 <h2 id="about">About</h2>
-<p>A simple angular 4.0+ directive to display a bootstrap styled confirmation popover when an element is clicked.</p>
-<p>Pull requests are welcome.</p>
+<p>A simple angular 5.0+ directive to display a bootstrap styled confirmation popover when an element is clicked.</p>
 <p><a href="https://github.com/mattlewis92/angular-bootstrap-confirm">AngularJS 1.x version</a></p>
 <h2 id="installation">Installation</h2>
 <p>Install through npm:</p>
@@ -363,8 +356,8 @@
 <pre class="line-numbers"><code class="language-typescript"> // include bootstrap - both v3 and v4 are supported
  // if not using bootstrap you could implement the popover styles yourself
 import &#39;bootstrap/dist/css/bootstrap.css&#39;;
-import {NgModule, Component} from &#39;&#64;angular/core&#39;;
-import {ConfirmationPopoverModule} from &#39;angular-confirmation-popover&#39;;
+import { NgModule, Component } from &#39;&#64;angular/core&#39;;
+import { ConfirmationPopoverModule } from &#39;angular-confirmation-popover&#39;;
 
 // first add it to your apps module
 &#64;NgModule({
@@ -385,8 +378,8 @@ class MyModule {}
     &lt;button
       class=&quot;btn btn-default&quot;
       mwlConfirmationPopover
-      [title]=&quot;title&quot;
-      [message]=&quot;message&quot;
+      [popoverTitle]=&quot;popoverTitle&quot;
+      [popoverMessage]=&quot;popoverMessage&quot;
       placement=&quot;left&quot;
       (confirm)=&quot;confirmClicked = true&quot;
       (cancel)=&quot;cancelClicked = true&quot;&gt;
@@ -395,16 +388,12 @@ class MyModule {}
   `
 })
 class MyComponent {
-  public title: string = &#39;Popover title&#39;;
-  public message: string = &#39;Popover description&#39;;
+  public popoverTitle: string = &#39;Popover title&#39;;
+  public popoverMessage: string = &#39;Popover description&#39;;
   public confirmClicked: boolean = false;
   public cancelClicked: boolean = false;
 }</code></pre><p>You may also find it useful to view the <a href="https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.component.ts">demo source</a>.</p>
-<h3 id="usage-without-a-module-bundler">Usage without a module bundler</h3>
-<pre class="line-numbers"><code class="language-none">&lt;script src=&quot;node_modules/angular-confirmation-popover/dist/umd/angular-confirmation-popover.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-    // everything is available under the angularConfirmationPopover namespace
-&lt;/script&gt;</code></pre><h3 id="usage-with-universal">Usage with universal</h3>
+<h3 id="usage-with-universal">Usage with universal</h3>
 <p>You will need to add this line in your server bootstrap code to get this module to work with universal:</p>
 <pre class="line-numbers"><code class="language-none">(global as any).HTMLElement = () =&gt; {};</code></pre><h2 id="documentation">Documentation</h2>
 <p>All documentation is auto-generated from the source via compodoc and can be viewed here:
