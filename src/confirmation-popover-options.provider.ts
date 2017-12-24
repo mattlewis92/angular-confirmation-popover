@@ -58,6 +58,11 @@ export interface ConfirmationPopoverOptionsInterface {
    * Whether to append the popover to the document body
    */
   appendToBody?: boolean;
+
+  /**
+   * Swap the order of the confirm and cancel buttons
+   */
+  reverseButtonOrder?: boolean;
 }
 
 export class ConfirmationPopoverOptions
@@ -74,4 +79,5 @@ export class ConfirmationPopoverOptions
   hideCancelButton: boolean = false;
   popoverClass: string = '';
   appendToBody: boolean = false;
+  reverseButtonOrder: boolean = false;
 }

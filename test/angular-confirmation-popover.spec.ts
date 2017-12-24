@@ -59,7 +59,8 @@ describe('bootstrap confirm', () => {
           [hideCancelButton]="hideCancelButton"
           [isDisabled]="isDisabled"
           [(isOpen)]="isOpen"
-          [appendToBody]="appendToBody">
+          [appendToBody]="appendToBody"
+          [reverseButtonOrder]="reverseButtonOrder">
           Show popover
         </button>
       `
@@ -81,6 +82,7 @@ describe('bootstrap confirm', () => {
       appendToBody: boolean = false;
       confirmClicked: sinon.SinonSpy = sinon.spy();
       cancelClicked: sinon.SinonSpy = sinon.spy();
+      reverseButtonOrder = false;
     }
 
     let createPopover: () => ComponentRef<ConfirmationPopoverWindowComponent>;
@@ -225,7 +227,7 @@ describe('bootstrap confirm', () => {
         ConfirmationPopoverWindowComponent
       > = createPopover();
       expect(
-        popover.location.nativeElement.querySelectorAll('button')[0]
+        popover.location.nativeElement.querySelectorAll('button')[1]
       ).to.have.html('Yes <i class="glyphicon glyphicon-ok"></i>');
     });
 
@@ -234,7 +236,7 @@ describe('bootstrap confirm', () => {
         ConfirmationPopoverWindowComponent
       > = createPopover();
       expect(
-        popover.location.nativeElement.querySelectorAll('button')[1]
+        popover.location.nativeElement.querySelectorAll('button')[0]
       ).to.have.html('No <i class="glyphicon glyphicon-remove"></i>');
     });
 
@@ -243,7 +245,7 @@ describe('bootstrap confirm', () => {
         ConfirmationPopoverWindowComponent
       > = createPopover();
       expect(
-        popover.location.nativeElement.querySelectorAll('button')[0]
+        popover.location.nativeElement.querySelectorAll('button')[1]
       ).to.have.class('btn-danger');
     });
 
@@ -252,7 +254,7 @@ describe('bootstrap confirm', () => {
         ConfirmationPopoverWindowComponent
       > = createPopover();
       expect(
-        popover.location.nativeElement.querySelectorAll('button')[1]
+        popover.location.nativeElement.querySelectorAll('button')[0]
       ).to.have.class('btn-default');
     });
 
@@ -329,11 +331,11 @@ describe('bootstrap confirm', () => {
         fixture.componentInstance.confirm.popover;
       popover.changeDetectorRef.detectChanges();
       expect(
-        popover.location.nativeElement.querySelectorAll('button')[0]
+        popover.location.nativeElement.querySelectorAll('button')[1]
       ).to.equal(document.activeElement);
     });
 
-    it('should focus the confirm button', () => {
+    it('should focus the cancel button', () => {
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
         TestComponent
       );
@@ -344,7 +346,7 @@ describe('bootstrap confirm', () => {
         fixture.componentInstance.confirm.popover;
       popover.changeDetectorRef.detectChanges();
       expect(
-        popover.location.nativeElement.querySelectorAll('button')[1]
+        popover.location.nativeElement.querySelectorAll('button')[0]
       ).to.equal(document.activeElement);
     });
 
@@ -364,14 +366,6 @@ describe('bootstrap confirm', () => {
       expect(
         popover.location.nativeElement.querySelectorAll('button')[0]
       ).to.have.class('btn-default');
-      expect(
-        popover.location.nativeElement.querySelectorAll('button')[0]
-          .parentElement
-      ).to.have.class('col-xs-offset-3');
-      expect(
-        popover.location.nativeElement.querySelectorAll('button')[0]
-          .parentElement
-      ).to.have.class('col-offset-3');
     });
 
     it('should hide the cancel button', () => {
@@ -390,14 +384,6 @@ describe('bootstrap confirm', () => {
       expect(
         popover.location.nativeElement.querySelectorAll('button')[0]
       ).to.have.class('btn-danger');
-      expect(
-        popover.location.nativeElement.querySelectorAll('button')[0]
-          .parentElement
-      ).to.have.class('col-xs-offset-3');
-      expect(
-        popover.location.nativeElement.querySelectorAll('button')[0]
-          .parentElement
-      ).to.have.class('col-offset-3');
     });
 
     it('should disable the popover from opening', () => {
@@ -446,7 +432,7 @@ describe('bootstrap confirm', () => {
         fixture.componentInstance.confirm.popover;
       popover.changeDetectorRef.detectChanges();
       expect(fixture.componentInstance.confirmClicked).not.to.have.been.called;
-      popover.location.nativeElement.querySelectorAll('button')[0].click();
+      popover.location.nativeElement.querySelectorAll('button')[1].click();
       expect(fixture.componentInstance.confirmClicked).to.have.been.calledOnce;
       expect(
         fixture.componentInstance.confirmClicked.getCall(0).args[0]
@@ -464,7 +450,7 @@ describe('bootstrap confirm', () => {
         fixture.componentInstance.confirm.popover;
       popover.changeDetectorRef.detectChanges();
       expect(fixture.componentInstance.cancelClicked).not.to.have.been.called;
-      popover.location.nativeElement.querySelectorAll('button')[1].click();
+      popover.location.nativeElement.querySelectorAll('button')[0].click();
       expect(fixture.componentInstance.cancelClicked).to.have.been.calledOnce;
       expect(
         fixture.componentInstance.cancelClicked.getCall(0).args[0]
@@ -614,6 +600,21 @@ describe('bootstrap confirm', () => {
         document.activeElement
       );
     });
+
+    it('should reverse the button order', () => {
+      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+        TestComponent
+      );
+      fixture.componentRef.instance.reverseButtonOrder = true;
+      fixture.detectChanges();
+      clickFixture(fixture);
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        fixture.componentInstance.confirm.popover;
+      popover.changeDetectorRef.detectChanges();
+      expect(
+        popover.location.nativeElement.querySelector('.confirm-btns')
+      ).to.have.class('confirm-btns-reversed');
+    });
   });
 
   describe('ConfirmOptions', () => {
@@ -649,7 +650,7 @@ describe('bootstrap confirm', () => {
         fixture.componentInstance.confirm.popover;
       popover.changeDetectorRef.detectChanges();
       expect(
-        popover.location.nativeElement.querySelectorAll('button')[0]
+        popover.location.nativeElement.querySelectorAll('button')[1]
       ).to.have.html('Derp');
     });
 

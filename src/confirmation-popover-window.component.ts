@@ -19,6 +19,30 @@ import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-
     .btn {
       transition: none;
     }
+    .confirm-btns {
+      display: flex;
+      justify-content: space-around;
+    }
+    .confirm-btn-container {
+      flex-basis: 50%;
+    }
+    .confirm-btn-container:not(:first-child) {
+      margin-left: 4px;
+    }
+    .confirm-btn-container:not(:last-child) {
+      margin-right: 4px;
+    }
+    .confirm-btns-reversed {
+      flex-direction: row-reverse;
+    }
+    .confirm-btns-reversed .confirm-btn-container:not(:first-child) {
+      margin-right: 4px;
+      margin-left: 0;
+    }
+    .confirm-btns-reversed .confirm-btn-container:not(:last-child) {
+      margin-right: 0;
+      margin-left: 4px;
+    }
   `
   ],
   template: `
@@ -34,22 +58,9 @@ import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-
         <h3 class="popover-title popover-header" [innerHTML]="options.popoverTitle"></h3>
         <div class="popover-content popover-body">
           <p [innerHTML]="options.popoverMessage"></p>
-          <div class="row">
+          <div class="confirm-btns" [class.confirm-btns-reversed]="options.reverseButtonOrder">
             <div
-              class="col-xs-6 col-6"
-              [ngClass]="{'col-xs-offset-3 col-offset-3': options.hideCancelButton}"
-              *ngIf="!options.hideConfirmButton">
-              <button
-                type="button"
-                [mwlFocus]="options.focusButton === 'confirm'"
-                [class]="'btn btn-block btn-' + options.confirmButtonType"
-                (click)="options.onConfirm({clickEvent: $event})"
-                [innerHtml]="options.confirmText">
-              </button>
-            </div>
-            <div
-              class="col-xs-6 col-6"
-              [ngClass]="{'col-xs-offset-3 col-offset-3': options.hideConfirmButton}"
+              class="confirm-btn-container"
               *ngIf="!options.hideCancelButton">
               <button
                 type="button"
@@ -57,6 +68,17 @@ import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-
                 [class]="'btn btn-block btn-' + options.cancelButtonType"
                 (click)="options.onCancel({clickEvent: $event})"
                 [innerHtml]="options.cancelText">
+              </button>
+            </div>
+            <div
+              class="confirm-btn-container"
+              *ngIf="!options.hideConfirmButton">
+              <button
+                type="button"
+                [mwlFocus]="options.focusButton === 'confirm'"
+                [class]="'btn btn-block btn-' + options.confirmButtonType"
+                (click)="options.onConfirm({clickEvent: $event})"
+                [innerHtml]="options.confirmText">
               </button>
             </div>
           </div>

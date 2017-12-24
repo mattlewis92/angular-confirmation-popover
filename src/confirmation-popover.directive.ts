@@ -155,6 +155,11 @@ export class ConfirmationPopoverDirective
   @Input() appendToBody: boolean;
 
   /**
+   * Swap the order of the confirm and cancel buttons
+   */
+  @Input() reverseButtonOrder: boolean;
+
+  /**
    * @internal
    */
   popover: ComponentRef<ConfirmationPopoverWindowComponent>;
@@ -281,7 +286,8 @@ export class ConfirmationPopoverDirective
         'hideCancelButton',
         'popoverClass',
         'appendToBody',
-        'customTemplate'
+        'customTemplate',
+        'reverseButtonOrder'
       ];
       optionalParams.forEach(param => {
         if (typeof this[param] !== 'undefined') {
