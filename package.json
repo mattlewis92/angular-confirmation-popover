@@ -1,7 +1,7 @@
 {
   "name": "angular-confirmation-popover",
   "version": "3.4.2",
-  "description": "An angular 4.0+ bootstrap confirmation popover",
+  "description": "An angular 5.0+ bootstrap confirmation popover",
   "main": "./dist/umd/angular-confirmation-popover.js",
   "module": "./dist/esm/src/index.js",
   "typings": "./dist/esm/src/index.d.ts",
@@ -38,7 +38,7 @@
   "keywords": [
     "angular",
     "angular2",
-    "angular4",
+    "angular5",
     "bootstrap",
     "popover",
     "confirm",
@@ -51,13 +51,13 @@
   },
   "homepage": "https://github.com/mattlewis92/angular-confirmation-popover#readme",
   "devDependencies": {
-    "@angular/common": "^4.4.6",
-    "@angular/compiler": "^4.4.6",
-    "@angular/compiler-cli": "^4.4.6",
-    "@angular/core": "^4.4.6",
-    "@angular/forms": "^4.4.6",
-    "@angular/platform-browser": "^4.4.6",
-    "@angular/platform-browser-dynamic": "^4.4.6",
+    "@angular/common": "^5.1.2",
+    "@angular/compiler": "^5.1.2",
+    "@angular/compiler-cli": "^5.1.2",
+    "@angular/core": "^5.1.2",
+    "@angular/forms": "^5.1.2",
+    "@angular/platform-browser": "^5.1.2",
+    "@angular/platform-browser-dynamic": "^5.1.2",
     "@compodoc/compodoc": "^1.0.5",
     "@types/chai": "^4.0.10",
     "@types/chai-dom": "0.0.5",
@@ -69,7 +69,7 @@
     "chai": "^4.1.2",
     "chai-dom": "^1.6.0",
     "codecov": "^3.0.0",
-    "codelyzer": "^3.2.2",
+    "codelyzer": "^4.0.2",
     "commitizen": "^2.8.1",
     "concurrently": "^3.5.1",
     "core-js": "^2.5.3",
@@ -96,7 +96,7 @@
     "tslint": "^5.8.0",
     "tslint-config-mwl": "^0.2.1",
     "tslint-loader": "^3.2.0",
-    "typescript": "~2.4.2",
+    "typescript": "~2.5.3",
     "validate-commit-msg": "^2.8.0",
     "webpack": "^3.10.0",
     "webpack-angular-externals": "^1.0.2",
@@ -104,8 +104,8 @@
     "zone.js": "^0.8.18"
   },
   "peerDependencies": {
-    "@angular/common": "^4.0.0 || ^5.0.0",
-    "@angular/core": "^4.0.0 || ^5.0.0"
+    "@angular/common": "^5.0.0",
+    "@angular/core": "^5.0.0"
   },
   "files": [
     "dist"
