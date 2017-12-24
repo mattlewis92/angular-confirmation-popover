@@ -19,10 +19,11 @@ import {
   TemplateRef,
   ComponentFactory
 } from '@angular/core';
-import {DOCUMENT} from '@angular/platform-browser';
-import {ConfirmationPopoverWindow} from './confirmationPopoverWindow.component';
-import {ConfirmationPopoverOptions, ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.provider';
-import {Positioning} from 'positioning';
+import { DOCUMENT } from '@angular/platform-browser';
+import { ConfirmationPopoverWindowComponent } from './confirmationPopoverWindow.component';
+import { ConfirmationPopoverOptions } from './confirmationPopoverOptions.provider';
+import { ConfirmationPopoverWindowOptions } from './confirmationPopoverWindowOptions.provider';
+import { Positioning } from 'positioning';
 
 /**
  * @private
@@ -58,8 +59,8 @@ export interface ConfirmCancelEvent {
 @Directive({
   selector: '[mwlConfirmationPopover]'
 })
-export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
-
+export class ConfirmationPopoverDirective
+  implements OnDestroy, OnChanges, OnInit {
   /**
    * The title of the popover.
    * Deprecated, will be removed in v4 - use popoverTitle instead
@@ -178,12 +179,12 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   /**
    * @private
    */
-  popover: ComponentRef<ConfirmationPopoverWindow> = null;
+  popover: ComponentRef<ConfirmationPopoverWindowComponent> = null;
 
   /**
    * @private
    */
-  eventListeners: Function[] = [];
+  eventListeners: Array<() => void> = [];
 
   /**
    * @private
@@ -254,17 +255,24 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
   }
 
   private onDocumentClick(event: Event): void {
-    if (this.popover && !this.elm.nativeElement.contains(event.target) && !this.popover.location.nativeElement.contains(event.target)) {
+    if (
+      this.popover &&
+      !this.elm.nativeElement.contains(event.target) &&
+      !this.popover.location.nativeElement.contains(event.target)
+    ) {
       this.hidePopover();
     }
   }
 
   private showPopover(): void {
     if (!this.popover && !this.isDisabled) {
-
       this.eventListeners = [
-        this.renderer.listen('document', 'click', (event: Event) => this.onDocumentClick(event)),
-        this.renderer.listen('document', 'touchend', (event: Event) => this.onDocumentClick(event)),
+        this.renderer.listen('document', 'click', (event: Event) =>
+          this.onDocumentClick(event)
+        ),
+        this.renderer.listen('document', 'touchend', (event: Event) =>
+          this.onDocumentClick(event)
+        ),
         this.renderer.listen('window', 'resize', () => this.positionPopover())
       ];
 
@@ -278,7 +286,7 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
         onCancel: (event: ConfirmCancelEvent): void => {
           this.onCancel(event);
         },
-        onAfterViewInit: () : void => {
+        onAfterViewInit: (): void => {
           this.positionPopover();
         }
       });
@@ -302,25 +310,36 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
         }
       });
 
-      const componentFactory: ComponentFactory<ConfirmationPopoverWindow> = this.cfr.resolveComponentFactory(ConfirmationPopoverWindow);
-      const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([{
-        provide: ConfirmationPopoverWindowOptions,
-        useValue: options
-      }]);
+      const componentFactory: ComponentFactory<
+        ConfirmationPopoverWindowComponent
+      > = this.cfr.resolveComponentFactory(ConfirmationPopoverWindowComponent);
+      const binding: ResolvedReflectiveProvider[] = ReflectiveInjector.resolve([
+        {
+          provide: ConfirmationPopoverWindowOptions,
+          useValue: options
+        }
+      ]);
       const contextInjector: Injector = this.viewContainerRef.parentInjector;
-      const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(binding, contextInjector);
-      this.popover = this.viewContainerRef.createComponent(componentFactory, this.viewContainerRef.length, childInjector);
+      const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(
+        binding,
+        contextInjector
+      );
+      this.popover = this.viewContainerRef.createComponent(
+        componentFactory,
+        this.viewContainerRef.length,
+        childInjector
+      );
       if (options.appendToBody) {
         this.document.body.appendChild(this.popover.location.nativeElement);
       }
       this.isOpenChange.emit(true);
-
     }
   }
 
   private positionPopover(): void {
     if (this.popover) {
-      const popoverElement: HTMLElement = this.popover.location.nativeElement.children[0];
+      const popoverElement: HTMLElement = this.popover.location.nativeElement
+        .children[0];
       const popoverPosition: Coords = this.position.positionElements(
         this.elm.nativeElement,
         popoverElement,
@@ -328,7 +347,11 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
         this.appendToBody || this.defaultOptions.appendToBody
       );
       this.renderer.setStyle(popoverElement, 'top', `${popoverPosition.top}px`);
-      this.renderer.setStyle(popoverElement, 'left', `${popoverPosition.left}px`);
+      this.renderer.setStyle(
+        popoverElement,
+        'left',
+        `${popoverPosition.left}px`
+      );
     }
   }
 
@@ -341,5 +364,4 @@ export class ConfirmationPopover implements OnDestroy, OnChanges, OnInit {
       this.eventListeners = [];
     }
   }
-
 }

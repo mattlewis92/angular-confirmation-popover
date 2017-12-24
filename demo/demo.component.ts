@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'demo-app',
+  selector: 'mwl-demo',
   template: `
     <div>
       <div class="form-group">
@@ -49,7 +49,7 @@ import {Component} from '@angular/core';
     </div>
   `
 })
-export class Demo {
+export class DemoComponent {
   placements: string[] = ['top', 'left', 'right', 'bottom'];
   title: string = 'Are you sure?';
   message: string = 'Are you really <b>sure</b> you want to do this?';

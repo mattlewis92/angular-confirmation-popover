@@ -1,14 +1,12 @@
-import {
-  Component,
-  AfterViewInit,
-} from '@angular/core';
-import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.provider';
+import { Component, AfterViewInit } from '@angular/core';
+import { ConfirmationPopoverWindowOptions } from './confirmationPopoverWindowOptions.provider';
 
 /**
  * @private
  */
 @Component({
-  styles: [`
+  styles: [
+    `
     .popover {
       display: block;
     }
@@ -21,7 +19,8 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
     .btn {
       transition: none;
     }
-  `],
+  `
+  ],
   template: `
     <ng-template #defaultTemplate let-options="options">
       <div [ngClass]="[
@@ -70,12 +69,10 @@ import {ConfirmationPopoverWindowOptions} from './confirmationPopoverOptions.pro
     </ng-template>
   `
 })
-export class ConfirmationPopoverWindow implements AfterViewInit {
-
+export class ConfirmationPopoverWindowComponent implements AfterViewInit {
   constructor(public options: ConfirmationPopoverWindowOptions) {}
 
   ngAfterViewInit(): void {
     this.options.onAfterViewInit();
   }
-
 }

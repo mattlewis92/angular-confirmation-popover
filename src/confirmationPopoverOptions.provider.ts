@@ -1,7 +1,7 @@
-import {TemplateRef, Injectable} from '@angular/core';
+import { TemplateRef, Injectable } from '@angular/core';
+import { ConfirmCancelEvent } from './confirmationPopover.directive';
 
 export interface ConfirmationPopoverOptionsInterface {
-
   /**
    * The popover title
    */
@@ -61,11 +61,10 @@ export interface ConfirmationPopoverOptionsInterface {
    * Whether to append the popover to the document body
    */
   appendToBody?: boolean;
-
 }
 
-export class ConfirmationPopoverOptions implements ConfirmationPopoverOptionsInterface {
-
+export class ConfirmationPopoverOptions
+  implements ConfirmationPopoverOptionsInterface {
   title: string;
   message: string;
   confirmText: string = 'Confirm';
@@ -78,18 +77,4 @@ export class ConfirmationPopoverOptions implements ConfirmationPopoverOptionsInt
   hideCancelButton: boolean = false;
   popoverClass: string = '';
   appendToBody: boolean = false;
-
-}
-
-/**
- * @private
- */
-@Injectable()
-export class ConfirmationPopoverWindowOptions extends ConfirmationPopoverOptions {
-
-  public onConfirm: Function;
-  public onCancel: Function;
-  public onAfterViewInit: Function;
-  public customTemplate: TemplateRef<any>;
-
 }
