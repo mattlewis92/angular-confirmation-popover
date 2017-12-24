@@ -188,7 +188,7 @@ describe('bootstrap confirm', () => {
       document.body.appendChild(btn);
       btn.click();
       expect(hidePopover).to.have.been.calledOnce;
-      btn.parentNode.removeChild(btn);
+      btn.parentNode!.removeChild(btn);
     });
 
     it('should allow the popover title to be customised', () => {

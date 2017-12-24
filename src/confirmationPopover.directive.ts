@@ -13,25 +13,15 @@ import {
   ReflectiveInjector,
   ResolvedReflectiveProvider,
   ComponentFactoryResolver,
-  Injector,
-  Inject,
   Renderer2,
   TemplateRef,
-  ComponentFactory
+  ComponentFactory,
+  SimpleChanges
 } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
 import { ConfirmationPopoverWindowComponent } from './confirmationPopoverWindow.component';
 import { ConfirmationPopoverOptions } from './confirmationPopoverOptions.provider';
 import { ConfirmationPopoverWindowOptions } from './confirmationPopoverWindowOptions.provider';
 import { Positioning } from 'positioning';
-
-/**
- * @private
- */
-interface Coords {
-  top: number;
-  left: number;
-}
 
 /**
  * @private
@@ -179,7 +169,7 @@ export class ConfirmationPopoverDirective
   /**
    * @private
    */
-  popover: ComponentRef<ConfirmationPopoverWindowComponent> = null;
+  popover: ComponentRef<ConfirmationPopoverWindowComponent>;
 
   /**
    * @private
@@ -195,8 +185,7 @@ export class ConfirmationPopoverDirective
     private defaultOptions: ConfirmationPopoverOptions,
     private cfr: ComponentFactoryResolver,
     private position: Positioning,
-    private renderer: Renderer2,
-    @Inject(DOCUMENT) private document //tslint:disable-line
+    private renderer: Renderer2
   ) {}
 
   /**
@@ -209,7 +198,7 @@ export class ConfirmationPopoverDirective
   /**
    * @private
    */
-  ngOnChanges(changes: any): void {
+  ngOnChanges(changes: SimpleChanges) {
     if (changes.isOpen) {
       if (changes.isOpen.currentValue === true) {
         this.showPopover();
@@ -222,14 +211,14 @@ export class ConfirmationPopoverDirective
   /**
    * @private
    */
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.hidePopover();
   }
 
   /**
    * @private
    */
-  onConfirm(event: ConfirmCancelEvent): void {
+  onConfirm(event: ConfirmCancelEvent) {
     this.confirm.emit(event);
     this.hidePopover();
   }
@@ -237,7 +226,7 @@ export class ConfirmationPopoverDirective
   /**
    * @private
    */
-  onCancel(event: ConfirmCancelEvent): void {
+  onCancel(event: ConfirmCancelEvent) {
     this.cancel.emit(event);
     this.hidePopover();
   }
@@ -276,7 +265,7 @@ export class ConfirmationPopoverDirective
         this.renderer.listen('window', 'resize', () => this.positionPopover())
       ];
 
-      const options: ConfirmationPopoverWindowOptions = new ConfirmationPopoverWindowOptions();
+      const options = new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
         title: this.popoverTitle || this.title,
         message: this.popoverMessage || this.message,
@@ -291,7 +280,7 @@ export class ConfirmationPopoverDirective
         }
       });
 
-      const optionalParams: string[] = [
+      const optionalParams: Array<keyof ConfirmationPopoverDirective> = [
         'confirmText',
         'cancelText',
         'placement',
@@ -306,7 +295,7 @@ export class ConfirmationPopoverDirective
       ];
       optionalParams.forEach(param => {
         if (typeof this[param] !== 'undefined') {
-          options[param] = this[param];
+          (options as any)[param] = this[param];
         }
       });
 
@@ -319,8 +308,8 @@ export class ConfirmationPopoverDirective
           useValue: options
         }
       ]);
-      const contextInjector: Injector = this.viewContainerRef.parentInjector;
-      const childInjector: Injector = ReflectiveInjector.fromResolvedProviders(
+      const contextInjector = this.viewContainerRef.parentInjector;
+      const childInjector = ReflectiveInjector.fromResolvedProviders(
         binding,
         contextInjector
       );
@@ -330,7 +319,7 @@ export class ConfirmationPopoverDirective
         childInjector
       );
       if (options.appendToBody) {
-        this.document.body.appendChild(this.popover.location.nativeElement);
+        document.body.appendChild(this.popover.location.nativeElement);
       }
       this.isOpenChange.emit(true);
     }
@@ -338,9 +327,8 @@ export class ConfirmationPopoverDirective
 
   private positionPopover(): void {
     if (this.popover) {
-      const popoverElement: HTMLElement = this.popover.location.nativeElement
-        .children[0];
-      const popoverPosition: Coords = this.position.positionElements(
+      const popoverElement = this.popover.location.nativeElement.children[0];
+      const popoverPosition = this.position.positionElements(
         this.elm.nativeElement,
         popoverElement,
         this.placement || this.defaultOptions.placement,
@@ -358,7 +346,7 @@ export class ConfirmationPopoverDirective
   private hidePopover(): void {
     if (this.popover) {
       this.popover.destroy();
-      this.popover = null;
+      delete this.popover;
       this.isOpenChange.emit(false);
       this.eventListeners.forEach(fn => fn());
       this.eventListeners = [];
