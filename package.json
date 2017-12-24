@@ -111,8 +111,8 @@
     "zone.js": "^0.8.18"
   },
   "peerDependencies": {
-    "@angular/common": "^5.0.0",
-    "@angular/core": "^5.0.0"
+    "@angular/common": ">=5.0.0 <7.0.0",
+    "@angular/core": ">=5.0.0 <7.0.0"
   },
   "config": {
     "commitizen": {
