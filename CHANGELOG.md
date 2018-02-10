@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v4.0.0...v4.1.0) (2018-02-10)
+
+
+### Features
+
+* add a tag name to the popover window component ([85902d6](https://github.com/mattlewis92/angular-confirmation-popover/commit/85902d6)), closes [#70](https://github.com/mattlewis92/angular-confirmation-popover/issues/70)
+
+
+
 <a name="4.0.0"></a>
 # [4.0.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v3.4.2...v4.0.0) (2017-12-24)
 

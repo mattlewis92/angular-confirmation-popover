@@ -615,6 +615,18 @@ describe('bootstrap confirm', () => {
         popover.location.nativeElement.querySelector('.confirm-btns')
       ).to.have.class('confirm-btns-reversed');
     });
+
+    it('should add a selector to the popover window component', () => {
+      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+        TestComponent
+      );
+      clickFixture(fixture);
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        fixture.componentInstance.confirm.popover;
+      expect(popover.location.nativeElement.tagName.toLowerCase()).to.equal(
+        'mwl-confirmation-popover-window'
+      );
+    });
   });
 
   describe('ConfirmOptions', () => {
