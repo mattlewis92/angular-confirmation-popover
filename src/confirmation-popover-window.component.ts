@@ -5,6 +5,7 @@ import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-
  * @internal
  */
 @Component({
+  selector: 'mwl-confirmation-popover-window',
   styles: [
     `
     .popover {
