@@ -1,6 +1,6 @@
 {
   "name": "angular-confirmation-popover",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "An angular 5.0+ bootstrap confirmation popover",
   "scripts": {
     "start": "concurrently --raw \"webpack-dev-server --open\" \"npm run test:watch\"",
