@@ -718,5 +718,31 @@ describe('bootstrap confirm', () => {
         fixture.componentRef.location.nativeElement.querySelector('.popover')
       ).to.be.ok;
     });
+
+    it('should allow the defauult title and message to be configured globally', () => {
+      TestBed.configureTestingModule({
+        imports: [
+          ConfirmationPopoverModule.forRoot({
+            popoverTitle: 'Default title',
+            popoverMessage: 'Default message'
+          })
+        ],
+        declarations: [TestComponent]
+      });
+      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+        TestComponent
+      );
+      fixture.detectChanges();
+      fixture.nativeElement.querySelector('button').click();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        fixture.componentInstance.confirm.popover;
+      popover.changeDetectorRef.detectChanges();
+      expect(
+        popover.location.nativeElement.querySelector('.popover-title')
+      ).to.have.html('Default title');
+      expect(
+        popover.location.nativeElement.querySelector('.popover-content p')
+      ).to.have.html('Default message');
+    });
   });
 });
