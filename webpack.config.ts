@@ -1,13 +1,14 @@
 import * as webpack from 'webpack';
 import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-const IS_PROD = process.argv.indexOf('-p') > -1;
+
+const isDevServer = !!process.argv.find(v => v.includes('webpack-dev-server'));
 
 export default {
-  devtool: IS_PROD ? 'source-map' : 'eval',
+  mode: isDevServer ? 'development' : 'production',
   entry: __dirname + '/demo/entry.ts',
   output: {
     filename: 'demo.js',
-    path: IS_PROD ? __dirname + '/demo' : __dirname
+    path: isDevServer ? __dirname : __dirname + '/demo'
   },
   module: {
     rules: [{
@@ -16,8 +17,8 @@ export default {
       exclude: /node_modules/,
       enforce: 'pre',
       options: {
-        emitErrors: IS_PROD,
-        failOnHint: IS_PROD
+        emitErrors: !isDevServer,
+        failOnHint: !isDevServer
       }
     }, {
       test: /\.ts$/,
@@ -25,6 +26,11 @@ export default {
       exclude: /node_modules/,
       options: {
         transpileOnly: true
+      }
+    }, {
+      test: /node_modules\/@angular\/core\/.+\/core\.js$/,
+      parser: {
+        system: true // disable `System.import() is deprecated and will be removed soon. Use import() instead.` warning
       }
     }]
   },
@@ -39,10 +45,7 @@ export default {
     contentBase: 'demo'
   },
   plugins: [
-    ...(IS_PROD ? [] : [new webpack.HotModuleReplacementPlugin()]),
-    new webpack.DefinePlugin({
-      ENV: JSON.stringify(IS_PROD ? 'production' : 'development')
-    }),
+    ...(isDevServer ? [new webpack.HotModuleReplacementPlugin()] : []),
     new webpack.ContextReplacementPlugin(
       /angular(\\|\/)core(\\|\/)esm5/,
       __dirname + '/src'
@@ -50,7 +53,7 @@ export default {
     new ForkTsCheckerWebpackPlugin({
       watch: ['./src', './demo'],
       formatter: 'codeframe',
-      async: !IS_PROD
+      async: isDevServer
     })
   ]
 };
