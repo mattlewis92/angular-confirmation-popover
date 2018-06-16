@@ -62,7 +62,7 @@ export default function(config: any) {
           test: /\.(ts|js)($|\?)/i
         }),
         new webpack.ContextReplacementPlugin(
-          /angular(\\|\/)core(\\|\/)esm5/,
+          /angular(\\|\/)core(\\|\/)fesm5/,
           __dirname + '/src'
         )
       ].concat(!config.singleRun ? [

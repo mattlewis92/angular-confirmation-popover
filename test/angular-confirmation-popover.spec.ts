@@ -2,12 +2,11 @@
 import 'core-js';
 import 'zone.js/dist/zone';
 import 'zone.js/dist/long-stack-trace-zone';
+import 'zone.js/dist/proxy';
+import 'zone.js/dist/sync-test';
+import 'zone.js/dist/mocha-patch';
 import 'zone.js/dist/async-test';
 import 'zone.js/dist/fake-async-test';
-import 'zone.js/dist/sync-test';
-import 'zone.js/dist/proxy';
-import 'zone.js/dist/mocha-patch';
-import 'rxjs/Observable';
 import { Component, ViewChild, ComponentRef } from '@angular/core';
 import {
   async,
@@ -70,7 +69,8 @@ describe('bootstrap confirm', () => {
       confirm: ConfirmationPopoverDirective;
       placement: string = 'left';
       popoverTitle: string = 'Are you sure?';
-      popoverMessage: string = 'Are you really <b>sure</b> you want to do this?';
+      popoverMessage: string =
+        'Are you really <b>sure</b> you want to do this?';
       confirmText: string = 'Yes <i class="glyphicon glyphicon-ok"></i>';
       cancelText: string = 'No <i class="glyphicon glyphicon-remove"></i>';
       focusButton: string;
@@ -458,63 +458,54 @@ describe('bootstrap confirm', () => {
       ).to.be.true;
     });
 
-    it(
-      'should initialise isOpen to false',
-      async(() => {
-        const fixture: ComponentFixture<
-          TestComponent
-        > = TestBed.createComponent(TestComponent);
-        fixture.detectChanges();
-        fixture.whenStable().then(() => {
+    it('should initialise isOpen to false', async(() => {
+      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+        TestComponent
+      );
+      fixture.detectChanges();
+      fixture.whenStable().then(() => {
+        // let isOpenChange be called with false
+        expect(fixture.componentInstance.isOpen).to.be.false;
+      });
+    }));
+
+    it('should set isOpen to true when the popover is opened', async(() => {
+      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+        TestComponent
+      );
+      fixture.detectChanges();
+      fixture
+        .whenStable()
+        .then(() => {
           // let isOpenChange be called with false
+          clickFixture(fixture);
+          return fixture.whenStable();
+        })
+        .then(() => {
+          expect(fixture.componentInstance.isOpen).to.be.true;
+        });
+    }));
+
+    it('should set isOpen to false when the popover is closed', async(() => {
+      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+        TestComponent
+      );
+      fixture.detectChanges();
+      fixture
+        .whenStable()
+        .then(() => {
+          // let isOpenChange be called with false
+          clickFixture(fixture);
+          return fixture.whenStable();
+        })
+        .then(() => {
+          clickFixture(fixture);
+          return fixture.whenStable();
+        })
+        .then(() => {
           expect(fixture.componentInstance.isOpen).to.be.false;
         });
-      })
-    );
-
-    it(
-      'should set isOpen to true when the popover is opened',
-      async(() => {
-        const fixture: ComponentFixture<
-          TestComponent
-        > = TestBed.createComponent(TestComponent);
-        fixture.detectChanges();
-        fixture
-          .whenStable()
-          .then(() => {
-            // let isOpenChange be called with false
-            clickFixture(fixture);
-            return fixture.whenStable();
-          })
-          .then(() => {
-            expect(fixture.componentInstance.isOpen).to.be.true;
-          });
-      })
-    );
-
-    it(
-      'should set isOpen to false when the popover is closed',
-      async(() => {
-        const fixture: ComponentFixture<
-          TestComponent
-        > = TestBed.createComponent(TestComponent);
-        fixture.detectChanges();
-        fixture
-          .whenStable()
-          .then(() => {
-            // let isOpenChange be called with false
-            clickFixture(fixture);
-            return fixture.whenStable();
-          })
-          .then(() => {
-            clickFixture(fixture);
-            return fixture.whenStable();
-          })
-          .then(() => {
-            expect(fixture.componentInstance.isOpen).to.be.false;
-          });
-      })
-    );
+    }));
 
     it('should not append the popover to the document body', () => {
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(

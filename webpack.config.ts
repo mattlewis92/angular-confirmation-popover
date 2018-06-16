@@ -47,7 +47,7 @@ export default {
   plugins: [
     ...(isDevServer ? [new webpack.HotModuleReplacementPlugin()] : []),
     new webpack.ContextReplacementPlugin(
-      /angular(\\|\/)core(\\|\/)esm5/,
+      /angular(\\|\/)core(\\|\/)fesm5/,
       __dirname + '/src'
     ),
     new ForkTsCheckerWebpackPlugin({

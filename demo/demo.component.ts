@@ -38,6 +38,7 @@ import { Component } from '@angular/core';
             [appendToBody]="true">
             Show on {{ placement }}
           </button>
+          &ngsp;
         </span>
       </div>
 
