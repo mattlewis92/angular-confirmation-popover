@@ -31,11 +31,12 @@
   },
   "ngPackage": {
     "lib": {
-      "entryFile": "src/index.ts",
-      "externals": {
-        "positioning": "positioning"
-      }
-    }
+      "entryFile": "src/index.ts"
+    },
+    "whitelistedNonPeerDependencies": [
+      "tslib",
+      "positioning"
+    ]
   },
   "repository": {
     "type": "git",
@@ -67,10 +68,11 @@
     "@compodoc/compodoc": "^1.1.3",
     "@types/chai": "^4.1.4",
     "@types/chai-dom": "0.0.6",
-    "@types/mocha": "^2.2.48",
-    "@types/node": "^9.6.22",
+    "@types/fork-ts-checker-webpack-plugin": "^0.4.0",
+    "@types/mocha": "^5.2.2",
+    "@types/node": "^10.3.3",
     "@types/sinon": "^4.3.3",
-    "@types/sinon-chai": "^2.7.33",
+    "@types/sinon-chai": "^3.2.0",
     "@types/webpack": "^3.8.12",
     "chai": "^4.1.2",
     "chai-dom": "^1.8.0",
@@ -78,29 +80,31 @@
     "codelyzer": "^4.3.0",
     "commitizen": "^2.10.1",
     "concurrently": "^3.5.1",
-    "copyfiles": "^1.2.0",
+    "copyfiles": "^2.0.0",
     "core-js": "^2.5.7",
     "cz-conventional-changelog": "^2.1.0",
     "del-cli": "^1.0.0",
-    "fork-ts-checker-webpack-plugin": "^0.3.0",
+    "fork-ts-checker-webpack-plugin": "^0.4.2",
     "husky": "^0.14.3",
+    "install": "^0.11.0",
     "istanbul-instrumenter-loader": "^3.0.1",
     "karma": "^2.0.3",
     "karma-chrome-launcher": "^2.2.0",
-    "karma-coverage-istanbul-reporter": "^1.4.3",
+    "karma-coverage-istanbul-reporter": "^2.0.1",
     "karma-mocha": "^1.3.0",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "^2.0.13",
-    "lint-staged": "^6.1.1",
+    "karma-webpack": "^3.0.0",
+    "lint-staged": "^7.2.0",
     "mocha": "^5.2.0",
     "ng-packagr": "^2.4.5",
+    "npm": "^6.1.0",
     "prettier": "^1.13.5",
     "rxjs": "^5.5.11",
-    "sinon": "^4.5.0",
-    "sinon-chai": "^2.14.0",
+    "sinon": "^6.0.0",
+    "sinon-chai": "^3.2.0",
     "standard-version": "^4.4.0",
     "ts-loader": "^3.5.0",
-    "ts-node": "^4.1.0",
+    "ts-node": "^6.1.1",
     "tslint": "^5.10.0",
     "tslint-config-mwl": "^0.3.0",
     "tslint-loader": "^3.6.0",
