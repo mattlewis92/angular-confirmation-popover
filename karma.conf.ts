@@ -1,7 +1,7 @@
 import * as webpack from 'webpack';
 import * as ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
-export default function(config) {
+export default function(config: any) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -23,6 +23,7 @@ export default function(config) {
     },
 
     webpack: {
+      mode: 'development',
       resolve: {
         extensions: ['.ts', '.js']
       },
@@ -48,6 +49,11 @@ export default function(config) {
           exclude: /(test|node_modules)/,
           loader: 'istanbul-instrumenter-loader',
           enforce: 'post'
+        }, {
+          test: /node_modules\/@angular\/core\/.+\/core\.js$/,
+          parser: {
+            system: true // disable `System.import() is deprecated and will be removed soon. Use import() instead.` warning
+          }
         }]
       },
       plugins: [
@@ -56,17 +62,18 @@ export default function(config) {
           test: /\.(ts|js)($|\?)/i
         }),
         new webpack.ContextReplacementPlugin(
-          /angular(\\|\/)core(\\|\/)esm5/,
+          /angular(\\|\/)core(\\|\/)fesm5/,
           __dirname + '/src'
         )
-      ].concat(config.singleRun ? [
-        new webpack.NoEmitOnErrorsPlugin()
-      ] : [
+      ].concat(!config.singleRun ? [
         new ForkTsCheckerWebpackPlugin({
           watch: ['./src', './test'],
           formatter: 'codeframe'
         })
-      ])
+      ] : []),
+      optimization: {
+        noEmitOnErrors: config.singleRun
+      }
     },
 
     coverageIstanbulReporter: {

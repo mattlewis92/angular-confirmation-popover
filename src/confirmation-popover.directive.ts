@@ -261,8 +261,6 @@ export class ConfirmationPopoverDirective
 
       const options = new ConfirmationPopoverWindowOptions();
       Object.assign(options, this.defaultOptions, {
-        popoverTitle: this.popoverTitle,
-        popoverMessage: this.popoverMessage,
         onConfirm: (event: ConfirmCancelEvent): void => {
           this.onConfirm(event);
         },
@@ -286,7 +284,9 @@ export class ConfirmationPopoverDirective
         'popoverClass',
         'appendToBody',
         'customTemplate',
-        'reverseButtonOrder'
+        'reverseButtonOrder',
+        'popoverTitle',
+        'popoverMessage'
       ];
       optionalParams.forEach(param => {
         if (typeof this[param] !== 'undefined') {

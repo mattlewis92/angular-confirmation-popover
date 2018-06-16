@@ -9,7 +9,8 @@
     "removeComments": false,
     "lib": ["dom", "es2015"],
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "strictPropertyInitialization": false
   },
   "include": [
     "demo/**/*",
