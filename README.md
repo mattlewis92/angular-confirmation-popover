@@ -79,13 +79,6 @@ class MyComponent {
 
 You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.component.ts).
 
-### Usage with universal
-
-You will need to add this line in your server bootstrap code to get this module to work with universal:
-```
-(global as any).HTMLElement = () => {};
-```
-
 ## Documentation
 All documentation is auto-generated from the source via compodoc and can be viewed here:
 https://mattlewis92.github.io/angular-confirmation-popover/docs/
