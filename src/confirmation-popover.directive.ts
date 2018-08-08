@@ -159,6 +159,11 @@ export class ConfirmationPopoverDirective
   @Input() reverseButtonOrder: boolean;
 
   /**
+   * Determines whether or not the popover should stay open even when clicking outside of it
+   */
+  @Input() closeOnOutsideClick: boolean = true;
+
+  /**
    * @internal
    */
   popover: ComponentRef<ConfirmationPopoverWindowComponent>;
@@ -236,7 +241,8 @@ export class ConfirmationPopoverDirective
     if (
       this.popover &&
       !this.elm.nativeElement.contains(event.target) &&
-      !this.popover.location.nativeElement.contains(event.target)
+      !this.popover.location.nativeElement.contains(event.target) &&
+      this.closeOnOutsideClick
     ) {
       this.hidePopover();
     }

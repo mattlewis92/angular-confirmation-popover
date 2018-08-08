@@ -618,6 +618,44 @@ describe('bootstrap confirm', () => {
         'mwl-confirmation-popover-window'
       );
     });
+
+    it('should allow configuring clicking outside of popover to close it', fakeAsync(() => {
+      const fixture: ComponentFixture<TestComponent> = TestBed.overrideTemplate(TestComponent, `
+        <button type="button"
+          class="btn btn-default"
+          mwlConfirmationPopover
+          [closeOnOutsideClick]="false"
+        >Show Popover</button>
+      `).createComponent(TestComponent);
+      fixture.detectChanges();
+      const confirm: any = fixture.componentInstance.confirm;
+      clickFixture(fixture);
+      const hidePopover = sinon.spy(confirm, 'hidePopover');
+      confirm.popover.changeDetectorRef.detectChanges();
+      flush();
+      const btn: HTMLElement = document.createElement('button');
+      document.body.appendChild(btn);
+      btn.click();
+      flush();
+      expect(hidePopover).to.not.have.been.called;
+      btn.parentNode!.removeChild(btn);
+
+      // fixture.detectChanges();
+      // const confirm: any = fixture.componentInstance.confirm;
+      // const showPopover = sinon.spy(confirm, 'showPopover');
+      // const hidePopover = sinon.spy(confirm, 'hidePopover');
+      // expect(confirm.popover).not.to.be.ok;
+      // clickFixture(fixture);
+      // expect(showPopover).to.have.been.calledOnce;
+      // expect(confirm.popover).to.be.ok;
+      // clickFixture(fixture);
+      // expect(hidePopover).to.not.have.been.calledOnce;
+
+      // const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+      //   TestComponent
+      // );
+      // fixture.detectChanges();
+    }));
   });
 
   describe('ConfirmOptions', () => {
