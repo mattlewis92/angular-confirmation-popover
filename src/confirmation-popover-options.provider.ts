@@ -63,6 +63,11 @@ export interface ConfirmationPopoverOptionsInterface {
    * Swap the order of the confirm and cancel buttons
    */
   reverseButtonOrder?: boolean;
+
+  /**
+   * Whether or not the popover should stay open when clicking outside it
+   */
+  closeOnOutsideClick?: boolean;
 }
 
 export class ConfirmationPopoverOptions
@@ -80,4 +85,5 @@ export class ConfirmationPopoverOptions
   popoverClass: string = '';
   appendToBody: boolean = false;
   reverseButtonOrder: boolean = false;
+  closeOnOutsideClick: boolean = true;
 }
