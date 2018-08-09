@@ -294,8 +294,7 @@ export class ConfirmationPopoverDirective
         'customTemplate',
         'reverseButtonOrder',
         'popoverTitle',
-        'popoverMessage',
-        'closeOnOutsideClick'
+        'popoverMessage'
       ];
       optionalParams.forEach(param => {
         if (typeof this[param] !== 'undefined') {
