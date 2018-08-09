@@ -618,6 +618,65 @@ describe('bootstrap confirm', () => {
         'mwl-confirmation-popover-window'
       );
     });
+
+    it('should allow configuring clicking outside of popover to close it', fakeAsync(() => {
+      const fixture: ComponentFixture<TestComponent> = TestBed.overrideTemplate(TestComponent, `
+        <button type="button"
+          class="btn btn-default"
+          mwlConfirmationPopover
+          [closeOnOutsideClick]="false"
+        >Show Popover</button>
+      `).createComponent(TestComponent);
+      fixture.detectChanges();
+      const confirm: any = fixture.componentInstance.confirm;
+      clickFixture(fixture);
+
+      // We will be tracking the hidePopover
+      const hidePopover = sinon.spy(confirm, 'hidePopover');
+      confirm.popover.changeDetectorRef.detectChanges();
+      flush();
+
+      // Simulating clicking outside of the popup
+      const btn: HTMLElement = document.createElement('button');
+      document.body.appendChild(btn);
+      btn.click();
+      flush();
+
+      // Popover should still be open
+      expect(hidePopover).to.not.have.been.called;
+      btn.parentNode!.removeChild(btn);
+    }));
+    
+    it('should allow configuring clicking outside of popover globally', fakeAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          ConfirmationPopoverModule.forRoot({
+            closeOnOutsideClick: false
+          })
+        ]
+      })
+      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+        TestComponent
+      );
+      fixture.detectChanges();
+      const confirm: any = fixture.componentInstance.confirm;
+      
+      fixture.nativeElement.querySelector('button').click();
+
+      // We will be tracking the hidePopover
+      const hidePopover = sinon.spy(confirm, 'hidePopover');
+      confirm.popover.changeDetectorRef.detectChanges();
+      flush();
+
+      // Simulating clicking outside of the popup
+      const btn: HTMLElement = document.createElement('button');
+      document.body.appendChild(btn);
+      btn.click();
+      flush();
+
+      // Popover should still be open
+      expect(hidePopover).to.not.have.been.called;
+    }));
   });
 
   describe('ConfirmOptions', () => {
