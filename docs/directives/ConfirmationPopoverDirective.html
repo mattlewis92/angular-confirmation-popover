@@ -435,6 +435,9 @@
                                 <a href="#cancelText">cancelText</a>
                             </li>
                             <li>
+                                <a href="#closeOnOutsideClick">closeOnOutsideClick</a>
+                            </li>
+                            <li>
                                 <a href="#confirmButtonType">confirmButtonType</a>
                             </li>
                             <li>
@@ -587,6 +590,29 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                         <tr>
                             <td class="col-md-2" colspan="2">
                                     <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/confirmation-popover.directive.ts:71</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="closeOnOutsideClick"></a>
+                        <code>closeOnOutsideClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <div><p>Determines whether or not the popover should stay open even when clicking outside of it</p>
+</div>
+                            <p>
+                            <em>Type:</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/confirmation-popover.directive.ts:164</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -995,7 +1021,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="227" class="link-to-prism">src/confirmation-popover.directive.ts:227</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="232" class="link-to-prism">src/confirmation-popover.directive.ts:232</a></div>
                             </td>
                         </tr>
 
@@ -1172,6 +1198,11 @@ export class ConfirmationPopoverDirective
   @Input() reverseButtonOrder: boolean;
 
   /**
+   * Determines whether or not the popover should stay open even when clicking outside of it
+   */
+  @Input() closeOnOutsideClick: boolean;
+
+  /**
    * @internal
    */
   popover: ComponentRef&lt;ConfirmationPopoverWindowComponent&gt;;
@@ -1246,10 +1277,13 @@ export class ConfirmationPopoverDirective
   }
 
   private onDocumentClick(event: Event): void {
+    const closeOnOutsideClick &#x3D; typeof this.closeOnOutsideClick !&#x3D;&#x3D; &#x27;undefined&#x27; ? 
+      this.closeOnOutsideClick : this.defaultOptions.closeOnOutsideClick;
     if (
       this.popover &amp;&amp;
       !this.elm.nativeElement.contains(event.target) &amp;&amp;
-      !this.popover.location.nativeElement.contains(event.target)
+      !this.popover.location.nativeElement.contains(event.target) &amp;&amp;
+      closeOnOutsideClick
     ) {
       this.hidePopover();
     }
