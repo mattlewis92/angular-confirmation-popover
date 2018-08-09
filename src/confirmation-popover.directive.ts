@@ -161,7 +161,7 @@ export class ConfirmationPopoverDirective
   /**
    * Determines whether or not the popover should stay open even when clicking outside of it
    */
-  @Input() closeOnOutsideClick: boolean = true;
+  @Input() closeOnOutsideClick: boolean;
 
   /**
    * @internal
