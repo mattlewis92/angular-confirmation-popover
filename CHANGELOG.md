@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.2.1"></a>
+## [4.2.1](https://github.com/mattlewis92/angular-confirmation-popover/compare/v4.2.0...v4.2.1) (2019-06-24)
+
+
+### Bug Fixes
+
+* allow angular 8 peer dependency ([9aa2a5b](https://github.com/mattlewis92/angular-confirmation-popover/commit/9aa2a5b))
+
+
+
 <a name="4.2.0"></a>
 # [4.2.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v4.1.1...v4.2.0) (2018-08-09)
 
