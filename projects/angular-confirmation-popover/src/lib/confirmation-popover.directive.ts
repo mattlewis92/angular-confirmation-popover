@@ -33,7 +33,7 @@ export interface ConfirmCancelEvent {
  All properties can be set on the directive as attributes like so (use `ConfirmationPopoverModule.forRoot()` to configure them globally):
  ```html
  <button
-   class="btn btn-default"
+   class="btn btn-outline-secondary"
    mwlConfirmationPopover
    [popoverTitle]="popoverTitle"
    [popoverMessage]="popoverMessage"

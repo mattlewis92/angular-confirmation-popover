@@ -19,7 +19,7 @@ describe('bootstrap confirm', () => {
     @Component({
       template: `
         <button
-          class="btn btn-default"
+          class="btn btn-outline-secondary"
           mwlConfirmationPopover
           [popoverTitle]="popoverTitle"
           [popoverMessage]="popoverMessage"
@@ -29,7 +29,7 @@ describe('bootstrap confirm', () => {
           (confirm)="confirmClicked($event)"
           (cancel)="cancelClicked($event)"
           confirmButtonType="danger"
-          cancelButtonType="default"
+          cancelButtonType="secondary"
           [popoverClass]="popoverClass"
           [focusButton]="focusButton"
           [hideConfirmButton]="hideConfirmButton"
@@ -212,7 +212,7 @@ describe('bootstrap confirm', () => {
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(
         popover.location.nativeElement.querySelectorAll('button')[0]
-      ).to.have.class('btn-default');
+      ).to.have.class('btn-outline-secondary');
     });
 
     it('should allow the placement to be customised', () => {
@@ -301,7 +301,7 @@ describe('bootstrap confirm', () => {
       ).to.have.length(1);
       expect(
         popover.location.nativeElement.querySelectorAll('button')[0]
-      ).to.have.class('btn-default');
+      ).to.have.class('btn-outline-secondary');
     });
 
     it('should hide the cancel button', () => {
@@ -560,7 +560,7 @@ describe('bootstrap confirm', () => {
         TestComponent,
         `
         <button type="button"
-          class="btn btn-default"
+          class="btn btn-outline-secondary"
           mwlConfirmationPopover
           [closeOnOutsideClick]="false"
         >Show Popover</button>
@@ -570,16 +570,16 @@ describe('bootstrap confirm', () => {
       const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
 
-      // We will be tracking the hidePopover
-      const hidePopover = sinon.spy(confirm, 'hidePopover');
-      confirm.popover.changeDetectorRef.detectChanges();
-      flush();
+        // We will be tracking the hidePopover
+        const hidePopover = sinon.spy(confirm, 'hidePopover');
+        confirm.popover.changeDetectorRef.detectChanges();
+        flush();
 
-      // Simulating clicking outside of the popup
-      const btn: HTMLElement = document.createElement('button');
-      document.body.appendChild(btn);
-      btn.click();
-      flush();
+        // Simulating clicking outside of the popup
+        const btn: HTMLElement = document.createElement('button');
+        document.body.appendChild(btn);
+        btn.click();
+        flush();
 
       // Popover should still be open
       expect(hidePopover).to.not.have.been.called;
@@ -602,26 +602,45 @@ describe('bootstrap confirm', () => {
 
       fixture.nativeElement.querySelector('button').click();
 
-      // We will be tracking the hidePopover
-      const hidePopover = sinon.spy(confirm, 'hidePopover');
-      confirm.popover.changeDetectorRef.detectChanges();
-      flush();
+    it(
+      'should allow configuring clicking outside of popover globally',
+      fakeAsync(() => {
+        TestBed.configureTestingModule({
+          imports: [
+            ConfirmationPopoverModule.forRoot({
+              closeOnOutsideClick: false
+            })
+          ]
+        });
+        const fixture: ComponentFixture<
+          TestComponent
+        > = TestBed.createComponent(TestComponent);
+        fixture.detectChanges();
+        const confirm: any = fixture.componentInstance.confirm;
 
-      // Simulating clicking outside of the popup
-      const btn: HTMLElement = document.createElement('button');
-      document.body.appendChild(btn);
-      btn.click();
-      flush();
+        fixture.nativeElement.querySelector('button').click();
 
-      // Popover should still be open
-      expect(hidePopover).to.not.have.been.called;
-    }));
+        // We will be tracking the hidePopover
+        const hidePopover = sinon.spy(confirm, 'hidePopover');
+        confirm.popover.changeDetectorRef.detectChanges();
+        flush();
+
+        // Simulating clicking outside of the popup
+        const btn: HTMLElement = document.createElement('button');
+        document.body.appendChild(btn);
+        btn.click();
+        flush();
+
+        // Popover should still be open
+        expect(hidePopover).to.not.have.been.called;
+      })
+    );
   });
 
   describe('ConfirmOptions', () => {
     @Component({
       template: `
-        <button class="btn btn-default" mwlConfirmationPopover>
+        <button class="btn btn-outline-secondary" mwlConfirmationPopover>
           Show popover
         </button>
       `,
@@ -683,7 +702,7 @@ describe('bootstrap confirm', () => {
         set: {
           template: `
             <button
-              class="btn btn-default"
+              class="btn btn-outline-secondary"
               mwlConfirmationPopover
               [appendToBody]="false">
               Show popover
