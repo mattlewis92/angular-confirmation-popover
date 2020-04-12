@@ -2,7 +2,7 @@ import { Component, TrackByFunction } from '@angular/core';
 
 @Component({
   selector: 'mwl-demo',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
   placements: string[] = ['top', 'left', 'right', 'bottom'];

@@ -3,14 +3,14 @@ import {
   ElementRef,
   Input,
   OnChanges,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 
 /**
  * A helper directive to focus buttons. You will only need this if using a custom template
  */
 @Directive({
-  selector: '[mwlFocus]'
+  selector: '[mwlFocus]',
 })
 export class FocusDirective implements OnChanges {
   @Input() mwlFocus: boolean;

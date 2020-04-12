@@ -7,7 +7,7 @@ import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-
 @Component({
   selector: 'mwl-confirmation-popover-window',
   styleUrls: ['./confirmation-popover-window.component.scss'],
-  templateUrl: './confirmation-popover-window.component.html'
+  templateUrl: './confirmation-popover-window.component.html',
 })
 export class ConfirmationPopoverWindowComponent implements AfterViewInit {
   constructor(public options: ConfirmationPopoverWindowOptions) {}

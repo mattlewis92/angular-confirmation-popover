@@ -9,10 +9,10 @@ module.exports = (config: any) => {
       require('karma-mocha'),
       require('karma-chrome-launcher'),
       require('karma-coverage-istanbul-reporter'),
-      require('@angular-devkit/build-angular/plugins/karma')
+      require('@angular-devkit/build-angular/plugins/karma'),
     ],
     client: {
-      clearContext: false
+      clearContext: false,
     },
     coverageIstanbulReporter: {
       dir: require('path').join(
@@ -20,7 +20,7 @@ module.exports = (config: any) => {
         '../../coverage/angular-confirmation-popover'
       ),
       reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true
+      fixWebpackSourcePaths: true,
     },
     reporters: ['progress'],
     port: 9876,
@@ -31,7 +31,7 @@ module.exports = (config: any) => {
     singleRun: false,
     restartOnFileChange: true,
     mime: {
-      'text/x-typescript': ['ts']
-    }
+      'text/x-typescript': ['ts'],
+    },
   });
 };

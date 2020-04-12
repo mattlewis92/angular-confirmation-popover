@@ -6,7 +6,7 @@ import { ConfirmationPopoverWindowComponent } from './confirmation-popover-windo
 import { FocusDirective } from './focus.directive';
 import {
   ConfirmationPopoverOptions,
-  ConfirmationPopoverOptionsInterface
+  ConfirmationPopoverOptionsInterface,
 } from './confirmation-popover-options.provider';
 
 export const USER_OPTIONS: InjectionToken<string> = new InjectionToken(
@@ -25,11 +25,11 @@ export function optionsFactory(
   declarations: [
     ConfirmationPopoverDirective,
     ConfirmationPopoverWindowComponent,
-    FocusDirective
+    FocusDirective,
   ],
   imports: [CommonModule],
   exports: [ConfirmationPopoverDirective, FocusDirective],
-  entryComponents: [ConfirmationPopoverWindowComponent]
+  entryComponents: [ConfirmationPopoverWindowComponent],
 })
 export class ConfirmationPopoverModule {
   static forRoot(
@@ -40,15 +40,15 @@ export class ConfirmationPopoverModule {
       providers: [
         {
           provide: USER_OPTIONS,
-          useValue: options
+          useValue: options,
         },
         {
           provide: ConfirmationPopoverOptions,
           useFactory: optionsFactory,
-          deps: [USER_OPTIONS]
+          deps: [USER_OPTIONS],
         },
-        Positioning
-      ]
+        Positioning,
+      ],
     };
   }
 }

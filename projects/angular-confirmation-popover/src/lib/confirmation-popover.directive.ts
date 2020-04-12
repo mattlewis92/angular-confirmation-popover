@@ -15,7 +15,7 @@ import {
   Renderer2,
   TemplateRef,
   ComponentFactory,
-  SimpleChanges
+  SimpleChanges,
 } from '@angular/core';
 import { ConfirmationPopoverWindowComponent } from './confirmation-popover-window.component';
 import { ConfirmationPopoverOptions } from './confirmation-popover-options.provider';
@@ -46,7 +46,7 @@ export interface ConfirmCancelEvent {
  * ```
  */
 @Directive({
-  selector: '[mwlConfirmationPopover]'
+  selector: '[mwlConfirmationPopover]',
 })
 export class ConfirmationPopoverDirective
   implements OnDestroy, OnChanges, OnInit {
@@ -265,7 +265,9 @@ export class ConfirmationPopoverDirective
           this.renderer.listen('document', 'touchend', (event: Event) =>
             this.onDocumentClick(event)
           ),
-          this.renderer.listen('window', 'resize', () => this.positionPopover())
+          this.renderer.listen('window', 'resize', () =>
+            this.positionPopover()
+          ),
         ];
       });
 
@@ -279,7 +281,7 @@ export class ConfirmationPopoverDirective
         },
         onAfterViewInit: (): void => {
           this.positionPopover();
-        }
+        },
       });
 
       const optionalParams: (keyof ConfirmationPopoverDirective)[] = [
@@ -296,9 +298,9 @@ export class ConfirmationPopoverDirective
         'customTemplate',
         'reverseButtonOrder',
         'popoverTitle',
-        'popoverMessage'
+        'popoverMessage',
       ];
-      optionalParams.forEach(param => {
+      optionalParams.forEach((param) => {
         if (typeof this[param] !== 'undefined') {
           (options as any)[param] = this[param];
         }
@@ -311,8 +313,8 @@ export class ConfirmationPopoverDirective
         [
           {
             provide: ConfirmationPopoverWindowOptions,
-            useValue: options
-          }
+            useValue: options,
+          },
         ],
         this.viewContainerRef.parentInjector
       );
@@ -351,7 +353,7 @@ export class ConfirmationPopoverDirective
       this.popover.destroy();
       delete this.popover;
       this.isOpenChange.emit(false);
-      this.eventListeners.forEach(fn => fn());
+      this.eventListeners.forEach((fn) => fn());
       this.eventListeners = [];
     }
   }

@@ -6,7 +6,7 @@ import {
   TestBed,
   ComponentFixture,
   fakeAsync,
-  flush
+  flush,
 } from '@angular/core/testing';
 import { Positioning } from 'positioning';
 import { ConfirmationPopoverModule } from '../public-api';
@@ -42,7 +42,7 @@ describe('bootstrap confirm', () => {
         >
           Show popover
         </button>
-      `
+      `,
     })
     class TestComponent {
       @ViewChild(ConfirmationPopoverDirective, { static: true })
@@ -81,7 +81,7 @@ describe('bootstrap confirm', () => {
       TestBed.configureTestingModule({
         imports: [ConfirmationPopoverModule.forRoot()],
         declarations: [TestComponent],
-        providers: [{ provide: Positioning, useClass: PositionMock }]
+        providers: [{ provide: Positioning, useClass: PositionMock }],
       });
 
       createPopover = (): ComponentRef<ConfirmationPopoverWindowComponent> => {
@@ -608,9 +608,9 @@ describe('bootstrap confirm', () => {
       TestBed.configureTestingModule({
         imports: [
           ConfirmationPopoverModule.forRoot({
-            closeOnOutsideClick: false
-          })
-        ]
+            closeOnOutsideClick: false,
+          }),
+        ],
       });
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
         TestComponent
@@ -642,7 +642,7 @@ describe('bootstrap confirm', () => {
         <button class="btn btn-default" mwlConfirmationPopover>
           Show popover
         </button>
-      `
+      `,
     })
     class TestComponent {
       @ViewChild(ConfirmationPopoverDirective, { static: true })
@@ -653,10 +653,10 @@ describe('bootstrap confirm', () => {
       TestBed.configureTestingModule({
         imports: [
           ConfirmationPopoverModule.forRoot({
-            confirmText: 'Derp'
-          })
+            confirmText: 'Derp',
+          }),
         ],
-        declarations: [TestComponent]
+        declarations: [TestComponent],
       });
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
         TestComponent
@@ -675,10 +675,10 @@ describe('bootstrap confirm', () => {
       TestBed.configureTestingModule({
         imports: [
           ConfirmationPopoverModule.forRoot({
-            appendToBody: true
-          })
+            appendToBody: true,
+          }),
         ],
-        declarations: [TestComponent]
+        declarations: [TestComponent],
       });
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
         TestComponent
@@ -706,16 +706,16 @@ describe('bootstrap confirm', () => {
               [appendToBody]="false">
               Show popover
             </button>
-          `
-        }
+          `,
+        },
       });
       TestBed.configureTestingModule({
         imports: [
           ConfirmationPopoverModule.forRoot({
-            appendToBody: true
-          })
+            appendToBody: true,
+          }),
         ],
-        declarations: [TestComponent]
+        declarations: [TestComponent],
       });
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
         TestComponent
@@ -738,10 +738,10 @@ describe('bootstrap confirm', () => {
         imports: [
           ConfirmationPopoverModule.forRoot({
             popoverTitle: 'Default title',
-            popoverMessage: 'Default message'
-          })
+            popoverMessage: 'Default message',
+          }),
         ],
-        declarations: [TestComponent]
+        declarations: [TestComponent],
       });
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
         TestComponent

@@ -11,10 +11,10 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     BrowserModule,
     FormsModule,
     ConfirmationPopoverModule.forRoot({
-      focusButton: 'confirm'
-    })
+      focusButton: 'confirm',
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -46,10 +46,10 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
   declarations: [MyComponent],
   imports: [
     ConfirmationPopoverModule.forRoot({
-      confirmButtonType: 'danger' // set defaults here
-    })
+      confirmButtonType: 'danger', // set defaults here
+    }),
   ],
-  bootstrap: [MyComponent]
+  bootstrap: [MyComponent],
 })
 class MyModule {}
 
@@ -68,7 +68,7 @@ class MyModule {}
     >
       Click me!
     </button>
-  `
+  `,
 })
 class MyComponent {
   public popoverTitle: string = 'Popover title';
