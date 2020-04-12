@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/mattlewis92/angular-confirmation-popover#readme",
   "dependencies": {
-    "positioning": "^1.5.1"
+    "positioning": "^2.0.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.1",

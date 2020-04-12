@@ -8,7 +8,6 @@ import {
   fakeAsync,
   flush,
 } from '@angular/core/testing';
-import { Positioning } from 'positioning';
 import { ConfirmationPopoverModule } from '../public-api';
 import { ConfirmationPopoverDirective } from '../lib/confirmation-popover.directive';
 import { ConfirmationPopoverWindowComponent } from '../lib/confirmation-popover-window.component';
@@ -71,17 +70,10 @@ describe('bootstrap confirm', () => {
       fixture.nativeElement.querySelector('button').click();
     }
 
-    class PositionMock {
-      positionElements: sinon.SinonStub = sinon
-        .stub()
-        .returns({ top: 10, left: 20 });
-    }
-
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [ConfirmationPopoverModule.forRoot()],
         declarations: [TestComponent],
-        providers: [{ provide: Positioning, useClass: PositionMock }],
       });
 
       createPopover = (): ComponentRef<ConfirmationPopoverWindowComponent> => {
@@ -234,16 +226,6 @@ describe('bootstrap confirm', () => {
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(popover.location.nativeElement.children[0]).to.have.class(
         'my-class'
-      );
-    });
-
-    it('should position the popover according to the coordinates given by the position service', () => {
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
-      expect(popover.location.nativeElement.children[0].style.top).to.equal(
-        '10px'
-      );
-      expect(popover.location.nativeElement.children[0].style.left).to.equal(
-        '20px'
       );
     });
 

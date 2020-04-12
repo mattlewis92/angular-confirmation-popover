@@ -20,7 +20,7 @@ import {
 import { ConfirmationPopoverWindowComponent } from './confirmation-popover-window.component';
 import { ConfirmationPopoverOptions } from './confirmation-popover-options.provider';
 import { ConfirmationPopoverWindowOptions } from './confirmation-popover-window-options.provider';
-import { Positioning } from 'positioning';
+import { positionElements } from 'positioning';
 
 /**
  * @internal
@@ -178,7 +178,6 @@ export class ConfirmationPopoverDirective
     private elm: ElementRef,
     private defaultOptions: ConfirmationPopoverOptions,
     private cfr: ComponentFactoryResolver,
-    private position: Positioning,
     private renderer: Renderer2
   ) {}
 
@@ -332,17 +331,11 @@ export class ConfirmationPopoverDirective
   private positionPopover(): void {
     if (this.popover) {
       const popoverElement = this.popover.location.nativeElement.children[0];
-      const popoverPosition = this.position.positionElements(
+      positionElements(
         this.elm.nativeElement,
         popoverElement,
         this.placement || this.defaultOptions.placement,
         this.appendToBody || this.defaultOptions.appendToBody
-      );
-      this.renderer.setStyle(popoverElement, 'top', `${popoverPosition.top}px`);
-      this.renderer.setStyle(
-        popoverElement,
-        'left',
-        `${popoverPosition.left}px`
       );
     }
   }

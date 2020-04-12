@@ -1,6 +1,5 @@
 import { NgModule, ModuleWithProviders, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Positioning } from 'positioning';
 import { ConfirmationPopoverDirective } from './confirmation-popover.directive';
 import { ConfirmationPopoverWindowComponent } from './confirmation-popover-window.component';
 import { FocusDirective } from './focus.directive';
@@ -47,7 +46,6 @@ export class ConfirmationPopoverModule {
           useFactory: optionsFactory,
           deps: [USER_OPTIONS],
         },
-        Positioning,
       ],
     };
   }
