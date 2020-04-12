@@ -1,8 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "files": [
-    "src/confirmation-popover.module.ts",
-    "src/confirmation-popover.directive.ts",
-    "src/confirmation-popover-options.provider.ts"
+    "projects/angular-confirmation-popover/src/lib/confirmation-popover.module.ts",
+    "projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts",
+    "projects/angular-confirmation-popover/src/lib/confirmation-popover-options.provider.ts"
   ]
 }
