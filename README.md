@@ -26,22 +26,20 @@ A simple angular 9.0+ directive to display a bootstrap styled confirmation popov
 
 ## Installation
 
-Install through npm:
+1. Install through npm:
 
 ```
-npm install --save angular-confirmation-popover
+npm install angular-confirmation-popover
 ```
 
-Then use it in your app on a component:
+2. Install bootstrap (both v3 and v4 are supported). If not using bootstrap you could implement the popover styles yourself.
+
+3. Add the NgModule:
 
 ```typescript
-// include bootstrap - both v3 and v4 are supported
-// if not using bootstrap you could implement the popover styles yourself
-import 'bootstrap/dist/css/bootstrap.css';
 import { NgModule, Component } from '@angular/core';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
-// first add it to your apps module
 @NgModule({
   declarations: [MyComponent],
   imports: [
@@ -52,8 +50,11 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
   bootstrap: [MyComponent],
 })
 class MyModule {}
+```
 
-// now use it within your component
+4. Now use it within your component
+
+```typescript
 @Component({
   selector: 'my-component',
   template: `
@@ -71,21 +72,21 @@ class MyModule {}
   `,
 })
 class MyComponent {
-  public popoverTitle: string = 'Popover title';
-  public popoverMessage: string = 'Popover description';
-  public confirmClicked: boolean = false;
-  public cancelClicked: boolean = false;
+  popoverTitle = 'Popover title';
+  popoverMessage = 'Popover description';
+  confirmClicked = false;
+  cancelClicked = false;
 }
 ```
 
-You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-confirmation-popover/blob/master/demo/demo.component.ts).
+You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-confirmation-popover/blob/master/projects/demo/app).
 
 ## Documentation
 
 All documentation is auto-generated from the source via compodoc and can be viewed here:
 https://mattlewis92.github.io/angular-confirmation-popover/docs/
 
-The main `mwlConfirmationPopover` directive options can be viewed [here](https://mattlewis92.github.io/angular-confirmation-popover/docs/directives/ConfirmationPopover.html).
+The main `mwlConfirmationPopover` directive options can be viewed [here](https://mattlewis92.github.io/angular-confirmation-popover/docs/directives/ConfirmationPopoverDirective.html).
 
 ## Development
 

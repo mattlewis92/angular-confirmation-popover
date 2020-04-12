@@ -30,20 +30,20 @@ export interface ConfirmCancelEvent {
 }
 
 /**
- * All properties can be set on the directive as attributes like so (use `ConfirmationPopoverModule.forRoot()` to configure them globally):
- * ```html
- * <button
- *  class="btn btn-default"
- *  mwlConfirmationPopover
- *  [popoverTitle]="popoverTitle"
- *  [popoverMessage]="popoverMessage"
- *  placement="left"
- *  (confirm)="confirmClicked = true"
- *  (cancel)="cancelClicked = true"
- *  [(isOpen)]="isOpen">
- *   Show confirm popover!
- * </button>
- * ```
+ All properties can be set on the directive as attributes like so (use `ConfirmationPopoverModule.forRoot()` to configure them globally):
+ ```html
+ <button
+   class="btn btn-default"
+   mwlConfirmationPopover
+   [popoverTitle]="popoverTitle"
+   [popoverMessage]="popoverMessage"
+   placement="left"
+   (confirm)="confirmClicked = true"
+   (cancel)="cancelClicked = true"
+   [(isOpen)]="isOpen">
+    Show confirm popover!
+  </button>
+  ```
  */
 @Directive({
   selector: '[mwlConfirmationPopover]',
