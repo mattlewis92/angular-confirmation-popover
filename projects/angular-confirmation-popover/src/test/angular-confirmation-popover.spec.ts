@@ -1,12 +1,5 @@
 /* tslint:disable:no-unused-expression max-classes-per-file */
-import 'core-js';
-import 'zone.js/dist/zone';
-import 'zone.js/dist/long-stack-trace-zone';
-import 'zone.js/dist/proxy';
-import 'zone.js/dist/sync-test';
-import 'zone.js/dist/mocha-patch';
-import 'zone.js/dist/async-test';
-import 'zone.js/dist/fake-async-test';
+
 import { Component, ViewChild, ComponentRef } from '@angular/core';
 import {
   async,
@@ -15,26 +8,12 @@ import {
   fakeAsync,
   flush
 } from '@angular/core/testing';
-import {
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting
-} from '@angular/platform-browser-dynamic/testing';
 import { Positioning } from 'positioning';
-import { ConfirmationPopoverModule } from '../src';
-import { ConfirmationPopoverDirective } from '../src/confirmation-popover.directive';
-import { ConfirmationPopoverWindowComponent } from '../src/confirmation-popover-window.component';
-import { expect, use } from 'chai';
+import { ConfirmationPopoverModule } from '../public-api';
+import { ConfirmationPopoverDirective } from '../lib/confirmation-popover.directive';
+import { ConfirmationPopoverWindowComponent } from '../lib/confirmation-popover-window.component';
+import { expect } from 'chai';
 import * as sinon from 'sinon';
-import * as sinonChai from 'sinon-chai';
-import * as chaiDom from 'chai-dom';
-
-use(sinonChai);
-use(chaiDom);
-
-TestBed.initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
-);
 
 describe('bootstrap confirm', () => {
   describe('ConfirmationPopover directive', () => {
@@ -59,13 +38,14 @@ describe('bootstrap confirm', () => {
           [isDisabled]="isDisabled"
           [(isOpen)]="isOpen"
           [appendToBody]="appendToBody"
-          [reverseButtonOrder]="reverseButtonOrder">
+          [reverseButtonOrder]="reverseButtonOrder"
+        >
           Show popover
         </button>
       `
     })
     class TestComponent {
-      @ViewChild(ConfirmationPopoverDirective)
+      @ViewChild(ConfirmationPopoverDirective, { static: true })
       confirm: ConfirmationPopoverDirective;
       placement: string = 'left';
       popoverTitle: string = 'Are you sure?';
@@ -105,9 +85,9 @@ describe('bootstrap confirm', () => {
       });
 
       createPopover = (): ComponentRef<ConfirmationPopoverWindowComponent> => {
-        const fixture: ComponentFixture<
+        const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
           TestComponent
-        > = TestBed.createComponent(TestComponent);
+        );
         fixture.detectChanges();
         clickFixture(fixture);
         const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
@@ -183,103 +163,82 @@ describe('bootstrap confirm', () => {
       expect(hidePopover).to.have.been.calledOnce;
     });
 
-    it(
-      'should hide the popover when an element not inside the popover is clicked',
-      fakeAsync(() => {
-        const fixture: ComponentFixture<
-          TestComponent
-        > = TestBed.createComponent(TestComponent);
-        fixture.detectChanges();
-        const confirm: any = fixture.componentInstance.confirm;
-        clickFixture(fixture);
-        const hidePopover = sinon.spy(confirm, 'hidePopover');
-        confirm.popover.changeDetectorRef.detectChanges();
-        flush();
-        const btn: HTMLElement = document.createElement('button');
-        document.body.appendChild(btn);
-        btn.click();
-        flush();
-        expect(hidePopover).to.have.been.calledOnce;
-        btn.parentNode!.removeChild(btn);
-      })
-    );
+    it('should hide the popover when an element not inside the popover is clicked', fakeAsync(() => {
+      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+        TestComponent
+      );
+      fixture.detectChanges();
+      const confirm: any = fixture.componentInstance.confirm;
+      clickFixture(fixture);
+      const hidePopover = sinon.spy(confirm, 'hidePopover');
+      confirm.popover.changeDetectorRef.detectChanges();
+      flush();
+      const btn: HTMLElement = document.createElement('button');
+      document.body.appendChild(btn);
+      btn.click();
+      flush();
+      expect(hidePopover).to.have.been.calledOnce;
+      btn.parentNode!.removeChild(btn);
+    }));
 
     it('should allow the popover title to be customised', () => {
-      const popover: ComponentRef<
-        ConfirmationPopoverWindowComponent
-      > = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(
         popover.location.nativeElement.querySelector('.popover-title')
       ).to.have.html('Are you sure?');
     });
 
     it('should allow the popover description to be customised', () => {
-      const popover: ComponentRef<
-        ConfirmationPopoverWindowComponent
-      > = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(
         popover.location.nativeElement.querySelector('.popover-content > p')
       ).to.have.html('Are you really <b>sure</b> you want to do this?');
     });
 
     it('should allow the confirm button text to be customised', () => {
-      const popover: ComponentRef<
-        ConfirmationPopoverWindowComponent
-      > = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(
         popover.location.nativeElement.querySelectorAll('button')[1]
       ).to.have.html('Yes <i class="glyphicon glyphicon-ok"></i>');
     });
 
     it('should allow the cancel button text to be customised', () => {
-      const popover: ComponentRef<
-        ConfirmationPopoverWindowComponent
-      > = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(
         popover.location.nativeElement.querySelectorAll('button')[0]
       ).to.have.html('No <i class="glyphicon glyphicon-remove"></i>');
     });
 
     it('should allow the confirm button type to be customised', () => {
-      const popover: ComponentRef<
-        ConfirmationPopoverWindowComponent
-      > = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(
         popover.location.nativeElement.querySelectorAll('button')[1]
       ).to.have.class('btn-danger');
     });
 
     it('should allow the cancel button type to be customised', () => {
-      const popover: ComponentRef<
-        ConfirmationPopoverWindowComponent
-      > = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(
         popover.location.nativeElement.querySelectorAll('button')[0]
       ).to.have.class('btn-default');
     });
 
     it('should allow the placement to be customised', () => {
-      const popover: ComponentRef<
-        ConfirmationPopoverWindowComponent
-      > = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(popover.location.nativeElement.children[0]).to.have.class(
         'popover-left'
       );
     });
 
     it('should a custom class to be set on the popover', () => {
-      const popover: ComponentRef<
-        ConfirmationPopoverWindowComponent
-      > = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(popover.location.nativeElement.children[0]).to.have.class(
         'my-class'
       );
     });
 
     it('should position the popover according to the coordinates given by the position service', () => {
-      const popover: ComponentRef<
-        ConfirmationPopoverWindowComponent
-      > = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(popover.location.nativeElement.children[0].style.top).to.equal(
         '10px'
       );
@@ -288,33 +247,28 @@ describe('bootstrap confirm', () => {
       );
     });
 
-    it(
-      'should re-position the popover when the window resizes',
-      fakeAsync(() => {
-        const fixture: ComponentFixture<
-          TestComponent
-        > = TestBed.createComponent(TestComponent);
-        fixture.detectChanges();
-        fixture.componentInstance.focusButton = 'confirm';
-        fixture.detectChanges();
-        clickFixture(fixture);
-        const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
-          fixture.componentInstance.confirm.popover;
-        popover.changeDetectorRef.detectChanges();
-        flush();
-        const positionPopover: sinon.SinonSpy = sinon.spy(
-          fixture.componentInstance.confirm as any,
-          'positionPopover'
-        );
-        window.dispatchEvent(new Event('resize'));
-        expect(positionPopover).to.have.been.calledOnce;
-      })
-    );
+    it('should re-position the popover when the window resizes', fakeAsync(() => {
+      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+        TestComponent
+      );
+      fixture.detectChanges();
+      fixture.componentInstance.focusButton = 'confirm';
+      fixture.detectChanges();
+      clickFixture(fixture);
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        fixture.componentInstance.confirm.popover;
+      popover.changeDetectorRef.detectChanges();
+      flush();
+      const positionPopover: sinon.SinonSpy = sinon.spy(
+        fixture.componentInstance.confirm as any,
+        'positionPopover'
+      );
+      window.dispatchEvent(new Event('resize'));
+      expect(positionPopover).to.have.been.calledOnce;
+    }));
 
     it('should not focus either button by default', () => {
-      const popover: ComponentRef<
-        ConfirmationPopoverWindowComponent
-      > = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(popover.location.nativeElement.contains(document.activeElement))
         .not.to.be.ok;
     });
@@ -620,13 +574,16 @@ describe('bootstrap confirm', () => {
     });
 
     it('should allow configuring clicking outside of popover to close it', fakeAsync(() => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.overrideTemplate(TestComponent, `
+      const fixture: ComponentFixture<TestComponent> = TestBed.overrideTemplate(
+        TestComponent,
+        `
         <button type="button"
           class="btn btn-default"
           mwlConfirmationPopover
           [closeOnOutsideClick]="false"
         >Show Popover</button>
-      `).createComponent(TestComponent);
+      `
+      ).createComponent(TestComponent);
       fixture.detectChanges();
       const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
@@ -646,7 +603,7 @@ describe('bootstrap confirm', () => {
       expect(hidePopover).to.not.have.been.called;
       btn.parentNode!.removeChild(btn);
     }));
-    
+
     it('should allow configuring clicking outside of popover globally', fakeAsync(() => {
       TestBed.configureTestingModule({
         imports: [
@@ -654,13 +611,13 @@ describe('bootstrap confirm', () => {
             closeOnOutsideClick: false
           })
         ]
-      })
+      });
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
         TestComponent
       );
       fixture.detectChanges();
       const confirm: any = fixture.componentInstance.confirm;
-      
+
       fixture.nativeElement.querySelector('button').click();
 
       // We will be tracking the hidePopover
@@ -682,15 +639,13 @@ describe('bootstrap confirm', () => {
   describe('ConfirmOptions', () => {
     @Component({
       template: `
-        <button
-          class="btn btn-default"
-          mwlConfirmationPopover>
+        <button class="btn btn-default" mwlConfirmationPopover>
           Show popover
         </button>
       `
     })
     class TestComponent {
-      @ViewChild(ConfirmationPopoverDirective)
+      @ViewChild(ConfirmationPopoverDirective, { static: true })
       confirm: ConfirmationPopoverDirective;
     }
 

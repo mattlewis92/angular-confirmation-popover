@@ -3,7 +3,6 @@ import {
   ElementRef,
   Input,
   OnChanges,
-  Renderer,
   SimpleChanges
 } from '@angular/core';
 

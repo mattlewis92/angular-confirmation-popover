@@ -168,7 +168,7 @@ export class ConfirmationPopoverDirective
    */
   popover: ComponentRef<ConfirmationPopoverWindowComponent>;
 
-  private eventListeners: Array<() => void> = [];
+  private eventListeners: (() => void)[] = [];
 
   /**
    * @internal
@@ -238,8 +238,10 @@ export class ConfirmationPopoverDirective
   }
 
   private onDocumentClick(event: Event): void {
-    const closeOnOutsideClick = typeof this.closeOnOutsideClick !== 'undefined' ? 
-      this.closeOnOutsideClick : this.defaultOptions.closeOnOutsideClick;
+    const closeOnOutsideClick =
+      typeof this.closeOnOutsideClick !== 'undefined'
+        ? this.closeOnOutsideClick
+        : this.defaultOptions.closeOnOutsideClick;
     if (
       this.popover &&
       !this.elm.nativeElement.contains(event.target) &&
@@ -280,7 +282,7 @@ export class ConfirmationPopoverDirective
         }
       });
 
-      const optionalParams: Array<keyof ConfirmationPopoverDirective> = [
+      const optionalParams: (keyof ConfirmationPopoverDirective)[] = [
         'confirmText',
         'cancelText',
         'placement',
@@ -302,9 +304,9 @@ export class ConfirmationPopoverDirective
         }
       });
 
-      const componentFactory: ComponentFactory<
+      const componentFactory: ComponentFactory<ConfirmationPopoverWindowComponent> = this.cfr.resolveComponentFactory(
         ConfirmationPopoverWindowComponent
-      > = this.cfr.resolveComponentFactory(ConfirmationPopoverWindowComponent);
+      );
       const childInjector = Injector.create(
         [
           {

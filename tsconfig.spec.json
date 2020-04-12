@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/spec",
+    "types": ["mocha", "node"]
+  },
+  "files": ["projects/demo/test.ts", "projects/demo/polyfills.ts"],
+  "include": ["projects/demo/**/*.spec.ts", "projects/demo/**/*.d.ts"]
+}
