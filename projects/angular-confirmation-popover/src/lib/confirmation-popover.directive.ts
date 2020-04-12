@@ -309,15 +309,14 @@ export class ConfirmationPopoverDirective
       const componentFactory: ComponentFactory<ConfirmationPopoverWindowComponent> = this.cfr.resolveComponentFactory(
         ConfirmationPopoverWindowComponent
       );
-      const childInjector = Injector.create(
-        [
+      const childInjector = Injector.create({
+        providers: [
           {
             provide: ConfirmationPopoverWindowOptions,
             useValue: options,
           },
         ],
-        this.viewContainerRef.parentInjector
-      );
+      });
       this.popover = this.viewContainerRef.createComponent(
         componentFactory,
         this.viewContainerRef.length,
