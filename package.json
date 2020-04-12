@@ -69,6 +69,7 @@
     "@types/node": "^13.11.1",
     "@types/sinon": "^9.0.0",
     "@types/sinon-chai": "^3.2.4",
+    "angular-cli-ghpages": "^0.5.3",
     "chai": "^4.2.0",
     "chai-dom": "^1.8.2",
     "codecov": "^3.6.5",
