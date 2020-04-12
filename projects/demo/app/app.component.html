@@ -18,7 +18,7 @@
   <div class="text-center">
     <span *ngFor="let placement of placements; trackBy: trackByValue">
       <button
-        class="btn btn-default"
+        class="btn btn-outline-dark"
         mwlConfirmationPopover
         [popoverTitle]="popoverTitle"
         [popoverMessage]="popoverMessage"
@@ -28,7 +28,7 @@
         (confirm)="confirmClicked = true"
         (cancel)="cancelClicked = true"
         confirmButtonType="danger"
-        cancelButtonType="default"
+        cancelButtonType="outline-secondary"
         (click)="confirmClicked = false; cancelClicked = false"
         [appendToBody]="true"
       >

@@ -5,12 +5,12 @@ import { Component, TrackByFunction } from '@angular/core';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  placements: string[] = ['top', 'left', 'right', 'bottom'];
-  popoverTitle: string = 'Are you sure?';
-  popoverMessage: string = 'Are you really <b>sure</b> you want to do this?';
-  confirmText: string = 'Yes <i class="glyphicon glyphicon-ok"></i>';
-  cancelText: string = 'No <i class="glyphicon glyphicon-remove"></i>';
-  confirmClicked: boolean = false;
-  cancelClicked: boolean = false;
+  placements = ['top', 'left', 'right', 'bottom'];
+  popoverTitle = 'Are you sure?';
+  popoverMessage = 'Are you really <b>sure</b> you want to do this?';
+  confirmText = 'Yes <i class="fas fa-check"></i>';
+  cancelText = 'No <i class="fas fa-times"></i>';
+  confirmClicked = false;
+  cancelClicked = false;
   trackByValue: TrackByFunction<string> = (index, value) => value;
 }
