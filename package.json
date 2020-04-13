@@ -19,7 +19,7 @@
     "release:npm": "npm run build:lib && npm publish dist/angular-confirmation-popover",
     "release": "npm run release:git && npm run release:npm",
     "postrelease": "npm run gh-pages",
-    "gh-pages": "npm run build:clean && npm run build:demo && npm run compodoc && ngh --dir=dist/demo && npm run build:clean"
+    "gh-pages": "npm run build:clean && npm run build:demo && npm run compodoc && ng deploy && npm run build:clean"
   },
   "husky": {
     "hooks": {
@@ -69,7 +69,7 @@
     "@types/node": "^13.11.1",
     "@types/sinon": "^9.0.0",
     "@types/sinon-chai": "^3.2.4",
-    "angular-cli-ghpages": "^0.5.3",
+    "angular-cli-ghpages": "^0.6.2",
     "chai": "^4.2.0",
     "chai-dom": "^1.8.2",
     "codecov": "^3.6.5",

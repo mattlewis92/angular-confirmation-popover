@@ -75,6 +75,13 @@
             "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json"],
             "exclude": ["**/node_modules/**"]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "noSilent": true,
+            "noBuild": true
+          }
         }
       }
     },
