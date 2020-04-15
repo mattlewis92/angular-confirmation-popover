@@ -77,7 +77,7 @@ export class ConfirmationPopoverOptions
   confirmText: string = 'Confirm';
   cancelText: string = 'Cancel';
   confirmButtonType: string = 'success';
-  cancelButtonType: string = 'secondary';
+  cancelButtonType: string = 'outline-secondary';
   placement: string = 'top';
   focusButton: string;
   hideConfirmButton: boolean = false;
