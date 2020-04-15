@@ -586,22 +586,6 @@ describe('bootstrap confirm', () => {
       btn.parentNode!.removeChild(btn);
     }));
 
-    it('should allow configuring clicking outside of popover globally', fakeAsync(() => {
-      TestBed.configureTestingModule({
-        imports: [
-          ConfirmationPopoverModule.forRoot({
-            closeOnOutsideClick: false,
-          }),
-        ],
-      });
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
-      fixture.detectChanges();
-      const confirm: any = fixture.componentInstance.confirm;
-
-      fixture.nativeElement.querySelector('button').click();
-
     it(
       'should allow configuring clicking outside of popover globally',
       fakeAsync(() => {
@@ -635,7 +619,6 @@ describe('bootstrap confirm', () => {
         expect(hidePopover).to.not.have.been.called;
       })
     );
-  });
 
   describe('ConfirmOptions', () => {
     @Component({
