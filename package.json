@@ -1,6 +1,6 @@
 {
   "name": "angular-confirmation-popover",
-  "version": "4.2.2",
+  "version": "5.0.0",
   "description": "An angular 9.0+ bootstrap confirmation popover",
   "scripts": {
     "start": "concurrently --raw \"ng serve --open\" \"npm run test:watch\"",

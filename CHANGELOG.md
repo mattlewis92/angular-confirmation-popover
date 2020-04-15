@@ -1,6 +1,22 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [5.0.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v4.2.2...v5.0.0) (2020-04-15)
+
+### ⚠ BREAKING CHANGES
+
+- the default buttons classes are now set to bootstrap 4 instead of bootstrap 3. If still using bootstrap 3 you can revert to the previous behaviour by setting `cancelButtonType: 'default'` in the forRoot method of the `ConfirmationPopoverModule`.
+- angular 9 or higher is now required to use this package
+
+### Features
+
+- set defaults to bootstrap 4 ([ebfeaf1](https://github.com/mattlewis92/angular-confirmation-popover/commit/ebfeaf10d10c4effbd3c62ce9981d60177600bba))
+- upgrade to angular 9 ([5af184c](https://github.com/mattlewis92/angular-confirmation-popover/commit/5af184c41b635a75361aa92437dc4b98d12507dc))
+
+### Bug Fixes
+
+- fix popover arrow positioning for bootstrap 4 ([144e34a](https://github.com/mattlewis92/angular-confirmation-popover/commit/144e34a649876cab2e12d2026951440f017cb9a1))
 
 <a name="4.2.2"></a>
 
