@@ -29,7 +29,7 @@ describe('bootstrap confirm', () => {
           (confirm)="confirmClicked($event)"
           (cancel)="cancelClicked($event)"
           confirmButtonType="danger"
-          cancelButtonType="secondary"
+          cancelButtonType="default"
           [popoverClass]="popoverClass"
           [focusButton]="focusButton"
           [hideConfirmButton]="hideConfirmButton"
@@ -570,55 +570,53 @@ describe('bootstrap confirm', () => {
       const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
 
-        // We will be tracking the hidePopover
-        const hidePopover = sinon.spy(confirm, 'hidePopover');
-        confirm.popover.changeDetectorRef.detectChanges();
-        flush();
+      // We will be tracking the hidePopover
+      const hidePopover = sinon.spy(confirm, 'hidePopover');
+      confirm.popover.changeDetectorRef.detectChanges();
+      flush();
 
-        // Simulating clicking outside of the popup
-        const btn: HTMLElement = document.createElement('button');
-        document.body.appendChild(btn);
-        btn.click();
-        flush();
+      // Simulating clicking outside of the popup
+      const btn: HTMLElement = document.createElement('button');
+      document.body.appendChild(btn);
+      btn.click();
+      flush();
 
       // Popover should still be open
       expect(hidePopover).to.not.have.been.called;
       btn.parentNode!.removeChild(btn);
     }));
 
-    it(
-      'should allow configuring clicking outside of popover globally',
-      fakeAsync(() => {
-        TestBed.configureTestingModule({
-          imports: [
-            ConfirmationPopoverModule.forRoot({
-              closeOnOutsideClick: false
-            })
-          ]
-        });
-        const fixture: ComponentFixture<
-          TestComponent
-        > = TestBed.createComponent(TestComponent);
-        fixture.detectChanges();
-        const confirm: any = fixture.componentInstance.confirm;
+    it('should allow configuring clicking outside of popover globally', fakeAsync(() => {
+      TestBed.configureTestingModule({
+        imports: [
+          ConfirmationPopoverModule.forRoot({
+            closeOnOutsideClick: false,
+          }),
+        ],
+      });
+      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
+        TestComponent
+      );
+      fixture.detectChanges();
+      const confirm: any = fixture.componentInstance.confirm;
 
-        fixture.nativeElement.querySelector('button').click();
+      fixture.nativeElement.querySelector('button').click();
 
-        // We will be tracking the hidePopover
-        const hidePopover = sinon.spy(confirm, 'hidePopover');
-        confirm.popover.changeDetectorRef.detectChanges();
-        flush();
+      // We will be tracking the hidePopover
+      const hidePopover = sinon.spy(confirm, 'hidePopover');
+      confirm.popover.changeDetectorRef.detectChanges();
+      flush();
 
-        // Simulating clicking outside of the popup
-        const btn: HTMLElement = document.createElement('button');
-        document.body.appendChild(btn);
-        btn.click();
-        flush();
+      // Simulating clicking outside of the popup
+      const btn: HTMLElement = document.createElement('button');
+      document.body.appendChild(btn);
+      btn.click();
+      flush();
 
-        // Popover should still be open
-        expect(hidePopover).to.not.have.been.called;
-      })
-    );
+      // Popover should still be open
+      expect(hidePopover).to.not.have.been.called;
+    }));
+  });
 
   describe('ConfirmOptions', () => {
     @Component({
