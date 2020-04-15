@@ -5,7 +5,7 @@
   "scripts": {
     "start": "concurrently --raw \"ng serve --open\" \"npm run test:watch\"",
     "build:demo": "ng build --prod",
-    "build:lib": "copyfiles package.json projects/angular-confirmation-popover && ng build angular-confirmation-popover && npm run copyfiles",
+    "build:lib": "copyfiles package.json projects/angular-confirmation-popover && ng build angular-confirmation-popover --prod && npm run copyfiles",
     "build:clean": "del dist",
     "copyfiles": "copyfiles CHANGELOG.md README.md LICENSE dist/angular-confirmation-popover",
     "test": "npm run lint && ng test angular-confirmation-popover --watch=false --code-coverage && npm run build:lib && npm run build:clean",
