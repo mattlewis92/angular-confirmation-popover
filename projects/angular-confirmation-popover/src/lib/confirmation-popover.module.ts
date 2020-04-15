@@ -15,7 +15,7 @@ export const USER_OPTIONS: InjectionToken<string> = new InjectionToken(
 export function optionsFactory(
   userOptions: ConfirmationPopoverOptions
 ): ConfirmationPopoverOptions {
-  const options: ConfirmationPopoverOptions = new ConfirmationPopoverOptions();
+  const options = new ConfirmationPopoverOptions();
   Object.assign(options, userOptions);
   return options;
 }
@@ -33,7 +33,7 @@ export function optionsFactory(
 export class ConfirmationPopoverModule {
   static forRoot(
     options: ConfirmationPopoverOptionsInterface = {}
-  ): ModuleWithProviders {
+  ): ModuleWithProviders<ConfirmationPopoverModule> {
     return {
       ngModule: ConfirmationPopoverModule,
       providers: [

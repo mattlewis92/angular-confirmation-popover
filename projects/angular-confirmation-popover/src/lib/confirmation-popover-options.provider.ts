@@ -1,3 +1,5 @@
+import { Injectable } from '@angular/core';
+
 export interface ConfirmationPopoverOptionsInterface {
   /**
    * The popover title
@@ -70,6 +72,7 @@ export interface ConfirmationPopoverOptionsInterface {
   closeOnOutsideClick?: boolean;
 }
 
+@Injectable()
 export class ConfirmationPopoverOptions
   implements ConfirmationPopoverOptionsInterface {
   popoverTitle: string;

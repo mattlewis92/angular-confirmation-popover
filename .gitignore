@@ -40,6 +40,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+projects/angular-confirmation-popover/package.json
 
 # System Files
 .DS_Store

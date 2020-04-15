@@ -7,8 +7,8 @@ import { ConfirmationPopoverOptions } from './confirmation-popover-options.provi
  */
 @Injectable()
 export class ConfirmationPopoverWindowOptions extends ConfirmationPopoverOptions {
-  public onConfirm: (event: ConfirmCancelEvent) => void;
-  public onCancel: (event: ConfirmCancelEvent) => void;
-  public onAfterViewInit: () => void;
-  public customTemplate: TemplateRef<any>;
+  onConfirm: (event: ConfirmCancelEvent) => void;
+  onCancel: (event: ConfirmCancelEvent) => void;
+  onAfterViewInit: () => void;
+  customTemplate: TemplateRef<any>;
 }
