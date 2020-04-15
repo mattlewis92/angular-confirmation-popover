@@ -59,7 +59,7 @@ class MyModule {}
   selector: 'my-component',
   template: `
     <button
-      class="btn btn-default"
+      class="btn btn-outline-secondary"
       mwlConfirmationPopover
       [popoverTitle]="popoverTitle"
       [popoverMessage]="popoverMessage"

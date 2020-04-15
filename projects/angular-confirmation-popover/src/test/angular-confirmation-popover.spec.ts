@@ -19,7 +19,7 @@ describe('bootstrap confirm', () => {
     @Component({
       template: `
         <button
-          class="btn btn-default"
+          class="btn btn-outline-secondary"
           mwlConfirmationPopover
           [popoverTitle]="popoverTitle"
           [popoverMessage]="popoverMessage"
@@ -29,7 +29,7 @@ describe('bootstrap confirm', () => {
           (confirm)="confirmClicked($event)"
           (cancel)="cancelClicked($event)"
           confirmButtonType="danger"
-          cancelButtonType="default"
+          cancelButtonType="outline-secondary"
           [popoverClass]="popoverClass"
           [focusButton]="focusButton"
           [hideConfirmButton]="hideConfirmButton"
@@ -212,7 +212,7 @@ describe('bootstrap confirm', () => {
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
       expect(
         popover.location.nativeElement.querySelectorAll('button')[0]
-      ).to.have.class('btn-default');
+      ).to.have.class('btn-outline-secondary');
     });
 
     it('should allow the placement to be customised', () => {
@@ -301,7 +301,7 @@ describe('bootstrap confirm', () => {
       ).to.have.length(1);
       expect(
         popover.location.nativeElement.querySelectorAll('button')[0]
-      ).to.have.class('btn-default');
+      ).to.have.class('btn-outline-secondary');
     });
 
     it('should hide the cancel button', () => {
@@ -560,7 +560,7 @@ describe('bootstrap confirm', () => {
         TestComponent,
         `
         <button type="button"
-          class="btn btn-default"
+          class="btn btn-outline-secondary"
           mwlConfirmationPopover
           [closeOnOutsideClick]="false"
         >Show Popover</button>
@@ -621,7 +621,7 @@ describe('bootstrap confirm', () => {
   describe('ConfirmOptions', () => {
     @Component({
       template: `
-        <button class="btn btn-default" mwlConfirmationPopover>
+        <button class="btn btn-outline-secondary" mwlConfirmationPopover>
           Show popover
         </button>
       `,
@@ -683,7 +683,7 @@ describe('bootstrap confirm', () => {
         set: {
           template: `
             <button
-              class="btn btn-default"
+              class="btn btn-outline-secondary"
               mwlConfirmationPopover
               [appendToBody]="false">
               Show popover
