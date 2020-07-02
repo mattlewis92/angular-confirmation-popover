@@ -1,6 +1,6 @@
 {
   "name": "angular-confirmation-popover",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "An angular 9.0+ bootstrap confirmation popover",
   "scripts": {
     "start": "concurrently --raw \"ng serve --open\" \"npm run test:watch\"",
@@ -102,7 +102,8 @@
   },
   "peerDependencies": {
     "@angular/common": ">=9.0.0",
-    "@angular/core": ">=9.0.0"
+    "@angular/core": ">=9.0.0",
+    "tslib": ">=1.10.0"
   },
   "config": {
     "commitizen": {
