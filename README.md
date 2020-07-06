@@ -20,7 +20,7 @@ https://mattlewis92.github.io/angular-confirmation-popover/
 
 ## About
 
-A simple angular 9.0+ directive to display a bootstrap styled confirmation popover when an element is clicked.
+A simple angular 10.0+ directive to display a bootstrap styled confirmation popover when an element is clicked.
 
 [AngularJS 1.x version](https://github.com/mattlewis92/angular-bootstrap-confirm)
 

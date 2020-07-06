@@ -1,6 +1,9 @@
 {
   "extends": "tslint-config-mwl",
   "rules": {
+    "deprecation": {
+      "severity": "warning"
+    },
     "no-inferrable-types": false,
     "jsdoc-format": false
   }
