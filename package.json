@@ -16,7 +16,7 @@
     "compodoc": "compodoc -p tsconfig-compodoc.json -d dist/demo/docs --disableGraph --disableCoverage --disablePrivate --disableInternal --disableLifeCycleHooks --disableProtected",
     "prerelease": "npm test",
     "release:git": "standard-version && git push --follow-tags origin main",
-    "release:npm": "pnpm build:lib && npm publish dist/angular-confirmation-popover",
+    "release:npm": "pnpm build:lib && pnpm publish dist/angular-confirmation-popover",
     "release": "pnpm release:git && pnpm release:npm",
     "postrelease": "pnpm gh-pages",
     "gh-pages": "pnpm build:clean && pnpm build:demo && pnpm compodoc && ng deploy && pnpm build:clean"
