@@ -1,4 +1,4 @@
-/* tslint:disable:no-unused-expression max-classes-per-file */
+/* eslint-disable @typescript-eslint/no-unused-expressions, max-classes-per-file */
 
 import { Component, ViewChild, ComponentRef } from '@angular/core';
 import { TestBed, ComponentFixture, fakeAsync, flush, waitForAsync } from '@angular/core/testing';

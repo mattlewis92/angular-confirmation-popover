@@ -105,14 +105,23 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/angular-confirmation-popover/src/test.ts",
-            "tsConfig": "projects/angular-confirmation-popover/tsconfig.spec.json",
-            "karmaConfig": "projects/angular-confirmation-popover/karma.conf.ts"
+            "tsConfig": "projects/angular-confirmation-popover/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/angular-confirmation-popover/**/*.ts",
+              "projects/angular-confirmation-popover/**/*.html"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }
