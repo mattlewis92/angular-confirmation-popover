@@ -1,2 +1,5 @@
 # Ignored as this file is huge and slows down pre commit hook on formatting
 pnpm-lock.yaml
+
+# Ignored to prevent issues with release scripts
+CHANGELOG.md
