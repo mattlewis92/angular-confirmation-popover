@@ -105,7 +105,8 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/angular-confirmation-popover/src/test.ts",
-            "tsConfig": "projects/angular-confirmation-popover/tsconfig.spec.json"
+            "tsConfig": "projects/angular-confirmation-popover/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-confirmation-popover/karma.conf.ts"
           }
         },
         "lint": {
