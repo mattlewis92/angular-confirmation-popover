@@ -4,23 +4,29 @@
 module.exports = (config: any) => {
   config.set({
     basePath: '',
-    frameworks: ['mocha', '@angular-devkit/build-angular'],
+    frameworks: ['jasmine', '@angular-devkit/build-angular'],
     plugins: [
-      require('karma-mocha'),
+      require('karma-jasmine'),
       require('karma-chrome-launcher'),
-      require('karma-coverage-istanbul-reporter'),
+      require('karma-coverage'),
       require('@angular-devkit/build-angular/plugins/karma'),
     ],
-    client: {
-      clearContext: false,
-    },
-    coverageIstanbulReporter: {
-      dir: require('path').join(
-        __dirname,
-        '../../coverage/angular-confirmation-popover'
-      ),
-      reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true,
+    coverageReporter: {
+      dir: require('path').join(__dirname, '../../coverage'),
+      reporters: [
+        { type: 'text-summary' },
+        { type: 'html' },
+        { type: 'lcovonly' },
+      ],
+      check: {
+        emitWarning: false,
+        global: {
+          statements: 100,
+          lines: 100,
+          branches: 100,
+          functions: 100,
+        },
+      },
     },
     reporters: ['progress'],
     port: 9876,
@@ -29,7 +35,6 @@ module.exports = (config: any) => {
     autoWatch: true,
     browsers: ['ChromeHeadless'],
     singleRun: false,
-    restartOnFileChange: true,
     mime: {
       'text/x-typescript': ['ts'],
     },
