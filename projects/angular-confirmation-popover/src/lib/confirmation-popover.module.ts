@@ -21,13 +21,13 @@ export function optionsFactory(
 }
 
 @NgModule({
-    declarations: [
-        ConfirmationPopoverDirective,
-        ConfirmationPopoverWindowComponent,
-        FocusDirective,
-    ],
-    imports: [CommonModule],
-    exports: [ConfirmationPopoverDirective, FocusDirective]
+  declarations: [
+    ConfirmationPopoverDirective,
+    ConfirmationPopoverWindowComponent,
+    FocusDirective,
+  ],
+  imports: [CommonModule],
+  exports: [ConfirmationPopoverDirective, FocusDirective],
 })
 export class ConfirmationPopoverModule {
   static forRoot(

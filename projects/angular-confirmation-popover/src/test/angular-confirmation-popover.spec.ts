@@ -1,7 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions, max-classes-per-file */
 
 import { Component, ViewChild, ComponentRef } from '@angular/core';
-import { TestBed, ComponentFixture, fakeAsync, flush, waitForAsync } from '@angular/core/testing';
+import {
+  TestBed,
+  ComponentFixture,
+  fakeAsync,
+  flush,
+  waitForAsync,
+} from '@angular/core/testing';
 import { ConfirmationPopoverModule } from '../public-api';
 import { ConfirmationPopoverDirective } from '../lib/confirmation-popover.directive';
 import { ConfirmationPopoverWindowComponent } from '../lib/confirmation-popover-window.component';
@@ -71,9 +77,8 @@ describe('bootstrap confirm', () => {
       });
 
       createPopover = (): ComponentRef<ConfirmationPopoverWindowComponent> => {
-        const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-          TestComponent
-        );
+        const fixture: ComponentFixture<TestComponent> =
+          TestBed.createComponent(TestComponent);
         fixture.detectChanges();
         clickFixture(fixture);
         const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
@@ -84,9 +89,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should show a popover when the element is clicked', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       const confirm: any = fixture.componentInstance.confirm;
       const showPopover = sinon.spy(confirm, 'showPopover');
@@ -97,9 +101,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should hide the popover when the element is clicked if the popover is open', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
@@ -109,9 +112,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should hide the popover when the parent component is destroyed', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       const confirm: any = fixture.componentInstance.confirm;
       const hidePopover = sinon.spy(confirm, 'hidePopover');
@@ -120,9 +122,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should hide the popover when the confirm button is clicked', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
@@ -135,9 +136,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should hide the popover when the cancel button is clicked', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
@@ -150,9 +150,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should hide the popover when an element not inside the popover is clicked', fakeAsync(() => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       const confirm: any = fixture.componentInstance.confirm;
       clickFixture(fixture);
@@ -168,65 +167,72 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should allow the popover title to be customised', () => {
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        createPopover();
       expect(
         popover.location.nativeElement.querySelector('.popover-title')
       ).to.have.html('Are you sure?');
     });
 
     it('should allow the popover description to be customised', () => {
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        createPopover();
       expect(
         popover.location.nativeElement.querySelector('.popover-content > p')
       ).to.have.html('Are you really <b>sure</b> you want to do this?');
     });
 
     it('should allow the confirm button text to be customised', () => {
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        createPopover();
       expect(
         popover.location.nativeElement.querySelectorAll('button')[1]
       ).to.have.html('Yes <i class="glyphicon glyphicon-ok"></i>');
     });
 
     it('should allow the cancel button text to be customised', () => {
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        createPopover();
       expect(
         popover.location.nativeElement.querySelectorAll('button')[0]
       ).to.have.html('No <i class="glyphicon glyphicon-remove"></i>');
     });
 
     it('should allow the confirm button type to be customised', () => {
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        createPopover();
       expect(
         popover.location.nativeElement.querySelectorAll('button')[1]
       ).to.have.class('btn-danger');
     });
 
     it('should allow the cancel button type to be customised', () => {
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        createPopover();
       expect(
         popover.location.nativeElement.querySelectorAll('button')[0]
       ).to.have.class('btn-outline-secondary');
     });
 
     it('should allow the placement to be customised', () => {
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        createPopover();
       expect(popover.location.nativeElement.children[0]).to.have.class(
         'popover-left'
       );
     });
 
     it('should a custom class to be set on the popover', () => {
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        createPopover();
       expect(popover.location.nativeElement.children[0]).to.have.class(
         'my-class'
       );
     });
 
     it('should re-position the popover when the window resizes', fakeAsync(() => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       fixture.componentInstance.focusButton = 'confirm';
       fixture.detectChanges();
@@ -244,15 +250,15 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should not focus either button by default', () => {
-      const popover: ComponentRef<ConfirmationPopoverWindowComponent> = createPopover();
+      const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
+        createPopover();
       expect(popover.location.nativeElement.contains(document.activeElement))
         .not.to.be.ok;
     });
 
     it('should focus the confirm button', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       fixture.componentInstance.focusButton = 'confirm';
       fixture.detectChanges();
@@ -266,9 +272,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should focus the cancel button', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.componentInstance.focusButton = 'cancel';
       fixture.detectChanges();
       clickFixture(fixture);
@@ -281,9 +286,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should hide the confirm button', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.componentInstance.hideConfirmButton = true;
       fixture.detectChanges();
       clickFixture(fixture);
@@ -299,9 +303,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should hide the cancel button', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.componentInstance.hideCancelButton = true;
       fixture.detectChanges();
       clickFixture(fixture);
@@ -317,9 +320,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should disable the popover from opening', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.componentInstance.isDisabled = true;
       fixture.detectChanges();
       const confirm: ConfirmationPopoverDirective =
@@ -329,18 +331,16 @@ describe('bootstrap confirm', () => {
     });
 
     it('should open the popover when isOpen is set to true', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.componentInstance.isOpen = true;
       fixture.detectChanges();
       expect(fixture.componentInstance.confirm).to.be.ok;
     });
 
     it('should close the popover when isOpen is set to false', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       clickFixture(fixture);
       const hidePopover: sinon.SinonSpy = sinon.spy(
@@ -353,9 +353,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should call the confirm callback when the confirm button is clicked', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       clickFixture(fixture);
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
@@ -371,9 +370,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should call the cancel callback when the cancel button is clicked', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       clickFixture(fixture);
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
@@ -389,9 +387,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should initialise isOpen to false', waitForAsync(() => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       fixture.whenStable().then(() => {
         // let isOpenChange be called with false
@@ -400,9 +397,8 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should set isOpen to true when the popover is opened', waitForAsync(() => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       fixture
         .whenStable()
@@ -417,9 +413,8 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should set isOpen to false when the popover is closed', waitForAsync(() => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       fixture
         .whenStable()
@@ -438,9 +433,8 @@ describe('bootstrap confirm', () => {
     }));
 
     it('should not append the popover to the document body', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.componentRef.instance.appendToBody = false;
       fixture.detectChanges();
       clickFixture(fixture);
@@ -456,9 +450,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should append the popover to the document body', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.componentRef.instance.appendToBody = true;
       fixture.detectChanges();
       clickFixture(fixture);
@@ -497,9 +490,8 @@ describe('bootstrap confirm', () => {
         </button>
       `;
       TestBed.overrideComponent(TestComponent, { set: { template: html } });
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       fixture.nativeElement.querySelector('button').click();
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
@@ -523,9 +515,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should reverse the button order', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.componentRef.instance.reverseButtonOrder = true;
       fixture.detectChanges();
       clickFixture(fixture);
@@ -538,9 +529,8 @@ describe('bootstrap confirm', () => {
     });
 
     it('should add a selector to the popover window component', () => {
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       clickFixture(fixture);
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
         fixture.componentInstance.confirm.popover!;
@@ -588,9 +578,8 @@ describe('bootstrap confirm', () => {
           }),
         ],
       });
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       const confirm: any = fixture.componentInstance.confirm;
 
@@ -634,9 +623,8 @@ describe('bootstrap confirm', () => {
         ],
         declarations: [TestComponent],
       });
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       fixture.nativeElement.querySelector('button').click();
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
@@ -656,9 +644,8 @@ describe('bootstrap confirm', () => {
         ],
         declarations: [TestComponent],
       });
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       fixture.nativeElement.querySelector('button').click();
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
@@ -693,9 +680,8 @@ describe('bootstrap confirm', () => {
         ],
         declarations: [TestComponent],
       });
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       fixture.nativeElement.querySelector('button').click();
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> =
@@ -719,9 +705,8 @@ describe('bootstrap confirm', () => {
         ],
         declarations: [TestComponent],
       });
-      const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
-        TestComponent
-      );
+      const fixture: ComponentFixture<TestComponent> =
+        TestBed.createComponent(TestComponent);
       fixture.detectChanges();
       fixture.nativeElement.querySelector('button').click();
       const popover: ComponentRef<ConfirmationPopoverWindowComponent> =

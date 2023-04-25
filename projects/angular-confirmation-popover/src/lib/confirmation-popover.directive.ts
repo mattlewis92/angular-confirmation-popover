@@ -47,7 +47,8 @@ export interface ConfirmCancelEvent {
   selector: '[mwlConfirmationPopover]',
 })
 export class ConfirmationPopoverDirective
-  implements OnDestroy, OnChanges, OnInit {
+  implements OnDestroy, OnChanges, OnInit
+{
   /**
    * The title of the popover
    */
@@ -175,8 +176,8 @@ export class ConfirmationPopoverDirective
     private viewContainerRef: ViewContainerRef,
     private elm: ElementRef,
     private defaultOptions: ConfirmationPopoverOptions,
-    private renderer: Renderer2,
-  ) { }
+    private renderer: Renderer2
+  ) {}
 
   /**
    * @internal

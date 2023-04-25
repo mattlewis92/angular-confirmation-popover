@@ -74,7 +74,8 @@ export interface ConfirmationPopoverOptionsInterface {
 
 @Injectable()
 export class ConfirmationPopoverOptions
-  implements ConfirmationPopoverOptionsInterface {
+  implements ConfirmationPopoverOptionsInterface
+{
   popoverTitle: string;
   popoverMessage: string;
   confirmText: string = 'Confirm';
