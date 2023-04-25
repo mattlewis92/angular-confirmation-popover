@@ -1,13 +1,7 @@
 /* tslint:disable:no-unused-expression max-classes-per-file */
 
 import { Component, ViewChild, ComponentRef } from '@angular/core';
-import {
-  async,
-  TestBed,
-  ComponentFixture,
-  fakeAsync,
-  flush,
-} from '@angular/core/testing';
+import { TestBed, ComponentFixture, fakeAsync, flush, waitForAsync } from '@angular/core/testing';
 import { ConfirmationPopoverModule } from '../public-api';
 import { ConfirmationPopoverDirective } from '../lib/confirmation-popover.directive';
 import { ConfirmationPopoverWindowComponent } from '../lib/confirmation-popover-window.component';
@@ -394,7 +388,7 @@ describe('bootstrap confirm', () => {
       ).to.be.true;
     });
 
-    it('should initialise isOpen to false', async(() => {
+    it('should initialise isOpen to false', waitForAsync(() => {
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
         TestComponent
       );
@@ -405,7 +399,7 @@ describe('bootstrap confirm', () => {
       });
     }));
 
-    it('should set isOpen to true when the popover is opened', async(() => {
+    it('should set isOpen to true when the popover is opened', waitForAsync(() => {
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
         TestComponent
       );
@@ -422,7 +416,7 @@ describe('bootstrap confirm', () => {
         });
     }));
 
-    it('should set isOpen to false when the popover is closed', async(() => {
+    it('should set isOpen to false when the popover is closed', waitForAsync(() => {
       const fixture: ComponentFixture<TestComponent> = TestBed.createComponent(
         TestComponent
       );
