@@ -1,149 +1,40 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  "ignorePatterns": ["projects/**/*"],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ],
+        "project": ["tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [
-        "plugin:@angular-eslint/ng-cli-compat",
-        "plugin:@angular-eslint/ng-cli-compat--formatting-add-on",
+        "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
-      "plugins": [
-        "eslint-plugin-react"
-      ],
       "rules": {
-        "@angular-eslint/component-max-inline-declarations": "error",
         "@angular-eslint/component-selector": [
           "error",
           {
-            "type": "element",
             "prefix": "mwl",
-            "style": "kebab-case"
+            "style": "kebab-case",
+            "type": "element"
           }
         ],
         "@angular-eslint/directive-selector": [
           "error",
           {
-            "type": "attribute",
             "prefix": "mwl",
-            "style": "camelCase"
+            "style": "camelCase",
+            "type": "attribute"
           }
-        ],
-        "@angular-eslint/no-attribute-decorator": "error",
-        "@angular-eslint/no-lifecycle-call": "error",
-        "@angular-eslint/no-pipe-impure": "error",
-        "@angular-eslint/no-queries-metadata-property": "error",
-        "@angular-eslint/relative-url-prefix": "error",
-        "@angular-eslint/use-component-selector": "error",
-        "@angular-eslint/use-component-view-encapsulation": "error",
-        "@typescript-eslint/array-type": [
-          "error",
-          {
-            "default": "array"
-          }
-        ],
-        "@typescript-eslint/consistent-type-definitions": "error",
-        "@typescript-eslint/dot-notation": "off",
-        "@typescript-eslint/explicit-member-accessibility": [
-          "off",
-          {
-            "accessibility": "explicit"
-          }
-        ],
-        "@typescript-eslint/member-delimiter-style": [
-          "off",
-          {
-            "multiline": {
-              "delimiter": "none",
-              "requireLast": true
-            },
-            "singleline": {
-              "delimiter": "semi",
-              "requireLast": false
-            }
-          }
-        ],
-        "@typescript-eslint/no-inferrable-types": "off",
-        "@typescript-eslint/no-var-requires": "error",
-        "@typescript-eslint/quotes": [
-          "off",
-          "single",
-          {
-            "allowTemplateLiterals": true
-          }
-        ],
-        "@typescript-eslint/semi": [
-          "off",
-          null
-        ],
-        "@typescript-eslint/type-annotation-spacing": "off",
-        "arrow-parens": [
-          "off",
-          "always"
-        ],
-        "brace-style": [
-          "off",
-          "off"
-        ],
-        "eol-last": "off",
-        "id-blacklist": "off",
-        "id-match": "off",
-        "import/order": "off",
-        "jsdoc/check-alignment": "off",
-        "jsdoc/newline-after-description": "off",
-        "linebreak-style": "off",
-        "max-classes-per-file": [
-          "error",
-          1
-        ],
-        "max-len": "off",
-        "new-parens": "off",
-        "newline-per-chained-call": "off",
-        "no-extra-semi": "off",
-        "no-irregular-whitespace": "off",
-        "no-redeclare": "error",
-        "no-trailing-spaces": "off",
-        "no-underscore-dangle": "off",
-        "quote-props": "off",
-        "react/jsx-curly-spacing": "off",
-        "react/jsx-equals-spacing": "off",
-        "react/jsx-tag-spacing": [
-          "off",
-          {
-            "afterOpening": "allow",
-            "closingSlash": "allow"
-          }
-        ],
-        "react/jsx-wrap-multilines": "off",
-        "space-before-function-paren": "off",
-        "space-in-parens": [
-          "off",
-          "never"
         ]
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
-      "extends": [
-        "plugin:@angular-eslint/template/recommended"
-      ],
-      "rules": {
-        "@angular-eslint/template/no-call-expression": "error",
-        "@angular-eslint/template/use-track-by-function": "error"
-      }
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
     }
   ]
 }
