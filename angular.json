@@ -74,13 +74,6 @@
             }
           }
         },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**"]
-          }
-        },
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
@@ -114,16 +107,6 @@
             "main": "projects/angular-confirmation-popover/src/test.ts",
             "tsConfig": "projects/angular-confirmation-popover/tsconfig.spec.json",
             "karmaConfig": "projects/angular-confirmation-popover/karma.conf.ts"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/angular-confirmation-popover/tsconfig.lib.json",
-              "projects/angular-confirmation-popover/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**"]
           }
         }
       }
