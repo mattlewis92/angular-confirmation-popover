@@ -15,7 +15,7 @@
     "codecov": "cat coverage/lcov.info | codecov",
     "compodoc": "compodoc -p tsconfig-compodoc.json -d dist/demo/docs --disableGraph --disableCoverage --disablePrivate --disableInternal --disableLifeCycleHooks --disableProtected",
     "prerelease": "npm test",
-    "release:git": "standard-version && git push --follow-tags origin master",
+    "release:git": "standard-version && git push --follow-tags origin main",
     "release:npm": "npm run build:lib && npm publish dist/angular-confirmation-popover",
     "release": "npm run release:git && npm run release:npm",
     "postrelease": "npm run gh-pages",

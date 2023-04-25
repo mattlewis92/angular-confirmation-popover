@@ -1,8 +1,8 @@
 # Angular confirmation popover
 
 [![Sponsorship](https://img.shields.io/badge/funding-github-%23EA4AAA)](https://github.com/users/mattlewis92/sponsorship)
-[![Build Status](https://travis-ci.org/mattlewis92/angular-confirmation-popover.svg?branch=master)](https://travis-ci.org/mattlewis92/angular-confirmation-popover)
-[![codecov](https://codecov.io/gh/mattlewis92/angular-confirmation-popover/branch/master/graph/badge.svg)](https://codecov.io/gh/mattlewis92/angular-confirmation-popover)
+[![CI](https://github.com/mattlewis92/angular-confirmation-popover/actions/workflows/ci.yml/badge.svg)](https://github.com/mattlewis92/angular-confirmation-popover/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/mattlewis92/angular-confirmation-popover/branch/main/graph/badge.svg)](https://codecov.io/gh/mattlewis92/angular-confirmation-popover)
 [![npm version](https://badge.fury.io/js/angular-confirmation-popover.svg)](http://badge.fury.io/js/angular-confirmation-popover)
 [![Twitter Follow](https://img.shields.io/twitter/follow/mattlewis92_.svg)](https://twitter.com/mattlewis92_)
 
@@ -79,7 +79,7 @@ class MyComponent {
 }
 ```
 
-You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-confirmation-popover/blob/master/projects/demo/app).
+You may also find it useful to view the [demo source](https://github.com/mattlewis92/angular-confirmation-popover/blob/main/projects/demo/app).
 
 ## Documentation
 
