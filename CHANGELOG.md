@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [XX.XX.XX] (XXXX-XX-XX)
+
+### ⚠ BREAKING CHANGES
+
+- angular 13 or higher is required to use this package
+
+### Features
+
+- upgrade to angular 15
+
 ## [6.0.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v5.0.0...v6.0.0) (2020-07-06)
 
 ### ⚠ BREAKING CHANGES
