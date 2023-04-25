@@ -1,6 +1,5 @@
 'use strict';
 
-
 customElements.define('compodoc-menu', class extends HTMLElement {
     constructor() {
         super();
@@ -49,6 +48,11 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                         <span class="icon ion-ios-list"></span>Dependencies
                                     </a>
                                 </li>
+                                <li class="link">
+                                    <a href="properties.html" data-type="chapter-link">
+                                        <span class="icon ion-ios-apps"></span>Properties
+                                    </a>
+                                </li>
                     </ul>
                 </li>
                     <li class="chapter modules">
@@ -62,19 +66,18 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </a>
                         <ul class="links collapse " ${ isNormalMode ? 'id="modules-links"' : 'id="xs-modules-links"' }>
                             <li class="link">
-                                <a href="modules/ConfirmationPopoverModule.html" data-type="entity-link">ConfirmationPopoverModule</a>
+                                <a href="modules/ConfirmationPopoverModule.html" data-type="entity-link" >ConfirmationPopoverModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#directives-links-module-ConfirmationPopoverModule-6b08a6ca6f22cea68264cc6b65062dce"' : 'data-target="#xs-directives-links-module-ConfirmationPopoverModule-6b08a6ca6f22cea68264cc6b65062dce"' }>
+                                        'data-target="#directives-links-module-ConfirmationPopoverModule-d7c5a2adbe5b5468ed3fa8a429016db735d08bc2f91ee16b99857de4f6ac5e16fe80029648f4c78a437631f83d26bade46abb4e6ff658c6a84863e11b7bcfeb5"' : 'data-target="#xs-directives-links-module-ConfirmationPopoverModule-d7c5a2adbe5b5468ed3fa8a429016db735d08bc2f91ee16b99857de4f6ac5e16fe80029648f4c78a437631f83d26bade46abb4e6ff658c6a84863e11b7bcfeb5"' }>
                                         <span class="icon ion-md-code-working"></span>
                                         <span>Directives</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ConfirmationPopoverModule-6b08a6ca6f22cea68264cc6b65062dce"' :
-                                        'id="xs-directives-links-module-ConfirmationPopoverModule-6b08a6ca6f22cea68264cc6b65062dce"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="directives-links-module-ConfirmationPopoverModule-d7c5a2adbe5b5468ed3fa8a429016db735d08bc2f91ee16b99857de4f6ac5e16fe80029648f4c78a437631f83d26bade46abb4e6ff658c6a84863e11b7bcfeb5"' :
+                                        'id="xs-directives-links-module-ConfirmationPopoverModule-d7c5a2adbe5b5468ed3fa8a429016db735d08bc2f91ee16b99857de4f6ac5e16fe80029648f4c78a437631f83d26bade46abb4e6ff658c6a84863e11b7bcfeb5"' }>
                                         <li class="link">
-                                            <a href="directives/ConfirmationPopoverDirective.html"
-                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules">ConfirmationPopoverDirective</a>
+                                            <a href="directives/ConfirmationPopoverDirective.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >ConfirmationPopoverDirective</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -90,7 +93,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </div>
                             <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/ConfirmationPopoverOptions.html" data-type="entity-link">ConfirmationPopoverOptions</a>
+                                    <a href="injectables/ConfirmationPopoverOptions.html" data-type="entity-link" >ConfirmationPopoverOptions</a>
                                 </li>
                             </ul>
                         </li>
@@ -103,7 +106,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                         </div>
                         <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="interfaces/ConfirmationPopoverOptionsInterface.html" data-type="entity-link">ConfirmationPopoverOptionsInterface</a>
+                                <a href="interfaces/ConfirmationPopoverOptionsInterface.html" data-type="entity-link" >ConfirmationPopoverOptionsInterface</a>
                             </li>
                         </ul>
                     </li>

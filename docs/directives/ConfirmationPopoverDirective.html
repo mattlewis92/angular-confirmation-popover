@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
     </head>
     <body>
 
@@ -35,9 +36,10 @@
 
 
 
+
 <ol class="breadcrumb">
   <li>Directives</li>
-  <li>ConfirmationPopoverDirective</li>
+  <li >ConfirmationPopoverDirective</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -58,23 +60,25 @@
             <code>projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts</code>
         </p>
 
+
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
                 <p>All properties can be set on the directive as attributes like so (use <code>ConfirmationPopoverModule.forRoot()</code> to configure them globally):</p>
-<div><pre class="line-numbers"><code class="language-html"> &lt;button
-   class=&quot;btn btn-outline-secondary&quot;
-   mwlConfirmationPopover
-   [popoverTitle]=&quot;popoverTitle&quot;
-   [popoverMessage]=&quot;popoverMessage&quot;
-   placement=&quot;left&quot;
-   (confirm)=&quot;confirmClicked = true&quot;
-   (cancel)=&quot;cancelClicked = true&quot;
-   [(isOpen)]=&quot;isOpen&quot;&gt;
-    Show confirm popover!
-  &lt;/button&gt;</code></pre></div>
+<div><pre class="line-numbers"><code class="language-html">&lt;button
+class=&quot;btn btn-outline-secondary&quot;
+mwlConfirmationPopover
+[popoverTitle]=&quot;popoverTitle&quot;
+[popoverMessage]=&quot;popoverMessage&quot;
+placement=&quot;left&quot;
+(confirm)=&quot;confirmClicked = true&quot;
+(cancel)=&quot;cancelClicked = true&quot;
+[(isOpen)]=&quot;isOpen&quot;&gt;
+Show confirm popover!
+&lt;/button&gt;</code></pre></div>
             </p>
+
 
             <p class="comment">
                 <h3>Implements</h3>
@@ -88,7 +92,7 @@
 
         <section>
             <h3>Metadata</h3>
-            <table class="table table-sm table-hover">
+            <table class="table table-sm table-hover metadata">
                 <tbody>
 
                     <tr>
@@ -115,55 +119,55 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#appendToBody">appendToBody</a>
+                                <a href="#appendToBody" >appendToBody</a>
                             </li>
                             <li>
-                                <a href="#cancelButtonType">cancelButtonType</a>
+                                <a href="#cancelButtonType" >cancelButtonType</a>
                             </li>
                             <li>
-                                <a href="#cancelText">cancelText</a>
+                                <a href="#cancelText" >cancelText</a>
                             </li>
                             <li>
-                                <a href="#closeOnOutsideClick">closeOnOutsideClick</a>
+                                <a href="#closeOnOutsideClick" >closeOnOutsideClick</a>
                             </li>
                             <li>
-                                <a href="#confirmButtonType">confirmButtonType</a>
+                                <a href="#confirmButtonType" >confirmButtonType</a>
                             </li>
                             <li>
-                                <a href="#confirmText">confirmText</a>
+                                <a href="#confirmText" >confirmText</a>
                             </li>
                             <li>
-                                <a href="#customTemplate">customTemplate</a>
+                                <a href="#customTemplate" >customTemplate</a>
                             </li>
                             <li>
-                                <a href="#focusButton">focusButton</a>
+                                <a href="#focusButton" >focusButton</a>
                             </li>
                             <li>
-                                <a href="#hideCancelButton">hideCancelButton</a>
+                                <a href="#hideCancelButton" >hideCancelButton</a>
                             </li>
                             <li>
-                                <a href="#hideConfirmButton">hideConfirmButton</a>
+                                <a href="#hideConfirmButton" >hideConfirmButton</a>
                             </li>
                             <li>
-                                <a href="#isDisabled">isDisabled</a>
+                                <a href="#isDisabled" >isDisabled</a>
                             </li>
                             <li>
-                                <a href="#isOpen">isOpen</a>
+                                <a href="#isOpen" >isOpen</a>
                             </li>
                             <li>
-                                <a href="#placement">placement</a>
+                                <a href="#placement" >placement</a>
                             </li>
                             <li>
-                                <a href="#popoverClass">popoverClass</a>
+                                <a href="#popoverClass" >popoverClass</a>
                             </li>
                             <li>
-                                <a href="#popoverMessage">popoverMessage</a>
+                                <a href="#popoverMessage" >popoverMessage</a>
                             </li>
                             <li>
-                                <a href="#popoverTitle">popoverTitle</a>
+                                <a href="#popoverTitle" >popoverTitle</a>
                             </li>
                             <li>
-                                <a href="#reverseButtonOrder">reverseButtonOrder</a>
+                                <a href="#reverseButtonOrder" >reverseButtonOrder</a>
                             </li>
                         </ul>
                     </td>
@@ -178,33 +182,19 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#cancel">cancel</a>
+                                <a href="#cancel" >cancel</a>
                             </li>
                             <li>
-                                <a href="#confirm">confirm</a>
+                                <a href="#confirm" >confirm</a>
                             </li>
                             <li>
-                                <a href="#isOpenChange">isOpenChange</a>
+                                <a href="#isOpenChange" >isOpenChange</a>
                             </li>
                         </ul>
                     </td>
                 </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>HostListeners</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#click">click</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
         </tbody>
     </table>
@@ -229,7 +219,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:154</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:152</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -256,7 +246,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:88</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:86</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -284,7 +274,7 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:71</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:69</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -311,7 +301,7 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:164</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:162</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -338,7 +328,7 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:82</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:80</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -366,7 +356,7 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:66</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:64</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -393,22 +383,17 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:129</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:127</a></div>
                             </td>
                         </tr>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>A reference to a <ng-template> tag that if set will override the popovers template. Use like so:</p>
-<p>```html</p>
-<ul>
-<li>&lt;ng-template #customTemplate let-options=&quot;options&quot;&gt;</li>
-<li><div [class]="'popover ' + options.placement" style="display: block"></li>
-<li>My custom template</li>
-<li></div></li>
-<li></ng-template></li>
-<li><div><pre class="line-numbers"><code class="language-none"></code></pre></div></li>
-</ul>
-<p>Then pass customTemplate to the mwlConfirmationPopover directive like so <code>[customTemplate]=&quot;customTemplate&quot;</code></p>
+<div><pre class="line-numbers"><code class="language-html">&lt;ng-template #customTemplate let-options=&quot;options&quot;&gt;
+  &lt;div [class]=&quot;&#39;popover &#39; + options.placement&quot; style=&quot;display: block&quot;&gt;
+    My custom template
+  &lt;/div&gt;
+&lt;/ng-template&gt;</code></pre></div><p>Then pass customTemplate to the mwlConfirmationPopover directive like so <code>[customTemplate]=&quot;customTemplate&quot;</code></p>
 </div>
                     </td>
                 </tr>
@@ -430,7 +415,7 @@ e.g. <code>default</code>, <code>warning</code>, <code>danger</code> etc. Defaul
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:94</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:92</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -458,7 +443,7 @@ If omitted, by default it will not focus either button.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:102</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -485,7 +470,7 @@ If omitted, by default it will not focus either button.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:99</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:97</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -517,7 +502,7 @@ If omitted, by default it will not focus either button.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:109</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:107</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -549,7 +534,7 @@ If omitted, by default it will not focus either button.</p>
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:115</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:113</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -577,7 +562,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:76</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:74</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -604,7 +589,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:149</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:147</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -631,7 +616,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:59</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -658,7 +643,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:54</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -685,7 +670,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="159" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:159</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:157</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -715,7 +700,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="144" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:144</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:142</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -742,7 +727,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:139</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:137</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -769,7 +754,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:134</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:132</a></div>
                             </td>
                         </tr>
                 <tr>
@@ -782,38 +767,7 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
         </table>
 </section>
 
-            <section>
-    <h3>HostListeners</h3>    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="click"></a>
-                    <span class="name">
-                        <b>
-                            click
-                        </b>
-                        <a href="#click"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>click()</code>
-                </td>
-            </tr>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="231"
-                            class="link-to-prism">projects/angular-confirmation-popover/src/lib/confirmation-popover.directive.ts:231</a></div>
-                </td>
-            </tr>
-
-
-        </tbody>
-    </table>
-</section>
 
 
 
@@ -834,10 +788,8 @@ Can be sugared with <code>isOpenChange</code> to emulate 2-way binding like so <
   OnChanges,
   OnInit,
   Injector,
-  ComponentFactoryResolver,
   Renderer2,
   TemplateRef,
-  ComponentFactory,
   SimpleChanges,
 } from &#x27;@angular/core&#x27;;
 import { ConfirmationPopoverWindowComponent } from &#x27;./confirmation-popover-window.component&#x27;;
@@ -989,7 +941,7 @@ export class ConfirmationPopoverDirective
   /**
    * @internal
    */
-  popover: ComponentRef&lt;ConfirmationPopoverWindowComponent&gt;;
+  popover?: ComponentRef&lt;ConfirmationPopoverWindowComponent&gt;;
 
   private eventListeners: (() &#x3D;&gt; void)[] &#x3D; [];
 
@@ -1000,9 +952,8 @@ export class ConfirmationPopoverDirective
     private viewContainerRef: ViewContainerRef,
     private elm: ElementRef,
     private defaultOptions: ConfirmationPopoverOptions,
-    private cfr: ComponentFactoryResolver,
-    private renderer: Renderer2
-  ) {}
+    private renderer: Renderer2,
+  ) { }
 
   /**
    * @internal
@@ -1127,10 +1078,6 @@ export class ConfirmationPopoverDirective
           (options as any)[param] &#x3D; this[param];
         }
       });
-
-      const componentFactory: ComponentFactory&lt;ConfirmationPopoverWindowComponent&gt; &#x3D; this.cfr.resolveComponentFactory(
-        ConfirmationPopoverWindowComponent
-      );
       const childInjector &#x3D; Injector.create({
         providers: [
           {
@@ -1140,9 +1087,8 @@ export class ConfirmationPopoverDirective
         ],
       });
       this.popover &#x3D; this.viewContainerRef.createComponent(
-        componentFactory,
-        this.viewContainerRef.length,
-        childInjector
+        ConfirmationPopoverWindowComponent,
+        { injector: childInjector }
       );
       if (options.appendToBody) {
         document.body.appendChild(this.popover.location.nativeElement);
@@ -1185,14 +1131,15 @@ export class ConfirmationPopoverDirective
 
 
 
-                   
+
+
 
 
 
 
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -1204,6 +1151,15 @@ export class ConfirmationPopoverDirective
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'directive';
@@ -1213,9 +1169,9 @@ export class ConfirmationPopoverDirective
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
