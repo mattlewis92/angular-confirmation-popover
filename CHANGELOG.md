@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v6.0.0...v7.0.0) (2023-04-25)
+
+### ⚠ BREAKING CHANGES
+
+- angular 15 or higher is now required to use this package
+
+### Features
+
+- upgrade to angular 15 ([#93](https://github.com/mattlewis92/angular-confirmation-popover/issues/93)) ([d93a440](https://github.com/mattlewis92/angular-confirmation-popover/commit/d93a440d715b2f982f5b2783bb79ae6e68e47f01))
+
 ## [6.0.0](https://github.com/mattlewis92/angular-confirmation-popover/compare/v5.0.0...v6.0.0) (2020-07-06)
 
 ### ⚠ BREAKING CHANGES
